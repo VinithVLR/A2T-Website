@@ -1,0 +1,30 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.sec_con {
+    width: 100%;
+    height: auto;
+    padding-inline: $layout_row_padding;
+    background-color: $color-white;
+    padding-block-end: 3rem;
+
+    .content_Wrapper {
+        display: flex;
+        align-items: center;
+
+        .details_con {
+            flex: 0.45;
+
+        }
+
+        .image_section {
+            flex: 0.5;
+
+            .img_wrapper {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+    }
+}

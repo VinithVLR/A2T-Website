@@ -1,0 +1,57 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.main_container {
+    background-image: url('../../../assets/images/img_bg.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+
+    .container {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-inline: 2.5rem;
+
+        .heading {
+            font-size: $heading-font-size;
+            color: $color-white;
+            width: 55%;
+            line-height: 3.5rem;
+
+            span {
+                color: $color-primary-light;
+            }
+        }
+
+        .para {
+            font-size: $paragraph-font-size;
+            color: $color-white ;
+            width: 50%;
+            line-height: 1.6;
+            color: $color-para;
+            margin-block: 1rem;
+            margin-block-end: 3rem;
+        }
+
+        .flex_con {
+            display: flex;
+            align-items: center;
+
+            label {
+                color: $color-white ;
+                font-size: 1rem;
+                margin-inline-start: 1.5rem;
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    margin-inline-start: 1rem;
+                }
+            }
+        }
+    }
+
+}

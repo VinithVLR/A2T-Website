@@ -1,0 +1,45 @@
+@import '../../scss/abstracts/variable.scss';
+
+.main_con {
+    height: auto;
+    padding-inline: 5rem;
+    font-family: 'Inter';
+
+    .iconWrapper {
+        width: 3rem;
+        height: 3rem;
+        margin-block-end: 1.5rem;
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .title {
+        font-size: $default-font;
+        color: $color-heading;
+        font-weight: $font-weight-sem-bold;
+        margin-block-end: 1rem;
+        font-family: inherit;
+    }
+
+    .subTitle {
+        color: #5E5F6E;
+        font-size: $font-22px;
+        margin-block-end: 1rem;
+        font-weight: $font-weight-regular ;
+        font-family: inherit;
+
+
+    }
+
+    .description {
+        color: $color-des;
+        font-size: $font-16px;
+        font-weight: $font-weight-regular;
+        font-family: inherit;
+
+    }
+}

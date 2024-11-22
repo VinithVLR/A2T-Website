@@ -1,0 +1,16 @@
+@import '../../../scss/abstracts/variable.scss';
+@import '../../../scss/layout/flex.scss';
+@import '../../../scss/layout/grid.scss';
+
+
+.main_container {
+    width: 100%;
+    height: auto;
+    padding-inline: 2.7rem;
+    background-color: $color-grey-light-1;
+    padding-block-end: 5rem;
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {}

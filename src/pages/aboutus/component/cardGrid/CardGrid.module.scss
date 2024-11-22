@@ -1,0 +1,33 @@
+@import '../../../../scss/layout/grid.scss';
+@import '../../../../scss/abstracts/variable.scss';
+
+
+
+.card {
+    margin-block: 4rem;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: left;
+    padding-block: 1rem;
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        // margin-bottom: 0.5rem;
+    }
+
+
+
+    h2 {
+        margin: 0.5rem 0;
+        font-size: $font-22px;
+        margin-block: 2rem;
+        font-weight: $font-weight-sem-bold ;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin-block: 2rem;
+        font-weight: $font-weight-regular ;
+    }
+}

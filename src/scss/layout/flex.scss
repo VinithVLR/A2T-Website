@@ -1,0 +1,42 @@
+.flex_con {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: space-between;
+    padding-block-start: 5rem;
+    padding-block-end: 2.5rem;
+
+    .heading {
+        font-size: $heading-font-size;
+        color: $color-heading;
+        flex: 1.7;
+        line-height: 1.5;
+    }
+
+    .para {
+        font-size: $paragraph-font-size;
+        color: $sub-heading;
+        flex: 1.1;
+        line-height: 1.6;
+        margin-block: 2rem;
+        margin-block-end: 3rem;
+
+    }
+}
+
+@media (max-width: 768px) {
+
+    .flex_con {
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            text-align: center;
+        }
+
+        .para {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 480px) {}

@@ -1,0 +1,59 @@
+@import '../../scss/abstracts/variable.scss';
+
+.headerSection {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .headerTitle {
+        font-size: $heading-font-size;
+        margin-bottom: 1rem;
+        color: $color-heading;
+    }
+
+    .headerSubtitle {
+        font-size: $sub-heading-font-size;
+        font-weight: 400;
+        color: $sub-heading;
+        margin-block: 2rem;
+        line-height: 1.6;
+        padding-inline: 4rem;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .headerSection {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+
+        .headerTitle {
+            font-size: 1.5rem;
+        }
+
+        .headerSubtitle {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .headerSection {
+        padding: 1rem;
+
+        .headerTitle {
+            font-size: 1.5rem;
+        }
+
+        .headerSubtitle {
+            font-size: 0.9rem;
+            margin-block: 1.5rem;
+
+        }
+    }
+}

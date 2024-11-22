@@ -1,0 +1,37 @@
+// components/Skeleton.module.scss
+@keyframes loading {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeletonContainer {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  flex-direction: column;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+.skeletonItemLarge,
+.skeletonItemSmall {
+  background-color: #e0e0e0;
+  background-image: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeletonItemLarge {
+  flex: 1 1 50%;
+}
+
+.skeletonItemSmall {
+  flex: 1 1 25%;
+  height: 100px;
+}

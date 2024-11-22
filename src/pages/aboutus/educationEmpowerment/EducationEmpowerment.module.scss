@@ -1,0 +1,121 @@
+.eduction_con {
+    width: 100%;
+    height: auto;
+    padding-inline: 2.7rem;
+    // padding-block: 2rem;
+    background-color: #F3FCF4;
+
+    .content_Wrapper {
+        display: flex;
+        align-items: center;
+        height: auto;
+
+        .details_con {
+            flex: 0.5;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        // .image_section {
+        //     flex: 0.5;
+        //     height: 100%;
+        //     position: relative;
+
+        //     .image {
+        //         width: 100%;
+        //         height: 100%;
+        //         border-radius: inherit;
+        //         object-fit: contain;
+        //     }
+
+        //     .img_wrapper {
+        //         position: absolute;
+        //         width: 80%;
+        //         height: 50%;
+        //         right: 0rem;
+        //         display: flex;
+        //         align-items: flex-start;
+        //         justify-content: center;
+        //         z-index: 0;
+        //     }
+
+        //     .img_wrapper_2 {
+        //         z-index: 1;
+        //         position: absolute;
+        //         width: 60%;
+        //         height: auto;
+        //         top: -7%;
+        //         border-radius: 20px;
+        //     }
+
+        //     .img_wrapper_3 {
+        //         z-index: 2;
+        //         position: absolute;
+        //         width: 60%;
+        //         height: auto;
+        //         right: 10%;
+        //         border-radius: 5px;
+        //         top: 15%;
+        //     }
+
+        //     .img_wrapper_4 {
+        //         z-index: 0;
+        //         position: absolute;
+        //         width: 40%;
+        //         height: auto;
+        //         border-radius: 20px;
+        //         top: 35%;
+        //         right: 50%;
+        //     }
+
+        //     .img_wrapper_5 {
+        //         z-index: 0;
+        //         position: absolute;
+        //         width: 40%;
+        //         height: auto;
+        //         border-radius: 20px;
+        //         top: 50%;
+        //         left: 55%;
+        //     }
+
+        //     .img_wrapper_6 {
+        //         z-index: 2;
+        //         position: absolute;
+        //         width: 60%;
+        //         height: auto;
+        //         right: 40%;
+        //         border-radius: 20px;
+        //         top: 44%;
+        //     }
+
+        //     .img_wrapper_7 {
+        //         z-index: 2;
+        //         position: absolute;
+        //         width: 60%;
+        //         height: auto;
+        //         right: 4%;
+        //         border-radius: 5px;
+        //         top: 70%;
+        //     }
+
+        // }
+
+        .image_section {
+            flex: 0.5;
+            height: 100%;
+
+            .img_wrapper_index {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .img_wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

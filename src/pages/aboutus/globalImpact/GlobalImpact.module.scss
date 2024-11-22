@@ -1,0 +1,50 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.global_impact_sec {
+    width: 100%;
+    padding-inline: 2.7rem;
+    background-color: #F6F3FC;
+    height: auto;
+    padding-block-end: 3rem;
+    font-family: 'Inter';
+
+    .heading {
+        width: 30%;
+        font-size: $heading-font-size;
+        color: $color-heading;
+        padding-block: 3rem;
+    }
+
+    .flex_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .details_content {
+            flex: 0.47;
+            height: 100%;
+
+            .para {
+                font-size: $paragraph-font-size;
+                color: $color-heading;
+                width: 80%;
+                padding-block-end: 2rem;
+                max-height: 100px;
+                height: 6rem;
+            }
+
+            .img_wrapper {
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+
+                .image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: inherit;
+                }
+            }
+        }
+    }
+}
