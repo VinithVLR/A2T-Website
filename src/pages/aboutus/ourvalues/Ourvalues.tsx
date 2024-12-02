@@ -2,6 +2,28 @@ import React from 'react'
 import styles from './OurValues.module.scss'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
 const Ourvalues = () => {
+     let arr: any = [
+          {
+               title: 'Innovation',
+               description:
+                    'We are committed to fostering a culture of innovation, continuously seeking new ways to improve and enhance our services',
+          },
+          {
+               title: 'Sustainability Commitment',
+               description:
+                    'It is at the heart of everything we do, from our services to our operations, ensuring a positive impact on the environment and society.',
+          },
+          {
+               title: 'Integrity',
+               description:
+                    'We believe in conducting business with the highest level of integrity, building trust with our clients and partners.',
+          },
+          {
+               title: 'Collaboration',
+               description:
+                    'We value collaboration and teamwork, working closely with our clients to achieve shared success.',
+          },
+     ]
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
@@ -14,7 +36,7 @@ const Ourvalues = () => {
                          needs of industries worldwide.
                     </p>
                </header>
-               <AlternatingContentLayout />
+               <AlternatingContentLayout content={arr} />
           </section>
      )
 }
