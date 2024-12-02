@@ -88,7 +88,7 @@ const EducationEmpowerment = () => {
                                    style={{
                                         width: '45%',
                                         height: '45%',
-                                        transform: ' translateX(15rem)',
+                                        transform: ' translateX(15rem)  translateY(7rem)',
                                    }}
                               />
                               <Image
@@ -97,7 +97,7 @@ const EducationEmpowerment = () => {
                                    style={{
                                         width: '45%',
                                         height: '45%',
-                                        transform: 'translateX(3rem) translateY(-6rem)',
+                                        transform: 'translateX(3rem) translateY(3rem)',
                                    }}
                               />
                               <Image
@@ -106,40 +106,7 @@ const EducationEmpowerment = () => {
                                    style={{
                                         width: '45%',
                                         height: '45%',
-                                        transform: 'translateX(22rem) translateY(-12rem)',
-                                   }}
-                              />
-
-                              <Image
-                                   src={imgLayer2}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                   }}
-                              />
-                              <Image
-                                   src={imgLayer3}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                   }}
-                              />
-                              <Image
-                                   src={imgLayer6}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                   }}
-                              />
-                              <Image
-                                   src={imgLayer7}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
+                                        transform: 'translateX(22rem) translateY(-2rem)',
                                    }}
                               />
                          </div>

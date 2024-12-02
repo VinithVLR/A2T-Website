@@ -93,7 +93,7 @@ const Footer = () => {
                          })}
                     </div>
                </div>
-               <div className={''}>
+               <div className={styles.condition_con_wrapper}>
                     <div className={styles.condition_con}>
                          <div>Terms of service </div>
                          <div> Privacy policy</div>

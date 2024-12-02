@@ -1,14 +1,14 @@
 .eduction_con {
     width: 100%;
-    height: auto;
-    padding-inline: 2.7rem;
+    // height: 100vh;
+    padding-inline: 2rem;
     // padding-block: 2rem;
     background-color: #F3FCF4;
 
     .content_Wrapper {
         display: flex;
         align-items: center;
-        height: auto;
+        // height: 100vh;
 
         .details_con {
             flex: 0.5;
@@ -19,6 +19,7 @@
             align-items: flex-start;
         }
 
+        // first secontion try using position properties css code
         // .image_section {
         //     flex: 0.5;
         //     height: 100%;
@@ -103,6 +104,8 @@
 
         // }
 
+
+        // second secontion try using transform properties css code
         .image_section {
             flex: 0.5;
             height: 100%;
@@ -115,6 +118,36 @@
             .img_wrapper {
                 display: flex;
                 flex-direction: column;
+            }
+
+            .image {
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+                object-fit: contain;
+            }
+
+            .img_wrapper_2 {
+                width: 70%;
+                height: auto;
+                border-radius: 20px;
+                transform: translateX(-2rem) translateY(-44rem);
+            }
+
+            .img_wrapper_3 {
+                width: 70%;
+                height: auto;
+                border-radius: 7px;
+                transform: translateX(12rem) translateY(-52rem);
+
+            }
+
+            .img_wrapper_6 {
+                width: 70%;
+                height: auto;
+                border-radius: 7px;
+                transform: translateX(-2rem) translateY(-57rem);
+
             }
         }
     }

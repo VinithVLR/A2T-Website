@@ -1,7 +1,4 @@
 @import '../../../scss/abstracts/variable.scss';
-@import '../../../scss/layout/flex.scss';
-@import '../../../scss/layout/grid.scss';
-
 
 .main_container {
     width: 100%;
@@ -10,7 +7,3 @@
     background-color: $color-grey-light-1;
     padding-block-end: 5rem;
 }
-
-@media (max-width: 768px) {}
-
-@media (max-width: 480px) {}
