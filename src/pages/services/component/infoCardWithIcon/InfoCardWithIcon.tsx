@@ -12,6 +12,8 @@ interface InfoCardWithIconProps {
      btnColor: string
      rowReverse?: boolean
      dataImage: any
+     hoverColor: any
+     key: any
 }
 const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      icon,
@@ -20,12 +22,19 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      btnColor,
      rowReverse = false,
      dataImage,
+     hoverColor,
+     key,
 }) => {
      const objStyle: any = {
           paddingInline: '2rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-end',
+     }
+
+     const objParaStyle = {
+          textAlign: 'end',
+          lineHeight: '1.5rem',
      }
 
      return (
@@ -43,11 +52,12 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                               btn
                               btnColor={btnColor}
                               style={rowReverse ? objStyle : { paddingInline: '2rem' }}
-                              paraStyle={{ textAlign: rowReverse ? 'end' : undefined }}
+                              headingStyle={{ textAlign: rowReverse ? 'end' : undefined }}
                               icon={icon}
                               title={title}
                               description={description}
                               bgimage={dataImage}
+                              paraStyle={rowReverse ? objParaStyle : {}}
                          />
                     </div>
                </div>

@@ -1,13 +1,17 @@
 import React from 'react'
 import styles from './CardGrid.module.scss'
 import Image from 'next/image'
-import eyeIcon from '../../../../assets/icons/ic_eye.svg'
+import globalIcon from '../../../../assets/icons/ic_global.svg'
+import skillIcon from '../../../../assets/icons/ic_skill.svg'
+import humanCapitalIcon from '../../../../assets/icons/ic_human_capital.svg'
+import trustIcon from '../../../../assets/icons/ic_trust.svg'
+
 const CardGrid = () => {
      const cards = [
           {
                title: 'Global Workforce Solutions',
                description: 'Provide effective workforce in India and Europe.',
-               icon: eyeIcon,
+               icon: globalIcon,
                color: '#527951',
                bgColor: '#F3FCF4',
                borderColor: '#D8F3E4',
@@ -18,7 +22,7 @@ const CardGrid = () => {
                title: 'Skilled Talent Across Domains',
                description:
                     'Support key business drivers by providing skilled talents across all vertical domains.',
-               icon: eyeIcon,
+               icon: skillIcon,
                color: '#527951',
                bgColor: '#F3F5FC',
                borderColor: '#DBE8FA',
@@ -29,7 +33,7 @@ const CardGrid = () => {
                title: 'Innovative Human Capital Practices',
                description:
                     'Continuously seek innovative practices for effective human capital solutions to organizations.',
-               icon: eyeIcon,
+               icon: humanCapitalIcon,
                color: '#527951',
                bgColor: '#F6F3FC',
                borderColor: '#E8DBF9',
@@ -40,7 +44,7 @@ const CardGrid = () => {
                title: 'Trusted Workforce Partnership',
                description:
                     'Establish as a trusted business partner towards clients workforce strategy and manpower needs.',
-               icon: eyeIcon,
+               icon: trustIcon,
                color: '#527951',
                bgColor: '#FFF6F3',
                borderColor: '#FFE4DD',

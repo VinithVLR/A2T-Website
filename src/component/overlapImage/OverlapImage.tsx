@@ -4,19 +4,22 @@ import Image, { StaticImageData } from 'next/image'
 
 interface OverlapImageProps {
      bgImage: StaticImageData
-     image: StaticImageData
      bgStyle?: any
      imgWrapper?: any
+     img: StaticImageData
 }
 
-const OverlapImage: React.FC<OverlapImageProps> = ({ bgImage, image, bgStyle, imgWrapper }) => {
+const OverlapImage: React.FC<OverlapImageProps> = ({ bgImage, img, bgStyle, imgWrapper }) => {
      return (
           <div
                className={styles.mainContainer}
                style={{ backgroundImage: `url(${bgImage.src})`, ...bgStyle }}
           >
                <div className={styles.imgWrapper} style={{ ...imgWrapper }}>
-                    <Image src={image} alt='Overlay Image' priority />
+                    <Image src={bgImage} alt='Overlay Image' priority />
+                    <div className={styles.imgWrapper_ab}>
+                         <Image src={img} alt='Overlay Image' priority />
+                    </div>
                </div>
           </div>
      )

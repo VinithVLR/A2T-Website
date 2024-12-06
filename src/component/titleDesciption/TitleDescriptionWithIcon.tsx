@@ -3,16 +3,25 @@ import styles from './TitleDescriptionWithIcon.module.scss'
 import Image, { StaticImageData } from 'next/image'
 import Button from '../button/Button'
 import Image1 from '../../assets/images/img_service_1.png'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+     subsets: ['latin'],
+     weight: ['400', '800'],
+     style: ['normal'],
+})
+
 interface ItemProps {
-     title: string
+     title: React.ReactNode
      description?: string
      icon?: any
      subTitle?: string
      style?: any
      btnColor?: any
      btn?: any
-     paraStyle?: any
+     headingStyle?: any
      bgimage?: any
+     paraStyle?: any
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -22,8 +31,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      style,
      btnColor,
      btn,
-     paraStyle,
+     headingStyle,
      bgimage,
+     paraStyle,
 }) => {
      return (
           <div className={styles.main_con} style={{ ...style }}>
@@ -32,7 +42,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          <Image src={icon} alt='Vision Icon' className={styles.image} />
                     </div>
                )}
-               <h2 className={styles.title} style={{ ...paraStyle }}>
+               <h2 className={styles.title} style={{ ...headingStyle }}>
                     {title}
                </h2>
                {subTitle && <h4 className={styles.subTitle}>{subTitle}</h4>}
@@ -50,10 +60,10 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          disabled={false}
                          style={{
                               width: '10rem',
-                              height: '2.7rem',
                               backgroundColor: btnColor,
-                              gap: '1rem',
+                              gap: '0.8rem',
                               marginBlock: '2rem',
+                              paddingBlock: '0.8rem',
                          }}
                          loading={false}
                          icon

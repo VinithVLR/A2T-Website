@@ -19,136 +19,88 @@
             align-items: flex-start;
         }
 
-        // first secontion try using position properties css code
-        // .image_section {
-        //     flex: 0.5;
-        //     height: 100%;
-        //     position: relative;
-
-        //     .image {
-        //         width: 100%;
-        //         height: 100%;
-        //         border-radius: inherit;
-        //         object-fit: contain;
-        //     }
-
-        //     .img_wrapper {
-        //         position: absolute;
-        //         width: 80%;
-        //         height: 50%;
-        //         right: 0rem;
-        //         display: flex;
-        //         align-items: flex-start;
-        //         justify-content: center;
-        //         z-index: 0;
-        //     }
-
-        //     .img_wrapper_2 {
-        //         z-index: 1;
-        //         position: absolute;
-        //         width: 60%;
-        //         height: auto;
-        //         top: -7%;
-        //         border-radius: 20px;
-        //     }
-
-        //     .img_wrapper_3 {
-        //         z-index: 2;
-        //         position: absolute;
-        //         width: 60%;
-        //         height: auto;
-        //         right: 10%;
-        //         border-radius: 5px;
-        //         top: 15%;
-        //     }
-
-        //     .img_wrapper_4 {
-        //         z-index: 0;
-        //         position: absolute;
-        //         width: 40%;
-        //         height: auto;
-        //         border-radius: 20px;
-        //         top: 35%;
-        //         right: 50%;
-        //     }
-
-        //     .img_wrapper_5 {
-        //         z-index: 0;
-        //         position: absolute;
-        //         width: 40%;
-        //         height: auto;
-        //         border-radius: 20px;
-        //         top: 50%;
-        //         left: 55%;
-        //     }
-
-        //     .img_wrapper_6 {
-        //         z-index: 2;
-        //         position: absolute;
-        //         width: 60%;
-        //         height: auto;
-        //         right: 40%;
-        //         border-radius: 20px;
-        //         top: 44%;
-        //     }
-
-        //     .img_wrapper_7 {
-        //         z-index: 2;
-        //         position: absolute;
-        //         width: 60%;
-        //         height: auto;
-        //         right: 4%;
-        //         border-radius: 5px;
-        //         top: 70%;
-        //     }
-
-        // }
-
-
-        // second secontion try using transform properties css code
         .image_section {
             flex: 0.5;
             height: 100%;
+            padding-block: 2rem;
 
             .img_wrapper_index {
                 display: flex;
                 flex-direction: column;
-            }
+                position: relative;
 
-            .img_wrapper {
-                display: flex;
-                flex-direction: column;
-            }
+                .img_index {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
 
-            .image {
-                width: 100%;
-                height: 100%;
-                border-radius: inherit;
-                object-fit: contain;
-            }
+                .img_index_top {
+                    width: 40%;
+                    transform: translateX(13rem) translateY(2rem);
+                }
 
-            .img_wrapper_2 {
-                width: 70%;
-                height: auto;
-                border-radius: 20px;
-                transform: translateX(-2rem) translateY(-44rem);
-            }
+                .img_index_right {
+                    width: 40%;
+                    transform: translateX(0rem) translateY(-1rem);
+                }
 
-            .img_wrapper_3 {
-                width: 70%;
-                height: auto;
-                border-radius: 7px;
-                transform: translateX(12rem) translateY(-52rem);
+                .img_index_left {
+                    width: 40%;
+                    transform: translateX(22rem) translateY(-7rem);
+                }
+
 
             }
 
-            .img_wrapper_6 {
-                width: 70%;
-                height: auto;
-                border-radius: 7px;
-                transform: translateX(-2rem) translateY(-57rem);
+            .img_wrapper_absolute {
+                position: absolute;
 
+                .img_ab {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    border-radius: inherit;
+                }
+
+                .img_top_con {
+                    width: 20rem;
+                    height: 100%;
+                    transform: translateX(0rem) translateY(1rem);
+                    z-index: 0;
+                    position: relative;
+                    border-radius: 10px;
+                }
+
+                .img_right_con {
+                    width: 20rem;
+                    height: 100%;
+                    z-index: 1;
+                    position: relative;
+                    border-radius: 10px;
+                    transform: translateX(13rem) translateY(-7rem);
+                }
+
+                .img_left_con {
+                    width: 20rem;
+                    height: 100%;
+                    z-index: 2;
+                    position: relative;
+                    border-radius: 10px;
+                    transform: translateX(0rem) translateY(-12rem);
+                }
+
+                .img_bottom_con {
+                    width: 20rem;
+                    height: 100%;
+                    z-index: 3;
+                    position: relative;
+                    border-radius: 10px;
+                    transform: translateX(13rem) translateY(-20rem);
+                }
             }
+
+
         }
     }
 }

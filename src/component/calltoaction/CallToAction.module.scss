@@ -18,7 +18,6 @@
         display: flex;
         border-radius: 30px;
         padding: 1.5rem;
-        // margin-block-end: 2rem;
 
         .content_wrapper {
             flex: 0.38;
@@ -45,6 +44,12 @@
                     font-family: inherit;
                     font-weight: $font-weight-regular;
                     padding-block-end: 3rem;
+
+
+                }
+
+                span {
+                    color: $color-white ;
                 }
 
             }
@@ -71,6 +76,12 @@
                     font-family: inherit;
                     font-weight: $font-weight-regular;
                     padding-block-end: 3rem;
+                    color: $color-call-to_para;
+
+                    span {
+                        color: $color-white ;
+                        font-size: $font-37px;
+                    }
                 }
             }
         }

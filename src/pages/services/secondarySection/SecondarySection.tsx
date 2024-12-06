@@ -62,19 +62,23 @@ const SecondarySection = () => {
                image: Image5,
           },
      ]
+
      return (
           <React.Fragment>
-               {arr.map((card: any, index: any) => (
-                    <InfoCardWithIcon
-                         dataImage={card.image}
-                         key={index}
-                         icon={card.icon}
-                         title={card.title}
-                         description={card.description}
-                         btnColor={card.btnColor}
-                         rowReverse={index % 2 !== 0}
-                    />
-               ))}
+               {arr.map((card: any, index: any) => {
+                    return (
+                         <InfoCardWithIcon
+                              dataImage={card.image}
+                              key={index}
+                              icon={card.icon}
+                              title={card.title}
+                              description={card.description}
+                              btnColor={card.btnColor}
+                              rowReverse={index % 2 !== 0}
+                              hoverColor={card.hoverColor}
+                         />
+                    )
+               })}
           </React.Fragment>
      )
 }

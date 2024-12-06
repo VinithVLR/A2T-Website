@@ -34,6 +34,10 @@ const EducationEmpowerment = () => {
                               description={
                                    'The Padikkal Foundation is dedicated to empowering underprivileged individuals by providing access to quality education and professional training. We help aspiring talents pursue their desired careers by connecting them with renowned institutes, ensuring they receive the skills and opportunities needed for a brighter future.'
                               }
+                              paraStyle={{
+                                   fontSize: '1rem',
+                                   paddingInlineEnd: '3rem',
+                              }}
                          />
                          <Button
                               label='Explore our Purpose'
@@ -59,56 +63,58 @@ const EducationEmpowerment = () => {
                     </div>
 
                     <div className={styles.image_section}>
-                         {/* <div className={styles.img_wrapper}>
-                              <Image src={imgLayer1} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_2}>
-                              <Image src={imgLayer2} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_3}>
-                              <Image src={imgLayer3} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_4}>
-                              <Image src={imgLayer4} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_5}>
-                              <Image src={imgLayer5} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_6}>
-                              <Image src={imgLayer6} alt='image' className={styles.image} />
-                         </div>
-                         <div className={styles.img_wrapper_7}>
-                              <Image src={imgLayer7} alt='image' className={styles.image} />
-                         </div> */}
-
                          <div className={styles.img_wrapper_index}>
-                              <Image
-                                   src={imgLayer1}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                        transform: ' translateX(15rem)  translateY(7rem)',
-                                   }}
-                              />
-                              <Image
-                                   src={imgLayer4}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                        transform: 'translateX(3rem) translateY(3rem)',
-                                   }}
-                              />
-                              <Image
-                                   src={imgLayer5}
-                                   alt='image'
-                                   style={{
-                                        width: '45%',
-                                        height: '45%',
-                                        transform: 'translateX(22rem) translateY(-2rem)',
-                                   }}
-                              />
+                              <div className={styles.img_index_top}>
+                                   <Image
+                                        src={imgLayer1}
+                                        alt='image'
+                                        className={styles.img_index}
+                                   />
+                              </div>
+                              <div className={styles.img_index_right}>
+                                   <Image
+                                        src={imgLayer4}
+                                        alt='image'
+                                        className={styles.img_index}
+                                   />
+                              </div>
+                              <div className={styles.img_index_left}>
+                                   <Image
+                                        src={imgLayer5}
+                                        alt='image'
+                                        className={styles.img_index}
+                                   />
+                              </div>
+                              <div className={styles.img_wrapper_absolute}>
+                                   <div className={styles.img_top_con}>
+                                        <Image
+                                             src={imgLayer2}
+                                             alt='image'
+                                             className={styles.img_ab}
+                                        />
+                                   </div>
+                                   <div className={styles.img_right_con}>
+                                        <Image
+                                             src={imgLayer3}
+                                             alt='image'
+                                             className={styles.img_ab}
+                                        />
+                                   </div>
+                                   <div className={styles.img_left_con}>
+                                        <Image
+                                             src={imgLayer6}
+                                             alt='image'
+                                             className={styles.img_ab}
+                                        />
+                                   </div>
+                                   <div className={styles.img_bottom_con}>
+                                        <Image
+                                             src={imgLayer7}
+                                             alt='image'
+                                             className={styles.img_ab}
+                                        />
+                                   </div>
+                              </div>
                          </div>
                     </div>
                </div>

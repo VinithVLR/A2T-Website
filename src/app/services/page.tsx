@@ -12,7 +12,10 @@ const page = () => {
                <WhyChooseUs />
                <CallToAction
                     data={
-                         'Have questions? or need more information about our services? or Whether you’re ready to start a project? need assistance?'
+                         <>
+                              'Have questions? or need more information about our services? or
+                              Whether you’re ready to start a project? need assistance?'
+                         </>
                     }
                />
           </React.Fragment>

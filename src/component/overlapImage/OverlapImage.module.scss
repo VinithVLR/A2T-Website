@@ -21,6 +21,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+
+        .imgWrapper_ab {
+            position: absolute
+        }
 
         img {
             width: 100%;

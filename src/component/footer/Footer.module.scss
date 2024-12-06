@@ -4,8 +4,8 @@
     height: 80%;
     width: 100%;
     padding-inline: 2rem;
-    padding-block-start: 4rem;
-    padding-block-end: 3rem;
+    padding-block-start: 2rem;
+    // padding-block-end: 3rem;
     background-color: $color-grey-light-2;
 
     .flex_con_right {
@@ -29,6 +29,10 @@
         width: 65%;
         font-size: $font-16px;
         line-height: 2rem;
+
+        span {
+            font-weight: $font-weight-bold;
+        }
     }
 
     p {
@@ -39,11 +43,14 @@
         width: 50%;
         display: flex;
         list-style-type: none;
-        justify-content: space-around;
+        justify-content: flex-end;
+        gap: 1.5rem;
 
         a {
             text-decoration: none;
             color: inherit;
+            font-weight: $font-weight-medium;
+            font-size: $font-16px;
 
             &:hover {
                 text-decoration: underline;
@@ -77,6 +84,12 @@
         .map_con {
             display: flex;
             align-items: center;
+
+            .label {
+                font-size: $font-14px;
+                color: $sub-heading;
+                font-weight: $font-weight-medium;
+            }
         }
 
         .icon_content {
@@ -118,6 +131,12 @@
     .condition_con {
         display: flex;
         gap: 1rem;
+
+        .label {
+            font-size: $font-14px;
+            color: $sub-heading;
+            font-weight: $font-weight-medium;
+        }
     }
 }
 

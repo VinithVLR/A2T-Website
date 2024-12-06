@@ -2,6 +2,9 @@ import React from 'react'
 import styles from './AlternatingContentLayout.module.scss'
 import Image from 'next/image'
 import reverImage from '../../assets/images/img_rever.png'
+import bg_image from '../../assets/images/purpose/img_pur_bg1.png'
+import image from '../../assets/images/purpose/img_pur_1.png'
+
 interface AlternatingContentLayoutProps {
      content: Array<{
           title: string
@@ -25,11 +28,19 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                               <div className={styles.image_section}>
                                    <div className={styles.image_wrapper}>
                                         <Image
-                                             src={reverImage}
+                                             src={item.bgImage}
                                              alt='image'
                                              priority
                                              className={styles.image}
                                         />
+                                        <div className={styles.img_ab}>
+                                             <Image
+                                                  src={item.img}
+                                                  alt='image'
+                                                  priority
+                                                  className={styles.image}
+                                             />
+                                        </div>
                                    </div>
                               </div>
                               <div className={styles.details_section}>

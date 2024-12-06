@@ -13,13 +13,11 @@
         flex: 0.42;
         height: auto;
 
-
         .image_wrapper {
             padding: 1.5rem;
             width: 100%;
             height: 100%;
-
-
+            border-radius: 10px;
         }
 
     }
@@ -28,6 +26,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: inherit;
     }
 
     .details_section {
@@ -51,6 +50,7 @@
                 color: #0E7B68;
                 background-color: #EDEDED;
                 font-weight: $font-weight-sem-bold;
+                font-size: $font-16px;
             }
 
             .heading {

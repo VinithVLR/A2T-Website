@@ -21,6 +21,7 @@ interface FleetCardData {
      overLayer: string
      titleColor: string
      desColor: string
+     hoverColor: string
 }
 const ServiceInnovation = () => {
      let arr: FleetCardData[] = [
@@ -32,6 +33,7 @@ const ServiceInnovation = () => {
                titleColor: '#8535EB',
                des: 'We provide skilled personnel and workforce management tailored to meet your specific needs.',
                desColor: '#7C6993',
+               hoverColor: '#8535EB',
           },
           {
                bgImage: '',
@@ -41,6 +43,7 @@ const ServiceInnovation = () => {
                titleColor: '#FF613F',
                des: 'Innovative engineering services that combine expertise with creative problem-solving.',
                desColor: '#9D736B',
+               hoverColor: '#8535EB',
           },
           {
                bgImage: '',
@@ -50,6 +53,7 @@ const ServiceInnovation = () => {
                titleColor: '#348AEF',
                des: 'Comprehensive solutions that maximize efficiency, reduce costs, & ensure compliance.',
                desColor: '#65798F',
+               hoverColor: '#8535EB',
           },
           {
                bgImage: '',
@@ -59,6 +63,7 @@ const ServiceInnovation = () => {
                titleColor: '#1CB977',
                des: 'Strategic guidance to integrate environmental, social, and governance principles for growth.',
                desColor: '#608877',
+               hoverColor: '#8535EB',
           },
 
           {
@@ -69,6 +74,7 @@ const ServiceInnovation = () => {
                titleColor: '#3DCADB',
                des: 'Expert consulting to enhance performance, streamline operations, and achieve success.',
                desColor: '#5E9299',
+               hoverColor: '#8535EB',
           },
      ]
      return (
@@ -84,9 +90,9 @@ const ServiceInnovation = () => {
                     </p>
                </header>
                <div className={styles.five_card_layout}>
-                    {arr.map((data, index) => (
-                         <FleetCard key={data.title} indexNumber={index} item={data} />
-                    ))}
+                    {arr.map((data, index) => {
+                         return <FleetCard key={data.title} indexNumber={index} item={data} />
+                    })}
                </div>
           </section>
      )

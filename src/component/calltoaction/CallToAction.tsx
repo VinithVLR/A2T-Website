@@ -5,10 +5,18 @@ import ImageCTA from '../../assets/images/img_calltoaction.png'
 import Button from '../button/Button'
 import logoGreen from '../../assets/icons/ic_logo_green.svg'
 
-const CallToAction = ({ img, data }: { img?: boolean; data: any }) => {
+const CallToAction = ({
+     img,
+     data,
+     style,
+}: {
+     img?: boolean
+     data: React.ReactNode
+     style?: any
+}) => {
      return (
           <section className={styles.call_to_action}>
-               <div className={styles.call_to_action__container}>
+               <div className={styles.call_to_action__container} style={{ ...style }}>
                     {img && (
                          <div className={styles.content_wrapper}>
                               <Image src={ImageCTA} alt='image' priority className={styles.image} />

@@ -66,3 +66,15 @@
    background: #f1f1f1;
    /* color of scrollbar track */
  }
+
+ @media screen and (max-width: 1220px) {
+   :root {
+     font-size: 14px;
+   }
+ }
+
+ @media screen and (max-width: 980px) {
+   :root {
+     font-size: 12px;
+   }
+ }

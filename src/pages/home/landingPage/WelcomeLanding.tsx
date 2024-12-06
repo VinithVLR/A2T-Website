@@ -13,12 +13,19 @@ const inter = Inter({
 })
 const WelcomeLanding = () => {
      return (
-          <section className={`${styles.main_container} ${inter.className} `}>
+          <section className={`${styles.main_container}`}>
+               <video className={`${styles.video_background}`} autoPlay loop muted playsInline>
+                    <source
+                         src='https://cdn.pixabay.com/video/2020/06/23/42923-434300950_large.mp4'
+                         type='video/mp4'
+                    />
+                    Your browser does not support the video tag.
+               </video>
                <div className={`${styles.container}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <h3 className={`${styles.heading}`}>
                          Pioneering Engineering Solutions for a <span>Greener Tomorrow</span>
                     </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <p className={`${styles.para}`}>
                          Delivering innovative engineering solutions that minimize environmental
                          impact and foster sustainable growth for a cleaner, greener future.
                     </p>
@@ -27,8 +34,6 @@ const WelcomeLanding = () => {
                               label={'Contact us'}
                               disabled={false}
                               style={{
-                                   width: '14rem',
-                                   height: ' 3.5rem',
                                    backgroundColor: '#0E7B68',
                                    gap: '1rem',
                                    borderRadius: '7px',
@@ -37,7 +42,7 @@ const WelcomeLanding = () => {
                               }}
                               loading={false}
                               iconleft={logoIcon}
-                              labestyle={{ marginLeft: '0px', fontSize: '1.2rem' }}
+                              labestyle={{ marginLeft: '0px', fontSize: '1rem' }}
                          />
                          <label>
                               Know more about us

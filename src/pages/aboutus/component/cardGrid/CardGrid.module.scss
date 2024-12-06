@@ -26,8 +26,9 @@
     }
 
     p {
-        font-size: 0.9rem;
+        font-size: $font-16px;
         margin-block: 2rem;
         font-weight: $font-weight-regular ;
+        line-height: 1.5rem;
     }
 }
