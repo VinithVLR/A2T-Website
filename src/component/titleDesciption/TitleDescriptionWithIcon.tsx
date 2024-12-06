@@ -1,13 +1,27 @@
 import React from 'react'
 import styles from './TitleDescriptionWithIcon.module.scss'
 import Image, { StaticImageData } from 'next/image'
+import Button from '../button/Button'
+import Image1 from '../../assets/images/img_service_1.png'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+     subsets: ['latin'],
+     weight: ['400', '800'],
+     style: ['normal'],
+})
 
 interface ItemProps {
-     title: string
-     description: string
+     title: React.ReactNode
+     description?: string
      icon?: any
      subTitle?: string
      style?: any
+     btnColor?: any
+     btn?: any
+     headingStyle?: any
+     bgimage?: any
+     paraStyle?: any
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -15,6 +29,11 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      icon,
      subTitle,
      style,
+     btnColor,
+     btn,
+     headingStyle,
+     bgimage,
+     paraStyle,
 }) => {
      return (
           <div className={styles.main_con} style={{ ...style }}>
@@ -23,9 +42,34 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          <Image src={icon} alt='Vision Icon' className={styles.image} />
                     </div>
                )}
-               <h2 className={styles.title}>{title}</h2>
+               <h2 className={styles.title} style={{ ...headingStyle }}>
+                    {title}
+               </h2>
                {subTitle && <h4 className={styles.subTitle}>{subTitle}</h4>}
-               <p className={styles.description}>{description}</p>
+               {bgimage && (
+                    <div className={styles.img_wrapper}>
+                         <Image src={bgimage} alt='' className={styles.image} />
+                    </div>
+               )}
+               <p className={styles.description} style={{ ...paraStyle }}>
+                    {description}
+               </p>
+               {btn && (
+                    <Button
+                         label={'Explore more'}
+                         disabled={false}
+                         style={{
+                              width: '10rem',
+                              backgroundColor: btnColor,
+                              gap: '0.8rem',
+                              marginBlock: '2rem',
+                              paddingBlock: '0.8rem',
+                         }}
+                         loading={false}
+                         icon
+                         labestyle={{ marginLeft: '0px', fontSize: '0.8rem' }}
+                    />
+               )}
           </div>
      )
 }

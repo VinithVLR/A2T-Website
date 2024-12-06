@@ -12,7 +12,7 @@ const inter = Inter({
 
 const ClientInnovation = () => {
      return (
-          <section className={styles.main_con}>
+          <section className={` ${styles.main_con} ${inter.className}`}>
                <div className={styles.details_section}>
                     <div className={styles.details_con}>
                          <h2 className={`${styles.title} ${styles.blackText}`}>

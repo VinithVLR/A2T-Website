@@ -39,9 +39,9 @@ const Footer = () => {
           <section className={`${styles.main}  ${inter.className}`}>
                <div className={styles.flex_con_right}>
                     <p className={styles.para}>
-                         A2 Technologies is proudly 🌈 inclusive and anti-racist, creating solutions
-                         for a better world. Born in Chennai, with a vision to innovate for the
-                         world. 🌍
+                         <span>A2 Technologies </span>is proudly 🌈 inclusive and anti-racist,
+                         creating solutions for a better world. Born in Chennai, with a vision to
+                         innovate for the world. 🌍
                     </p>
                     <ul className={styles.unOrder_list_con}>
                          <li>
@@ -80,7 +80,9 @@ const Footer = () => {
                          {arr.map((item: any, index: any) => {
                               return (
                                    <div className={styles.map_con}>
-                                        <label>{item.label}</label>
+                                        <Link href={item.label} className={styles.label}>
+                                             {item.label}
+                                        </Link>
                                         <div className={styles.icon_content}>
                                              <Image
                                                   src={item.icon}
@@ -93,11 +95,11 @@ const Footer = () => {
                          })}
                     </div>
                </div>
-               <div className={''}>
+               <div className={styles.condition_con_wrapper}>
                     <div className={styles.condition_con}>
-                         <div>Terms of service </div>
-                         <div> Privacy policy</div>
-                         <div>© 2022, All Rights Reserved</div>
+                         <div className={styles.label}>Terms of service </div>
+                         <div className={styles.label}> Privacy policy</div>
+                         <div className={styles.label}> © 2022, All Rights Reserved</div>
                     </div>
                     <div className={styles.image_wrapper}>
                          <div className={styles.logo_con}>

@@ -1,0 +1,83 @@
+@import '../../../scss/abstracts/variable.scss';
+@import '../../../scss/layout/flex.scss';
+
+.main_container {
+    width: 100%;
+    height: auto;
+    padding-inline: 2rem;
+    background-color: #fff;
+    padding-block-end: 5rem;
+
+    .svglinecontainer_web {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        min-height: 100vh;
+
+
+        .line {
+            position: absolute;
+            width: 4px;
+            height: 50%;
+            background-color: teal;
+            left: 50%;
+            top: 15rem;
+            bottom: 50%;
+            transform: translateX(-50%);
+            transition: height 0.5s ease;
+        }
+
+
+        .flex_con {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .image_con {
+            flex: 0.5;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            align-items: center;
+
+            .img_wrp {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2rem;
+
+                .image {
+                    width: 90%;
+                    height: 90%;
+                    object-fit: contain;
+                    border-radius: inherit;
+                }
+            }
+
+            .image {
+                width: 90%;
+                height: 90%;
+                object-fit: contain;
+            }
+        }
+
+        .image {
+            padding: 1.5rem;
+        }
+
+        .details_con {
+            flex: 0.5;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+
+
+    }
+}

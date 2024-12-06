@@ -1,0 +1,124 @@
+@import '../../../scss/abstracts/variable.scss';
+
+
+.landing_Solutions {
+    padding-inline: 2rem;
+
+    .flex_con {
+        display: flex;
+        column-gap: 2rem;
+        justify-content: space-between;
+        padding-block-start: 5rem;
+        padding-block-end: 2.5rem;
+
+        .heading {
+            font-size: $heading-font-size;
+            color: $color-heading;
+            flex: 0.6;
+            line-height: 1.5;
+
+            span {
+                color: $color-primary;
+            }
+        }
+
+        .para {
+            font-size: $paragraph-font-size;
+            color: $sub-heading;
+            flex: 0.6;
+            line-height: 1.6;
+            margin-block: 2rem;
+            display: flex;
+            align-items: flex-end;
+
+        }
+
+        .label {
+            font-size: $font-16px;
+            color: #9DA5A4;
+            font-weight: $font-weight-medium;
+        }
+    }
+
+    // .image_con_flex {
+    //     flex: 1;
+    //     display: flex;
+    //     gap: 1rem;
+
+    //     .image_wrapper_odd {
+    //         width: auto;
+    //         height: auto;
+    //         border-radius: 10px;
+
+    //         .image {
+    //             width: 100%;
+    //             height: 100%;
+    //             object-fit: cover;
+    //             border-radius: inherit;
+    //         }
+    //     }
+
+    //     .image_wrapper_even {
+    //         width: auto;
+    //         height: auto;
+    //         padding-block-start: 2rem;
+    //         border-radius: 10px;
+
+    //         .image {
+    //             width: 100%;
+    //             height: 100%;
+    //             object-fit: cover;
+    //             border-radius: inherit;
+
+    //         }
+    //     }
+    // }
+
+    .image_con_grid {
+        display: grid;
+        gap: 1rem;
+        align-items: end;
+        grid-template-columns: repeat(5, 1fr);
+
+        @media (max-width: 748px) {
+            grid-template-columns: repeat(2, 1fr);
+
+            .card:nth-child(3) {
+                grid-column: 1 / span 2;
+            }
+        }
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+
+        &:nth-child(1) {
+            height: 95%;
+        }
+
+        &:nth-child(2) {
+            height: 70%;
+        }
+
+        &:nth-child(3) {
+            height: 90%;
+        }
+
+        &:nth-child(4) {
+            height: 60%;
+        }
+
+        &:nth-child(5) {
+            height: 100%;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+    }
+}

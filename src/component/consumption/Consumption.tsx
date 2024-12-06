@@ -40,7 +40,10 @@ const Consumption = ({ data }: any) => {
                          </div>
                          <h4>
                               {title} &nbsp;
-                              <span className={styles.icon_wrapper}>
+                              <span
+                                   className={styles.icon_wrapper}
+                                   onClick={() => alert('navigate')}
+                              >
                                    <Image
                                         src={iconNavigate}
                                         alt='icon'

@@ -5,10 +5,18 @@ import ImageCTA from '../../assets/images/img_calltoaction.png'
 import Button from '../button/Button'
 import logoGreen from '../../assets/icons/ic_logo_green.svg'
 
-const CallToAction = ({ img }: { img?: boolean }) => {
+const CallToAction = ({
+     img,
+     data,
+     style,
+}: {
+     img?: boolean
+     data: React.ReactNode
+     style?: any
+}) => {
      return (
           <section className={styles.call_to_action}>
-               <div className={styles.call_to_action__container}>
+               <div className={styles.call_to_action__container} style={{ ...style }}>
                     {img && (
                          <div className={styles.content_wrapper}>
                               <Image src={ImageCTA} alt='image' priority className={styles.image} />
@@ -17,11 +25,7 @@ const CallToAction = ({ img }: { img?: boolean }) => {
 
                     <div className={img ? styles.details_section : styles.detailsCon}>
                          <div className={img ? styles.con_wrapper : styles.conWrapper}>
-                              <h2 className={styles.title}>
-                                   If you don't see a role that matches your skills, feel free to
-                                   submit a general application, and we'll reach out when a suitable
-                                   position becomes available.
-                              </h2>
+                              <h2 className={styles.title}>{data}</h2>
                               <Button
                                    label='Contact us'
                                    disabled={false}

@@ -68,13 +68,31 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
           router.push('/aboutus')
           setIsOpen(false) // Close the menu after navigation
      }
+     const [bgColor, setBgColor] = useState(isLandingPage ? 'transparent' : '#fff') // Initial color
 
+     useEffect(() => {
+          const handleScroll = () => {
+               const threshold = window.innerHeight
+               if (window.scrollY > threshold) {
+                    setBgColor('#FFF')
+               } else {
+                    setBgColor(isLandingPage ? 'transparent' : '#fff')
+               }
+          }
+
+          window.addEventListener('scroll', handleScroll)
+
+          return () => {
+               window.removeEventListener('scroll', handleScroll)
+          }
+     }, [isLandingPage])
      return (
           <nav
                className={`${styles.navbar} ${className}`.trim()}
                style={{
-                    backgroundColor: isLandingPage ? 'transparent' : '#fff',
-                    color: isLandingPage ? undefined : '#667085',
+                    backgroundColor: bgColor,
+                    color: bgColor === 'transparent' ? '#fff' : '#667085',
+                    transition: 'background-color 0.3s ease',
                }}
           >
                <div className={styles.navContainer}>
@@ -91,7 +109,10 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                         key={item.href}
                                         href={item.href}
                                         className={styles.navLink}
-                                        style={{ color: isLandingPage ? '#fff' : '#111' }}
+                                        style={{
+                                             color: bgColor === 'transparent' ? '#fff' : '#667085',
+                                             transition: 'color 0.3s ease',
+                                        }}
                                    >
                                         {item.label}
                                    </Link>

@@ -14,6 +14,7 @@ interface FleetCardData {
      overLayer: string
      titleColor: string
      desColor: string
+     hoverColor: string
 }
 
 interface FleetCardProps {
@@ -28,13 +29,22 @@ const FleetCard = ({ indexNumber, item }: FleetCardProps) => {
           const timer = setTimeout(() => setIsLoading(false), 1000)
           return () => clearTimeout(timer)
      }, [])
+     const [isHovered, setIsHovered] = useState(false)
+
+     const handleMouseEnter = () => setIsHovered(true)
+     const handleMouseLeave = () => setIsHovered(false)
+     console.log('border-color', item.desColor)
 
      return (
           <div className={styles.fleet_card}>
                {isLoading ? (
                     <Skeleton />
                ) : (
-                    <div className={styles.card_content}>
+                    <div
+                         className={styles.card_content}
+                         onMouseEnter={handleMouseEnter}
+                         onMouseLeave={handleMouseLeave}
+                    >
                          <div className={styles.main_container}>
                               <div className={styles.image_container}>
                                    <Image
@@ -46,7 +56,10 @@ const FleetCard = ({ indexNumber, item }: FleetCardProps) => {
                          </div>
                          <div
                               className={styles.card_overlay}
-                              style={{ zIndex: 25 - indexNumber, backgroundColor: item.overLayer }}
+                              style={{
+                                   zIndex: 25 - indexNumber,
+                                   backgroundColor: isHovered ? item.titleColor : item.overLayer,
+                              }}
                          >
                               <div className={styles.img_wrapper}>
                                    <Image

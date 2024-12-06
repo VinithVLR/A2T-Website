@@ -8,7 +8,7 @@ const inter = Inter({
      weight: ['400', '600', '800'],
      style: ['normal'],
 })
-const SecondaryLanding = ({ flexReverse, heading, description, image }: any) => {
+const SecondaryLanding = ({ flexReverse, heading, description, image, bgImage }: any) => {
      return (
           <section
                className={`${styles.main_con} ${flexReverse ? styles.reverse : ''} ${inter.className}`}
@@ -29,7 +29,10 @@ const SecondaryLanding = ({ flexReverse, heading, description, image }: any) => 
                </div>
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
-                         <Image src={image} alt='image' priority className={styles.image} />
+                         <Image src={bgImage} alt='image' priority className={styles.image} />
+                         <div className={styles.image_ab_con}>
+                              <Image src={image} alt='image' priority className={styles.img_ab} />
+                         </div>
                     </div>
                </div>
           </section>

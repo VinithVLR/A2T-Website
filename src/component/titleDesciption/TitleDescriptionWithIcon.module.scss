@@ -29,10 +29,20 @@
         color: #5E5F6E;
         font-size: $font-22px;
         margin-block-end: 1rem;
-        font-weight: $font-weight-regular ;
+        font-weight: $font-weight-regular;
         font-family: inherit;
+    }
 
+    .img_wrapper {
+        width: 100%;
+        height: 100%;
+        display: none;
 
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .description {
@@ -40,6 +50,18 @@
         font-size: $font-16px;
         font-weight: $font-weight-regular;
         font-family: inherit;
+        line-height: 1.5rem;
+    }
 
+    span {
+        color: #0E7B68;
+    }
+}
+
+@media (min-width: 1200) and (max-width: 748px) {
+    .main_con {
+        .img_wrapper {
+            display: block;
+        }
     }
 }

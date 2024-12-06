@@ -1,0 +1,9 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.main_container {
+    width: 100%;
+    height: auto;
+    padding-inline: 2rem;
+    background-color: $color-grey-light-1;
+    padding-block-end: 5rem;
+}

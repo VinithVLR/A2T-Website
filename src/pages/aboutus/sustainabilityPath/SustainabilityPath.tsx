@@ -4,6 +4,7 @@ import styles from './SustainabilityPath.module.scss'
 import bgImage from '../../../assets/images/img_layer_bg.png'
 import Image from '../../../assets/images/image.png'
 import eyeIcon from '../../../assets/icons/ic_eye.svg'
+import manpowerIcon from '../../../assets/icons/ic_manpower.svg'
 import CardGrid from '../component/cardGrid/CardGrid'
 import { Inter } from 'next/font/google'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
@@ -39,7 +40,7 @@ const SustainabilityPath = () => {
                     </div>
                </div>
                <TitleDescriptionWithIcon
-                    icon={eyeIcon}
+                    icon={manpowerIcon}
                     title={'Our Mission'}
                     description={
                          'Our mission is to provide innovative, sustainable solutions that empower industries and create lasting impact.'

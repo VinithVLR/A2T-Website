@@ -28,7 +28,11 @@ const page = () => {
                <OurLeaders />
                <EducationEmpowerment />
                <GlobalImpact />
-               <CallToAction />
+               <CallToAction
+                    data={
+                         'Are you looking for Innovative engineering Solutions? or expert workforce management?  or a partner committed to sustainability?  '
+                    }
+               />
           </React.Fragment>
      )
 }
