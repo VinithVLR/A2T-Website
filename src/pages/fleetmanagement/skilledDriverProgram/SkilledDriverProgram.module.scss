@@ -1,0 +1,10 @@
+@import '../../../scss/abstracts/variable.scss';
+@import '../../../scss/layout/flex.scss';
+
+.main_container {
+    width: 100%;
+    height: auto;
+    padding-inline: 2rem;
+    background-color: #fff;
+    padding-block-end: 5rem;
+}

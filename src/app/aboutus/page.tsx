@@ -1,7 +1,7 @@
 import PrimaryLanding from '@/component/primaryLanding/PrimaryLanding '
-import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
 import React from 'react'
-import contactImage from '../../assets/images/img_contact_sec.png'
+import bg from '../../assets/images/img_cont_bg.png'
+import img from '../../assets/images/img_cont_image.png'
 import reverImage from '../../assets/images/img_rever.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
 import Ourvalues from '@/pages/aboutus/ourvalues/Ourvalues'
@@ -11,6 +11,7 @@ import OurLeaders from '@/pages/aboutus/ourLeaders/OurLeaders'
 import GlobalImpact from '@/pages/aboutus/globalImpact/GlobalImpact'
 import CallToAction from '@/component/calltoaction/CallToAction'
 import EducationEmpowerment from '@/pages/aboutus/educationEmpowerment/EducationEmpowerment'
+import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
 const page = () => {
      return (
           <React.Fragment>
@@ -20,7 +21,8 @@ const page = () => {
                     description={
                          ' We are more than just a service provider, we are your partner in innovation, sustainability, and success. Founded with a vision to lead in global workforce solutions and integrated engineering services, We are dedicated in delivering cutting-edge solutions which makes meaningful impact across industries.'
                     }
-                    image={contactImage}
+                    image={img}
+                    bgImage={bg}
                />
                <SustainabilityPath />
                <Ourvalues />
