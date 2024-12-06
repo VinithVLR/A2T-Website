@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from './PrimaryLanding .module.scss'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import img_contact from '../../assets/images/img_contact.png'
 import { Inter } from 'next/font/google'
 import thumb_nail from '../../assets/images/img_contact_thumb.png'
@@ -9,30 +9,54 @@ const inter = Inter({
      weight: ['400', '600', '800'],
      style: ['normal'],
 })
-const PrimaryLanding = () => {
+
+interface heading {
+     title: string
+     heading: ReactElement<any, any>
+     description: string
+     isReverse?: boolean
+     bigImageSrc?: StaticImageData
+     smallImageSrc?: StaticImageData
+}
+const PrimaryLanding = ({
+     title,
+     heading,
+     description,
+     isReverse = false,
+     bigImageSrc,
+     smallImageSrc,
+}: heading) => {
      return (
-          <section className={`${styles.main_con} ${inter.className}`}>
+          <section
+               className={`${styles.main_con} ${inter.className}`}
+               style={isReverse ? { flexDirection: 'row-reverse' } : {}}
+          >
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
-                         <Image src={img_contact} alt='image' priority className={styles.image} />
+                         <Image
+                              src={bigImageSrc ? bigImageSrc : img_contact}
+                              alt='image'
+                              priority
+                              className={styles.image}
+                         />
                     </div>
                </div>
                <div className={styles.details_section}>
                     <div className={styles.con_wrapper}>
                          <div className={`${styles.btn_container} ${styles.semiBoldText}`}>
-                              About us
+                              {title}
                          </div>
-                         <h3 className={`${styles.heading}  ${styles.blackText}`}>
-                              Innovative Solutions for a Sustainable & Impactful Future
-                         </h3>
+                         <h3 className={`${styles.heading}  ${styles.blackText}`}>{heading}</h3>
                          <p className={`${styles.description} ${styles.regularText}`}>
-                              We deliver innovative, sustainable solutions that drive impactful
-                              change, empowering businesses to thrive and meet evolving industry
-                              demands.
+                              {description}
                          </p>
                          <div className={styles.thumb_nailWrapper_con}>
                               <div className={styles.thumb_nailWrapper}>
-                                   <Image src={thumb_nail} alt='' className={styles.image} />
+                                   <Image
+                                        src={smallImageSrc ? smallImageSrc : thumb_nail}
+                                        alt=''
+                                        className={styles.image}
+                                   />
                               </div>
                          </div>
                     </div>
