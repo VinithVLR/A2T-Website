@@ -2,11 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/component/navbar/Navbar'
 import Footer from '@/component/footer/Footer'
-// import { Inter, DM_Sans } from 'next/font/google'
+import { inter } from '../../public/fonts/inter'
 
-// const inter = Inter({ subsets: ['latin'] })
-// const dmSans = DM_Sans({ subsets: ['latin'] })
-// ${dmSans.className}
 export const metadata: Metadata = {
      title: {
           default: 'A2 Technologies',
@@ -17,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
      return (
-          <html lang='en'>
+          <html lang='en' className={`${inter.variable}`}>
                <head>
                     <link rel='icon' href='/favicon.ico' />
                </head>
