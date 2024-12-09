@@ -1,0 +1,36 @@
+.cardContainer {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+
+     .detailContainer {
+          h2 {
+               font-size: 1.5rem;
+          }
+
+          span {
+               color: #74717d;
+               font-size: 0.875rem;
+          }
+
+          p {
+               color: #74717d;
+               font-size: 1.05rem;
+          }
+
+          .location {
+               margin-block: 1rem;
+
+               img {
+                    margin-right: 0.7rem;
+               }
+          }
+     }
+
+     .applyBtn {
+          background-color: #0e7b68;
+          border-radius: 7px;
+          font-size: 1rem;
+          padding: 0.875rem 1rem;
+     }
+}

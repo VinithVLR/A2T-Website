@@ -1,177 +1,175 @@
 @import '../../scss/abstracts/variable.scss';
 
 .navbar {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: $color-white;
-    position: fixed;
-    width: 100%;
-    z-index: 50;
-    top: 0;
-
+     background: rgba(255, 255, 255, 0.1);
+     box-shadow: 0 2px 3px -1px #0000001a;
+     backdrop-filter: blur(3px);
+     -webkit-backdrop-filter: blur(3px);
+     border: 1px solid rgba(255, 255, 255, 0.18);
+     color: $color-white;
+     position: fixed;
+     width: 100%;
+     z-index: 50;
+     top: 0;
 }
 
 .navContainer {
-    // max-width: 1200px;
-    margin: 0 auto;
-    padding-inline: 2.5rem;
-    // padding: 0 1rem;
+     // max-width: 1200px;
+     margin: 0 auto;
+     padding-inline: 2.5rem;
+     // padding: 0 1rem;
 }
 
 .navContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 64px;
 }
 
 .logo_con {
-    width: 10rem;
-    height: auto;
+     width: 10rem;
+     height: auto;
 
-    .icon {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+     .icon {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+     }
 }
 
-
 .desktopNav {
-    display: none;
-    align-items: center;
-    gap: 2rem;
+     display: none;
+     align-items: center;
+     gap: 2rem;
 
-    @media (min-width: 768px) {
-        display: flex;
-    }
+     @media (min-width: 768px) {
+          display: flex;
+     }
 }
 
 .navLink {
-    color: $color-white;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: $font-16px;
+     color: $color-white;
+     text-decoration: none;
+     transition: color 0.2s ease;
+     font-size: $font-16px;
 
-    &:hover {
-        color: $color-white;
-    }
+     &:hover {
+          color: $color-white;
+     }
 }
 
 .contactButton {
-    background-color: $color-primary;
-    color: $color-white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9375rem;
-    transition: background-color 0.2s ease;
+     background-color: $color-primary;
+     color: $color-white;
+     padding: 0.5rem 1rem;
+     border: none;
+     border-radius: 20px;
+     cursor: pointer;
+     font-size: 0.9375rem;
+     transition: background-color 0.2s ease;
 
-    &:hover {
-        background-color: #047857;
-    }
+     &:hover {
+          background-color: #047857;
+     }
 
-    &:focus {
-        outline: 2px solid #047857;
-        outline-offset: 2px;
-    }
+     &:focus {
+          outline: 2px solid #047857;
+          outline-offset: 2px;
+     }
 }
 
 .hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    color: #e5e5e5;
-    transition: color 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: none;
+     border: none;
+     cursor: pointer;
+     padding: 0.5rem;
+     color: #e5e5e5;
+     transition: color 0.2s ease;
 
-    @media (min-width: 768px) {
-        // display: none;
-    }
+     @media (min-width: 768px) {
+          // display: none;
+     }
 }
 
 .menuIcon,
 .closeIcon {
-    display: block;
-    transition: transform 0.2s ease;
+     display: block;
+     transition: transform 0.2s ease;
 }
 
 .menuIcon:hover {
-    transform: scale(1.1);
+     transform: scale(1.1);
 }
 
 .closeIcon:hover {
-    transform: scale(1.1);
+     transform: scale(1.1);
 }
 
 .mobileNav {
-    display: flex;
-    flex-direction: column;
-    // background-color: black;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    // background: rgba(255, 255, 255, 0.1);
-    // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    // backdrop-filter: blur(3px);
-    // -webkit-backdrop-filter: blur(3px);
-    // border: 1px solid rgba(255, 255, 255, 0.18);
-    color: $color-white;
-    align-items: center;
+     display: flex;
+     flex-direction: column;
+     // background-color: black;
+     position: absolute;
+     top: 64px;
+     left: 0;
+     right: 0;
+     max-height: 0;
+     overflow: hidden;
+     opacity: 0;
+     transition: all 0.3s ease-in-out;
+     // background: rgba(255, 255, 255, 0.1);
+     // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+     // backdrop-filter: blur(3px);
+     // -webkit-backdrop-filter: blur(3px);
+     // border: 1px solid rgba(255, 255, 255, 0.18);
+     color: $color-white;
+     align-items: center;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
+     @media (min-width: 768px) {
+          display: none;
+     }
 
-    &.isOpen {
-        max-height: 400px;
-        opacity: 1;
-        padding: 1rem;
-    }
+     &.isOpen {
+          max-height: 400px;
+          opacity: 1;
+          padding: 1rem;
+     }
 }
 
 .mobileNavLink {
-    color: #e5e5e5;
-    text-decoration: none;
-    padding: 0.75rem 0;
-    transition: color 0.2s ease;
-    font-size: 0.9375rem;
+     color: #e5e5e5;
+     text-decoration: none;
+     padding: 0.75rem 0;
+     transition: color 0.2s ease;
+     font-size: 0.9375rem;
 
-    &:hover {
-        color: $color-white;
-    }
+     &:hover {
+          color: $color-white;
+     }
 }
 
 .mobileContactButton {
-    background-color: #059669;
-    color: $color-white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    width: 30%;
-    font-size: 0.9375rem;
-    transition: background-color 0.2s ease;
+     background-color: #059669;
+     color: $color-white;
+     padding: 0.5rem 1rem;
+     border: none;
+     border-radius: 20px;
+     cursor: pointer;
+     margin-top: 0.5rem;
+     width: 30%;
+     font-size: 0.9375rem;
+     transition: background-color 0.2s ease;
 
-    &:hover {
-        background-color: #047857;
-    }
+     &:hover {
+          background-color: #047857;
+     }
 
-    &:focus {
-        outline: 2px solid #047857;
-        outline-offset: 2px;
-    }
+     &:focus {
+          outline: 2px solid #047857;
+          outline-offset: 2px;
+     }
 }

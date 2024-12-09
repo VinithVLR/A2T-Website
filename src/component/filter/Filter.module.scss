@@ -1,0 +1,24 @@
+.container {
+     display: flex;
+     align-items: center;
+     list-style-type: none;
+     column-gap: 2rem;
+     width: fit-content;
+     margin: auto;
+
+     li {
+          padding: 0.45rem 0.875rem;
+          font-size: 1.15rem;
+          cursor: pointer;
+          color: #74717d;
+          transition: all 0.3s;
+          border-radius: 8px;
+          border: 1px solid transparent;
+
+          &.active {
+               border: 1px solid #e4eaf2;
+               background-color: #fff;
+               box-shadow: rgba(70, 70, 70, 0.15) 0px 5px 15px 0px;
+          }
+     }
+}

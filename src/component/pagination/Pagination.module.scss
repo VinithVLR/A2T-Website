@@ -1,0 +1,35 @@
+.paginationContainer {
+     width: fit-content;
+     margin: auto;
+     display: flex;
+     border: 1px solid #e4eaf2;
+     background-color: #fff;
+     padding-block: 0.3rem;
+     padding-inline: 0.2rem;
+     border-radius: 10px;
+     box-shadow: rgba(70, 70, 70, 0.15) 0px 5px 15px 0px;
+}
+
+.paginationBtn {
+     width: 2.5rem;
+     height: 2.5rem;
+     display: flex;
+     align-items: center;
+     margin-inline: 0.1rem;
+     border-radius: 5px;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.2s;
+
+     &:hover {
+          background-color: #dbe4e2;
+     }
+
+     &:active {
+          opacity: 0.8;
+     }
+     &.activePage {
+          background-color: #0e7b68;
+          color: #fff;
+     }
+}
