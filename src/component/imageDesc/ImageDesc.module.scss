@@ -1,3 +1,5 @@
+@import '../../scss/abstracts/variable.scss';
+
 .imageDesc_con {
     width: 100%;
     padding-block-start: 1rem;
@@ -17,7 +19,6 @@
             flex: 0.8;
             display: flex;
             border-radius: 10px;
-            padding-inline-start: 2rem;
 
             .image {
                 width: 100%;
@@ -30,5 +31,43 @@
 
     .textContainer {
         flex: 0.4;
+        display: flex;
+
+
+        .details_con {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                font-size: $font-32px;
+                font-weight: $font-weight-sem-bold;
+                color: $color-heading;
+                padding-block-end: 1rem;
+            }
+
+            .desc {
+                font-size: $font-16px;
+                font-weight: $font-weight-regular;
+                color: $color-des;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .imageDesc_con {
+        flex-direction: column-reverse;
+        gap: 2rem;
+
+        .image_section {
+            width: 100%;
+
+            .imageContainer {
+                width: 100%;
+                flex: 1;
+            }
+        }
     }
 }

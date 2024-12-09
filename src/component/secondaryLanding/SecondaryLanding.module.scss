@@ -27,6 +27,8 @@
 
             .image_ab_con {
                 position: absolute;
+                display: flex;
+                justify-content: center;
 
                 .img_ab {
                     width: 90%;

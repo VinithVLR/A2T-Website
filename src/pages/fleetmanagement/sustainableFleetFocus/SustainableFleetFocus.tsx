@@ -1,10 +1,11 @@
 import React from 'react'
-import image1 from '../../../assets/images/fleet/img_skil_1.png'
-import image2 from '../../../assets/images/fleet/img_skil_2.png'
-import image3 from '../../../assets/images/fleet/img_skil_3.png'
-import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
-const SkilledDriverProgram = () => {
+import image1 from '../../../assets/images/fleet/img_safe.png'
+import image2 from '../../../assets/images/fleet/img_esg.png'
+import image3 from '../../../assets/images/fleet/img_com.png'
+import styles from '../../../scss/layout/common.module.scss'
+
+const SustainableFleetFocus = () => {
      let skillArr: any = [
           {
                img: image1,
@@ -24,29 +25,28 @@ const SkilledDriverProgram = () => {
                description: 'Centers for continuous learning and skill enhancement for drivers.',
           },
      ]
-
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
-                         Skilled Driver Training and Deployment
+                         Focus on Safety, Compliance, & Sustainability
                     </h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
-                         Our Fleet Management School (Code 93) and Driver Development Centers (DDCs)
-                         train drivers to excel in safety, efficiency, and compliance.
+                         We prioritize safety, sustainability, and compliance to meet regulatory
+                         standards and reduce environmental impact.
                     </p>
                </header>
                {skillArr.map((item: any, index: any) => (
                     <ImageDesc
-                         key={item.id}
+                         key={index}
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
-                         rowReverse={index % 2 !== 0}
+                         style={{ paddingBlock: '2rem' }}
                     />
                ))}
           </section>
      )
 }
 
-export default SkilledDriverProgram
+export default SustainableFleetFocus

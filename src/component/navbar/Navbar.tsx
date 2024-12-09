@@ -46,7 +46,7 @@ const navItems: NavItem[] = [
      { label: 'Engineering', href: '/engineering' },
      { label: 'ESG & Sustainability', href: '/esg' },
      { label: 'Business consulting', href: '/consulting' },
-     { label: 'Fleet Management', href: '/fleet' },
+     { label: 'Fleet Management', href: '/fleetmanagement' },
 ]
 
 const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
@@ -66,9 +66,9 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
 
      const handleNavigation = () => {
           router.push('/aboutus')
-          setIsOpen(false) // Close the menu after navigation
+          setIsOpen(false)
      }
-     const [bgColor, setBgColor] = useState(isLandingPage ? 'transparent' : '#fff') // Initial color
+     const [bgColor, setBgColor] = useState(isLandingPage ? 'transparent' : '#fff')
 
      useEffect(() => {
           const handleScroll = () => {

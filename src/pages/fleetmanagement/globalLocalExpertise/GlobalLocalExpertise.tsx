@@ -1,27 +1,29 @@
 import React from 'react'
-import image1 from '../../../assets/images/fleet/img_skil_1.png'
-import image2 from '../../../assets/images/fleet/img_skil_2.png'
-import image3 from '../../../assets/images/fleet/img_skil_3.png'
 import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
-const SkilledDriverProgram = () => {
+import image1 from '../../../assets/images/fleet/img_glb_1.png'
+import image2 from '../../../assets/images/fleet/img_glb_2.png'
+import image3 from '../../../assets/images/fleet/img_glb_3.png'
+
+const GlobalLocalExpertise = () => {
      let skillArr: any = [
           {
                img: image1,
-               title: 'Fleet Management School (Code 93)',
+               title: 'Local Expertise',
                description:
-                    'Advanced training programs for drivers to meet European and global logistics standards.',
+                    'Understanding regional requirements and tailoring solutions to fit local markets.',
           },
           {
                img: image2,
-               title: 'Driver Safety and Compliance',
+               title: 'International Standards',
                description:
-                    'Focused training on safety protocols, regulatory compliance, and efficient driving practices.',
+                    ' Adherence to global logistics standards, ensuring reliability and trust.',
           },
           {
                img: image3,
-               title: 'Driver Development Centers (DDCs)',
-               description: 'Centers for continuous learning and skill enhancement for drivers.',
+               title: 'Network of Partnerships',
+               description:
+                    'Strong relationships with key logistics players and regulatory bodies for smooth operations.',
           },
      ]
 
@@ -49,4 +51,4 @@ const SkilledDriverProgram = () => {
      )
 }
 
-export default SkilledDriverProgram
+export default GlobalLocalExpertise

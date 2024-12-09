@@ -10,10 +10,24 @@ import SustainableBusinessAlignment from '@/pages/purpose/sustainableBusinessAli
 import PrimaryLanding from '@/component/primaryLanding/PrimaryLanding '
 import bg from '../../assets/images/img_cont_bg.png'
 import img from '../../assets/images/img_cont_image.png'
+import bigImageSrc from '../../assets/images/purpose/img_lan_ver.png'
+import smallImageSrc from '../../assets/images/purpose/img_lan_hoz.png'
 const page = () => {
      return (
           <React.Fragment>
-               <PrimaryLanding />
+               <PrimaryLanding
+                    title='Purpose'
+                    isReverse
+                    heading={
+                         <>
+                              Crafting a <span>Greener Future</span> Through Purpose-Driven
+                              Innovation
+                         </>
+                    }
+                    bigImageSrc={bigImageSrc}
+                    smallImageSrc={smallImageSrc}
+                    description='We deliver innovative, sustainable solutions that drive impactful change, empowering businesses to thrive and meet evolving industry demands.'
+               />
                <SecondaryLanding
                     heading={'Leading the Way in Sustainable Innovation and Industry Excellence'}
                     description={

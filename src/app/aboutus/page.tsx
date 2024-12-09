@@ -15,7 +15,15 @@ import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
 const page = () => {
      return (
           <React.Fragment>
-               <PrimaryLanding />
+               <PrimaryLanding
+                    title='About us'
+                    heading={
+                         <>
+                              Innovative Solutions for a <span>Sustainable</span> & Impactful Future
+                         </>
+                    }
+                    description='We deliver innovative, sustainable solutions that drive impactful change, empowering businesses to thrive and meet evolving industry demands.'
+               />
                <SecondaryLanding
                     heading={'Leading the Way in Sustainable Innovation and Industry Excellence'}
                     description={

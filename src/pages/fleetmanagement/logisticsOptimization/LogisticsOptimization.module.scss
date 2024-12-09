@@ -85,3 +85,26 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .main_con {
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+
+
+        .container_wrp {
+            padding-block-start: 0rem;
+            flex-direction: column-reverse;
+            gap: 1.5rem;
+
+            .img_wrapper {
+                width: 100%;
+            }
+        }
+
+        .img_Stretch_Full {
+            padding-block-start: 6rem;
+        }
+    }
+}
