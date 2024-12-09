@@ -52,7 +52,7 @@ const OurLeaders = () => {
                          <div className={styles.img_wrapper}>
                               <OverlapImage
                                    bgImage={bgImage}
-                                   image={clientImage}
+                                   img={clientImage}
                                    bgStyle={{ height: '380px' }}
                                    imgWrapper={{ width: '80%', height: '90%' }}
                               />
