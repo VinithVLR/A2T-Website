@@ -1,12 +1,25 @@
 .container {
+     width: 90%;
      display: flex;
      align-items: center;
+     justify-content: center;
      list-style-type: none;
      column-gap: 2rem;
-     width: fit-content;
      margin: auto;
+     overflow-x: auto;
+
+     @media screen and (max-width: 768px) {
+          justify-content: unset;
+     }
+     &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 0px;
+          height: 0px;
+     }
 
      li {
+          width: fit-content;
+          white-space: nowrap;
           padding: 0.45rem 0.875rem;
           font-size: 1.15rem;
           cursor: pointer;

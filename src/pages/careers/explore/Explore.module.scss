@@ -1,0 +1,23 @@
+@import '../../../scss/abstracts/variable.scss';
+@import '../../../scss/layout/flex.scss';
+@import '../../../scss/layout/grid.scss';
+
+.main_container {
+     width: 100%;
+     height: auto;
+     padding-inline: 2rem;
+     background-color: $color-grey-light-1;
+     padding-block-end: 5rem;
+
+     .break {
+          @media screen and (max-width: 450px) {
+               display: none;
+          }
+     }
+
+     .sectionHeading {
+          @media screen and (max-width: 450px) {
+               text-align: start;
+          }
+     }
+}

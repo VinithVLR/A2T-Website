@@ -1,16 +1,21 @@
 .maincontainer {
      width: fit-content;
+     min-width: 350px;
      margin-inline: auto;
      background-color: #fff;
      border: 1px solid #e4eaf2;
      padding-inline: 0.2rem 0.3rem;
      border-radius: 9px;
      overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
 
      input {
           border: none;
           outline: none;
-          min-width: 30vw;
+          width: 30vw;
+          min-width: 250px;
           font-size: 1rem;
           padding: 0.75rem 0.575rem;
      }

@@ -1,0 +1,41 @@
+.card {
+     background-color: #fff;
+     transition: all 0.2s ease-in;
+     padding: 1.3rem;
+     margin-block: 1rem;
+     border-radius: 1rem;
+
+     .row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          column-gap: 1rem;
+
+          h4 {
+               font-weight: 600;
+               color: #454446;
+          }
+
+          button {
+               border: none;
+               background-color: transparent;
+               cursor: pointer;
+          }
+     }
+
+     .ans {
+          color: #605e64;
+          max-height: 0px;
+          transition: all 0.2s ease-in;
+          overflow: hidden;
+     }
+}
+
+.active {
+     .row {
+          margin-bottom: 1rem;
+     }
+     .ans {
+          max-height: fit-content;
+     }
+}

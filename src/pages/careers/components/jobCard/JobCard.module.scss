@@ -1,0 +1,35 @@
+.cardContainer {
+     display: flex;
+     flex-direction: column;
+     border: 1px solid black;
+     padding: 1rem;
+     border-radius: 9px;
+
+     @media screen and (max-width: 450px) {
+          flex-direction: column;
+          align-items: flex-start;
+     }
+
+     h2 {
+          font-size: 1.3rem;
+     }
+
+     p {
+          margin-block: 1rem;
+          color: #74717d;
+          font-size: 1.1rem;
+     }
+
+     .applyBtn {
+          width: fit-content;
+          margin-top: auto;
+          background-color: #0e7b68;
+          border-radius: 7px;
+          font-size: 1rem;
+          padding: 0.6rem 0.8rem;
+
+          @media screen and (max-width: 450px) {
+               margin-top: 1rem;
+          }
+     }
+}

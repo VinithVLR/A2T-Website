@@ -1,0 +1,154 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.bodyMainCon {
+     background-color: #f3fcf4;
+     padding: 4rem 2rem 0rem 2rem;
+     display: flex;
+     align-items: flex-start;
+     position: relative;
+     z-index: 2;
+
+     @media screen and (max-width: 768px) {
+          flex-direction: column-reverse;
+          padding-top: 0rem;
+          padding-bottom: 4rem;
+     }
+
+     .cont {
+          flex: 1;
+          overflow: hidden;
+
+          .para {
+               margin-block: 10px;
+               font-size: 1rem;
+               color: #74747d;
+               width: 90%;
+
+               @media screen and (max-width: 768px) {
+                    flex-direction: column-reverse;
+                    padding-top: 0rem;
+                    font-size: 1.2rem;
+                    padding-top: 2rem;
+                    width: 100%;
+               }
+          }
+
+          .flex {
+               display: flex;
+               flex-direction: column;
+               position: relative;
+               padding-inline: 15px;
+               z-index: 2;
+
+               @media screen and (max-width: 768px) {
+                    padding-inline: 0px;
+               }
+
+               img:nth-child(1) {
+                    width: 49%;
+                    // max-width: 17rem;
+                    height: auto;
+                    object-fit: contain;
+               }
+               img:nth-child(2) {
+                    max-width: 15rem;
+                    position: absolute;
+                    z-index: -1;
+                    top: 13%;
+                    height: auto;
+                    object-fit: contain;
+                    align-self: center;
+               }
+               img:nth-child(3) {
+                    width: 49%;
+                    // max-width: 25rem;
+                    transform: translateY(-15%);
+                    align-self: flex-end;
+                    height: auto;
+                    object-fit: contain;
+               }
+
+               .mobileCover {
+                    @media screen and (max-width: 768px) {
+                         width: 100% !important;
+                         min-width: 150px;
+                         max-height: 300px;
+                         object-fit: cover !important;
+                         border-radius: 8px;
+                         overflow: hidden;
+                    }
+               }
+          }
+
+          .titleCard {
+               width: fit-content;
+               color: #0e7b68;
+               font-weight: 700;
+               padding: 0.5rem 0.8rem;
+               font-size: 0.95rem;
+               background-color: #cee7de;
+               border-radius: 5rem;
+          }
+
+          .heading {
+               font-size: $heading-font-size;
+               margin-block: 2rem 3rem;
+          }
+
+          .secondContainer {
+               img:nth-child(1) {
+                    width: 40%;
+                    height: auto;
+                    object-fit: contain;
+               }
+
+               img:nth-child(4) {
+                    max-width: 15rem;
+                    position: absolute;
+                    z-index: -1;
+                    height: auto;
+                    object-fit: contain;
+                    justify-self: center;
+                    align-self: flex-start;
+               }
+
+               img:nth-child(3) {
+                    width: 59%;
+                    margin-top: -10%;
+                    align-self: flex-end;
+                    height: auto;
+                    object-fit: contain;
+               }
+
+               img:nth-child(2) {
+                    width: 49%;
+                    z-index: -1;
+                    margin-top: 2%;
+                    position: absolute;
+                    align-self: flex-end;
+                    height: auto;
+                    object-fit: contain;
+               }
+          }
+     }
+
+     .canvaImage {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: -1;
+          max-width: 15rem;
+          transform: translate(-50%, -10%);
+     }
+
+     .paddingTop {
+          margin-top: 4rem;
+     }
+}
+
+.applyBtn {
+     background-color: #0e7b68;
+     border-radius: 7px;
+     font-size: 1rem;
+     padding: 0.875rem 0.9rem 0.875rem 0.1rem;
+}
