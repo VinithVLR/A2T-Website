@@ -124,3 +124,17 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .main_container {
+        .container {
+            .heading {
+                width: 100%;
+            }
+
+            .para {
+                width: 100%;
+            }
+        }
+    }
+}

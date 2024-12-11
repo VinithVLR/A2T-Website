@@ -40,17 +40,20 @@
      }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
      .headerSection {
           padding: 1rem;
+          text-align: center;
 
           .headerTitle {
-               font-size: 1.5rem;
+               font-size: $default-font;
+               width: 100% !important;
           }
 
           .headerSubtitle {
-               font-size: 0.9rem;
+               font-size: $sub-heading-font-size;
                margin-block: 1.5rem;
+               padding-inline: 0rem;
           }
      }
 }

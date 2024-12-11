@@ -80,6 +80,12 @@ a {
      }
 }
 
+@media screen and (max-width: 576px) {
+     :root {
+          font-size: 11px;
+     }
+}
+
 .flex {
      display: flex;
 }

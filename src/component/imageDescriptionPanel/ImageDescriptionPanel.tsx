@@ -50,8 +50,8 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                          label={'Explore more'}
                          disabled={false}
                          style={{
-                              width: '10rem',
-                              height: '2.7rem',
+                              width: 'fit-content',
+                              height: 'fit-content',
                               backgroundColor: btnColor,
                               gap: '1rem',
                          }}

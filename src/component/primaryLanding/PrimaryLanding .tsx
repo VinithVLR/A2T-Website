@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react'
+'use client'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styles from './PrimaryLanding .module.scss'
 import Image, { StaticImageData } from 'next/image'
 import img_contact from '../../assets/images/img_contact.png'
@@ -17,6 +18,8 @@ interface heading {
      isReverse?: boolean
      bigImageSrc?: StaticImageData
      smallImageSrc?: StaticImageData
+     isThumbnailHidden?: boolean
+     style?: any
 }
 const PrimaryLanding = ({
      title,
@@ -25,11 +28,27 @@ const PrimaryLanding = ({
      isReverse = false,
      bigImageSrc,
      smallImageSrc,
+     isThumbnailHidden,
+     style,
 }: heading) => {
+     const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+     useEffect(() => {
+          const handleResize = () => {
+               setIsSmallScreen(window.innerWidth <= 748)
+          }
+
+          handleResize()
+          window.addEventListener('resize', handleResize)
+
+          return () => {
+               window.removeEventListener('resize', handleResize)
+          }
+     }, [])
      return (
           <section
                className={`${styles.main_con} ${inter.className}`}
-               style={isReverse ? { flexDirection: 'row-reverse' } : {}}
+               style={isReverse ? { flexDirection: isSmallScreen ? 'column' : 'row-reverse' } : {}}
           >
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
@@ -42,7 +61,10 @@ const PrimaryLanding = ({
                     </div>
                </div>
                <div className={styles.details_section}>
-                    <div className={styles.con_wrapper}>
+                    <div
+                         className={styles.con_wrapper}
+                         style={isSmallScreen ? undefined : { ...style }}
+                    >
                          <div className={`${styles.btn_container} ${styles.semiBoldText}`}>
                               {title}
                          </div>
@@ -50,15 +72,17 @@ const PrimaryLanding = ({
                          <p className={`${styles.description} ${styles.regularText}`}>
                               {description}
                          </p>
-                         <div className={styles.thumb_nailWrapper_con}>
-                              <div className={styles.thumb_nailWrapper}>
-                                   <Image
-                                        src={smallImageSrc ? smallImageSrc : thumb_nail}
-                                        alt=''
-                                        className={styles.image}
-                                   />
+                         {!isThumbnailHidden && (
+                              <div className={styles.thumb_nailWrapper_con}>
+                                   <div className={styles.thumb_nailWrapper}>
+                                        <Image
+                                             src={smallImageSrc ? smallImageSrc : thumb_nail}
+                                             alt=''
+                                             className={styles.image}
+                                        />
+                                   </div>
                               </div>
-                         </div>
+                         )}
                     </div>
                </div>
           </section>

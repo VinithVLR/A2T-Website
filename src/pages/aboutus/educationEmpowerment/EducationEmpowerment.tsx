@@ -61,7 +61,6 @@ const EducationEmpowerment = () => {
                               }}
                          />
                     </div>
-
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>
                               <div className={styles.img_index_top}>

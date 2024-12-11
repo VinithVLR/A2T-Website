@@ -16,8 +16,6 @@
         // margin-bottom: 0.5rem;
     }
 
-
-
     h2 {
         margin: 0.5rem 0;
         font-size: $font-22px;
@@ -30,5 +28,17 @@
         margin-block: 2rem;
         font-weight: $font-weight-regular ;
         line-height: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-block: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        margin-block: 1rem;
     }
 }

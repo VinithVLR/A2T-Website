@@ -17,12 +17,24 @@
         }
     }
 
+    .label {
+        width: fit-content;
+        border-radius: 20px;
+        padding-inline: 0.9rem;
+        padding-block: 0.5rem;
+        color: #0e7b68;
+        font-size: 0.875rem;
+        background-color: #CFECE7;
+        font-weight: $font-weight-sem-bold;
+    }
+
     .title {
         font-size: $default-font;
         color: $color-heading;
         font-weight: $font-weight-sem-bold;
         margin-block-end: 1rem;
         font-family: inherit;
+        margin-block-start: 2rem;
     }
 
     .subTitle {
@@ -37,11 +49,13 @@
         width: 100%;
         height: 100%;
         display: none;
+        border-radius: 10px;
 
         .image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: inherit;
         }
     }
 
@@ -60,6 +74,26 @@
 
 @media (min-width: 1200) and (max-width: 748px) {
     .main_con {
+        .img_wrapper {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .main_con {
+        padding-inline: 0rem;
+
+        .img_wrapper {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main_con {
+        padding-inline: 0rem !important;
+
         .img_wrapper {
             display: block;
         }

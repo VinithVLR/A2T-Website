@@ -130,6 +130,22 @@
 
 @media (max-width: 748px) {
     .sustainableEquity_con {
+        padding-block: 5rem;
+
+        .content_Wrapper {
+            flex-direction: column;
+
+            .image_section {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sustainableEquity_con {
+        padding-block: 5rem;
+
         .content_Wrapper {
             flex-direction: column;
 

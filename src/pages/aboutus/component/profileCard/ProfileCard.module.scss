@@ -46,3 +46,23 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .card {
+        margin-block: 1rem;
+
+        .imageWrapper {
+            .image {}
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        margin-block-end: 1rem;
+
+        .imageWrapper {
+            .image {}
+        }
+    }
+}

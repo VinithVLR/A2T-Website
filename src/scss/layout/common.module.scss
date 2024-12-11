@@ -9,3 +9,17 @@
     background-color: $color-grey-light-1;
     padding-block-end: 5rem;
 }
+
+
+@media (max-width: 748px) {
+    .main_container {
+        padding-block-end: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main_container {
+        padding-block-end: 2rem;
+
+    }
+}

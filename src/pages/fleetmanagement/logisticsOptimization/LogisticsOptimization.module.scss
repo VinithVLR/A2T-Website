@@ -91,12 +91,12 @@
         display: flex;
         flex-direction: column-reverse;
         height: auto;
-
+        padding-block: 4rem;
 
         .container_wrp {
             padding-block-start: 0rem;
             flex-direction: column-reverse;
-            gap: 1.5rem;
+            gap: 2rem;
 
             .img_wrapper {
                 width: 100%;
@@ -105,6 +105,47 @@
 
         .img_Stretch_Full {
             padding-block-start: 6rem;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main_con {
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+        padding-block: 4rem;
+
+        .container_wrp {
+            padding-block-start: 0rem;
+            flex-direction: column-reverse;
+            gap: 2rem;
+
+            .img_wrapper {
+                width: 100%;
+                margin-block-start: 1rem;
+            }
+
+            .details_con {
+                label {
+                    margin-block-start: 2rem;
+                }
+
+                .heading {
+                    padding-block-start: 2rem;
+                }
+
+                .desc {
+                    padding-block-start: 1rem;
+
+                }
+            }
+        }
+
+
+
+        .img_Stretch_Full {
+            padding-block-start: 4rem;
         }
     }
 }

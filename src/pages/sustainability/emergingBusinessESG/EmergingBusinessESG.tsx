@@ -1,0 +1,54 @@
+import React from 'react'
+import styles from './EmergingBusinessESG.module.scss'
+import ImageDesc from '@/component/imageDesc/ImageDesc'
+import image1 from '../../../assets/images/Sustainability/img_des_1.png'
+import image2 from '../../../assets/images/Sustainability/img_des_2.png'
+import image3 from '../../../assets/images/Sustainability/img_des_3.png'
+
+const EmergingBusinessESG = () => {
+     let businessArr: any = [
+          {
+               img: image1,
+               title: 'Customized ESG Policy Development',
+               description: "Tailored strategies that reflect the startup's vision and values.",
+          },
+          {
+               img: image2,
+               title: 'Impact Measurement',
+               description:
+                    'Tools and metrics to track and communicate sustainability efforts effectively.',
+          },
+          {
+               img: image3,
+               title: 'Investor and Stakeholder Alignment',
+               description:
+                    'Creating ESG reports that meet investor expectations and regulatory requirements.',
+          },
+     ]
+     return (
+          <section className={`${styles.main_con}`}>
+               <header className={`${styles.flex_con}`}>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                         For Emerging Businesses, Building a Strong ESG Foundation
+                    </h3>
+                    <p className={`${styles.para} ${styles.regularText}`}>
+                         For startups, embedding ESG principles early offers a strategic advantage.
+                         Our customized ESG strategies help new businesses create sustainable models
+                         that attract investors and drive growth.
+                    </p>
+               </header>
+
+               {businessArr.map((item: any, index: any) => (
+                    <ImageDesc
+                         key={index}
+                         imageUrl={item.img}
+                         title={item.title}
+                         description={item.description}
+                         style={{ paddingBlock: '2rem' }}
+                    />
+               ))}
+          </section>
+     )
+}
+
+export default EmergingBusinessESG

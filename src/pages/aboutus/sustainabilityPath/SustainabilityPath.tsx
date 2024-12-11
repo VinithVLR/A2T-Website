@@ -1,5 +1,5 @@
-import Header from '@/component/header/Header'
 import React from 'react'
+import Header from '@/component/header/Header'
 import styles from './SustainabilityPath.module.scss'
 import bgImage from '../../../assets/images/img_layer_bg.png'
 import Image from '../../../assets/images/image.png'

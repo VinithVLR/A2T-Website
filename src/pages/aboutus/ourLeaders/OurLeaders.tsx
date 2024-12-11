@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import styles from './OurLeaders.module.scss'
 import bgImage from '../../../assets/images/img_ourLeader_bg.png'
 import clientImage from '../../../assets/images/img_ourLeader_.png'
@@ -13,6 +15,21 @@ import profilePic3 from '../../../assets/images/img_profile_3.png'
 import profilePic4 from '../../../assets/images/img_profile_4.png'
 
 const OurLeaders = () => {
+     const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+     useEffect(() => {
+          const handleResize = () => {
+               setIsSmallScreen(window.innerWidth <= 748)
+          }
+
+          handleResize()
+          window.addEventListener('resize', handleResize)
+
+          return () => {
+               window.removeEventListener('resize', handleResize)
+          }
+     }, [])
+
      let profileArr = [
           {
                id: 1,
@@ -49,7 +66,12 @@ const OurLeaders = () => {
                <Header title={'Meet Our Leadership'} />
                <div className={styles.content_Wrapper}>
                     <div className={styles.image_section}>
-                         <div className={styles.img_wrapper}>
+                         <div
+                              className={styles.img_wrapper}
+                              style={{
+                                   textAlign: 'center',
+                              }}
+                         >
                               <OverlapImage
                                    bgImage={bgImage}
                                    img={clientImage}
@@ -58,14 +80,24 @@ const OurLeaders = () => {
                               />
                          </div>
                     </div>
-                    <div className={styles.details_con}>
+                    <div className={styles.details_con} style={{}}>
                          <TitleDescriptionWithIcon
-                              style={{ paddingInline: '0rem' }}
+                              style={{
+                                   paddingInline: '0rem',
+                                   display: isSmallScreen && 'flex',
+                                   flexDirection: isSmallScreen && 'column',
+                                   alignItems: isSmallScreen && 'center',
+                              }}
                               title={'Arunkumar NT'}
                               subTitle={'Founder & CEO'}
                               description={
                                    'With over two decades of experience in the industry, Arunkumar leads A2 Technologies with a vision to drive innovation and sustainability in engineering and workforce solutions.'
                               }
+                              paraStyle={{
+                                   width: isSmallScreen && '80%',
+                                   textAlign: isSmallScreen && 'center',
+                                   paddingBlockEnd: isSmallScreen && '2rem',
+                              }}
                          />
                     </div>
                </div>
