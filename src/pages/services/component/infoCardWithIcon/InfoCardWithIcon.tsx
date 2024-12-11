@@ -37,6 +37,8 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
           lineHeight: '1.5rem',
      }
 
+     console.log('dataImage-Infocard', dataImage)
+
      return (
           <div className={styles.secondary_section}>
                <div

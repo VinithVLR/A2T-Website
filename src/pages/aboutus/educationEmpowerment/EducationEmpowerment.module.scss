@@ -104,3 +104,25 @@
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    .eduction_con {
+        .content_Wrapper {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .eduction_con {
+
+        .content_Wrapper {
+            flex-direction: column;
+
+            .image_section {
+                width: 100%;
+            }
+        }
+    }
+}

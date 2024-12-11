@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect } from 'react'
 import styles from './TitleDescriptionWithIcon.module.scss'
 import Image, { StaticImageData } from 'next/image'
 import Button from '../button/Button'
@@ -22,6 +24,7 @@ interface ItemProps {
      headingStyle?: any
      bgimage?: any
      paraStyle?: any
+     label?: boolean
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -34,6 +37,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      headingStyle,
      bgimage,
      paraStyle,
+     label,
 }) => {
      return (
           <div className={styles.main_con} style={{ ...style }}>
@@ -42,6 +46,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          <Image src={icon} alt='Vision Icon' className={styles.image} />
                     </div>
                )}
+               {label && <label className={styles.label}>The Padikkal Foundation</label>}
                <h2 className={styles.title} style={{ ...headingStyle }}>
                     {title}
                </h2>
@@ -59,7 +64,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          label={'Explore more'}
                          disabled={false}
                          style={{
-                              width: '10rem',
+                              width: 'fit-content',
                               backgroundColor: btnColor,
                               gap: '0.8rem',
                               marginBlock: '2rem',

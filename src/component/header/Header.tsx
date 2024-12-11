@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styles from './Header.module.scss'
 import { Inter } from 'next/font/google'
 
 interface ObjProps {
-     title: string
+     title: string | ReactNode
      subTitle?: string
-     titleStyle?: React.CSSProperties // allows for broader styling options
+     titleStyle?: React.CSSProperties
+     subtitleStyle?: React.CSSProperties
+     containerStyle?: string
 }
 
 const inter = Inter({
@@ -14,9 +16,15 @@ const inter = Inter({
      style: ['normal'],
 })
 
-const Header: React.FC<ObjProps> = ({ title, subTitle, titleStyle }) => {
+const Header: React.FC<ObjProps> = ({
+     title,
+     subTitle,
+     titleStyle,
+     subtitleStyle,
+     containerStyle,
+}) => {
      return (
-          <section className={`${styles.headerSection} ${inter.className}`}>
+          <section className={`${styles.headerSection} ${inter.className} ${containerStyle}`}>
                <h2
                     className={`${styles.headerTitle} ${styles.blackText}`}
                     style={titleStyle ?? titleStyle}
@@ -24,7 +32,12 @@ const Header: React.FC<ObjProps> = ({ title, subTitle, titleStyle }) => {
                     {title}
                </h2>
                {subTitle && (
-                    <h5 className={`${styles.headerSubtitle} ${styles.regularText}`}>{subTitle}</h5>
+                    <h5
+                         className={`${styles.headerSubtitle} ${styles.regularText}`}
+                         style={subtitleStyle ?? subtitleStyle}
+                    >
+                         {subTitle}
+                    </h5>
                )}
           </section>
      )

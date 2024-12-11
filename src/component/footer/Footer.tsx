@@ -69,7 +69,7 @@ const Footer = () => {
                     >
                          {arrImage.map((item: any, index: any) => {
                               return (
-                                   <div className={styles.icon_con}>
+                                   <div className={styles.icon_con} key={index}>
                                         <Image src={item} className={styles.icon} alt='icon' />
                                    </div>
                               )
@@ -79,7 +79,7 @@ const Footer = () => {
                     <div className={styles.iconAndText}>
                          {arr.map((item: any, index: any) => {
                               return (
-                                   <div className={styles.map_con}>
+                                   <div className={styles.map_con} key={index}>
                                         <Link href={item.label} className={styles.label}>
                                              {item.label}
                                         </Link>

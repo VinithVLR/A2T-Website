@@ -1,5 +1,5 @@
-import Header from '@/component/header/Header'
 import React from 'react'
+import Header from '@/component/header/Header'
 import styles from './SustainabilityPath.module.scss'
 import bgImage from '../../../assets/images/img_layer_bg.png'
 import Image from '../../../assets/images/image.png'
@@ -35,7 +35,7 @@ const SustainabilityPath = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper}>
-                              <OverlapImage bgImage={bgImage} image={Image} />
+                              <OverlapImage bgImage={bgImage} img={Image} />
                          </div>
                     </div>
                </div>

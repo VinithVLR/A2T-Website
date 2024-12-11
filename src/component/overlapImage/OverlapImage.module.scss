@@ -6,31 +6,58 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 500px;
+    height: 380px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .imgWrapper {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
+        width: 90%;
         height: 100%;
         display: flex;
+        position: relative;
         align-items: center;
         justify-content: center;
-        position: relative;
 
         .imgWrapper_ab {
-            position: absolute
+            position: absolute;
+            width: 80%;
         }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        .imgWrapper {
+            width: 100%;
+            height: 100%;
+
+            .imgWrapper_ab {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .mainContainer {
+        height: 100%;
+        min-height: 250px;
+
+        .imgWrapper {
+            width: 100%;
+            height: 100%;
+
+            .imgWrapper_ab {
+                width: 100%;
+            }
         }
     }
 }

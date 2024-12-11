@@ -28,3 +28,23 @@
 
     }
 }
+
+
+@media (max-width: 768px) {
+    .sec_con {
+        .content_Wrapper {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec_con {
+        margin-block-start: 4rem;
+
+        .content_Wrapper {
+            flex-direction: column;
+
+        }
+    }
+}

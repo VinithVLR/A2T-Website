@@ -1,80 +1,3 @@
-// 'use client'
-// import React, { useEffect, useRef } from 'react'
-// import styles from './SustainableWorldGoals.module.scss'
-// import Header from '@/component/header/Header'
-// import Image from 'next/image'
-// import imageLayer from '../../../assets/images/img_service.png'
-// import Consumption from '@/component/consumption/Consumption'
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// gsap.registerPlugin(ScrollTrigger)
-
-// const SustainableWorldGoals = () => {
-//      const lineRef = useRef(null)
-
-//      useEffect(() => {
-//           gsap.fromTo(
-//                lineRef.current,
-//                { strokeDasharray: '0, 1000' },
-//                {
-//                     strokeDasharray: '1000, 1000',
-//                     scrollTrigger: {
-//                          trigger: lineRef.current,
-//                          start: 'top 80%',
-//                          end: 'bottom 20%',
-//                          scrub: true,
-//                     },
-//                },
-//           )
-//      }, [])
-
-//      return (
-//           <section id='our-story' className={styles.main_container}>
-//                <Header
-//                     title={'Building a Better World with Sustainable Goals'}
-//                     subTitle={
-//                          'At A2 Technologies, we are committed to contributing to a sustainable and equitable future by aligning our practices with the United Nations Sustainable Development Goals (SDGs).'
-//                     }
-//                />
-//                <div className={styles.svglinecontainer}>
-//                     <section className={styles.flex_con}>
-//                          <div className={styles.image_con}>
-//                               <Image src={imageLayer} alt='icon' />
-//                          </div>
-
-//                          <div className={styles.details_con}>
-//                               <Consumption />
-//                          </div>
-//                     </section>
-
-//                     <svg className={styles.svgLine} width='2' height='100%'>
-//                          <line
-//                               ref={lineRef}
-//                               x1='1'
-//                               y1='0'
-//                               x2='1'
-//                               y2='100%'
-//                               stroke='#111'
-//                               strokeWidth='2'
-//                          />
-//                     </svg>
-
-//                     <section className={styles.flex_con}>
-//                          <div className={styles.image_con}>
-//                               <Image src={imageLayer} alt='icon' />
-//                          </div>
-
-//                          <div className={styles.details_con}>
-//                               <Consumption />
-//                          </div>
-//                     </section>
-//                </div>
-//           </section>
-//      )
-// }
-
-// export default SustainableWorldGoals
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './SustainableWorldGoals.module.scss'
@@ -226,7 +149,7 @@ const SustainableWorldGoals = () => {
                {windowWidth <= 768 ? (
                     <div ref={svgContainerRef} className={styles.svglinecontainer_web}>
                          {arr.map((item: any, index: any) => (
-                              <Consumption data={item} />
+                              <Consumption key={index} data={item} />
                          ))}
                     </div>
                ) : (

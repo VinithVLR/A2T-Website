@@ -3,9 +3,9 @@ import React from 'react'
 import img_electric from '../../../assets/images/img_electric.png'
 import img_tech from '../../../assets/images/img_tech.png'
 import img_wild from '../../../assets/images/img_wild.png'
-
 import UpdateCard from '@/component/updateCard/UpdateCard'
 import style from './LastestUpdates.module.scss'
+
 const LatestUpdates = () => {
      let arr = [
           {
@@ -37,6 +37,7 @@ const LatestUpdates = () => {
                <div className={style.three_card_layout}>
                     {arr.map((item, index) => (
                          <UpdateCard
+                              key={index}
                               imageUrl={item.img}
                               date={item.date}
                               title={item.title}
