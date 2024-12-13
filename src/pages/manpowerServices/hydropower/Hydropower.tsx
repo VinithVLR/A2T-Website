@@ -1,0 +1,47 @@
+import React from 'react'
+import styles from '../../../scss/layout/common.module.scss'
+import Card from '@/pages/fleetmanagement/component/Card'
+import cardImage1 from '../../../assets/images/man_power/img_hyr_1.png'
+import cardImage2 from '../../../assets/images/man_power/img_hyr_2.png'
+
+const Hydropower = () => {
+     let hydroPowerData = [
+          {
+               img: cardImage1,
+               title: 'Hydropower Engineers',
+               description:
+                    'Engineers with experience in civil, mechanical, and electrical aspects of small and large hydropower plants.',
+          },
+          {
+               img: cardImage2,
+               title: 'Hydropower Maintenance Technicians',
+               description: 'Manpower for the regular upkeep and monitoring of hydropower systems.',
+          },
+     ]
+     return (
+          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+               <header className={`${styles.flex_con}`}>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>Hydropower</h3>
+                    <p className={`${styles.para} ${styles.regularText}`}>
+                         Our Hydropower Engineers specialize in plant design and O&M Technicians
+                         maintain and monitor hydropower systems to ensure continuous and efficient
+                         energy production.
+                    </p>
+               </header>
+               <div className={styles.two_card_layout}>
+                    {hydroPowerData.map((item: any, index: any) => {
+                         return (
+                              <Card
+                                   key={index}
+                                   imageUrl={item.img}
+                                   title={item.title}
+                                   description={item.description}
+                              />
+                         )
+                    })}
+               </div>
+          </section>
+     )
+}
+
+export default Hydropower

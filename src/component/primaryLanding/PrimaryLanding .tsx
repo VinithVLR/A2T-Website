@@ -20,6 +20,7 @@ interface heading {
      smallImageSrc?: StaticImageData
      isThumbnailHidden?: boolean
      style?: any
+     layoutMod?: boolean
 }
 const PrimaryLanding = ({
      title,
@@ -30,6 +31,7 @@ const PrimaryLanding = ({
      smallImageSrc,
      isThumbnailHidden,
      style,
+     layoutMod,
 }: heading) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
 
@@ -50,7 +52,7 @@ const PrimaryLanding = ({
                className={`${styles.main_con} ${inter.className}`}
                style={isReverse ? { flexDirection: isSmallScreen ? 'column' : 'row-reverse' } : {}}
           >
-               <div className={styles.image_section}>
+               <div className={styles.image_section} style={layoutMod ? { flex: '0.25' } : {}}>
                     <div className={styles.image_wrapper}>
                          <Image
                               src={bigImageSrc ? bigImageSrc : img_contact}
@@ -60,7 +62,7 @@ const PrimaryLanding = ({
                          />
                     </div>
                </div>
-               <div className={styles.details_section}>
+               <div className={styles.details_section} style={layoutMod ? { flex: '0.85' } : {}}>
                     <div
                          className={styles.con_wrapper}
                          style={isSmallScreen ? undefined : { ...style }}

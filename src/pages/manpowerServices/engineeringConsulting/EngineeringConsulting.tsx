@@ -1,0 +1,38 @@
+import React from 'react'
+import styles from '../../../scss/layout/common.module.scss'
+import ImageDesc from '@/component/imageDesc/ImageDesc'
+import cardImage1 from '../../../assets/images/man_power/img_engCon_ly1.png'
+const EngineeringConsulting = () => {
+     const consultingArr = [
+          {
+               img: cardImage1,
+               title: 'Engineering Consultants',
+               description:
+                    'Offering expertise across renewable energy, LNG, EV, and manufacturing, providing advisory services and feasibility studies.',
+          },
+     ]
+     return (
+          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+               <header className={`${styles.flex_con}`}>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                         Engineering Consulting Services
+                    </h3>
+                    <p className={`${styles.para} ${styles.regularText}`}>
+                         Our Engineering Consultants offer expert advice across renewable energy,
+                         LNG, electric vehicles, and manufacturing, helping clients optimize
+                         operations and execute feasibility studies.
+                    </p>
+               </header>
+               {consultingArr.map((item: any, index: any) => (
+                    <ImageDesc
+                         key={item.id}
+                         imageUrl={item.img}
+                         title={item.title}
+                         description={item.description}
+                    />
+               ))}
+          </section>
+     )
+}
+
+export default EngineeringConsulting

@@ -1,0 +1,50 @@
+import React from 'react'
+import styles from '../../../scss/layout/common.module.scss'
+import Card from '@/pages/fleetmanagement/component/Card'
+import cardImage1 from '../../../assets/images/man_power/img_aut_ly1.png'
+import cardImage2 from '../../../assets/images/man_power/img_aut_ly2.png'
+
+const RoboticsSolutions = () => {
+     let roboticsData = [
+          {
+               img: cardImage1,
+               title: 'Hydropower Engineers',
+               description:
+                    'Engineers with experience in civil, mechanical, and electrical aspects of small and large hydropower plants.',
+          },
+          {
+               img: cardImage2,
+               title: 'Hydropower Maintenance Technicians',
+               description: 'Manpower for the regular upkeep and monitoring of hydropower systems.',
+          },
+     ]
+
+     return (
+          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+               <header className={`${styles.flex_con}`}>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                         Automation & Robotics
+                    </h3>
+                    <p className={`${styles.para} ${styles.regularText}`}>
+                         Automation Engineers and Robotics Engineers specialize in automating
+                         factory processes and integrating robotic systems for improved production
+                         efficiency and precision.
+                    </p>
+               </header>
+               <div className={styles.two_card_layout}>
+                    {roboticsData.map((item: any, index: any) => {
+                         return (
+                              <Card
+                                   key={index}
+                                   imageUrl={item.img}
+                                   title={item.title}
+                                   description={item.description}
+                              />
+                         )
+                    })}
+               </div>
+          </section>
+     )
+}
+
+export default RoboticsSolutions
