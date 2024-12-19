@@ -25,22 +25,22 @@
 
 .three_card_layout {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
     gap: 1.8rem;
 
-    .card {
-        max-width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        background-color: #fff;
-        text-align: center;
-    }
+    // .card {
+    //     max-width: 300px;
+    //     border: 1px solid #ccc;
+    //     border-radius: 8px;
+    //     overflow: hidden;
+    //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    //     background-color: #fff;
+    //     text-align: center;
+    // }
 
-    .container {
-        padding: 16px;
-    }
+    // .container {
+    //     padding: 16px;
+    // }
 }
 
 .two_card_layout {
@@ -63,9 +63,11 @@
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
+        row-gap: 5rem;
     }
 
     @media (max-width: 576px) {
         grid-template-columns: 1fr;
+        row-gap: 5rem;
     }
 }

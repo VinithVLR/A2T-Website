@@ -11,15 +11,15 @@
         font-size: $heading-font-size;
         color: $color-heading;
         flex: 1.5;
-        line-height: 1.5;
+        // line-height: 1.5;
     }
 
     .para {
         font-size: $paragraph-font-size;
         color: $sub-heading;
         flex: 1.1;
-        line-height: 1.6;
-        margin-block: 2rem;
+        // line-height: 1.6;
+        margin-block: 1rem;
         margin-block-end: 3rem;
 
     }
@@ -30,6 +30,8 @@
     .flex_con {
         display: flex;
         flex-direction: column;
+        padding-block-start: 0rem;
+        padding-block-end: 0rem;
 
         .heading {
             text-align: center;
@@ -41,4 +43,19 @@
     }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 576px) {
+    .flex_con {
+        display: flex;
+        flex-direction: column;
+        padding-block-start: 0rem;
+        padding-block-end: 0rem;
+
+        .heading {
+            text-align: center;
+        }
+
+        .para {
+            text-align: center;
+        }
+    }
+}

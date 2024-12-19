@@ -2,6 +2,8 @@
     width: 100%;
     padding-inline: 2rem;
     background-color: #F3FCF4;
+    max-width: 1800px;
+    margin: auto;
 
     .content_Wrapper {
         display: flex;
@@ -21,7 +23,7 @@
 
         .image_section {
             flex: 0.4;
-            height: 100%;
+            height: auto;
 
             .img_wrapper_index {
                 display: flex;
@@ -31,7 +33,7 @@
 
                 .img_index {
                     width: 100%;
-                    height: 100%;
+                    height: auto;
                     object-fit: contain;
                 }
 
@@ -55,14 +57,14 @@
 
                     .img_ab {
                         width: 100%;
-                        height: 100%;
+                        height: auto;
                         object-fit: contain;
                         border-radius: inherit;
                     }
 
                     .img_top_con {
                         width: 100%;
-                        height: 100%;
+                        height: auto;
                         transform: translateX(1rem) translateY(4rem);
                         z-index: 0;
                         position: relative;
@@ -71,7 +73,7 @@
 
                     .img_right_con {
                         width: 85%;
-                        height: 100%;
+                        height: auto;
                         z-index: 2;
                         position: relative;
                         transform: translateY(-11rem) translateX(3rem);
@@ -80,7 +82,7 @@
 
                     .img_left_con {
                         width: 60%;
-                        height: 100%;
+                        height: auto;
                         z-index: 2;
                         position: relative;
                         transform: translateX(20rem) translateY(-4rem);
@@ -127,7 +129,7 @@
     }
 }
 
-@media (max-width: 748px) {
+@media (max-width: 768px) {
     .DigitalSecurity_con {
         padding-block: 5rem;
 
@@ -136,6 +138,14 @@
 
             .image_section {
                 width: 100%;
+
+                .img_wrapper_index {
+                    .img_wrapper_absolute {
+                        .img_left_con {
+                            transform: translateX(33rem) translateY(-4rem);
+                        }
+                    }
+                }
             }
         }
     }
@@ -150,6 +160,14 @@
 
             .image_section {
                 width: 100%;
+
+                .img_wrapper_index {
+                    .img_wrapper_absolute {
+                        .img_left_con {
+                            transform: translateX(16rem) translateY(-4rem);
+                        }
+                    }
+                }
             }
         }
     }

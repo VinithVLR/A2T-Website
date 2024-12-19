@@ -16,7 +16,6 @@ const SustainableEquity = () => {
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
                          <TitleDescriptionWithIcon
-                              label
                               style={{ paddingInline: '0rem' }}
                               title={'Creating a Sustainable and Equitable Future'}
                               description={

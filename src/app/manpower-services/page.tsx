@@ -2,8 +2,8 @@ import React from 'react'
 import WorkforceSolutions from '@/pages/manpowerServices/workforceSolutions/WorkforceSolutions'
 import ForAlternativeEnergy from '@/component/forAlternativeEnergy/ForAlternativeEnergy'
 import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
-import bg from '../../assets/images/man_power/img_sec_bg.png'
-import img from '../../assets/images/man_power/img_sec_lay.png'
+import bg from '../../assets/images/img_ourLeader_bg.png'
+import img from '../../assets/images/man_power/img_skil_ly.png'
 import LiquefiedNaturalGas from '@/pages/manpowerServices/solarEnergy/SolarEnergy'
 import PrimaryLanding from '@/component/primaryLanding/PrimaryLanding '
 import bigImageSrc from '../../assets/images/man_power/img_lan_ver.png'
@@ -41,22 +41,27 @@ const page = () => {
                          display: 'flex',
                          flexDirection: 'column',
                     }}
+                    flexRow
                     layoutMod
-                    heading={<>Empowering Businesses with Skilled Talent across All Domains</>}
+                    heading={
+                         <>
+                              Empowering Businesses with <span>Skilled Talent </span>across All
+                              Domains
+                         </>
+                    }
                     bigImageSrc={bigImageSrc}
                     smallImageSrc={hozImageSrc}
                     description='Partnering with you to build a dynamic, skilled workforce that aligns with your vision and goals.'
                />
                <SecondaryLanding
-                    flexReverse
-                    heading={'Empowering Industry with Engineering Excellence'}
+                    heading={'Skilled Manpower Driving Cleaner, Modern Solutions'}
                     description={
-                         'Our Engineering Services are designed to provide comprehensive solutions that meet the demands of modern industry. Our team of experts delivers innovative engineering solutions that drive efficiency, enhance performance, and ensure the success of your projects.'
+                         'A2T delivers skilled manpower across diverse functions, from engineering design to field technicians and maintenance experts, offering end-to-end solutions tailored to industries rapidly transforming towards cleaner energy, modern manufacturing, and advanced technologies.'
                     }
                     image={img}
                     bgImage={bg}
                />
-               <WorkforceSolutions />
+               <WorkforceSolutions keyProp={true} />
                <ForAlternativeEnergy title={'For Alternative Energy'} />
                <SolarEnergy />
                <WindEnergy />

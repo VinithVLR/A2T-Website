@@ -1,19 +1,21 @@
 @import '../../scss/abstracts/variable.scss';
 
 .call_to_action {
-    height: 100vh;
+
     width: 100%;
     padding-inline: 2rem;
-    padding-block-start: 4rem;
+    padding-block: 4rem;
     display: flex;
     background-color: $color-white;
     align-items: center;
     justify-content: center;
     font-family: 'inter';
+    max-width: 1800px;
+    margin: auto;
+
 
     .call_to_action__container {
         flex: 1;
-        height: 90%;
         background-color: #0E7B68;
         display: flex;
         border-radius: 30px;
@@ -63,6 +65,8 @@
             text-align: center;
             display: flex;
             justify-content: center;
+            padding: 1.5rem;
+            padding-block: 8rem;
 
             .conWrapper {
                 display: flex;
@@ -87,4 +91,29 @@
             }
         }
     }
+}
+
+@media (max-width: 768px) {
+    .call_to_action {
+        .call_to_action__container {
+            .detailsCon {
+                .conWrapper {
+                    padding-inline: 0rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .call_to_action {
+        .call_to_action__container {
+            .detailsCon {
+                .conWrapper {
+                    padding-inline: 0rem;
+                }
+            }
+        }
+    }
+
 }

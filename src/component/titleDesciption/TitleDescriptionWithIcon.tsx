@@ -25,6 +25,7 @@ interface ItemProps {
      bgimage?: any
      paraStyle?: any
      label?: boolean
+     labelStyle?: any
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -38,6 +39,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      bgimage,
      paraStyle,
      label,
+     labelStyle,
 }) => {
      return (
           <div className={styles.main_con} style={{ ...style }}>
@@ -46,7 +48,11 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          <Image src={icon} alt='Vision Icon' className={styles.image} />
                     </div>
                )}
-               {label && <label className={styles.label}>The Padikkal Foundation</label>}
+               {label && (
+                    <label className={styles.label} style={{ ...labelStyle }}>
+                         {label ? label : 'The Padikkal Foundation'}
+                    </label>
+               )}
                <h2 className={styles.title} style={{ ...headingStyle }}>
                     {title}
                </h2>

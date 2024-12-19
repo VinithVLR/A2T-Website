@@ -8,11 +8,13 @@
     padding-inline: $layout_row_padding;
     background-color: $color-white;
     padding-block: 3rem;
+    max-width: 1800px;
+    margin: auto;
 
     .content_Wrapper {
         display: flex;
         align-items: center;
-        height: 25rem;
+        // height: 25rem;
 
         .details_con {
             flex: 0.45;
@@ -39,6 +41,10 @@
 
         .content_Wrapper {
             height: auto;
+
+            .image_section {
+                justify-content: center;
+            }
         }
     }
 }
@@ -50,6 +56,10 @@
         .content_Wrapper {
             height: auto;
             flex-direction: column;
+
+            .image_section {
+                justify-content: center;
+            }
         }
     }
 }

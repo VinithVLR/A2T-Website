@@ -6,6 +6,9 @@
     padding-inline: 2rem;
     background-color: $color-white;
     margin-block: 6rem;
+    max-width: 1800px;
+    margin: auto;
+    margin-block-end: 2rem;
 
     .content_Wrapper {
         display: flex;
@@ -66,7 +69,7 @@
     }
 }
 
-@media (max-width: 748px) {
+@media (max-width: 768px) {
     .secondary_section {
         margin-block-start: 1.5rem;
         margin-block-end: 1.5rem;

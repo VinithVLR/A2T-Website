@@ -119,3 +119,52 @@
     }
 
 }
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+
+    .imgDesc_con {
+        padding-inline: 0rem;
+        padding-block: 2rem;
+
+        .content_Wrapper {
+            display: flex;
+            justify-content: center;
+
+            .first_image_section {
+                flex: 2;
+
+                .frst_img_rel {
+                    .frst_image_rel {
+                        width: 80%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .sec_image_section {
+                flex: 1.9;
+
+                .sec_img_rel {
+                    .sec_image_rel {
+                        width: 70%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .third_image_section {
+                flex: 2;
+
+                .third_img_rel {
+                    .third_image_rel {
+                        width: 80%;
+                        height: auto;
+                    }
+                }
+            }
+
+        }
+    }
+}

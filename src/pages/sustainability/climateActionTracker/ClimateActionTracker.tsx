@@ -1,6 +1,7 @@
+import React from 'react'
+import styles from '../../../scss/layout/common.module.scss'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
 import Header from '@/component/header/Header'
-import React from 'react'
 import bgImage1 from '../../../assets/images/Sustainability/img_sus_bg1.png'
 import image1 from '../../../assets/images/Sustainability/img_sus_1.png'
 import bgImage2 from '../../../assets/images/Sustainability/img_sus_bg2.png'
@@ -31,7 +32,7 @@ const ClimateActionTracker = () => {
           },
      ]
      return (
-          <section>
+          <section style={{ paddingBlock: '3rem' }}>
                <Header
                     title={'Effective Climate Action using Accurate GHG Accounting'}
                     titleStyle={{ width: '60%' }}

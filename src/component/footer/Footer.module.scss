@@ -7,6 +7,8 @@
     padding-block-start: 2rem;
     // padding-block-end: 3rem;
     background-color: $color-grey-light-2;
+    max-width: 1800px;
+    margin: auto;
 
     .flex_con_right {
         display: flex;
@@ -28,7 +30,7 @@
     .para {
         width: 65%;
         font-size: $font-16px;
-        line-height: 2rem;
+        // line-height: 2rem;
 
         span {
             font-weight: $font-weight-bold;
@@ -36,7 +38,7 @@
     }
 
     p {
-        line-height: 1.6;
+        // line-height: 1.6;
     }
 
     .unOrder_list_con {

@@ -8,14 +8,15 @@ interface imageDescProps {
      description: string | string[]
      rowReverse?: boolean
      style?: any
+     label?: string
 }
 
-const ImageDesc = ({ imageUrl, title, description, rowReverse, style }: imageDescProps) => {
+const ImageDesc = ({ imageUrl, title, description, rowReverse, style, label }: imageDescProps) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
 
      useEffect(() => {
           const handleResize = () => {
-               setIsSmallScreen(window.innerWidth <= 748)
+               setIsSmallScreen(window.innerWidth <= 768)
           }
 
           handleResize()
@@ -55,6 +56,7 @@ const ImageDesc = ({ imageUrl, title, description, rowReverse, style }: imageDes
                >
                     <div className={styles.details_con}>
                          <h2 className={styles.title}>{title}</h2>
+                         {label && <label>{label}</label>}
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (

@@ -29,7 +29,10 @@ const BiomassEnergySolutions = () => {
      return (
           <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <h3
+                         style={{ paddingInlineEnd: '2rem' }}
+                         className={`${styles.heading} ${styles.blackText}`}
+                    >
                          Biomass & Waste-to-Energy
                     </h3>
                     <p className={`${styles.para} ${styles.regularText}`}>

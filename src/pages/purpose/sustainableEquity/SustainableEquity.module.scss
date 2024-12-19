@@ -4,6 +4,8 @@
     width: 100%;
     padding-inline: 2rem;
     background-color: #F3FCF4;
+    max-width: 1800px;
+    margin: auto;
 
     .content_Wrapper {
         display: flex;
@@ -128,7 +130,7 @@
     }
 }
 
-@media (max-width: 748px) {
+@media (max-width: 768px) {
     .sustainableEquity_con {
         padding-block: 5rem;
 
@@ -137,6 +139,21 @@
 
             .image_section {
                 width: 100%;
+
+                .img_wrapper_index {
+                    .img_index_right {}
+
+                    .img_wrapper_absolute {
+                        .img_right_con {
+                            transform: translateY(-11rem) translateX(15rem);
+
+                        }
+
+                        .img_top_con {
+                            transform: translateX(21rem) translateY(4rem);
+                        }
+                    }
+                }
             }
         }
     }
@@ -151,6 +168,22 @@
 
             .image_section {
                 width: 100%;
+
+                .img_wrapper_index {
+                    .img_index_right {
+                        transform: translateX(14rem) translateY(4rem);
+                    }
+
+                    .img_wrapper_absolute {
+                        .img_right_con {
+                            transform: translateY(-11rem) translateX(7rem);
+                        }
+
+                        .img_top_con {
+                            transform: translateX(7rem) translateY(4rem);
+                        }
+                    }
+                }
             }
         }
     }

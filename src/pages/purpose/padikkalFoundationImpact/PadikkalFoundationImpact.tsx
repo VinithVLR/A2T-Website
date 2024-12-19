@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './PadikkalFoundationImpact.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import bgImage from '../../../assets/images/img_layer_bg.png'
-import image from '../../../assets/images/img_pak_image.png'
+import image from '../../../assets/images/img_enp_double.png'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 
 const PadikkalFoundationImpact = () => {

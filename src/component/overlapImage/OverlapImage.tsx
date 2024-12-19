@@ -7,9 +7,16 @@ interface OverlapImageProps {
      bgStyle?: any
      imgWrapper?: any
      img: StaticImageData
+     style?: any
 }
 
-const OverlapImage: React.FC<OverlapImageProps> = ({ bgImage, img, bgStyle, imgWrapper }) => {
+const OverlapImage: React.FC<OverlapImageProps> = ({
+     bgImage,
+     img,
+     bgStyle,
+     imgWrapper,
+     style,
+}) => {
      return (
           <div
                className={styles.mainContainer}
@@ -17,7 +24,7 @@ const OverlapImage: React.FC<OverlapImageProps> = ({ bgImage, img, bgStyle, imgW
           >
                <div className={styles.imgWrapper} style={{ ...imgWrapper }}>
                     <Image src={bgImage} alt='Overlay Image' priority />
-                    <div className={styles.imgWrapper_ab}>
+                    <div className={styles.imgWrapper_ab} style={{ ...style }}>
                          <Image src={img} alt='Overlay Image' priority />
                     </div>
                </div>
