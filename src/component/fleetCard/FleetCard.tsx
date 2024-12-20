@@ -22,7 +22,7 @@ interface FleetCardProps {
      item: FleetCardData
 }
 
-const FleetCard = ({ indexNumber, item }: FleetCardProps) => {
+const FleetCard = ({ indexNumber, item }: any) => {
      const [isLoading, setIsLoading] = useState(true)
 
      useEffect(() => {
@@ -63,16 +63,22 @@ const FleetCard = ({ indexNumber, item }: FleetCardProps) => {
                          >
                               <div className={styles.img_wrapper}>
                                    <Image
-                                        src={item.iconImage}
+                                        src={isHovered ? item.whiteIcon : item.iconImage}
                                         alt=''
                                         className={`${styles.image}`}
                                    />
                               </div>
-                              <h3 className={styles.title} style={{ color: item.titleColor }}>
+                              <h3
+                                   className={styles.title}
+                                   style={{ color: isHovered ? '#fff' : item.fontColor }}
+                              >
                                    {item.title}
                               </h3>
                               <hr className={styles.separator} />
-                              <p className={styles.description} style={{ color: item.desColor }}>
+                              <p
+                                   className={styles.description}
+                                   style={{ color: isHovered ? '#fff' : item.desColor }}
+                              >
                                    {item.des}
                               </p>
                          </div>

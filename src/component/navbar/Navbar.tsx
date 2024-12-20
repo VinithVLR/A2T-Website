@@ -51,8 +51,8 @@ const CloseIcon = () => (
 )
 
 const navItems: NavItem[] = [
-     { label: 'Manpower solutions', href: '/manpower', title: 'manpower' },
-     { label: 'Engineering', href: '/engineering', title: 'engineering' },
+     { label: 'Manpower solutions', href: '/manpower-services', title: 'manpower' },
+     { label: 'Engineering', href: '/engineering-services', title: 'engineering' },
      { label: 'ESG & Sustainability', href: '/esg-sustainability', title: 'esg' },
      { label: 'Business consulting', href: '/business-consult', title: 'consulting' },
      { label: 'Fleet Management', href: '/fleet-management', title: 'fleetmanagement' },
@@ -658,7 +658,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
      }
 
      const handleNavigation = () => {
-          router.push('/aboutus')
+          router.push('/contact-us')
           setIsOpen(false)
      }
 
@@ -686,10 +686,11 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     ref={menuBarRef}
                     className={`${styles.navbar} ${className}`.trim()}
                     style={{
-                         backgroundColor:
-                              isTransparent && !isScrolledLanding && !activeMenu
-                                   ? 'transparent'
-                                   : '#fff',
+                         backgroundColor: isOpen
+                              ? '#111'
+                              : isTransparent && !isScrolledLanding && !activeMenu
+                                ? 'transparent'
+                                : '#fff',
                          color:
                               isTransparent && !isScrolledLanding && !activeMenu
                                    ? '#fff'
@@ -703,9 +704,13 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                    <div className={styles.logo_con}>
                                         <Image
                                              src={
-                                                  isTransparent && !isScrolledLanding && !activeMenu
+                                                  isOpen
                                                        ? companyLogoWhite
-                                                       : companyLogo
+                                                       : isTransparent &&
+                                                           !isScrolledLanding &&
+                                                           !activeMenu
+                                                         ? companyLogoWhite
+                                                         : companyLogo
                                              }
                                              alt='icon'
                                              className={styles.icon}
@@ -771,59 +776,92 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     }}
                >
                     <ul className={styles.mainnav}>
-                         <li>
-                              <span>01</span>
-                              <h1>Manpower solutions</h1>
-                         </li>
-                         <li>
-                              <span>02</span>
-                              <h1>Engineering services</h1>
-                         </li>
-                         <li>
-                              <span>03</span>
-                              <h1>Fleet management service</h1>
-                         </li>
-                         <li>
-                              <span>04</span>
-                              <h1>ESG & Sustainability</h1>
-                         </li>
-                         <li>
-                              <span>05</span>
-                              <h1>Business Consulting</h1>
-                         </li>
+                         <Link href={'/manpower-services'}>
+                              <li>
+                                   <span>01</span>
+                                   <h1>Manpower solutions</h1>
+                              </li>
+                         </Link>
+                         <Link href={'/engineering-services'}>
+                              <li>
+                                   <span>02</span>
+                                   <h1>Engineering services</h1>
+                              </li>
+                         </Link>
+                         <Link href={'/fleet-management'}>
+                              <li>
+                                   <span>03</span>
+                                   <h1>Fleet management service</h1>
+                              </li>
+                         </Link>
+                         <Link href={'/egs-sustainability'}>
+                              <li>
+                                   <span>04</span>
+                                   <h1>ESG & Sustainability</h1>
+                              </li>
+                         </Link>
+                         <Link href={'/business-consult'}>
+                              <li>
+                                   <span>05</span>
+                                   <h1>Business Consulting</h1>
+                              </li>
+                         </Link>
                     </ul>
                     <div className={styles.sidenav}>
                          <ul>
-                              <li>
-                                   <span>06</span>
-                                   <h1>About us</h1>
-                              </li>
-                              <li>
-                                   <span>07</span>
-                                   <h1>Services</h1>
-                              </li>
-                              <li>
-                                   <span>08</span>
-                                   <h1>Purpose</h1>
-                              </li>
-                              <li>
-                                   <span>09</span>
-                                   <h1>Careers</h1>
-                              </li>
+                              <Link href={'/about-us'}>
+                                   <li>
+                                        <span>06</span>
+                                        <h1>About us</h1>
+                                   </li>
+                              </Link>
+                              <Link href={'/services'}>
+                                   <li>
+                                        <span>07</span>
+                                        <h1>Services</h1>
+                                   </li>
+                              </Link>
+                              <Link href={'/purpose'}>
+                                   <li>
+                                        <span>08</span>
+                                        <h1>Purpose</h1>
+                                   </li>
+                              </Link>
+                              <Link href={'/careers'}>
+                                   <li>
+                                        <span>09</span>
+                                        <h1>Careers</h1>
+                                   </li>
+                              </Link>
+                              {/* <Link href={'/careers'}>
                               <li>
                                    <span>10</span>
                                    <h1>Newsroom</h1>
                               </li>
-                              <li>
-                                   <span>11</span>
-                                   <h1>Company policies</h1>
-                              </li>
+                              </Link> */}
+                              {/* <Link href={'/careers'}>
+                                   <li>
+                                        <span>11</span>
+                                        <h1>Company policies</h1>
+                                   </li>
+                              </Link> */}
                          </ul>
                          <div className={styles.socialLinkCont}>
-                              <img src={linkedinIc.src} alt='' />
-                              <img src={xIc.src} alt='' style={{ marginTop: '5px' }} />
-                              <img src={instaIc.src} alt='' />
-                              <img src={fbIc.src} alt='' />
+                              <Link href={'https://www.linkedin.com/in/ntarun/'} target='_blank'>
+                                   <img src={linkedinIc.src} alt='' />
+                              </Link>
+
+                              <Link href={''}>
+                                   <img src={xIc.src} alt='' style={{ marginTop: '5px' }} />
+                              </Link>
+
+                              <Link href={''}>
+                                   <img src={instaIc.src} alt='' />
+                              </Link>
+
+                              <Link href={''}>
+                                   <img src={fbIc.src} alt='' />
+                              </Link>
                          </div>
                          <button
                               type='button'
@@ -832,14 +870,15 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          >
                               Contact us
                          </button>
-                         <div className={styles.linkCont}>
+                         <a href={'tel:+91-9150523409'} className={styles.linkCont}>
                               <img src={callIc.src} alt='' />
                               <span>+91 98866 40104</span>
-                         </div>
-                         <div className={styles.linkCont}>
+                         </a>
+
+                         <a href={'mailto:finance@a2tgroup.com'} className={styles.linkCont}>
                               <img src={mailIc.src} alt='' />
                               <span>finance@a2tgroup.com</span>
-                         </div>
+                         </a>
                     </div>
                </div>
                <div

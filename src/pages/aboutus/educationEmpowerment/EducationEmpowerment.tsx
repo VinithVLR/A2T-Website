@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import styles from './EducationEmpowerment.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
@@ -10,8 +12,11 @@ import imgLayer5 from '../../../assets/images/img_emp_5.png'
 import imgLayer6 from '../../../assets/images/img_emp_6.png'
 import imgLayer7 from '../../../assets/images/img_emp_7.png'
 
+import { useRouter } from 'next/navigation'
+
 import Image from 'next/image'
 const EducationEmpowerment = () => {
+     const router = useRouter()
      return (
           <section className={styles.eduction_con}>
                <div className={styles.content_Wrapper}>
@@ -58,6 +63,9 @@ const EducationEmpowerment = () => {
                                    fontSize: '1.125rem',
                                    color: '#fff',
                                    fontWeight: '400',
+                              }}
+                              onClick={() => {
+                                   router.push('/purpose')
                               }}
                          />
                     </div>

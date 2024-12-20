@@ -1,9 +1,13 @@
+'use client'
+
 import React from 'react'
 import styles from './CallToAction.module.scss'
 import Image from 'next/image'
 import ImageCTA from '../../assets/images/img_calltoaction.png'
 import Button from '../button/Button'
 import logoGreen from '../../assets/icons/ic_logo_green.svg'
+
+import { useRouter } from 'next/navigation'
 
 const CallToAction = ({
      img,
@@ -14,6 +18,7 @@ const CallToAction = ({
      data: React.ReactNode
      style?: any
 }) => {
+     const router = useRouter()
      return (
           <section className={styles.call_to_action}>
                <div className={styles.call_to_action__container} style={{ ...style }}>
@@ -45,6 +50,9 @@ const CallToAction = ({
                                         fontSize: '1.2rem',
                                         color: '#0E7B68',
                                         fontWeight: '600',
+                                   }}
+                                   onClick={() => {
+                                        router.push('/contact-us')
                                    }}
                               />
                          </div>

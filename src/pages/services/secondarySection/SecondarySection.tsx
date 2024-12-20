@@ -24,6 +24,7 @@ const SecondarySection = () => {
 
                btnColor: '#003366',
                image: Image1,
+               link: '/manpower-services',
           },
           {
                icon: engineeringIcon,
@@ -33,6 +34,7 @@ const SecondarySection = () => {
 
                btnColor: '#008080',
                image: Image2,
+               link: '/engineering-services',
           },
           {
                icon: fleetIcon,
@@ -42,6 +44,7 @@ const SecondarySection = () => {
 
                btnColor: '#B91722',
                image: Image3,
+               link: '/fleet-management',
           },
           {
                icon: esgIcon,
@@ -51,6 +54,7 @@ const SecondarySection = () => {
 
                btnColor: '#28A745',
                image: Image4,
+               link: '/esg-sustainability',
           },
           {
                icon: businessIcon,
@@ -60,6 +64,7 @@ const SecondarySection = () => {
 
                btnColor: '#8E2FD2',
                image: Image5,
+               link: '/business-consult',
           },
      ]
 
@@ -77,6 +82,7 @@ const SecondarySection = () => {
                               btnColor={card.btnColor}
                               rowReverse={index % 2 !== 0}
                               hoverColor={card.hoverColor}
+                              link={card.link}
                          />
                     )
                })}

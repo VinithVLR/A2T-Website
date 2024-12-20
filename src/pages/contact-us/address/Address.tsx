@@ -6,6 +6,7 @@ import youtubeIcon from '../../../assets/icons/ic_social_youtube.svg'
 import linkedin from '../../../assets/icons/ic_social_linkedin.svg'
 import xicon from '../../../assets/icons/ic_social_x.svg'
 import twitterIcon from '../../../assets/icons/ic_social_twitter.svg'
+import Link from 'next/link'
 
 function Address() {
      return (
@@ -20,15 +21,18 @@ function Address() {
                               <img src={xicon.src} alt='' />
                          </div>
                     </div>
-                    <div className={styles.card}>
-                         <img src={locationIcon.src} className={styles.cardImage} alt='' />
-                         <h3>
-                              No 29, Cenotaph Rd, First Lane,
-                              <br /> Seethammal Extension,
-                              <br /> Teynampet, Chennai,
-                              <br /> Tamil Nadu 600018
-                         </h3>
-                    </div>
+                    <Link href={'https://maps.app.goo.gl/22X5Yc4HREAY7auJ8'} target='_blank'>
+                         <div className={styles.card}>
+                              <img src={locationIcon.src} className={styles.cardImage} alt='' />
+
+                              <h3>
+                                   No 29, Cenotaph Rd, First Lane,
+                                   <br /> Seethammal Extension,
+                                   <br /> Teynampet, Chennai,
+                                   <br /> Tamil Nadu 600018
+                              </h3>
+                         </div>
+                    </Link>
                </div>
                <div className={styles.secondChild}>
                     <img src={bgImage.src} alt='' />

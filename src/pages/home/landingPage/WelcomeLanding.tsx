@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import styles from './WelcomeLanding.module.scss'
 import Navbar from '@/component/navbar/Navbar'
@@ -6,12 +8,16 @@ import Button from '@/component/button/Button'
 import logoIcon from '../../../assets/icons/ic_logo.svg'
 import icon_arrow from '../../../assets/icons/ic_btn_arrow.svg'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '800'],
      style: ['normal'],
 })
 const WelcomeLanding = () => {
+     const router = useRouter()
+
      return (
           <section className={`${styles.main_container}`}>
                <video className={`${styles.video_background}`} autoPlay loop muted playsInline>
@@ -42,16 +48,21 @@ const WelcomeLanding = () => {
                               }}
                               loading={false}
                               iconleft={logoIcon}
+                              onClick={() => {
+                                   router.push('contact-us')
+                              }}
                               labestyle={{ marginLeft: '0px', fontSize: '1rem' }}
                          />
-                         <label>
-                              Know more about us
-                              <Image
-                                   src={icon_arrow}
-                                   alt='arrow-icon'
-                                   className={`${styles.icon}`}
-                              />
-                         </label>
+                         <Link href={'/about-us'}>
+                              <label style={{ cursor: 'pointer' }}>
+                                   Know more about us
+                                   <Image
+                                        src={icon_arrow}
+                                        alt='arrow-icon'
+                                        className={`${styles.icon}`}
+                                   />
+                              </label>
+                         </Link>
                     </div>
                </div>
           </section>

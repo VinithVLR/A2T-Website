@@ -6,6 +6,7 @@ import Image, { StaticImageData } from 'next/image'
 import Button from '../button/Button'
 import Image1 from '../../assets/images/img_service_1.png'
 import { Inter } from 'next/font/google'
+import { useRouter } from 'next/navigation'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -26,6 +27,7 @@ interface ItemProps {
      paraStyle?: any
      label?: boolean
      labelStyle?: any
+     link?: any
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -40,7 +42,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      paraStyle,
      label,
      labelStyle,
+     link,
 }) => {
+     const router = useRouter()
      return (
           <div className={styles.main_con} style={{ ...style }}>
                {icon && (
@@ -78,6 +82,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          }}
                          loading={false}
                          icon
+                         onClick={() => {
+                              router.push(link)
+                         }}
                          labestyle={{ marginLeft: '0px', fontSize: '0.8rem' }}
                     />
                )}

@@ -1,9 +1,13 @@
+'use client'
+
 import React from 'react'
 import style from './ImageDescriptionPanel.module.scss'
 import Image from 'next/image'
 import toolpic from '../../assets/layer_img.png'
 import Button from '../button/Button'
 import { Inter } from 'next/font/google'
+
+import { useRouter } from 'next/navigation'
 
 interface ImageDescriptionPanelProps {
      bgImage?: any
@@ -12,6 +16,7 @@ interface ImageDescriptionPanelProps {
      subHeading?: string
      bgColor?: string
      btnColor: string
+     link?: string
 }
 
 const inter = Inter({
@@ -26,7 +31,9 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
      subHeading,
      bgColor,
      btnColor,
+     link,
 }) => {
+     const router = useRouter()
      return (
           <div
                className={`${style.main_container} ${inter.className} `}
@@ -54,6 +61,9 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                               height: 'fit-content',
                               backgroundColor: btnColor,
                               gap: '1rem',
+                         }}
+                         onClick={() => {
+                              router.push(link ? link : '')
                          }}
                          loading={false}
                          icon

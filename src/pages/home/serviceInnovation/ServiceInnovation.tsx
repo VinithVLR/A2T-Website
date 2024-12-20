@@ -2,11 +2,17 @@ import React from 'react'
 import styles from './ServiceInnovation.module.scss'
 import { Inter } from 'next/font/google'
 import FleetCard from '@/component/fleetCard/FleetCard'
-import iconMan from '../../../assets/icons/ic_manpower.png'
-import iconEng from '../../../assets/icons/ic_engineering.png'
-import iconFleet from '../../../assets/icons/ic_fleet.png'
-import iconEsg from '../../../assets/icons/ic_esg.png'
-import iconBusiness from '../../../assets/icons/ic_business.png'
+import iconMan from '../../../assets/icons/ic_n_ms.svg'
+import iconEng from '../../../assets/icons/ic_n_es.svg'
+import iconFleet from '../../../assets/icons/ic_n_fm.svg'
+import iconEsg from '../../../assets/icons/ic_n_esg.svg'
+import iconBusiness from '../../../assets/icons/ic_n_bc.svg'
+
+import whiteFleet from '../../../assets/icons/ic_fleet_management_white.svg'
+import whiteman from '../../../assets/icons/ic_manpower_white.svg'
+import whiteEng from '../../../assets/icons/ic_engineering_white.svg'
+import whiteEsg from '../../../assets/icons/ic_sustainability_white.svg'
+import whiteBusiness from '../../../assets/icons/ic_business_consult_white.svg'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -24,57 +30,68 @@ interface FleetCardData {
      hoverColor: string
 }
 const ServiceInnovation = () => {
-     let arr: FleetCardData[] = [
+     let arr: any = [
           {
                bgImage: '',
-               overLayer: '#F6F3FC',
-               iconImage: iconMan,
-               title: 'Manpower Solutions',
-               titleColor: '#8535EB',
-               des: 'We provide skilled personnel and workforce management tailored to meet your specific needs.',
-               desColor: '#7C6993',
-               hoverColor: '#8535EB',
-          },
-          {
-               bgImage: '',
-               overLayer: '#FFF6F3',
-               iconImage: iconEng,
-               title: 'Engineering Services',
-               titleColor: '#FF613F',
-               des: 'Innovative engineering services that combine expertise with creative problem-solving.',
-               desColor: '#9D736B',
-               hoverColor: '#8535EB',
-          },
-          {
-               bgImage: '',
-               overLayer: '#F3F5FC',
+               overLayer: '#F5E8E9',
                iconImage: iconFleet,
                title: 'Fleet Management',
-               titleColor: '#348AEF',
+               titleColor: '#B91722',
                des: 'Comprehensive solutions that maximize efficiency, reduce costs, & ensure compliance.',
-               desColor: '#65798F',
+               desColor: '#9E686C',
                hoverColor: '#8535EB',
+               fontColor: '#B91722',
+               whiteIcon: whiteFleet,
           },
           {
                bgImage: '',
-               overLayer: '#EFF5F0',
-               iconImage: iconEsg,
-               title: 'ESG & Sustainability',
-               titleColor: '#1CB977',
-               des: 'Strategic guidance to integrate environmental, social, and governance principles for growth.',
-               desColor: '#608877',
+               overLayer: '#F0F3F6',
+               iconImage: iconMan,
+               title: 'Manpower Solutions',
+               titleColor: '#003366',
+               des: 'We provide skilled personnel and workforce management tailored to meet your specific needs.',
+               desColor: '#47617B',
+               hoverColor: '#003366',
+               fontColor: '#003366',
+               whiteIcon: whiteman,
+          },
+          {
+               bgImage: '',
+               overLayer: '#EBF5F5',
+               iconImage: iconEng,
+               title: 'Engineering Services',
+               titleColor: '#008080',
+               des: 'Innovative engineering services that combine expertise with creative problem-solving.',
+               desColor: '#267575',
                hoverColor: '#8535EB',
+               fontColor: '#008080',
+               whiteIcon: whiteEng,
           },
 
           {
                bgImage: '',
-               overLayer: '#F3FBFC',
+               overLayer: '#EEF8F1',
+               iconImage: iconEsg,
+               title: 'ESG & Sustainability',
+               titleColor: '#28A745',
+               des: 'Strategic guidance to integrate environmental, social, and governance principles for growth.',
+               desColor: '#67A074',
+               hoverColor: '#8535EB',
+               fontColor: '#28A745',
+               whiteIcon: whiteEsg,
+          },
+
+          {
+               bgImage: '',
+               overLayer: '#F6EFFC',
                iconImage: iconBusiness,
                title: 'Business Consulting',
-               titleColor: '#3DCADB',
+               titleColor: '#8E2FD2',
                des: 'Expert consulting to enhance performance, streamline operations, and achieve success.',
-               desColor: '#5E9299',
+               desColor: '#8F72A4',
                hoverColor: '#8535EB',
+               fontColor: '#8E2FD2',
+               whiteIcon: whiteBusiness,
           },
      ]
      return (
@@ -90,7 +107,7 @@ const ServiceInnovation = () => {
                     </p>
                </header>
                <div className={styles.five_card_layout}>
-                    {arr.map((data, index) => {
+                    {arr.map((data: any, index: any) => {
                          return <FleetCard key={data.title} indexNumber={index} item={data} />
                     })}
                </div>

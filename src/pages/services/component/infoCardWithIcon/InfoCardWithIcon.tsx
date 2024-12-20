@@ -17,6 +17,7 @@ interface InfoCardWithIconProps {
      btn?: any
      label?: any
      labelStyle?: any
+     link?: any
 }
 const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      icon,
@@ -30,6 +31,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      btn,
      label,
      labelStyle,
+     link,
 }) => {
      const objStyle: any = {
           paddingInline: '2rem',
@@ -65,6 +67,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                               bgimage={dataImage}
                               paraStyle={rowReverse ? objParaStyle : {}}
                               label={label}
+                              link={link}
                               labelStyle={labelStyle}
                          />
                     </div>

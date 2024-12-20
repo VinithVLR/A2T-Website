@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '@/component/navbar/Navbar'
 import Footer from '@/component/footer/Footer'
 import { inter } from '../../public/fonts/inter'
+import { nunito } from '../../public/fonts/inter'
 
 export const metadata: Metadata = {
      title: {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
      return (
-          <html lang='en' className={`${inter.variable}`}>
+          <html lang='en' className={`${inter.variable} ${nunito.variable}`}>
                <head>
                     <link rel='icon' href='/favicon.ico' />
                </head>

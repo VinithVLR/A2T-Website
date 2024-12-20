@@ -29,6 +29,7 @@ const page = () => {
                     'Get to a decision faster by bringing requests into chat. Allow your teams to file, track and resolve tickets in Slack.',
                bgColor: '#F3F5FC',
                btnColor: '#003366',
+               link: '/manpower-services',
           },
           {
                bgImage: img_fleet,
@@ -37,6 +38,7 @@ const page = () => {
                     'Committed to delivering cutting-edge engineering services that drive project success and operational efficiency.',
                bgColor: '#F3FDFD',
                btnColor: '#008080',
+               link: '/engineering-services',
           },
           {
                bgImage: img_growth,
@@ -45,7 +47,9 @@ const page = () => {
                     'Dedicated to optimizing your fleet operations, reducing costs, and enhancing safety.',
                bgColor: '#FBF3F4',
                btnColor: '#B91722',
+               link: '/fleet-management',
           },
+
           {
                bgImage: img_future,
                heading: 'Our Commitment to a Sustainable Future',
@@ -53,6 +57,7 @@ const page = () => {
                     'Dedicated to reducing carbon emissions and enhancing environmental responsibility.',
                bgColor: '#F4FAF5',
                btnColor: '#28A745',
+               link: '/esg-sustainability',
           },
           {
                bgImage: img_business,
@@ -61,6 +66,7 @@ const page = () => {
                     'Focused on providing tailored consulting solutions that empower organizations to achieve their goals and thrive in a competitive landscape.',
                bgColor: '#F7F3FB',
                btnColor: '#8E2FD2',
+               link: '/business-consult',
           },
      ]
      return (
@@ -78,6 +84,7 @@ const page = () => {
                          bgColor={panel.bgColor}
                          btnColor={panel.btnColor}
                          bgImage={panel.bgImage}
+                         link={panel.link}
                     />
                ))}
                <ClientTestimonials />

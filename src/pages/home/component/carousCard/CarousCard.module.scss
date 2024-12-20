@@ -1,127 +1,136 @@
 $card-width: 18%;
 
-
 .carous_cars {
-    position: relative;
-    width: 100%;
-    min-height: 350px;
-    max-height: 350px;
-    perspective: 100px;
-    cursor: pointer;
-    z-index: 1;
-    padding: 0.3rem;
-    transition: z-index 0.3s ease-in-out;
-    font-family: 'Inter';
+     position: relative;
+     width: 100%;
+     min-height: 350px;
+     max-height: 350px;
+     perspective: 100px;
+     cursor: pointer;
+     z-index: 1;
+     padding: 0.3rem;
+     transition: z-index 0.3s ease-in-out;
+     font-family: 'Inter';
+     min-width: 24%;
 
-    &:hover {
-        z-index: 0;
+     @media screen and (max-width: 970px) {
+          min-width: 32%;
+     }
 
-        .card_content .card_overlay {
-            z-index: 0;
-        }
-    }
+     @media screen and (max-width: 700px) {
+          min-width: 49%;
+     }
 
-    .card_content {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        border-radius: 11px;
+     @media screen and (max-width: 500px) {
+          min-width: 100%;
+          min-height: 250px;
+     }
 
-        .main_container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+     &:hover {
+          z-index: 0;
+     }
 
-            .image_container {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                border-radius: 12px;
-                transition: all 0.3s ease-in-out;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                background-color: #0E7B68;
+     .card_content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+          border-radius: 11px;
 
-                .author {
+          .card_overlay {
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               padding: 1.5rem;
+               padding-top: 2.2rem;
+               height: 100%;
+               border-radius: inherit;
+               opacity: 1;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+               transition: all 0.3s ease;
+               z-index: 5;
+               background-color: #fff;
+
+               .quote {
+                    font-size: 1.05rem;
+                    font-family: var(--font-nunito);
+
+                    @media screen and (max-width: 500px) {
+                         font-size: 1.25rem;
+                    }
+               }
+
+               .author {
                     display: flex;
                     align-items: center;
                     gap: 12px;
-                    opacity: 0;
-                    padding-block: 1rem;
+                    opacity: 1;
 
                     .avatar {
-                        border-radius: 50%;
+                         border-radius: 50%;
                     }
-                }
-            }
-        }
 
-        .card_overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            height: 100%;
-            border-radius: inherit;
-            opacity: 0.9;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            background-color: #fff;
-            transition: background-image 0.3s ease-in-out;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+                    .name {
+                         font-size: 16px;
+                         font-weight: bold;
+                         margin: 0;
+                    }
 
-            .author {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                opacity: 1;
+                    .position {
+                         font-size: 14px;
+                         color: #666;
+                         margin: 0;
+                    }
+               }
 
-                .avatar {
-                    border-radius: 50%;
-                }
+               .quoteIcon {
+                    position: absolute;
+                    top: 0.1rem;
+                    left: 0.8rem;
+                    width: 4rem;
+                    height: 4rem;
+               }
+          }
 
-                .name {
-                    font-size: 16px;
-                    font-weight: bold;
-                    margin: 0;
-                }
+          .imgBackground {
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               z-index: 4;
+               width: 100%;
+               height: 100%;
+               border-radius: inherit;
+               overflow: hidden;
+               background-color: #fff;
+               transition: all 0.3s ease;
 
-                .position {
-                    font-size: 14px;
-                    color: #666;
-                    margin: 0;
-                }
-            }
+               img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+               }
+          }
 
-        }
+          &:hover {
+               .card_overlay {
+                    background-color: #0e7b68;
+                    color: #fff;
+                    transform: rotate(6deg) translate(3%, 30%);
 
-        &:hover .card_overlay {
-            transform: rotate(-2deg);
-        }
+                    .position {
+                         color: #9fcac3;
+                    }
+               }
 
-        &:hover .card_overlay .author {
-            opacity: 0;
-        }
-
-        &:hover .main_container .image_container {
-            bottom: -100px;
-            right: 0;
-            transform: translate(0, 0);
-            opacity: 1;
-            rotate: 5deg;
-            transition: all 0.3s ease-in-out;
-        }
-
-        &:hover .main_container .image_container .author {
-            opacity: 1;
-
-        }
-    }
+               .imgBackground {
+                    background-color: #fff;
+                    transform: rotate(-3deg);
+               }
+          }
+     }
 }
