@@ -24,14 +24,17 @@ const Footer = () => {
           {
                icon: iconLoc,
                label: 'Chennai',
+               locationUrl: 'https://www.google.com/maps?q=Chennai',
           },
           {
                icon: iconMob,
                label: '+91 98866 40104',
+               locationUrl: 'tel:+919886640104',
           },
           {
                icon: iconEmail,
                label: 'arun@a2group.com , finance@a2group.com',
+               locationUrl: 'mailto:arun@a2group.com,finance@a2group.com',
           },
      ]
 
@@ -45,20 +48,20 @@ const Footer = () => {
                     </p>
                     <ul className={styles.unOrder_list_con}>
                          <li>
-                              <Link href='/about'>About Us</Link>
+                              <Link href='/about-us'>About Us</Link>
                          </li>
                          <li>
-                              <Link href='/contact'>Services</Link>
+                              <Link href='/contact-us'>Services</Link>
                          </li>
                          <li>
-                              <Link href='/privacy'>Purpose</Link>
+                              <Link href='/purpose'>Purpose</Link>
                          </li>
                          <li>
-                              <Link href='/terms'>Careers</Link>
+                              <Link href='/careers'>Careers</Link>
                          </li>
-                         <li>
-                              <Link href='/terms'>News</Link>
-                         </li>
+                         {/* <li>
+                              <Link href='#'>News</Link>
+                         </li> */}
                     </ul>
                     <div></div>
                </div>
@@ -70,19 +73,47 @@ const Footer = () => {
                          {arrImage.map((item: any, index: any) => {
                               return (
                                    <div className={styles.icon_con} key={index}>
-                                        <Image src={item} className={styles.icon} alt='icon' />
+                                        {/* <Image src={item} className={styles.icon} alt='icon' /> */}
+                                        <Image src={item} alt={`Social Icon ${index + 1}`} />
                                    </div>
                               )
                          })}
                     </div>
 
                     <div className={styles.iconAndText}>
-                         {arr.map((item: any, index: any) => {
+                         {/* {arr.map((item: any, index: any) => {
                               return (
                                    <div className={styles.map_con} key={index}>
                                         <Link href={item.label} className={styles.label}>
                                              {item.label}
                                         </Link>
+                                        <div className={styles.icon_content}>
+                                             <Image
+                                                  src={item.icon}
+                                                  className={styles.icon}
+                                                  alt='icon'
+                                             />
+                                        </div>
+                                   </div>
+                              )
+                         })} */}
+                         {arr.map((item, index) => {
+                              return (
+                                   <div className={styles.map_con} key={index}>
+                                        {item.locationUrl ? (
+                                             <Link
+                                                  href={item.locationUrl}
+                                                  passHref
+                                                  className={styles.label}
+                                                  target='_blank'
+                                             >
+                                                  {item.label}
+                                             </Link>
+                                        ) : (
+                                             <Link href={item.label} className={styles.label}>
+                                                  {item.label}
+                                             </Link>
+                                        )}
                                         <div className={styles.icon_content}>
                                              <Image
                                                   src={item.icon}
