@@ -45,62 +45,61 @@
 //     }
 // }
 .main_container {
-    flex: 1;
-    height: auto;
-    padding-inline: 2.7rem;
-    padding-block: 4rem;
-    background-color: $color-white;
-    position: relative;
-    /* Add relative positioning */
+     flex: 1;
+     height: auto;
+     padding-inline: 2.7rem;
+     padding-block: 4rem;
+     background-color: $color-white;
+     position: relative;
+     /* Add relative positioning */
 
-    .svglinecontainer_web {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        min-height: 100vh;
-        /* Ensure the container has height for the SVG line */
+     .svglinecontainer_web {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+          min-height: 100vh;
+          /* Ensure the container has height for the SVG line */
 
-        .flex_con {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            position: relative;
-        }
+          .flex_con {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               gap: 2rem;
+               width: 100%;
+               position: relative;
+          }
 
-        .image_con {
-            flex: 0.5;
-            display: flex;
-            justify-content: center;
-        }
+          .image_con {
+               flex: 0.5;
+               display: flex;
+               justify-content: center;
+          }
 
-        .image {
-            padding: 1.5rem;
-        }
+          .image {
+               padding: 1.5rem;
+          }
 
-        .details_con {
-            flex: 0.5;
-            display: flex;
-            justify-content: flex-start;
-        }
+          .details_con {
+               flex: 0.5;
+               display: flex;
+               justify-content: flex-start;
+          }
 
-        .svgLine {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            z-index: 1;
-            width: 2px;
-            height: 100%;
-            stroke: #111;
-            stroke-width: 2;
+          .svgLine {
+               position: absolute;
+               left: 50%;
+               top: 0;
+               transform: translateX(-50%);
+               z-index: 1;
+               width: 2px;
+               height: 100%;
+               stroke: #111;
+               stroke-width: 2;
+          }
+     }
 
-        }
-
-    }
-
-    .svglinecontainer_mob {}
-
+     .svglinecontainer_mob {
+     }
 }

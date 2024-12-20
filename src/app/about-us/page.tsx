@@ -12,6 +12,7 @@ import GlobalImpact from '@/pages/aboutus/globalImpact/GlobalImpact'
 import CallToAction from '@/component/calltoaction/CallToAction'
 import EducationEmpowerment from '@/pages/aboutus/educationEmpowerment/EducationEmpowerment'
 import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
+import OurJourney from '@/pages/aboutus/ourJourney/OurJourney'
 const page = () => {
      return (
           <React.Fragment>
@@ -34,6 +35,7 @@ const page = () => {
                />
                <SustainabilityPath />
                <Ourvalues />
+               <OurJourney />
                <ClientInnovation />
                <OurLeaders />
                <EducationEmpowerment />

@@ -18,6 +18,7 @@ import PrimaryLanding from '@/component/primaryLanding/PrimaryLanding '
 import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
 import contactImage from '../assets/images/img_contact_sec.png'
 import reverImage from '../assets/images/img_rever.png'
+import SustainableGoals from '@/pages/home/sustainableGoals/SustainableGoals'
 
 const page = () => {
      const panelData = [
@@ -67,7 +68,8 @@ const page = () => {
                <WelcomeLanding />
                <GlobalTrustSection />
                <ServiceInnovation />
-               <SustainableWorldGoals />
+               {/* <SustainableWorldGoals /> */}
+               <SustainableGoals />
                {panelData.map((panel, index) => (
                     <ImageDescriptionPanel
                          key={index}

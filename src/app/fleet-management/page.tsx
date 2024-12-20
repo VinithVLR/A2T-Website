@@ -10,36 +10,39 @@ import TechLogisticsOptimization from '@/pages/fleetmanagement/techLogisticsOpti
 import GlobalLocalExpertise from '@/pages/fleetmanagement/globalLocalExpertise/GlobalLocalExpertise'
 import AirCargoSolutions from '@/pages/fleetmanagement/airCargoSolutions/AirCargoSolutions'
 import CallToAction from '@/component/calltoaction/CallToAction'
+import Wrapper from './Wrapper'
 
 const page = () => {
      return (
-          <React.Fragment>
-               <LogisticsOptimization />
-               <SecondaryLanding
-                    heading={'Efficient Fleet Solutions for Reliable Logistics'}
-                    description={
-                         ' At A2 Technologies, we offer fleet management services to boost logistics efficiency and reliability. Our solutions focus on optimized routes, skilled drivers, and a strong logistics network for safe, timely deliveries.'
-                    }
-                    image={img}
-                    bgImage={bg}
-               />
-               <FleetSolutions />
-               <SkilledDriverProgram />
-               <SustainableFleetFocus />
-               <TechLogisticsOptimization />
-               <GlobalLocalExpertise />
-               <AirCargoSolutions />
-               <CallToAction
-                    style={{ paddingInline: '3rem' }}
-                    data={
-                         <>
-                              Ready to <span>Elevate Your Logistics Operations?</span> Get to know
-                              how we can optimize your logistics operations for better efficiency,
-                              safety, and sustainability?
-                         </>
-                    }
-               />
-          </React.Fragment>
+          <Wrapper>
+               <React.Fragment>
+                    <LogisticsOptimization />
+                    <SecondaryLanding
+                         heading={'Efficient Fleet Solutions for Reliable Logistics'}
+                         description={
+                              ' At A2 Technologies, we offer fleet management services to boost logistics efficiency and reliability. Our solutions focus on optimized routes, skilled drivers, and a strong logistics network for safe, timely deliveries.'
+                         }
+                         image={img}
+                         bgImage={bg}
+                    />
+                    <FleetSolutions />
+                    <SkilledDriverProgram />
+                    <SustainableFleetFocus />
+                    <TechLogisticsOptimization />
+                    <GlobalLocalExpertise />
+                    <AirCargoSolutions />
+                    <CallToAction
+                         style={{ paddingInline: '3rem' }}
+                         data={
+                              <>
+                                   Ready to <span>Elevate Your Logistics Operations?</span> Get to
+                                   know how we can optimize your logistics operations for better
+                                   efficiency, safety, and sustainability?
+                              </>
+                         }
+                    />
+               </React.Fragment>
+          </Wrapper>
      )
 }
 

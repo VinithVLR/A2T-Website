@@ -1,0 +1,113 @@
+.gridcon {
+     display: grid;
+     grid-template-columns: 1fr 50px 1fr;
+     grid-template-rows: repeat(7, 30rem);
+     row-gap: 5rem;
+     max-width: 1500px;
+     padding-bottom: 3rem;
+     margin: auto;
+
+     @media screen and (max-width: 800px) {
+          grid-template-columns: 50px 1fr;
+          grid-template-rows: repeat(7, auto);
+          row-gap: 0rem;
+     }
+
+     .time_line {
+          grid-column: 2 / 3;
+          grid-row: 1 / -1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-block: 11rem 13rem;
+          align-items: center;
+          row-gap: 0.5rem;
+
+          @media screen and (max-width: 800px) {
+               grid-column: 1/2;
+               grid-row: 1 / -1;
+               padding-block: 0rem;
+          }
+     }
+
+     .dot {
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50%;
+          background-color: #cddbde;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // outline-color: yellow;
+          // outline-width: 8px;
+          // outline-style: solid;
+
+          .md {
+               width: 65%;
+               height: 65%;
+               border-radius: 50%;
+               background-color: #f6f3fc;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+
+               .sd {
+                    width: 50%;
+                    height: 50%;
+                    border-radius: 50%;
+                    background-color: #0e7b68;
+               }
+          }
+     }
+
+     .line {
+          width: 3px;
+          flex: 1;
+          background-color: #0e7b68;
+     }
+
+     .timelineCont {
+          grid-column: 1 / 2;
+          grid-row: 1 / -1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 5px;
+          padding-top: 5px;
+     }
+
+     .image_con {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-inline: 2rem;
+
+          .image {
+               width: 90%;
+               height: auto;
+               object-fit: cover;
+          }
+     }
+
+     .flexend {
+          justify-content: flex-end;
+     }
+
+     .details_con {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          @media screen and (max-width: 800px) {
+               align-items: flex-start;
+               padding-bottom: 5rem;
+          }
+
+          .middleware {
+               width: 90%;
+          }
+     }
+}

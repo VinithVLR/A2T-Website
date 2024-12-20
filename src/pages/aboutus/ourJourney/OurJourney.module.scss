@@ -1,0 +1,198 @@
+.maincon {
+     width: 100%;
+     height: auto;
+     padding-block: 4rem;
+
+     .gridContainer {
+          width: 100%;
+          max-width: 1600px;
+          margin: auto;
+          height: auto;
+          padding-inline: 3rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          row-gap: 6rem;
+          grid-template-rows: minmax(13rem, auto) minmax(13rem, auto) minmax(13rem, auto);
+
+          @media screen and (max-width: 850px) {
+               padding: 0rem;
+          }
+
+          @media screen and (max-width: 768px) {
+               padding-inline: 1rem;
+               grid-template-columns: 3.5rem 1fr;
+               row-gap: 4rem;
+               grid-template-rows: auto minmax(12rem, auto) auto minmax(12rem, auto) auto minmax(
+                         12rem,
+                         auto
+                    );
+          }
+
+          @media screen and (max-width: 340px) {
+               grid-template-rows: auto minmax(10rem, auto) auto minmax(10rem, auto) auto minmax(
+                         10rem,
+                         auto
+                    );
+          }
+
+          .period {
+               color: black;
+               grid-column: 1 / span 2;
+               align-self: center;
+               text-align: end;
+
+               @media screen and (max-width: 768px) {
+                    grid-column: 2/ -1;
+                    align-self: flex-start;
+                    text-align: start;
+               }
+          }
+          .imageGallary {
+               display: flex;
+               column-gap: 2rem;
+               grid-column: span 5;
+               position: relative;
+
+               @media screen and (max-width: 768px) {
+                    grid-column: 2 / span 1;
+               }
+
+               img {
+                    position: absolute;
+                    border-radius: 10px;
+               }
+
+               .canvaimg {
+                    z-index: 1;
+                    width: 14rem;
+                    left: 2.5rem;
+                    top: 1.1rem;
+                    transform: rotate(-135deg);
+
+                    @media screen and (max-width: 500px) {
+                         width: 40%;
+                         left: 5%;
+                         top: 0rem;
+                         height: auto;
+                         transform: rotate(-120deg);
+                    }
+               }
+
+               .canvasecimg {
+                    width: 14rem;
+                    left: 20rem;
+                    transform: rotate(55deg);
+
+                    @media screen and (max-width: 500px) {
+                         width: 40%;
+                         left: 55%;
+                         height: auto;
+                    }
+               }
+
+               .firstimg,
+               .secondimg,
+               .thirdimg,
+               .fourimg {
+                    width: 13rem;
+                    height: auto;
+
+                    @media screen and (max-width: 500px) {
+                         width: 40%;
+                         height: auto;
+                    }
+               }
+
+               .firstimg {
+                    top: 0;
+                    left: 6rem;
+                    z-index: 5;
+                    transform: rotate(10deg);
+
+                    @media screen and (max-width: 500px) {
+                         left: 15%;
+                    }
+               }
+
+               .secondimg {
+                    left: 0;
+                    bottom: 0;
+                    z-index: 6;
+                    transform: rotate(-10deg);
+               }
+
+               .thirdimg {
+                    top: 0;
+                    left: 25rem;
+                    z-index: 3;
+                    transform: rotate(5deg);
+
+                    @media screen and (max-width: 500px) {
+                         left: 60%;
+                    }
+               }
+
+               .fourimg {
+                    bottom: 0;
+                    left: 17rem;
+                    z-index: 4;
+                    transform: rotate(-10deg);
+
+                    @media screen and (max-width: 500px) {
+                         left: 45%;
+                    }
+               }
+          }
+
+          .timeLine {
+               grid-column: 3/ 4;
+               grid-row: 1 / span 3;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+               padding-block: 5rem 6.5rem;
+               align-items: center;
+               row-gap: 0.5rem;
+
+               @media screen and (max-width: 768px) {
+                    grid-column: 1/ 2;
+                    grid-row: 1 / span 5;
+                    padding: 0rem;
+                    padding-bottom: 1.1rem;
+               }
+
+               .dot {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border-radius: 50%;
+                    background-color: #cddbde;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .md {
+                         width: 65%;
+                         height: 65%;
+                         border-radius: 50%;
+                         background-color: #f6f3fc;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+
+                         .sd {
+                              width: 50%;
+                              height: 50%;
+                              border-radius: 50%;
+                              background-color: #0e7b68;
+                         }
+                    }
+               }
+
+               .line {
+                    width: 3px;
+                    flex: 1;
+                    background-color: #0e7b68;
+               }
+          }
+     }
+}
