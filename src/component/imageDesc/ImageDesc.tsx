@@ -5,17 +5,18 @@ import { useState, useEffect } from 'react'
 interface imageDescProps {
      imageUrl: string
      title: string
-     description: string
+     description: string | string[]
      rowReverse?: boolean
      style?: any
+     label?: string
 }
 
-const ImageDesc = ({ imageUrl, title, description, rowReverse, style }: imageDescProps) => {
+const ImageDesc = ({ imageUrl, title, description, rowReverse, style, label }: imageDescProps) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
 
      useEffect(() => {
           const handleResize = () => {
-               setIsSmallScreen(window.innerWidth <= 748)
+               setIsSmallScreen(window.innerWidth <= 768)
           }
 
           handleResize()
@@ -55,7 +56,18 @@ const ImageDesc = ({ imageUrl, title, description, rowReverse, style }: imageDes
                >
                     <div className={styles.details_con}>
                          <h2 className={styles.title}>{title}</h2>
-                         <p className={styles.desc}>{description}</p>
+                         {label && <label>{label}</label>}
+                         {Array.isArray(description) ? (
+                              <ul className={styles.desc}>
+                                   {description.map((item, index) => (
+                                        <li key={index} className={styles.bulletItem}>
+                                             {item}
+                                        </li>
+                                   ))}
+                              </ul>
+                         ) : (
+                              <p className={styles.desc}>{description}</p>
+                         )}
                     </div>
                </div>
           </section>

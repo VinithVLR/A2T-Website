@@ -13,10 +13,11 @@ const inter = Inter({
 interface SecondaryLandingProps {
      flexReverse?: boolean
      heading: string
-     description: string
+     description: string | string[]
      image: any
      bgImage: any
      bgColor?: React.CSSProperties
+     bsStyle?: React.CSSProperties
 }
 const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
      flexReverse,
@@ -25,6 +26,7 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
      image,
      bgImage,
      bgColor,
+     bsStyle,
 }) => {
      return (
           <section
@@ -36,19 +38,30 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                     style={{ paddingInlineStart: flexReverse ? '5rem' : '' }}
                >
                     <div className={styles.con_wrapper}>
-                         <h3 className={`${styles.heading}   ${styles.blackText}`}>{heading}</h3>
-                         <p
-                              className={`${styles.description} ${styles.regularText}`}
-                              style={{ width: flexReverse ? '100%' : '75%' }}
-                         >
-                              {description}
-                         </p>
+                         <h3 className={`${styles.heading}  ${styles.blackText}`}>{heading}</h3>
+
+                         {Array.isArray(description) ? (
+                              <ul className={styles.desc}>
+                                   {description.map((item, index) => (
+                                        <li key={index} className={styles.bulletItem}>
+                                             {item}
+                                        </li>
+                                   ))}
+                              </ul>
+                         ) : (
+                              <p
+                                   className={`${styles.description} ${styles.regularText}`}
+                                   style={{ width: flexReverse ? '100%' : '75%' }}
+                              >
+                                   {description}
+                              </p>
+                         )}
                     </div>
                </div>
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
                          <Image src={bgImage} alt='image' priority className={styles.image} />
-                         <div className={styles.image_ab_con}>
+                         <div className={styles.image_ab_con} style={{ ...bsStyle }}>
                               <Image src={image} alt='image' priority className={styles.img_ab} />
                          </div>
                     </div>

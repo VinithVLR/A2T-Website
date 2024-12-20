@@ -1,0 +1,170 @@
+.imgDesc_con {
+    width: 100%;
+    padding-inline: 2rem;
+
+
+    .content_Wrapper {
+        display: flex;
+
+
+        .first_image_section {
+            flex: 0.5;
+            align-items: center;
+            justify-content: center;
+
+            .frst_img_rel {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(3rem);
+
+                .frst_image_rel {
+                    width: 80%;
+                    height: 80%;
+                    object-fit: contain;
+                }
+
+                .img_abs {
+                    // top: 0;
+                    position: absolute;
+                    width: 100%;
+
+                    .image_abs {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+
+        .sec_image_section {
+            flex: 0.5;
+            align-items: center;
+            justify-content: center;
+
+            .sec_img_rel {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(5rem);
+
+                .sec_image_rel {
+                    width: 75%;
+                    height: 80%;
+                    object-fit: contain;
+                }
+
+                .img_abs {
+                    // top: 0;
+                    position: absolute;
+                    padding: inherit;
+                    width: 100%;
+
+                    .image_abs {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+        .third_image_section {
+            flex: 0.5;
+            align-items: center;
+            justify-content: center;
+
+            .third_img_rel {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(-2rem);
+
+                .third_image_rel {
+                    width: 80%;
+                    height: 80%;
+                    object-fit: contain;
+                }
+
+                .img_abs {
+                    // top: 0;
+                    position: absolute;
+                    padding: inherit;
+                    width: 100%;
+
+                    .image_abs {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+
+    .imgDesc_con {
+        padding-inline: 0rem;
+        padding-block: 2rem;
+
+        .content_Wrapper {
+            display: flex;
+            justify-content: center;
+
+            .first_image_section {
+                flex: 2;
+
+                .frst_img_rel {
+                    .frst_image_rel {
+                        width: 80%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .sec_image_section {
+                flex: 1.9;
+
+                .sec_img_rel {
+                    .sec_image_rel {
+                        width: 70%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .third_image_section {
+                flex: 2;
+
+                .third_img_rel {
+                    .third_image_rel {
+                        width: 80%;
+                        height: auto;
+                    }
+                }
+            }
+
+        }
+    }
+}

@@ -6,14 +6,17 @@ import eyeIcon from '../../../../assets/icons/ic_eye.svg'
 import Image from 'next/image'
 
 interface InfoCardWithIconProps {
-     icon: string
+     icon?: string
      title: string
      description: string
-     btnColor: string
+     btnColor?: string
      rowReverse?: boolean
      dataImage: any
-     hoverColor: any
+     hoverColor?: any
      key: any
+     btn?: any
+     label?: any
+     labelStyle?: any
 }
 const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      icon,
@@ -24,6 +27,9 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      dataImage,
      hoverColor,
      key,
+     btn,
+     label,
+     labelStyle,
 }) => {
      const objStyle: any = {
           paddingInline: '2rem',
@@ -37,8 +43,6 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
           lineHeight: '1.5rem',
      }
 
-     console.log('dataImage-Infocard', dataImage)
-
      return (
           <div className={styles.secondary_section}>
                <div
@@ -51,7 +55,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                     </div>
                     <div className={styles.details_con}>
                          <TitleDescriptionWithIcon
-                              btn
+                              btn={btn}
                               btnColor={btnColor}
                               style={rowReverse ? objStyle : { paddingInline: '2rem' }}
                               headingStyle={{ textAlign: rowReverse ? 'end' : undefined }}
@@ -60,6 +64,8 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                               description={description}
                               bgimage={dataImage}
                               paraStyle={rowReverse ? objParaStyle : {}}
+                              label={label}
+                              labelStyle={labelStyle}
                          />
                     </div>
                </div>

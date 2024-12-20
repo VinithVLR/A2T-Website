@@ -6,6 +6,8 @@
     padding-inline: 2rem;
     background-color: #F3F5FC;
     padding-block: 3rem;
+    max-width: 1800px;
+    margin: auto;
 
     .content_Wrapper {
         display: flex;
@@ -17,7 +19,7 @@
 
             .title {
                 font-size: $heading-font-size;
-                line-height: 3.5rem;
+                // line-height: 3.5rem;
                 padding-block-end: 2rem;
             }
 
@@ -28,7 +30,7 @@
             .para {
                 font-size: $font-16px;
                 color: $sub-heading;
-                line-height: 1.5rem;
+                // line-height: 1.5rem;
                 padding-inline-end: 7rem;
             }
         }
@@ -47,11 +49,7 @@
     }
 }
 
-
-
-
-
-@media (max-width: 748px) {
+@media (max-width: 768px) {
     .main_con {
         .content_Wrapper {
             flex-direction: column;

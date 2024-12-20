@@ -3,19 +3,22 @@
 
 .landing_Solutions {
     padding-inline: 2rem;
+    padding-block-end: 3rem;
+    max-width: 1800px;
+    margin: auto;
 
     .flex_con {
         display: flex;
         column-gap: 2rem;
         justify-content: space-between;
         padding-block-start: 5rem;
-        padding-block-end: 2.5rem;
+        // padding-block-end: 2.5rem;
 
         .heading {
             font-size: $heading-font-size;
             color: $color-heading;
-            flex: 0.6;
-            line-height: 1.5;
+            flex: 0.8;
+            // line-height: 1.5;
 
             span {
                 color: $color-primary;
@@ -26,7 +29,7 @@
             font-size: $paragraph-font-size;
             color: $sub-heading;
             flex: 0.6;
-            line-height: 1.6;
+            // line-height: 1.6;
             margin-block: 2rem;
             display: flex;
             align-items: flex-end;
@@ -35,8 +38,11 @@
 
         .label {
             font-size: $font-16px;
-            color: #9DA5A4;
+            background-color: #EDEDED;
             font-weight: $font-weight-medium;
+            padding-inline: 1rem;
+            padding-block: 0.3rem;
+            border-radius: 25px;
         }
     }
 
@@ -80,7 +86,7 @@
         align-items: end;
         grid-template-columns: repeat(5, 1fr);
 
-        @media (max-width: 748px) {
+        @media (max-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
 
             .card:nth-child(3) {

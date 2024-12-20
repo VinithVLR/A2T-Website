@@ -16,7 +16,17 @@ const Card: React.FC<cardPorps> = ({ imageUrl, title, description }) => {
                </div>
                <div className={styles.textContainer}>
                     <h2 className={styles.title}>{title}</h2>
-                    <p className={styles.description}>{description}</p>
+                    {Array.isArray(description) ? (
+                         <ul className={styles.desc}>
+                              {description.map((item, index) => (
+                                   <li key={index} className={styles.bulletItem}>
+                                        {item}
+                                   </li>
+                              ))}
+                         </ul>
+                    ) : (
+                         <p className={styles.desc}>{description}</p>
+                    )}
                </div>
           </section>
      )

@@ -19,7 +19,7 @@ const OurLeaders = () => {
 
      useEffect(() => {
           const handleResize = () => {
-               setIsSmallScreen(window.innerWidth <= 748)
+               setIsSmallScreen(window.innerWidth <= 768)
           }
 
           handleResize()
@@ -75,7 +75,7 @@ const OurLeaders = () => {
                               <OverlapImage
                                    bgImage={bgImage}
                                    img={clientImage}
-                                   bgStyle={{ height: '380px' }}
+                                   // bgStyle={{ height: '380px' }}
                                    imgWrapper={{ width: '80%', height: '90%' }}
                               />
                          </div>

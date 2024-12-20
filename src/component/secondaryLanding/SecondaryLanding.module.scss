@@ -11,11 +11,15 @@
     display: flex;
     background-color: #F3F5FC;
     font-family: 'inter';
+    max-width: 1800px;
+    margin: auto;
 
     .image_section {
         flex: 0.6;
         height: auto;
         position: relative;
+        max-width: 450px;
+        margin: auto;
 
         .image_wrapper {
             width: 95%;
@@ -65,14 +69,14 @@
             .heading {
                 font-size: $heading-font-size;
                 width: 95%;
-                line-height: 3.5rem;
+                // line-height: 3.5rem;
                 font-family: 'DM Sans';
             }
 
             .description {
-                line-height: 1.3rem;
                 color: $color-des;
                 width: 75%;
+                font-size: $sub-heading-font-size;
                 font-weight: $font-weight-regular ;
             }
 
@@ -98,11 +102,14 @@
         gap: 2rem;
 
         .image_section {
+            max-width: 450px;
+            margin: auto;
+
             .image_wrapper {
                 .image_ab_con {
                     .img_ab {
-                        width: 100%;
-                        height: 100%;
+                        width: 90%;
+                        height: auto;
                         object-fit: contain;
                     }
                 }
@@ -117,6 +124,7 @@
 
                 .heading {
                     width: 100% !important;
+                    font-size: $default-font;
                 }
 
                 .description {
@@ -143,8 +151,8 @@
             .image_wrapper {
                 .image_ab_con {
                     .img_ab {
-                        width: 100%;
-                        height: 100%;
+                        width: 90%;
+                        height: auto;
                         object-fit: contain;
                     }
                 }
@@ -159,6 +167,7 @@
 
                 .heading {
                     width: 100% !important;
+                    font-size: $default-font;
                 }
 
                 .description {

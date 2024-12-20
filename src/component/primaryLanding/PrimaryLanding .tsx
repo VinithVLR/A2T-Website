@@ -20,6 +20,8 @@ interface heading {
      smallImageSrc?: StaticImageData
      isThumbnailHidden?: boolean
      style?: any
+     layoutMod?: boolean
+     flexRow?: any
 }
 const PrimaryLanding = ({
      title,
@@ -30,12 +32,17 @@ const PrimaryLanding = ({
      smallImageSrc,
      isThumbnailHidden,
      style,
+     layoutMod,
+     flexRow,
 }: heading) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
+     const [isModalOpen, setIsModalOpen] = useState(false)
 
+     const openModal = () => setIsModalOpen(true)
+     const closeModal = () => setIsModalOpen(false)
      useEffect(() => {
           const handleResize = () => {
-               setIsSmallScreen(window.innerWidth <= 748)
+               setIsSmallScreen(window.innerWidth <= 768)
           }
 
           handleResize()
@@ -48,9 +55,26 @@ const PrimaryLanding = ({
      return (
           <section
                className={`${styles.main_con} ${inter.className}`}
-               style={isReverse ? { flexDirection: isSmallScreen ? 'column' : 'row-reverse' } : {}}
+               style={{
+                    flexDirection: isReverse
+                         ? flexRow && isSmallScreen
+                              ? 'row-reverse'
+                              : isSmallScreen
+                                ? 'column'
+                                : 'row-reverse'
+                         : flexRow && isSmallScreen
+                           ? 'row'
+                           : undefined,
+                    paddingBlockStart: layoutMod && isSmallScreen ? '8rem' : undefined,
+               }}
           >
-               <div className={styles.image_section}>
+               <div
+                    className={styles.image_section}
+                    style={{
+                         flex: layoutMod ? '0.25' : undefined,
+                         paddingBlockStart: layoutMod && isSmallScreen ? '0rem' : undefined,
+                    }}
+               >
                     <div className={styles.image_wrapper}>
                          <Image
                               src={bigImageSrc ? bigImageSrc : img_contact}
@@ -60,7 +84,13 @@ const PrimaryLanding = ({
                          />
                     </div>
                </div>
-               <div className={styles.details_section}>
+               <div
+                    className={styles.details_section}
+                    style={{
+                         flex: layoutMod ? '0.85' : undefined,
+                         paddingBlockStart: layoutMod && isSmallScreen ? '0rem' : undefined,
+                    }}
+               >
                     <div
                          className={styles.con_wrapper}
                          style={isSmallScreen ? undefined : { ...style }}
@@ -83,6 +113,41 @@ const PrimaryLanding = ({
                                    </div>
                               </div>
                          )}
+                         {/* 
+                         {!isModalOpen && (
+                              <div className={styles.thumb_nailWrapper_con}>
+                                   <div className={styles.thumb_nailWrapper} onClick={openModal}>
+                                        <Image
+                                             src={smallImageSrc || thumb_nail}
+                                             alt='Thumbnail'
+                                             className={styles.image}
+                                             width={300}
+                                             height={200}
+                                        />
+                                   </div>
+                              </div>
+                         )}
+
+                         {isModalOpen && (
+                              <div className={styles.modalOverlay} onClick={closeModal}>
+                                   <div
+                                        className={styles.modalContent}
+                                        onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+                                   >
+                                        <button className={styles.closeButton} onClick={closeModal}>
+                                             &times;
+                                        </button>
+                                        <video
+                                             className={styles.videoPlayer}
+                                             controls
+                                             autoPlay
+                                             src={
+                                                  'https://cdn.pixabay.com/video/2021/03/09/67460-522170651_large.mp4'
+                                             }
+                                        />
+                                   </div>
+                              </div>
+                         )} */}
                     </div>
                </div>
           </section>

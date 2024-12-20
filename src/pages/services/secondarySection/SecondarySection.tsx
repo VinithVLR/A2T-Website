@@ -68,6 +68,7 @@ const SecondarySection = () => {
                {arr.map((card: any, index: any) => {
                     return (
                          <InfoCardWithIcon
+                              btn
                               dataImage={card.image}
                               key={index}
                               icon={card.icon}

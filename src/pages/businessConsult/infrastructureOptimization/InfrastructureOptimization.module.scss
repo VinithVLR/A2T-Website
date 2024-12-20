@@ -6,6 +6,8 @@
     padding-inline: $layout_row_padding;
     background-color: #F3F5FC;
     padding-block: 5rem;
+    max-width: 1800px;
+    margin: auto;
 
     .content_Wrapper {
         display: flex;

@@ -1,0 +1,30 @@
+@import '../../scss/abstracts/variable.scss';
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-family: 'inter';
+    margin-block: 1rem;
+    max-width: 1750px;
+    margin: auto;
+}
+
+.text {
+    background-color: #263B86;
+    color: white;
+    padding-block: 0.8rem;
+    padding-inline: 1rem;
+    border-radius: 25px;
+    font-size: $font-16px;
+    font-weight: $font-weight-sem-bold;
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: '';
+    flex-grow: 1;
+    height: 0.25rem;
+    background-color: #263B86;
+}
