@@ -74,7 +74,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalPage, current, onChange })
                     onClick={() => current > 1 && onChange(current - 1)}
                     aria-disabled={current <= 1}
                >
-                    <img src={arrowIcon.src} alt='' />
+                    <Image src={arrowIcon} alt='' />
                </div>
 
                {renderPageNumbers()}
@@ -84,7 +84,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalPage, current, onChange })
                     onClick={() => current < totalPage && onChange(current + 1)}
                     aria-disabled={current >= totalPage}
                >
-                    <img src={arrowIcon.src} alt='' style={{ transform: 'rotate(180deg)' }} />
+                    <Image src={arrowIcon} alt='' style={{ transform: 'rotate(180deg)' }} />
                </div>
           </div>
      )

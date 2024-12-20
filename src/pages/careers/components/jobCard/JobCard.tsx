@@ -4,8 +4,8 @@ import styles from './JobCard.module.scss'
 function JobCard({ data }: any) {
      return (
           <div className={styles.cardContainer}>
-               <h2>{data.title}</h2>
-               <p>{data.description}</p>
+               <h2>{data?.title}</h2>
+               <p>{data?.description}</p>
                <Button
                     label='Apply now'
                     disabled={false}

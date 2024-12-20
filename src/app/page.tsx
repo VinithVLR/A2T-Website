@@ -6,7 +6,6 @@ import GlobalTrustSection from '@/pages/home/globalTrustSection/GlobalTrustSecti
 import LandingPage from '@/pages/home/landingPage/WelcomeLanding'
 import LatestUpdates from '@/pages/home/latestUpdates/LatestUpdates'
 import ServiceInnovation from '@/pages/home/serviceInnovation/ServiceInnovation'
-import SustainableWorldGoals from '@/pages/home/sustainableWorldGoals/SustainableWorldGoals'
 import React from 'react'
 import img_impower from '../assets/images/img_impower.png'
 import img_fleet from '../assets/images/img_fleet.png'
@@ -74,7 +73,6 @@ const page = () => {
                <WelcomeLanding />
                <GlobalTrustSection />
                <ServiceInnovation />
-               {/* <SustainableWorldGoals /> */}
                <SustainableGoals />
                {panelData.map((panel, index) => (
                     <ImageDescriptionPanel

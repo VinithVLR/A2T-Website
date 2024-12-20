@@ -5,7 +5,6 @@ import styles from './OurOpportunities.module.scss'
 import Header from '@/component/header/Header'
 import SearchInput from '@/component/searchInput/SearchInput'
 import Filter from '@/component/filter/Filter'
-import { JobsType } from '../types/opportunityTypes'
 import OpportunityCard from '../components/opportunityCard/OpportunityCard'
 import Pagination from '@/component/pagination/Pagination'
 
@@ -43,7 +42,7 @@ const OurOpportunities = () => {
           },
      ])
 
-     const jobsList: JobsType[] = [
+     const jobsList: any = [
           {
                title: 'Mechanical Engineer',
                location: 'Mumbai',
@@ -82,7 +81,7 @@ const OurOpportunities = () => {
                          />
                     </div>
                     <div className={styles.listContainer}>
-                         {jobsList.map((job: JobsType, index: number) => {
+                         {jobsList.map((job: any, index: number) => {
                               return (
                                    <React.Fragment key={index}>
                                         <OpportunityCard data={job} />

@@ -20,16 +20,21 @@ import ic_institutions from '../../../assets/icons/ic_institutions.svg'
 import imagess from '../../../assets/images/img_susgoals.png'
 import Consumption from '@/component/consumption/Consumption'
 import { useEffect, useRef, useState } from 'react'
+import React from 'react'
 
 function SustainableGoals() {
-     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
 
      const currentViewRef = useRef(null)
 
      useEffect(() => {
-          const handleResize = () => setWindowWidth(window.innerWidth)
-          window.addEventListener('resize', handleResize)
-          return () => window.removeEventListener('resize', handleResize)
+          if (typeof window != 'undefined') {
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
+          }
      }, [])
 
      let arr = [
@@ -126,14 +131,14 @@ function SustainableGoals() {
                          >
                               {Array.from({ length: 7 }).map((_, index) => {
                                    return (
-                                        <>
+                                        <React.Fragment key={index}>
                                              <div className={styles.dot}>
                                                   <div className={styles.md}>
                                                        <div className={styles.sd}></div>
                                                   </div>
                                              </div>
                                              {index != 6 && <div className={styles.line}></div>}
-                                        </>
+                                        </React.Fragment>
                                    )
                               })}
 
@@ -153,6 +158,7 @@ function SustainableGoals() {
                          Array.from({ length: 7 }).map((_, index) => {
                               return (
                                    <div
+                                        key={index}
                                         className={styles.timelineCont}
                                         style={{ gridRow: `${index + 1}/${index + 2}` }}
                                    >
@@ -167,7 +173,7 @@ function SustainableGoals() {
                          })}
                     {arr.map((item, index) => {
                          return (
-                              <>
+                              <React.Fragment key={index}>
                                    {windowWidth <= 800 ? (
                                         <>
                                              <div className={styles.details_con}>
@@ -205,7 +211,7 @@ function SustainableGoals() {
                                              </div>
                                         </>
                                    )}
-                              </>
+                              </React.Fragment>
                          )
                     })}
                </div>

@@ -848,19 +848,19 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          </ul>
                          <div className={styles.socialLinkCont}>
                               <Link href={'https://www.linkedin.com/in/ntarun/'} target='_blank'>
-                                   <img src={linkedinIc.src} alt='' />
+                                   <Image src={linkedinIc} alt='' />
                               </Link>
 
                               <Link href={''}>
-                                   <img src={xIc.src} alt='' style={{ marginTop: '5px' }} />
+                                   <Image src={xIc} alt='' style={{ marginTop: '5px' }} />
                               </Link>
 
                               <Link href={''}>
-                                   <img src={instaIc.src} alt='' />
+                                   <Image src={instaIc} alt='' />
                               </Link>
 
                               <Link href={''}>
-                                   <img src={fbIc.src} alt='' />
+                                   <Image src={fbIc} alt='' />
                               </Link>
                          </div>
                          <button
@@ -871,12 +871,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               Contact us
                          </button>
                          <a href={'tel:+91-9150523409'} className={styles.linkCont}>
-                              <img src={callIc.src} alt='' />
+                              <Image src={callIc} alt='' />
                               <span>+91 98866 40104</span>
                          </a>
 
                          <a href={'mailto:finance@a2tgroup.com'} className={styles.linkCont}>
-                              <img src={mailIc.src} alt='' />
+                              <Image src={mailIc} alt='' />
                               <span>finance@a2tgroup.com</span>
                          </a>
                     </div>
@@ -889,15 +889,15 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     }}
                >
                     <div className={styles.maincon}>
-                         {fleetManagement.map((nav) => {
+                         {fleetManagement.map((nav, index) => {
                               return (
-                                   <div>
+                                   <div key={index}>
                                         <h3>
                                              <a>{nav.title}</a>
                                         </h3>
                                         <ul className={`${styles.noListStyle}`}>
                                              {nav.list.map((link: any) => {
-                                                  return <li>{link.title}</li>
+                                                  return <li key={link.title}>{link.title}</li>
                                              })}
                                         </ul>
                                    </div>
@@ -920,9 +920,9 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     }}
                >
                     <div className={styles.singleLinkPage}>
-                         {businessConsulting.map((link) => {
+                         {businessConsulting.map((link, index) => {
                               return (
-                                   <div>
+                                   <div key={index}>
                                         <h3>{link.title}</h3>
                                    </div>
                               )
@@ -944,15 +944,15 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     }}
                >
                     <div className={styles.maincon}>
-                         {esgSustainability.map((nav) => {
+                         {esgSustainability.map((nav, index) => {
                               return (
-                                   <div>
+                                   <div key={index}>
                                         <h3>
                                              <a>{nav.title}</a>
                                         </h3>
                                         <ul className={`${styles.noListStyle}`}>
-                                             {nav.list.map((link: any) => {
-                                                  return <li>{link.title}</li>
+                                             {nav.list.map((link: any, index) => {
+                                                  return <li key={index}>{link.title}</li>
                                              })}
                                         </ul>
                                    </div>
@@ -980,6 +980,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               {manpowersolutions.map((link, index) => {
                                    return (
                                         <div
+                                             key={index}
                                              className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
                                              onMouseOver={() => {
                                                   setActiveSubMenu(index)
@@ -992,13 +993,13 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               })}
                          </div>
                          <div className={styles.rightCont}>
-                              {manpowersolutions[acitveSubMenu]?.list?.map((link) => {
+                              {manpowersolutions[acitveSubMenu]?.list?.map((link, index) => {
                                    return (
-                                        <div>
+                                        <div key={index}>
                                              <h3>{link.title}</h3>
                                              <ul className={`${styles.noListStyle}`}>
-                                                  {link.list.map((link: any) => {
-                                                       return <li>{link.title}</li>
+                                                  {link.list.map((link: any, index) => {
+                                                       return <li key={index}>{link.title}</li>
                                                   })}
                                              </ul>
                                         </div>
@@ -1026,6 +1027,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               {engineeringServices.map((link, index) => {
                                    return (
                                         <div
+                                             key={index}
                                              className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
                                              onMouseOver={() => {
                                                   setActiveSubMenu(index)
@@ -1039,13 +1041,13 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          </div>
                          {acitveSubMenu <= 1 && (
                               <div className={styles.rightCont}>
-                                   {engineeringServices[acitveSubMenu]?.list?.map((link) => {
+                                   {engineeringServices[acitveSubMenu]?.list?.map((link, index) => {
                                         return (
-                                             <div>
+                                             <div key={index}>
                                                   <h3>{link.title}</h3>
                                                   <ul className={`${styles.noListStyle}`}>
-                                                       {link.list.map((link: any) => {
-                                                            return <li>{link.title}</li>
+                                                       {link.list.map((link: any, index) => {
+                                                            return <li key={index}>{link.title}</li>
                                                        })}
                                                   </ul>
                                              </div>
@@ -1055,9 +1057,9 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          )}
                          {acitveSubMenu >= 2 && (
                               <div className={styles.onlyLinkCont}>
-                                   {engineeringServices[acitveSubMenu]?.list?.map((link) => {
+                                   {engineeringServices[acitveSubMenu]?.list?.map((link, index) => {
                                         return (
-                                             <div>
+                                             <div key={index}>
                                                   <h3>{link.title}</h3>
                                              </div>
                                         )

@@ -16,8 +16,6 @@ interface ImageDescriptionRowProps {
 }
 
 const ImageDescriptionRow: React.FC<ImageDescriptionRowProps> = ({ keyProp }) => {
-     console.log('checking', keyProp)
-
      return (
           <section className={styles.imgDesc_con}>
                <div className={styles.content_Wrapper}>

@@ -1,22 +1,22 @@
 import React from 'react'
 import styles from './OpportunityCard.module.scss'
-import { JobsType } from '../../types/opportunityTypes'
 import Button from '@/component/button/Button'
 import Location from '../../../../assets/icons/ic_location_green.svg'
+import Image from 'next/image'
 
 interface OpportunityCardProps {
-     data: JobsType
+     data: any
 }
 
-const OpportunityCard = ({ data }: OpportunityCardProps) => {
+const OpportunityCard = ({ data }: any) => {
      return (
           <div className={styles.cardContainer}>
                <div className={styles.detailContainer}>
-                    <h2>{data.title}</h2>
+                    <h2>{data?.title}</h2>
                     <span className={`${styles.location} flex align-center`}>
-                         <img src={Location.src} /> {data.location}
+                         <Image src={Location} alt='Location' /> {data?.location}
                     </span>
-                    <p>{data.description}</p>
+                    <p>{data?.description}</p>
                </div>
                <Button
                     label='Apply now'

@@ -63,8 +63,8 @@ function GlobalOpportunity() {
                     <SearchInput placeHolder='Search a course name' style={styles.searchInput} />
                </div>
                <div className={styles.listContainer} id='card-container'>
-                    {arr.map((item: any) => {
-                         return <JobCard data={item} />
+                    {arr.map((item: any, index) => {
+                         return <JobCard key={index} data={item} />
                     })}
                </div>
                <div>

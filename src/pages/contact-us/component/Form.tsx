@@ -5,6 +5,7 @@ import styles from './Form.module.scss'
 import uploadIcon from '../../../assets/icons/ic_file_upload.svg'
 import Checkbox from '@/component/checkbox/Checkbox'
 import Loader from '@/component/loader/Loader'
+import Image from 'next/image'
 
 function Form() {
      const uploadBtnRef: any = useRef(null)
@@ -120,7 +121,7 @@ function Form() {
                </div>
 
                <div onClick={openFileUploader} className={styles.uploadBtn}>
-                    <img src={uploadIcon.src} alt='' />
+                    <Image src={uploadIcon} alt='' />
                     <span>Upload Additional file</span>
                </div>
                <p className={styles.infoNote}>File size of your documents should not exceed 10MB</p>

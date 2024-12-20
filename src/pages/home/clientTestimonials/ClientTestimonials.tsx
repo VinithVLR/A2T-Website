@@ -137,8 +137,8 @@ const ClientTestimonials = () => {
 
                <div>
                     <div className={styles.pagination}>
-                         <img
-                              src={prevIcon.src}
+                         <Image
+                              src={prevIcon}
                               alt=''
                               onClick={() => {
                                    if (index > 1) {
@@ -155,8 +155,8 @@ const ClientTestimonials = () => {
                                    }}
                               ></div>
                          </div>
-                         <img
-                              src={prevIcon.src}
+                         <Image
+                              src={prevIcon}
                               alt=''
                               onClick={() => {
                                    if (index < maxIndex) {

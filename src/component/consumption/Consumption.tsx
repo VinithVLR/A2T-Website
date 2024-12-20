@@ -20,15 +20,19 @@ const Consumption = ({ data }: any) => {
      const color = data.bgColor
      const icon = data.icon
      const hover = data.hoverColor
-     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
      const [active, setActive] = useState('one')
      const [height, setHeight] = useState('3rem')
      const containerRef = useRef<HTMLDivElement>(null)
 
      useEffect(() => {
-          const handleResize = () => setWindowWidth(window.innerWidth)
-          window.addEventListener('resize', handleResize)
-          return () => window.removeEventListener('resize', handleResize)
+          if (typeof window != 'undefined') {
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
+          }
      }, [])
 
      const getRemValue = () => {

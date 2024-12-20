@@ -7,6 +7,7 @@ import linkedin from '../../../assets/icons/ic_social_linkedin.svg'
 import xicon from '../../../assets/icons/ic_social_x.svg'
 import twitterIcon from '../../../assets/icons/ic_social_twitter.svg'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function Landing() {
      return (
@@ -25,24 +26,24 @@ function Landing() {
                <div className={styles.footer}>
                     <Link href={'tel:+91-9150523409'} target='_blank'>
                          <div className={styles.card}>
-                              <img src={phoneIcon.src} className={styles.cardImage} alt='' />
+                              <Image src={phoneIcon} className={styles.cardImage} alt='' />
                               <h3>+91 98866 40104</h3>
                          </div>
                     </Link>
                     <Link href={'mailto:finance@a2tgroup.com'} target='_blank'>
                          <div className={styles.card}>
-                              <img src={mailIcon.src} className={styles.cardImage} alt='' />
+                              <Image src={mailIcon} className={styles.cardImage} alt='' />
                               <h3 className={styles.email}>arun@a2tgroup.com,</h3>
                               <h3>finance@a2tgroup.com</h3>
                          </div>
                     </Link>
                     <div className={`${styles.card} ${styles.third}`}>
-                         <img src={urlIcon.src} className={styles.cardImage} alt='' />
+                         <Image src={urlIcon} className={styles.cardImage} alt='' />
                          <div className={styles.socialCont}>
-                              <img src={youtubeIcon.src} alt='' />
-                              <img src={linkedin.src} alt='' />
-                              <img src={twitterIcon.src} alt='' />
-                              <img src={xicon.src} alt='' />
+                              <Image src={youtubeIcon} alt='' />
+                              <Image src={linkedin} alt='' />
+                              <Image src={twitterIcon} alt='' />
+                              <Image src={xicon} alt='' />
                          </div>
                     </div>
                </div>

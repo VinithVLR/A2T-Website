@@ -12,30 +12,30 @@ const CarousCard = ({ indexNumber, item }: any) => {
           <div className={styles.carous_cars}>
                <div className={styles.card_content}>
                     <div className={styles.card_overlay}>
-                         <img
-                              src={quoteIcon.src}
+                         <Image
+                              src={quoteIcon}
                               alt=''
                               className={`${styles.quoteIcon} ${styles.whiteIcon}`}
                          />
-                         <img src={quoteWhiteIcon.src} alt='' className={styles.quoteIcon} />
+                         <Image src={quoteWhiteIcon} alt='' className={styles.quoteIcon} />
 
-                         <p className={styles.quote}>{item.quote}</p>
+                         <p className={styles.quote}>{item?.quote}</p>
                          <div className={styles.author}>
                               <Image
-                                   src={item.profileImg}
+                                   src={item?.profileImg}
                                    alt='Jane Smith'
                                    width={50}
                                    height={50}
                                    className={styles.avatar}
                               />
                               <div>
-                                   <h4 className={styles.name}>{item.name}</h4>
-                                   <p className={styles.position}>{item.position}</p>
+                                   <h4 className={styles.name}>{item?.name}</h4>
+                                   <p className={styles.position}>{item?.position}</p>
                               </div>
                          </div>
                     </div>
                     <div className={`${styles.imgBackground}`}>
-                         <img src={bgProfile.src} alt='' />
+                         <Image src={bgProfile} alt='' />
                     </div>
                </div>
           </div>

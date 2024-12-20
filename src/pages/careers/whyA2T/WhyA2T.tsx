@@ -12,6 +12,7 @@ import diversityImg from '../../../assets/images/img_diversity.png'
 import impactfulImg from '../../../assets/images/img_impactful.png'
 import careerImg from '../../../assets/images/img_career.png'
 import gsap from 'gsap'
+import Image from 'next/image'
 
 function WhyA2T() {
      const values = [
@@ -114,7 +115,7 @@ function WhyA2T() {
                                    }
                               >
                                    <div className={styles.imgWrapper} id={`cardIcon${value.id}`}>
-                                        <img src={value.icon.src} alt='' className='icon' />
+                                        <Image src={value.icon} alt='' className='icon' />
                                    </div>
 
                                    <h3>{value.title}</h3>

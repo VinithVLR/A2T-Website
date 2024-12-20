@@ -4,6 +4,7 @@ import groupPhoto from '../../../assets/images/img_journey.png'
 import canvaImage from '../../../assets/images/canva_journey.svg'
 import yellowCanvaImage from '../../../assets/images/canva_yellow_journey.svg'
 import pinkCanvaImage from '../../../assets/images/canva_pink_journey.svg'
+import Image from 'next/image'
 
 function OurJourney() {
      return (
@@ -37,36 +38,36 @@ function OurJourney() {
                          </div>
                     </div>
                     <div className={`${styles.imageGallary} ${styles.one}`}>
-                         <img src={groupPhoto.src} className={styles.firstimg} alt='' />
-                         <img src={canvaImage.src} className={styles.canvaimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.secondimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.thirdimg} alt='' />
-                         <img src={canvaImage.src} className={styles.canvasecimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.fourimg} alt='' />
+                         <Image src={groupPhoto} className={styles.firstimg} alt='' />
+                         <Image src={canvaImage} className={styles.canvaimg} alt='' />
+                         <Image src={groupPhoto} className={styles.secondimg} alt='' />
+                         <Image src={groupPhoto} className={styles.thirdimg} alt='' />
+                         <Image src={canvaImage} className={styles.canvasecimg} alt='' />
+                         <Image src={groupPhoto} className={styles.fourimg} alt='' />
                     </div>
                     <div className={`${styles.period} ${styles.periodsecond}`}>
                          <h3>2023</h3>
                          <span>Founded in Chennai, India</span>
                     </div>
                     <div className={`${styles.imageGallary} ${styles.two}`}>
-                         <img src={groupPhoto.src} className={styles.firstimg} alt='' />
-                         <img src={yellowCanvaImage.src} className={styles.canvaimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.secondimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.thirdimg} alt='' />
-                         <img src={yellowCanvaImage.src} className={styles.canvasecimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.fourimg} alt='' />
+                         <Image src={groupPhoto} className={styles.firstimg} alt='' />
+                         <Image src={yellowCanvaImage} className={styles.canvaimg} alt='' />
+                         <Image src={groupPhoto} className={styles.secondimg} alt='' />
+                         <Image src={groupPhoto} className={styles.thirdimg} alt='' />
+                         <Image src={yellowCanvaImage} className={styles.canvasecimg} alt='' />
+                         <Image src={groupPhoto} className={styles.fourimg} alt='' />
                     </div>
                     <div className={`${styles.period} ${styles.periodthird}`}>
                          <h3>2024</h3>
                          <span>Founded in Chennai, India</span>
                     </div>
                     <div className={`${styles.imageGallary} ${styles.three}`}>
-                         <img src={groupPhoto.src} className={styles.firstimg} alt='' />
-                         <img src={pinkCanvaImage.src} className={styles.canvaimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.secondimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.thirdimg} alt='' />
-                         <img src={pinkCanvaImage.src} className={styles.canvasecimg} alt='' />
-                         <img src={groupPhoto.src} className={styles.fourimg} alt='' />
+                         <Image src={groupPhoto} className={styles.firstimg} alt='' />
+                         <Image src={pinkCanvaImage} className={styles.canvaimg} alt='' />
+                         <Image src={groupPhoto} className={styles.secondimg} alt='' />
+                         <Image src={groupPhoto} className={styles.thirdimg} alt='' />
+                         <Image src={pinkCanvaImage} className={styles.canvasecimg} alt='' />
+                         <Image src={groupPhoto} className={styles.fourimg} alt='' />
                     </div>
                </div>
           </section>

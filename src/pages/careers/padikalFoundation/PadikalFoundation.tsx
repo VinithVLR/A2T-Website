@@ -10,6 +10,7 @@ import lg1 from '../../../assets/images/careers/img_padikal_lg1.png'
 import lg2 from '../../../assets/images/careers/img_padikal_lg2.png'
 import Button from '@/component/button/Button'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 function PadikalFoundation() {
      const [width, setWidth] = useState(true)
@@ -25,9 +26,9 @@ function PadikalFoundation() {
           <section className={styles.bodyMainCon}>
                <div className={`${styles.cont} ${styles.mobileView}`}>
                     <div className={styles.flex}>
-                         <img src={sm1.src} alt='' className={styles.mobileCover} />
-                         {width && <img src={canva1.src} alt='' />}
-                         {width && <img src={lg1.src} alt='' />}
+                         <Image src={sm1} alt='' className={styles.mobileCover} />
+                         {width && <Image src={canva1} alt='' />}
+                         {width && <Image src={lg1} alt='' />}
                     </div>
                     <div>
                          <p className={styles.para}>
@@ -59,13 +60,13 @@ function PadikalFoundation() {
                     </h2>
                     {width && (
                          <div className={`${styles.flex} ${styles.secondContainer}`}>
-                              <img src={sm2.src} alt='' />
-                              <img src={canva3.src} alt='' />
-                              <img src={lg2.src} alt='' />
+                              <Image src={sm2} alt='' />
+                              <Image src={canva3} alt='' />
+                              <Image src={lg2} alt='' />
                          </div>
                     )}
                </div>
-               {width && <img src={canva2.src} alt='' className={styles.canvaImage} />}
+               {width && <Image src={canva2} alt='' className={styles.canvaImage} />}
           </section>
      )
 }

@@ -28,8 +28,8 @@ function FAQ() {
                     containerStyle={styles.header}
                />
                <div>
-                    {arr.map((question) => {
-                         return <FAQCard data={question} />
+                    {arr.map((question, index) => {
+                         return <FAQCard key={index} data={question} />
                     })}
                </div>
           </section>

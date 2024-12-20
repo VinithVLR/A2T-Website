@@ -10,12 +10,21 @@ import bg_Image3 from '../../../assets/images/img_purp_ly2.png'
 import bgImage3 from '../../../assets/images/img_purp_bg3.png'
 
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+import Consumption from '../consumption/Consumption'
 
 const SustainableBusinessAlignment = () => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
+
+     useEffect(() => {
+          if (typeof window != 'undefined') {
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
+          }
+     }, [])
 
      useEffect(() => {
           const handleResize = () => {
@@ -63,32 +72,6 @@ const SustainableBusinessAlignment = () => {
           },
      ]
 
-     const lineRef = useRef<HTMLDivElement>(null)
-
-     useEffect(() => {
-          const lines = lineRef.current?.querySelectorAll(`.${styles.line}`)
-
-          if (lines) {
-               lines.forEach((line) => {
-                    gsap.fromTo(
-                         line,
-                         { height: '0%' }, // Start with no height
-                         {
-                              height: '100%', // Animate to full height
-                              duration: 1.5,
-                              ease: 'power2.out',
-                              scrollTrigger: {
-                                   trigger: line, // Animate each line when it enters the viewport
-                                   start: 'top 80%', // Animation starts when the line enters 80% of the viewport
-                                   end: 'bottom 20%', // Animation ends when the line leaves 20% of the viewport
-                                   scrub: true, // Smooth animation synced with scroll
-                              },
-                         },
-                    )
-               })
-          }
-     }, [])
-
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
@@ -97,91 +80,132 @@ const SustainableBusinessAlignment = () => {
                     </h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
                          From reducing carbon footprints to fostering equality and promoting
-                         responsible growth, we align our services with the UN's Sustainable
+                         responsible growth, we align our services with the UN&apos;s Sustainable
                          Development Goals.
                     </p>
                </header>
 
-               <div ref={lineRef} className={styles.svglinecontainer_web}>
-                    {arr.map((item: any, index: any) => (
-                         <section
-                              key={index}
-                              className={styles.flex_con}
-                              style={{
-                                   flexDirection: isSmallScreen
-                                        ? index % 2 === 0
-                                             ? 'column-reverse'
-                                             : 'column'
-                                        : 'row',
-                              }}
+               <div className={styles.gridcon}>
+                    {windowWidth > 800 && (
+                         <div
+                              className={styles.time_line}
+                              style={{ position: 'relative', zIndex: 2 }}
                          >
-                              {index % 2 === 0 ? (
-                                   <>
-                                        <div className={styles.image_con}>
-                                             <Image
-                                                  src={item.bgImage}
-                                                  alt='icon'
-                                                  className={styles.image}
-                                             />
-                                             <div className={styles.img_wrp}>
+                              {Array.from({ length: 3 }).map((_, index) => {
+                                   return (
+                                        <React.Fragment key={index}>
+                                             <div className={styles.dot}>
+                                                  <div className={styles.md}>
+                                                       <div className={styles.sd}></div>
+                                                  </div>
+                                             </div>
+                                             {index != 2 && <div className={styles.line}></div>}
+                                        </React.Fragment>
+                                   )
+                              })}
+
+                              {/* <div
+                                   className={`${styles.line} ${styles.draw_line}`}
+                                   style={{
+                                        background: 'red',
+                                        width: '2px',
+                                        height: '90%',
+                                        position: 'absolute',
+                                        zIndex: 1,
+                                   }}
+                              ></div> */}
+                         </div>
+                    )}
+                    {windowWidth <= 800 &&
+                         Array.from({ length: 3 }).map((_, index) => {
+                              return (
+                                   <div
+                                        key={index}
+                                        className={styles.timelineCont}
+                                        style={{ gridRow: `${index + 1}/${index + 2}` }}
+                                   >
+                                        <div className={styles.dot}>
+                                             <div className={styles.md}>
+                                                  <div className={styles.sd}></div>
+                                             </div>
+                                        </div>
+                                        {index != 2 && <div className={styles.line}></div>}
+                                   </div>
+                              )
+                         })}
+                    {arr.map((item, index) => {
+                         return (
+                              <React.Fragment key={index}>
+                                   {windowWidth <= 800 ? (
+                                        <>
+                                             <div className={styles.details_con}>
+                                                  <Consumption data={item} />
+                                             </div>
+                                        </>
+                                   ) : index % 2 === 0 ? (
+                                        <>
+                                             <div
+                                                  className={`${styles.image_con} ${styles.flexend}`}
+                                             >
                                                   <Image
                                                        src={item.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
+                                                  <Image
+                                                       src={item.bgImage}
+                                                       alt='icon'
+                                                       className={styles.bgImage}
+                                                  />
                                              </div>
-                                        </div>
-                                        <div className={styles.details_con}>
-                                             <TitleDescriptionWithIcon
-                                                  style={{ paddingInline: '3rem' }}
-                                                  title={item.title}
-                                                  description={item.description}
-                                                  headingStyle={{ fontSize: '2rem' }}
-                                                  paraStyle={{
-                                                       fontsize: '1.125rem',
-                                                       lineHeight: '1.3rem',
-                                                       width: '60%',
-                                                  }}
-                                             />
-                                        </div>
-                                   </>
-                              ) : (
-                                   <>
-                                        <div className={styles.details_con}>
-                                             <TitleDescriptionWithIcon
-                                                  style={{ paddingInline: '0rem' }}
-                                                  title={item.title}
-                                                  description={item.description}
-                                                  headingStyle={{ fontSize: '2rem' }}
-                                                  paraStyle={{
-                                                       fontsize: '1.125rem',
-                                                       lineHeight: '1.3rem',
-                                                       width: '60%',
-                                                  }}
-                                             />
-                                        </div>
-                                        <div className={styles.image_con}>
-                                             <Image
-                                                  src={item.bgImage}
-                                                  alt='icon'
-                                                  className={styles.image}
-                                             />
-                                             <div className={styles.img_wrp}>
+                                             <div className={styles.details_con}>
+                                                  <Consumption data={item} />
+                                             </div>
+                                        </>
+                                   ) : (
+                                        <>
+                                             <div className={styles.details_con}>
+                                                  <div className={styles.middleware}>
+                                                       <Consumption data={item} />
+                                                  </div>
+                                             </div>
+                                             <div className={styles.image_con}>
                                                   <Image
                                                        src={item.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
+                                                  <Image
+                                                       src={item.bgImage}
+                                                       alt='icon'
+                                                       className={styles.bgImage}
+                                                  />
                                              </div>
-                                        </div>
-                                   </>
-                              )}
-                              <div className={styles.line}></div>
-                         </section>
-                    ))}
+                                        </>
+                                   )}
+                              </React.Fragment>
+                         )
+                    })}
                </div>
           </section>
      )
 }
 
 export default SustainableBusinessAlignment
+
+{
+     /* <div className={styles.image_con}>
+                                             <Image
+                                                  src={item.bgImage}
+                                                  alt='icon'
+                                                  className={styles.image}
+                                             />
+                                             <div className={styles.img_wrp}>
+                                                  <Image
+                                                       src={item.image}
+                                                       alt='icon'
+                                                       className={styles.image}
+                                                  />
+                                             </div>
+                                        </div> */
+}
