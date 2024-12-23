@@ -12,22 +12,29 @@ const SkilledWorkforce = () => {
                title: 'CNC Machine Operators',
                description:
                     'Skilled personnel for operating CNC machines, ensuring precision in manufacturing processes.',
+               link: 'CNC-machine-operators',
           },
           {
                img: cardImage2,
                title: '3D Printing Technicians',
+               link: '3D-printing-technicians',
                description:
                     'Experts in additive manufacturing and rapid prototyping using 3D printing technologies.',
           },
           {
                img: cardImage3,
                title: 'Welders and Fabricators',
+               link: 'welders-and-fabricators',
                description:
                     'Trained manpower for welding, fabrication, and assembly of metal components used in manufacturing.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='skilled-operators-&-technicians'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Skilled Operators & Technicians
@@ -45,6 +52,7 @@ const SkilledWorkforce = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

@@ -6,11 +6,12 @@ interface cardPorps {
      imageUrl: string
      title: string
      description: string
+     link?: string
 }
 
-const Card: React.FC<cardPorps> = ({ imageUrl, title, description }) => {
+const Card: React.FC<cardPorps> = ({ imageUrl, title, description, link }) => {
      return (
-          <section className={styles.card_con}>
+          <section id={link} className={styles.card_con}>
                <div className={styles.imageContainer}>
                     <Image src={imageUrl} alt={title} className={styles.image} layout='fill' />
                </div>

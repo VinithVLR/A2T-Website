@@ -9,18 +9,24 @@ const LngShippingLogistics = () => {
           {
                img: cardImage1,
                title: 'Marine Engineers and Crew',
+               link: 'marine-engineers-and-crew',
                description:
                     'Personnel with expertise in LNG tanker operations, shipping logistics, and safe handling of LNG cargo.',
           },
           {
                img: cardImage2,
                title: 'Logistics and Supply Chain Managers',
+               link: 'Logistics and Supply Chain Managers',
                description:
                     'Ensuring efficient supply chain management for LNG distribution across regions.LNG Certified Commercial Fleet Operators',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='LNG-shipping-and-logistics-personnel'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          LNG Shipping and Logistics Personnel
@@ -39,6 +45,7 @@ const LngShippingLogistics = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

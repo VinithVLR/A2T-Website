@@ -13,6 +13,7 @@ const EvManufacturing = () => {
                bgImage: bgImage1,
                img: image1,
                title: 'EV Design Engineers',
+               link: 'EV-design-engineers',
                description:
                     'Experts in electric vehicle architecture, including battery design, power electronics, and motor systems.',
           },
@@ -20,6 +21,7 @@ const EvManufacturing = () => {
                bgImage: bgImage2,
                img: image2,
                title: 'Automation Engineers for EV Production',
+               link: 'automation-engineers-for-EV-production',
                description:
                     'Implementing automation systems for the assembly and production of electric vehicles.',
           },
@@ -27,20 +29,23 @@ const EvManufacturing = () => {
                bgImage: bgImage1,
                img: image3,
                title: 'Project Managers',
+               link: 'Project-managers',
                description:
                     'Skilled manpower in assembling, testing, and maintaining EV battery systems.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='EV-manufacturing'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
-                         LNG Shipping and Logistics Personnel
-                    </h3>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>EV Manufacturing</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
-                         Marine Engineers and Logistics Managers oversee safe LNG cargo handling and
-                         supply chain management, ensuring efficient LNG distribution across
-                         regions.
+                         Our EV Design Engineers, Battery Technicians, and Automation Engineers
+                         specialize in designing, assembling, and automating electric vehicle
+                         manufacturing processes, ensuring efficient and scalable EV production.
                     </p>
                </header>
                <AlternatingContentLayout content={arr} />

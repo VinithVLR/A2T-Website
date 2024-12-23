@@ -7,19 +7,25 @@ const ResearchTesting = () => {
      const researchArr = [
           {
                img: cardImage1,
-               title: 'Predictive Maintenance Engineers',
+               title: 'Battery and Powertrain Testing Engineers',
+               link: 'battery-and-powertrain-testing-engineers',
                description:
-                    'Skilled personnel for operating CNC machines, ensuring precision in manufacturing processes.',
+                    'Specialists in testing EV components like batteries, motors, and powertrains for durability and performance.',
           },
           {
                img: cardImage2,
-               title: 'Equipment Maintenance Technicians',
+               title: 'Simulation and Testing Engineers',
+               link: 'simulation-and-testing-engineers',
                description:
-                    'Skilled technicians for regular and corrective maintenance of manufacturing equipment.',
+                    'Experts in the simulation of EV systems for performance optimization and safety testing.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='R&D-and-testing'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>R&D and Testing</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -37,6 +43,7 @@ const ResearchTesting = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

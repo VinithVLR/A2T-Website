@@ -10,7 +10,7 @@ import TechLogisticsOptimization from '@/pages/fleetmanagement/techLogisticsOpti
 import GlobalLocalExpertise from '@/pages/fleetmanagement/globalLocalExpertise/GlobalLocalExpertise'
 import AirCargoSolutions from '@/pages/fleetmanagement/airCargoSolutions/AirCargoSolutions'
 import CallToAction from '@/component/calltoaction/CallToAction'
-import Wrapper from './Wrapper'
+import Wrapper from '../Wrapper'
 
 const page = () => {
      return (
@@ -27,8 +27,8 @@ const page = () => {
                     />
                     <FleetSolutions />
                     <SkilledDriverProgram />
-                    <SustainableFleetFocus />
                     <TechLogisticsOptimization />
+                    <SustainableFleetFocus />
                     <GlobalLocalExpertise />
                     <AirCargoSolutions />
                     <CallToAction

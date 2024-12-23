@@ -9,27 +9,30 @@ const ProcessEngineering = () => {
           {
                img: image1,
                title: 'Lean Manufacturing Consulting',
+               link: 'lean-manufacturing-Consulting',
                description:
                     'Implementing lean principles to eliminate waste and optimize manufacturing processes.',
           },
           {
                img: image2,
                title: 'Six Sigma & Quality Engineering',
+               link: 'six-sigma-&-quality-engineering',
                description: [
                     'Process improvement strategies using Six Sigma methodology to improve product quality and reduce defects.',
                ],
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='process-engineering'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
-                         Energy Efficiency and Sustainability Consulting
-                    </h3>
+                    <h3 className={`${styles.heading} ${styles.blackText}`}>Process Engineering</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
-                         We conduct energy audits, provide energy management system implementation,
-                         and offer carbon reduction strategies to help industries reduce their
-                         environmental impact.
+                         Using lean manufacturing and Six Sigma principles, we streamline operations
+                         and improve product quality.
                     </p>
                </header>
                {processEngData.map((item: any, index: any) => (
@@ -40,6 +43,7 @@ const ProcessEngineering = () => {
                          description={item.description}
                          rowReverse={index % 2 !== 0}
                          label={item.label}
+                         link={item.link}
                     />
                ))}
           </section>

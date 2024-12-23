@@ -9,24 +9,27 @@ const SustainableFleetFocus = () => {
      let skillArr: any = [
           {
                img: image1,
-               title: 'Fleet Management School (Code 93)',
+               title: 'Safety Protocols',
                description:
-                    'Advanced training programs for drivers to meet European and global logistics standards.',
+                    'Implementation of comprehensive safety measures, training, and monitoring.',
+               link: 'safety-protocols',
           },
           {
                img: image2,
-               title: 'Driver Safety and Compliance',
-               description:
-                    'Focused training on safety protocols, regulatory compliance, and efficient driving practices.',
+               title: 'ESG Integration',
+               description: 'Aligning fleet management with ESG goals for sustainability',
+               link: 'ESG-integration',
           },
           {
                img: image3,
-               title: 'Driver Development Centers (DDCs)',
-               description: 'Centers for continuous learning and skill enhancement for drivers.',
+               title: 'Compliance Assurance',
+               description:
+                    'Ensuring all logistics activities meet local and international regulations.',
+               link: 'compliance-assurance',
           },
      ]
      return (
-          <section className={styles.main_container}>
+          <section id='Safety-Compliance-&-Sustainability' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Focus on Safety, Compliance, & Sustainability
@@ -43,6 +46,7 @@ const SustainableFleetFocus = () => {
                          title={item.title}
                          description={item.description}
                          style={{ paddingBlock: '2rem' }}
+                         link={item.link}
                     />
                ))}
           </section>

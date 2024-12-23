@@ -9,6 +9,7 @@ const Hydropower = () => {
           {
                img: cardImage1,
                title: 'Small & Micro Hydropower Plant Design',
+               link: 'small-&-micro-hydropower-plant-design',
                description: [
                     'Engineering services for small hydropower projects (up to 25 MW).',
                     'Civil, mechanical, and electrical design for turbine systems and dams.',
@@ -17,12 +18,17 @@ const Hydropower = () => {
           {
                img: cardImage2,
                title: 'Operation and Maintenance Services',
+               link: 'operation-and-maintenance-services',
                description: ['Long-term O&M services for hydropower plants.'],
           },
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='hydropower'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Hydropower</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -38,6 +44,7 @@ const Hydropower = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

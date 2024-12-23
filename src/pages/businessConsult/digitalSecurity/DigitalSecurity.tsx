@@ -11,7 +11,7 @@ import imgAb3 from '../../../assets/images/Business/img_sec_ab3.png'
 
 const DigitalSecurity = () => {
      return (
-          <section className={styles.DigitalSecurity_con}>
+          <section id='secure-your-digital-assets' className={styles.DigitalSecurity_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>

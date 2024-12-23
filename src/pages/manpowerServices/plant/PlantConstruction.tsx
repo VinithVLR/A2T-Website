@@ -12,6 +12,7 @@ const PlantConstruction = () => {
                bgImage: bgImage1,
                img: image1,
                title: 'Construction Engineers',
+               link: 'construction-engineers',
                description:
                     'Managing civil, mechanical, and electrical aspects of LNG plant construction.',
           },
@@ -19,6 +20,7 @@ const PlantConstruction = () => {
                bgImage: bgImage2,
                img: image2,
                title: 'Process Engineers',
+               link: 'process-engineers',
                description:
                     'Specializing in LNG processing, liquefaction, and regasification technologies.',
           },
@@ -26,12 +28,17 @@ const PlantConstruction = () => {
                bgImage: bgImage1,
                img: image3,
                title: 'Project Managers',
+               link: 'project-managers',
                description:
                     'Leading the construction, commissioning, and start-up phases of LNG terminals and facilities.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='LNG-plant-construction-&-commissioning'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          LNG Plant Construction & Commissioning

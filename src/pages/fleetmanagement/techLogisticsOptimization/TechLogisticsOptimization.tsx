@@ -12,23 +12,26 @@ const TechLogisticsOptimization = () => {
                title: 'Route Optimization',
                description:
                     'AI-powered algorithms to find the most efficient routes, saving time and fuel.',
+               link: 'route-optimization',
           },
           {
                img: cardImage2,
                title: 'Telematics and Analytics',
                description:
                     'Real-time data insights to enhance fleet performance and predict maintenance needs.',
+               link: 'telematics-and-analytics',
           },
           {
                img: cardImage3,
                title: 'Digital Platforms',
                description:
                     'Cloud platforms for managing logistics, driver assignments, and compliance.',
+               link: 'digital-platforms',
           },
      ]
 
      return (
-          <section className={styles.main_container}>
+          <section id='technology-driven-logistics-optimization' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Technology-Driven Logistics Optimization
@@ -46,6 +49,7 @@ const TechLogisticsOptimization = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

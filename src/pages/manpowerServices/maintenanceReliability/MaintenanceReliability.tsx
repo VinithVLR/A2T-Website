@@ -9,18 +9,24 @@ const MaintenanceReliability = () => {
           {
                img: cardImage1,
                title: 'Predictive Maintenance Engineers',
+               link: 'predictive-maintenance-engineers',
                description:
                     'Skilled personnel for operating CNC machines, ensuring precision in manufacturing processes.',
           },
           {
                img: cardImage2,
                title: 'Equipment Maintenance Technicians',
+               link: 'equipment-maintenance-technicians',
                description:
                     'Skilled technicians for regular and corrective maintenance of manufacturing equipment.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='maintenance-&-reliability-engineers'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Maintenance & Reliability Engineers
@@ -39,6 +45,7 @@ const MaintenanceReliability = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

@@ -18,6 +18,7 @@ const FleetSolutions = () => {
                title: 'Maintenance and Repairs',
                description:
                     'Regular maintenance schedules and 24/7 repair services to minimize downtime.',
+               link: 'maintence-and-repairs',
           },
           {
                bgImage: bgImage2,
@@ -25,6 +26,7 @@ const FleetSolutions = () => {
                title: 'Real-Time Tracking',
                description:
                     'Advanced GPS tracking for better route planning and operational control.',
+               link: 'real-time-tracking',
           },
           {
                bgImage: bgImage3,
@@ -32,6 +34,7 @@ const FleetSolutions = () => {
                title: 'Vehicle Procurement and Leasing',
                description:
                     'Customized solutions for acquiring and leasing vehicles suited to your operational needs.',
+               link: 'vehicle-procurement-and-Leasing',
           },
           {
                bgImage: bgImage4,
@@ -39,10 +42,11 @@ const FleetSolutions = () => {
                title: 'Fuel Management',
                description:
                     'Efficient fuel usage monitoring and optimization to reduce costs and carbon footprint.',
+               link: 'fuel-management',
           },
      ]
      return (
-          <section className={styles.main_container}>
+          <section id='fleet-solutions' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          End-to-End Fleet Solutions Tailored to Your Needs

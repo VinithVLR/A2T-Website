@@ -82,6 +82,15 @@ const fleetManagement = [
           ],
      },
      {
+          title: 'Technology-Driven Logistics Optimization',
+          link: 'technology-driven-logistics-optimization',
+          list: [
+               { title: 'Route Optimization', link: 'route-optimization' },
+               { title: 'Telematics and Analytics', link: 'telematics-and-analytics' },
+               { title: 'Digital Platforms', link: 'digital-platforms' },
+          ],
+     },
+     {
           title: 'Safety, Compliance, & Sustainability',
           link: 'Safety-Compliance-&-Sustainability',
           list: [
@@ -152,7 +161,7 @@ const manpowersolutions = [
                          { title: 'Hydropower Engineers', link: 'hydropower-engineers' },
                          {
                               title: 'Hydropower Maintenance Technicians',
-                              link: 'Hydropower Maintenance Technicians',
+                              link: 'hydropower-maintenance-technicians',
                          },
                     ],
                },
@@ -189,17 +198,6 @@ const manpowersolutions = [
                          { title: 'CNC Machine Operators', link: 'CNC-machine-operators' },
                          { title: '3D Printing Technicians', link: '3D-printing-technicians' },
                          { title: 'Welders and Fabricators', link: 'welders-and-fabricators' },
-                    ],
-               },
-               {
-                    title: 'Process Improvement Specialists',
-                    link: 'process-improvement-specialists',
-                    list: [
-                         {
-                              title: 'Lean Manufacturing Experts',
-                              link: 'lean-manufacturing-experts',
-                         },
-                         { title: 'Six Sigma Black Belts', link: 'six-sigma-black-belts' },
                     ],
                },
                {
@@ -310,7 +308,7 @@ const manpowersolutions = [
                               title: 'EV Maintenance Technicians',
                               link: 'EV-maintenance-technicians',
                          },
-                         { title: 'EV Software Engineers', link: 'EV-software-rngineers' },
+                         { title: 'EV Software Engineers', link: 'EV-software-engineers' },
                     ],
                },
                {
@@ -366,7 +364,7 @@ const manpowersolutions = [
 ]
 
 const businessConsulting = [
-     { title: ' Digital Transformation Expertise', link: ' digital-transformation-expertise' },
+     { title: ' Digital Transformation Expertise', link: 'digital-transformation-expertise' },
      { title: 'Drive Growth', link: 'drive-growth' },
      { title: 'Business Growth', link: 'business-growth' },
      { title: 'leverage-data', link: 'leverage-data' },
@@ -638,6 +636,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
           setIsOpen(false)
      }, [pathname])
 
+     const onNav = () => {
+          setActiveMenu('')
+          setActiveSubMenu(0)
+          setIsOpen(false)
+     }
+
      useEffect(() => {
           if (isOpen || activeMenu) {
                const elements = document.getElementById('bodyContainer')
@@ -892,12 +896,24 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          {fleetManagement.map((nav, index) => {
                               return (
                                    <div key={index}>
-                                        <h3>
-                                             <a>{nav.title}</a>
-                                        </h3>
+                                        <Link
+                                             onClick={onNav}
+                                             href={`/fleet-management#${nav.link}`}
+                                        >
+                                             <h3>
+                                                  <a>{nav.title}</a>
+                                             </h3>
+                                        </Link>
                                         <ul className={`${styles.noListStyle}`}>
                                              {nav.list.map((link: any) => {
-                                                  return <li key={link.title}>{link.title}</li>
+                                                  return (
+                                                       <Link
+                                                            onClick={onNav}
+                                                            href={`/fleet-management#${link.link}`}
+                                                       >
+                                                            <li key={link.title}>{link.title}</li>
+                                                       </Link>
+                                                  )
                                              })}
                                         </ul>
                                    </div>
@@ -922,9 +938,11 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     <div className={styles.singleLinkPage}>
                          {businessConsulting.map((link, index) => {
                               return (
-                                   <div key={index}>
-                                        <h3>{link.title}</h3>
-                                   </div>
+                                   <Link onClick={onNav} href={`/business-consult#${link.link}`}>
+                                        <div key={index}>
+                                             <h3>{link.title}</h3>
+                                        </div>
+                                   </Link>
                               )
                          })}
                     </div>
@@ -947,12 +965,22 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          {esgSustainability.map((nav, index) => {
                               return (
                                    <div key={index}>
-                                        <h3>
-                                             <a>{nav.title}</a>
-                                        </h3>
+                                        <Link
+                                             onClick={onNav}
+                                             href={`/esg-sustainability#${nav.link}`}
+                                        >
+                                             <h3>{nav.title}</h3>
+                                        </Link>
                                         <ul className={`${styles.noListStyle}`}>
                                              {nav.list.map((link: any, index) => {
-                                                  return <li key={index}>{link.title}</li>
+                                                  return (
+                                                       <Link
+                                                            onClick={onNav}
+                                                            href={`/esg-sustainability#${link.link}`}
+                                                       >
+                                                            <li key={index}>{link.title}</li>
+                                                       </Link>
+                                                  )
                                              })}
                                         </ul>
                                    </div>
@@ -979,16 +1007,21 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          <div className={styles.leftCont}>
                               {manpowersolutions.map((link, index) => {
                                    return (
-                                        <div
-                                             key={index}
-                                             className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
-                                             onMouseOver={() => {
-                                                  setActiveSubMenu(index)
-                                             }}
+                                        <Link
+                                             onClick={onNav}
+                                             href={`/manpower-services#${link.link}`}
                                         >
-                                             <h3>{link.title}</h3>
-                                             <p>{link.description}</p>
-                                        </div>
+                                             <div
+                                                  key={index}
+                                                  className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
+                                                  onMouseOver={() => {
+                                                       setActiveSubMenu(index)
+                                                  }}
+                                             >
+                                                  <h3>{link.title}</h3>
+                                                  <p>{link.description}</p>
+                                             </div>
+                                        </Link>
                                    )
                               })}
                          </div>
@@ -996,10 +1029,24 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               {manpowersolutions[acitveSubMenu]?.list?.map((link, index) => {
                                    return (
                                         <div key={index}>
-                                             <h3>{link.title}</h3>
+                                             <Link
+                                                  onClick={onNav}
+                                                  href={`/manpower-services#${link.link}`}
+                                             >
+                                                  <h3>{link.title}</h3>
+                                             </Link>
                                              <ul className={`${styles.noListStyle}`}>
-                                                  {link.list.map((link: any, index) => {
-                                                       return <li key={index}>{link.title}</li>
+                                                  {link.list.map((sublink: any, indexw) => {
+                                                       return (
+                                                            <Link
+                                                                 onClick={onNav}
+                                                                 href={`/manpower-services#${sublink.link}`}
+                                                            >
+                                                                 <li key={indexw}>
+                                                                      {sublink.title}
+                                                                 </li>
+                                                            </Link>
+                                                       )
                                                   })}
                                              </ul>
                                         </div>
@@ -1026,16 +1073,21 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          <div className={styles.leftCont}>
                               {engineeringServices.map((link, index) => {
                                    return (
-                                        <div
-                                             key={index}
-                                             className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
-                                             onMouseOver={() => {
-                                                  setActiveSubMenu(index)
-                                             }}
+                                        <Link
+                                             onClick={onNav}
+                                             href={`/engineering-service#${link.link}`}
                                         >
-                                             <h3>{link.title}</h3>
-                                             <p>{link.description}</p>
-                                        </div>
+                                             <div
+                                                  key={index}
+                                                  className={`${styles.optionCont} ${acitveSubMenu == index ? styles.active : ''}`}
+                                                  onMouseOver={() => {
+                                                       setActiveSubMenu(index)
+                                                  }}
+                                             >
+                                                  <h3>{link.title}</h3>
+                                                  <p>{link.description}</p>
+                                             </div>
+                                        </Link>
                                    )
                               })}
                          </div>
@@ -1044,10 +1096,24 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                    {engineeringServices[acitveSubMenu]?.list?.map((link, index) => {
                                         return (
                                              <div key={index}>
-                                                  <h3>{link.title}</h3>
+                                                  <Link
+                                                       onClick={onNav}
+                                                       href={`/engineering-services#${link.link}`}
+                                                  >
+                                                       <h3>{link.title}</h3>
+                                                  </Link>
                                                   <ul className={`${styles.noListStyle}`}>
-                                                       {link.list.map((link: any, index) => {
-                                                            return <li key={index}>{link.title}</li>
+                                                       {link.list.map((slink: any, indexs) => {
+                                                            return (
+                                                                 <Link
+                                                                      onClick={onNav}
+                                                                      href={`/engineering-services#${slink.link}`}
+                                                                 >
+                                                                      <li key={indexs}>
+                                                                           {slink.title}
+                                                                      </li>
+                                                                 </Link>
+                                                            )
                                                        })}
                                                   </ul>
                                              </div>
@@ -1060,7 +1126,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                    {engineeringServices[acitveSubMenu]?.list?.map((link, index) => {
                                         return (
                                              <div key={index}>
-                                                  <h3>{link.title}</h3>
+                                                  <Link
+                                                       onClick={onNav}
+                                                       href={`/engineering-services#${link.link}`}
+                                                  >
+                                                       <h3>{link.title}</h3>
+                                                  </Link>
                                              </div>
                                         )
                                    })}

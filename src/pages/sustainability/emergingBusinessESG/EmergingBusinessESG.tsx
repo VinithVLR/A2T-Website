@@ -11,22 +11,25 @@ const EmergingBusinessESG = () => {
                img: image1,
                title: 'Customized ESG Policy Development',
                description: "Tailored strategies that reflect the startup's vision and values.",
+               link: 'customized-ESG-policy-development',
           },
           {
                img: image2,
                title: 'Impact Measurement',
                description:
                     'Tools and metrics to track and communicate sustainability efforts effectively.',
+               link: 'impact-measurement',
           },
           {
                img: image3,
                title: 'Investor and Stakeholder Alignment',
                description:
                     'Creating ESG reports that meet investor expectations and regulatory requirements.',
+               link: 'investor-and-stakeholder-alignment',
           },
      ]
      return (
-          <section className={`${styles.main_con}`}>
+          <section id='strong-ESG-foundation' className={`${styles.main_con}`}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          For Emerging Businesses, Building a Strong ESG Foundation
@@ -45,6 +48,7 @@ const EmergingBusinessESG = () => {
                          title={item.title}
                          description={item.description}
                          style={{ paddingBlock: '2rem' }}
+                         link={item.link}
                     />
                ))}
           </section>

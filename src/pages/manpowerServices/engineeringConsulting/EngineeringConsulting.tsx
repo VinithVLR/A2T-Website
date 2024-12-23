@@ -7,12 +7,17 @@ const EngineeringConsulting = () => {
           {
                img: cardImage1,
                title: 'Engineering Consultants',
+               link: 'engineering-consultants',
                description:
                     'Offering expertise across renewable energy, LNG, EV, and manufacturing, providing advisory services and feasibility studies.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='engineering-consulting-services'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Engineering Consulting Services
@@ -29,6 +34,7 @@ const EngineeringConsulting = () => {
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
+                         link={item.link}
                     />
                ))}
           </section>

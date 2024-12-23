@@ -9,6 +9,7 @@ const AutomationSolutions = () => {
           {
                img: image1,
                title: 'Industrial Automation',
+               link: 'industrial-automation',
                description: [
                     'Design, development, and implementation of automation systems for manufacturing plants.',
                     'Integration of robotics and automation in assembly lines for efficiency and productivity.',
@@ -16,7 +17,8 @@ const AutomationSolutions = () => {
           },
           {
                img: image2,
-               title: 'Carbon Reduction Strategies',
+               title: 'Smart Manufacturing & Industry 4.0 Solutions',
+               link: 'smart-manufacturing-&-industry-solutions',
                description: [
                     'IoT-enabled manufacturing systems for real-time monitoring and data analytics.',
                     'Implementation of artificial intelligence (AI) for predictive maintenance and quality control.',
@@ -25,7 +27,11 @@ const AutomationSolutions = () => {
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='automation-and-robotics-solutions'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Automation and Robotics Solutions
@@ -43,6 +49,7 @@ const AutomationSolutions = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

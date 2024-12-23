@@ -12,6 +12,7 @@ const ProjMgmtCoord = () => {
                bgImage: bgImage1,
                img: image1,
                title: 'Construction and Site Managers',
+               link: 'construction-and-site-managers',
                description:
                     'Managing large-scale projects, ensuring coordination between engineering teams, contractors, and vendors.',
           },
@@ -19,12 +20,17 @@ const ProjMgmtCoord = () => {
                bgImage: bgImage2,
                img: image2,
                title: 'Supply Chain & Procurement Experts',
+               link: 'supply-chain-&-procurement-experts',
                description:
                     'Overseeing procurement and supply chain operations for energy, LNG, EV, and manufacturing projects.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='project-management-&-coordination'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Project Management & Coordination

@@ -18,6 +18,7 @@ interface SecondaryLandingProps {
      bgImage: any
      bgColor?: React.CSSProperties
      bsStyle?: React.CSSProperties
+     id?: any
 }
 const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
      flexReverse,
@@ -27,9 +28,11 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
      bgImage,
      bgColor,
      bsStyle,
+     id,
 }) => {
      return (
           <section
+               id={id ? id : ''}
                className={`${styles.main_con} ${flexReverse ? styles.reverse : ''} ${inter.className}`}
                style={bgColor && { ...bgColor }}
           >

@@ -11,15 +11,21 @@ const Hydropower = () => {
                title: 'Hydropower Engineers',
                description:
                     'Engineers with experience in civil, mechanical, and electrical aspects of small and large hydropower plants.',
+               link: 'hydropower-engineers',
           },
           {
                img: cardImage2,
                title: 'Hydropower Maintenance Technicians',
                description: 'Manpower for the regular upkeep and monitoring of hydropower systems.',
+               link: 'hydropower-maintenance-technicians',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='hydropower'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Hydropower</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -36,6 +42,7 @@ const Hydropower = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

@@ -11,6 +11,7 @@ const DeliverCore = () => {
      let arr = [
           {
                title: 'Power and Utilities ',
+               link: 'power-and-utilities',
                description:
                     'We provide a wide range of skilled and unskilled labor solutions, tailored to meet industry demands across sectors in Europe and India. Our services optimize workforce efficiency, enhance productivity, and ensure seamless project execution.',
 
@@ -19,6 +20,7 @@ const DeliverCore = () => {
           },
           {
                title: 'Automotive',
+               link: 'automotive',
                description:
                     'Supporting the automotive shift to EVs with advanced manufacturing and component engineering.',
 
@@ -27,6 +29,7 @@ const DeliverCore = () => {
           },
           {
                title: 'Electronics & Semiconductor Industries',
+               link: 'electronics-&-semiconductor-industries',
                description:
                     'Enhancing precision and efficiency in electronics and semiconductors with tailored solutions.',
 
@@ -34,6 +37,7 @@ const DeliverCore = () => {
           },
           {
                title: 'Heavy Engineering & Infrastructure Projects',
+               link: 'heavy-engineering-&-infrastructure-projects',
                description:
                     'Delivering robust engineering solutions for large-scale infrastructure and heavy engineering projects.',
 
@@ -41,6 +45,7 @@ const DeliverCore = () => {
           },
           {
                title: 'Aerospace',
+               link: 'aerospace',
                description:
                     'Driving aerospace innovation with lightweight materials and additive manufacturing.',
 
@@ -49,7 +54,7 @@ const DeliverCore = () => {
           },
      ]
      return (
-          <section>
+          <section id='engineering-solutions'>
                <Header
                     title={'For Core Industries, Delivering Specialized Engineering Solutions'}
                     subTitle={
@@ -66,6 +71,7 @@ const DeliverCore = () => {
                               description={card.description}
                               rowReverse={index % 2 !== 0}
                               label={card.label}
+                              id={card.link}
                               labelStyle={{ backgroundColor: '#EDEDED', color: '' }}
                          />
                     )

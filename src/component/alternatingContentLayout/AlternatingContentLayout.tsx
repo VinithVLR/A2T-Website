@@ -10,6 +10,7 @@ interface AlternatingContentLayoutProps {
           title: string
           description: string
           image: string
+          link?: string | undefined
      }>
 }
 const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ content }) => {
@@ -19,6 +20,7 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                     const isOdd = index % 2 !== 0
                     return (
                          <section
+                              id={item.link ? item?.link : ''}
                               key={index}
                               className={styles.main_con}
                               style={{

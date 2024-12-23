@@ -11,6 +11,7 @@ const ProcessImprovement = () => {
                bgImage: bgImage1,
                img: image1,
                title: 'Lean Manufacturing Experts',
+               link: 'lean-manufacturing-experts',
                description:
                     'Skilled personnel for operating CNC machines, ensuring precision in manufacturing processes.',
           },
@@ -18,12 +19,17 @@ const ProcessImprovement = () => {
                bgImage: bgImage2,
                img: image2,
                title: 'Six Sigma Black Belts',
+               link: 'six-sigma-black-belts',
                description:
                     'Process engineers trained in Six Sigma methodology for process optimization and quality improvement.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='process-improvement-specialists'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Process Improvement Specialists

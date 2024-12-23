@@ -7,14 +7,14 @@ import Image from '../../../assets/images/Business/img_opt_lay2.png'
 
 const InfrastructureOptimization = () => {
      return (
-          <section className={styles.sec_con}>
+          <section id='IT-optimization' className={styles.sec_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
                          <TitleDescriptionWithIcon
                               style={{ paddingInline: '3rem' }}
-                              title={'Embrace Digital Change for  Business Growth'}
+                              title={'Optimize Your IT Infrastructure'}
                               description={
-                                   'Our experts develop tailored digital transformation strategies that align with your business goals. From cloud migration to cybersecurity, we provide end-to-end IT solutions for a seamless digital transition.'
+                                   'We provide IT infrastructure optimization, cloud consulting, and hybrid cloud solutions to enhance scalability, security, and agility.'
                               }
                          />
                     </div>

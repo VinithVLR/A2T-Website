@@ -28,73 +28,85 @@ import EngineeringConsulting from '@/pages/manpowerServices/engineeringConsultin
 import ProjMgmtCoord from '@/pages/manpowerServices/projMgmtCoord/ProjMgmtCoord'
 import Specialists from '@/pages/manpowerServices/specialists/Specialists'
 import CallToAction from '@/component/calltoaction/CallToAction'
+import Wrapper from '../Wrapper'
 const page = () => {
      return (
-          <React.Fragment>
-               <PrimaryLanding
-                    title='Workforce and Manpower Solutions'
-                    style={{
-                         paddingBlockStart: '2rem',
-                         justifyContent: 'center',
-                         gap: '1rem',
-                         paddingInline: '1.5rem',
-                         display: 'flex',
-                         flexDirection: 'column',
-                    }}
-                    flexRow
-                    layoutMod
-                    heading={
-                         <>
-                              Empowering Businesses with <span>Skilled Talent </span>across All
-                              Domains
-                         </>
-                    }
-                    bigImageSrc={bigImageSrc}
-                    smallImageSrc={hozImageSrc}
-                    description='Partnering with you to build a dynamic, skilled workforce that aligns with your vision and goals.'
-               />
-               <SecondaryLanding
-                    heading={'Skilled Manpower Driving Cleaner, Modern Solutions'}
-                    description={
-                         'A2T delivers skilled manpower across diverse functions, from engineering design to field technicians and maintenance experts, offering end-to-end solutions tailored to industries rapidly transforming towards cleaner energy, modern manufacturing, and advanced technologies.'
-                    }
-                    image={img}
-                    bgImage={bg}
-               />
-               <WorkforceSolutions keyProp={true} />
-               <ForAlternativeEnergy title={'For Alternative Energy'} />
-               <SolarEnergy />
-               <WindEnergy />
-               <BiomassEnergySolutions />
-               <Hydropower />
-               <EnergyAuditSection />
-               <ForAlternativeEnergy title={'For Manufacturing'} />
-               <RoboticsSolutions />
-               <SkilledWorkforce />
-               <ProcessImprovement />
-               <MaintenanceReliability />
-               <ForAlternativeEnergy title={'For LNG (Liquified Natural Gas)'} />
-               <PlantConstruction />
-               <OperationsAndMaintenance />
-               <LngShippingLogistics />
-               <ForAlternativeEnergy title={'for Electric Vehicles (EVs)'} />
-               <EvManufacturing />
-               <EvChargingInfrastructure />
-               <EvMaintenanceRepair />
-               <ResearchTesting />
-               <ForAlternativeEnergy title={'For Cross-Sector'} />
-               <EngineeringConsulting />
-               <ProjMgmtCoord />
-               <Specialists />
-               <CallToAction
-                    data={
-                         <>
-                              Ready to <span>Empower Your Workforce?</span> Know how our Workforce
-                              and Manpower Solutions can help your business thrive.
-                         </>
-                    }
-               />
-          </React.Fragment>
+          <Wrapper>
+               <React.Fragment>
+                    <PrimaryLanding
+                         title='Workforce and Manpower Solutions'
+                         style={{
+                              paddingBlockStart: '2rem',
+                              justifyContent: 'center',
+                              gap: '1rem',
+                              paddingInline: '1.5rem',
+                              display: 'flex',
+                              flexDirection: 'column',
+                         }}
+                         flexRow
+                         layoutMod
+                         heading={
+                              <>
+                                   Empowering Businesses with <span>Skilled Talent </span>across All
+                                   Domains
+                              </>
+                         }
+                         bigImageSrc={bigImageSrc}
+                         smallImageSrc={hozImageSrc}
+                         description='Partnering with you to build a dynamic, skilled workforce that aligns with your vision and goals.'
+                    />
+                    <SecondaryLanding
+                         heading={'Skilled Manpower Driving Cleaner, Modern Solutions'}
+                         description={
+                              'A2T delivers skilled manpower across diverse functions, from engineering design to field technicians and maintenance experts, offering end-to-end solutions tailored to industries rapidly transforming towards cleaner energy, modern manufacturing, and advanced technologies.'
+                         }
+                         image={img}
+                         bgImage={bg}
+                    />
+                    <WorkforceSolutions keyProp={true} />
+                    <ForAlternativeEnergy
+                         title={'For Alternative Energy'}
+                         id='alternative-energy'
+                    />
+                    <SolarEnergy />
+                    <WindEnergy />
+                    <BiomassEnergySolutions />
+                    <Hydropower />
+                    <EnergyAuditSection />
+                    <ForAlternativeEnergy title={'For Manufacturing'} id='manufacturing' />
+                    <RoboticsSolutions />
+                    <SkilledWorkforce />
+                    <ProcessImprovement />
+                    <MaintenanceReliability />
+                    <ForAlternativeEnergy
+                         title={'For LNG (Liquified Natural Gas)'}
+                         id='liquified-natural-gas'
+                    />
+                    <PlantConstruction />
+                    <OperationsAndMaintenance />
+                    <LngShippingLogistics />
+                    <ForAlternativeEnergy
+                         title={'for Electric Vehicles (EVs)'}
+                         id='electric-vehicles'
+                    />
+                    <EvManufacturing />
+                    <EvChargingInfrastructure />
+                    <EvMaintenanceRepair />
+                    <ResearchTesting />
+                    <ForAlternativeEnergy title={'For Cross-Sector'} id='cross-sector' />
+                    <EngineeringConsulting />
+                    <ProjMgmtCoord />
+                    <Specialists />
+                    <CallToAction
+                         data={
+                              <>
+                                   Ready to <span>Empower Your Workforce?</span> Know how our
+                                   Workforce and Manpower Solutions can help your business thrive.
+                              </>
+                         }
+                    />
+               </React.Fragment>
+          </Wrapper>
      )
 }
 

@@ -18,6 +18,7 @@ interface InfoCardWithIconProps {
      label?: any
      labelStyle?: any
      link?: any
+     id?: any
 }
 const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      icon,
@@ -32,6 +33,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      label,
      labelStyle,
      link,
+     id,
 }) => {
      const objStyle: any = {
           paddingInline: '2rem',
@@ -46,7 +48,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      }
 
      return (
-          <div className={styles.secondary_section}>
+          <div id={id ? id : ''} className={styles.secondary_section}>
                <div
                     className={rowReverse ? styles.content_Wrapper_reverse : styles.content_Wrapper}
                >

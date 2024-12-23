@@ -25,91 +25,103 @@ import ProjectConsultancy from '@/pages/engineeringservices/projectConsultancy/P
 import imgRcc from '../../assets/images/eng-ser/img_rcc_ly.png'
 import DeliverCore from '@/pages/engineeringservices/deliverCore/DeliverCore'
 import CallToAction from '@/component/calltoaction/CallToAction'
+import Wrapper from '../Wrapper'
 const page = () => {
      return (
-          <React.Fragment>
-               <PrimaryLanding
-                    title='Engineering Services'
-                    style={{
-                         paddingBlockStart: '2rem',
-                         justifyContent: 'center',
-                         gap: '1rem',
-                         paddingInline: '1.5rem',
-                         display: 'flex',
-                         flexDirection: 'column',
-                    }}
-                    flexRow
-                    layoutMod
-                    isReverse
-                    heading={
-                         <>
-                              Innovative Solutions for Complex <span>Engineering Challenges</span>
-                         </>
-                    }
-                    bigImageSrc={bigImageSrc}
-                    smallImageSrc={hozImageSrc}
-                    description='From concept to execution, we bring innovative thinking and technical expertise to solve even the most challenging engineering projects.'
-               />
-               <SecondaryLanding
-                    heading={'Empowering Industry with Engineering Excellence'}
-                    description={
-                         'Our Engineering Services are designed to provide comprehensive solutions that meet the demands of modern industry. Our team of experts delivers innovative engineering solutions that drive efficiency, enhance performance, and ensure the success of your projects.'
-                    }
-                    flexReverse
-                    image={img}
-                    bgImage={bg}
-                    bgColor={{ backgroundColor: '#F3FCF4' }}
-               />
-               <WorkforceSolutions keyProp={false} />
-               <ForAlternativeEnergy title={'For Alternative Energy'} />
-               <LngLiquefiedNaturalGas />
-               <ElectricVehicle />
-               <SolarEnergy />
-               <WindEnergy />
-               <Hydropower />
-               <EnergyConsulting />
-               <ForAlternativeEnergy title={'For Engineering'} />
-               <AutomationSolutions />
-               <ProductDesign />
-               <ProcessEngineering />
-               <MaterialsEngineering />
-               <MaintenanceSupport />
-               <ForAlternativeEnergy title={'For Cross-sector services'} />
-               <SecondaryLanding
-                    heading={'R&D and Innovation Consulting'}
-                    description={[
-                         'Supporting clients in the development of innovative energy or manufacturing solutions.',
-                         'Research into new energy technologies (e.g., hydrogen energy ( Hydrogen Fuel Cell) ) and advanced manufacturing techniques (e.g., nanomanufacturing).',
-                    ]}
-                    flexReverse
-                    image={rdImage}
-                    bgImage={bgRD}
-                    bgColor={{ backgroundColor: '#fff' }}
-               />
-               <ProjectConsultancy />
-               <SecondaryLanding
-                    heading={'Regulatory Compliance and Certification'}
-                    description={[
-                         'Assistance with local and international certification standards for energy and manufacturing sectors.',
-                         'Consultancy on environmental impact assessments and government policy compliance.',
-                    ]}
-                    flexReverse
-                    image={imgRcc}
-                    bgImage={bgRD}
-                    bgColor={{ backgroundColor: '#fff' }}
-                    bsStyle={{ width: '80%', height: 'auto' }}
-               />
-               <DeliverCore />
-               <CallToAction
-                    data={
-                         <>
-                              Ready to <span>Elevate Your Engineering Projects? </span>our
-                              Engineering Services can help you overcome your most complex
-                              challenges and <span>drive your business</span> forward.
-                         </>
-                    }
-               />
-          </React.Fragment>
+          <Wrapper>
+               <React.Fragment>
+                    <PrimaryLanding
+                         title='Engineering Services'
+                         style={{
+                              paddingBlockStart: '2rem',
+                              justifyContent: 'center',
+                              gap: '1rem',
+                              paddingInline: '1.5rem',
+                              display: 'flex',
+                              flexDirection: 'column',
+                         }}
+                         flexRow
+                         layoutMod
+                         isReverse
+                         heading={
+                              <>
+                                   Innovative Solutions for Complex{' '}
+                                   <span>Engineering Challenges</span>
+                              </>
+                         }
+                         bigImageSrc={bigImageSrc}
+                         smallImageSrc={hozImageSrc}
+                         description='From concept to execution, we bring innovative thinking and technical expertise to solve even the most challenging engineering projects.'
+                    />
+                    <SecondaryLanding
+                         heading={'Empowering Industry with Engineering Excellence'}
+                         description={
+                              'Our Engineering Services are designed to provide comprehensive solutions that meet the demands of modern industry. Our team of experts delivers innovative engineering solutions that drive efficiency, enhance performance, and ensure the success of your projects.'
+                         }
+                         flexReverse
+                         image={img}
+                         bgImage={bg}
+                         bgColor={{ backgroundColor: '#F3FCF4' }}
+                    />
+                    <WorkforceSolutions keyProp={false} />
+                    <ForAlternativeEnergy
+                         title={'For Alternative Energy'}
+                         id='alternative-energy'
+                    />
+                    <LngLiquefiedNaturalGas />
+                    <ElectricVehicle />
+                    <SolarEnergy />
+                    <WindEnergy />
+                    <Hydropower />
+                    <EnergyConsulting />
+                    <ForAlternativeEnergy title={'For Engineering'} id='engineering' />
+                    <AutomationSolutions />
+                    <ProductDesign />
+                    <ProcessEngineering />
+                    <MaterialsEngineering />
+                    <MaintenanceSupport />
+                    <ForAlternativeEnergy
+                         title={'For Cross-sector services'}
+                         id='cross-sector-services'
+                    />
+                    <SecondaryLanding
+                         heading={'R&D and Innovation Consulting'}
+                         description={[
+                              'Supporting clients in the development of innovative energy or manufacturing solutions.',
+                              'Research into new energy technologies (e.g., hydrogen energy ( Hydrogen Fuel Cell) ) and advanced manufacturing techniques (e.g., nanomanufacturing).',
+                         ]}
+                         flexReverse
+                         image={rdImage}
+                         bgImage={bgRD}
+                         id={'R&D-and-innovation-consulting'}
+                         bgColor={{ backgroundColor: '#fff' }}
+                    />
+                    <ProjectConsultancy />
+                    <SecondaryLanding
+                         heading={'Regulatory Compliance and Certification'}
+                         description={[
+                              'Assistance with local and international certification standards for energy and manufacturing sectors.',
+                              'Consultancy on environmental impact assessments and government policy compliance.',
+                         ]}
+                         flexReverse
+                         image={imgRcc}
+                         bgImage={bgRD}
+                         id={'regulatory-compliance-and-certification'}
+                         bgColor={{ backgroundColor: '#fff' }}
+                         bsStyle={{ width: '80%', height: 'auto' }}
+                    />
+                    <DeliverCore />
+                    <CallToAction
+                         data={
+                              <>
+                                   Ready to <span>Elevate Your Engineering Projects? </span>our
+                                   Engineering Services can help you overcome your most complex
+                                   challenges and <span>drive your business</span> forward.
+                              </>
+                         }
+                    />
+               </React.Fragment>
+          </Wrapper>
      )
 }
 

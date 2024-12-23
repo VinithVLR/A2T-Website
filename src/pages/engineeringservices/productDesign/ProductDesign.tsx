@@ -8,6 +8,7 @@ const ProductDesign = () => {
           {
                img: image1,
                title: 'CAD/CAM/CAE Services',
+               link: 'CAD/CAM/CAE-Services',
                description: [
                     'Design and development of mechanical components using computer-aided design (CAD) and engineering (CAE).',
                     'Rapid prototyping and 3D printing for product development.',
@@ -17,6 +18,7 @@ const ProductDesign = () => {
           {
                img: image2,
                title: 'Design for Manufacturing (DFM) and Design for Assembly (DFA)',
+               link: 'design-for-manufacturing-and-design-for-assembly',
                description: [
                     'Optimization of product designs for ease of manufacturing and assembly.',
                ],
@@ -24,7 +26,11 @@ const ProductDesign = () => {
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='product-design-and-prototyping'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Product Design and Prototyping
@@ -41,6 +47,7 @@ const ProductDesign = () => {
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
+                         link={item.link}
                     />
                ))}
           </section>

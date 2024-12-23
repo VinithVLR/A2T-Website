@@ -8,19 +8,26 @@ const RoboticsSolutions = () => {
      let roboticsData = [
           {
                img: cardImage1,
-               title: 'Hydropower Engineers',
+               title: 'Automation Engineers',
                description:
-                    'Engineers with experience in civil, mechanical, and electrical aspects of small and large hydropower plants.',
+                    'Specialists in PLC programming, SCADA systems, and automation technologies for smart factories.',
+               link: 'automation-engineers',
           },
           {
                img: cardImage2,
-               title: 'Hydropower Maintenance Technicians',
-               description: 'Manpower for the regular upkeep and monitoring of hydropower systems.',
+               title: 'Robotics Engineers',
+               description:
+                    'Experts in the integration and maintenance of robotic systems for assembly lines, material handling, and production processes.',
+               link: 'robotics-engineers',
           },
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='automation-&-robotics'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Automation & Robotics
@@ -39,6 +46,7 @@ const RoboticsSolutions = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

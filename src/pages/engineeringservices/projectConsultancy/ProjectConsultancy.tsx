@@ -6,7 +6,7 @@ import image from '../../../assets/images/eng-ser/img_prj_ly (1).png'
 
 const ProjectConsultancy = () => {
      return (
-          <section className={styles.main_con}>
+          <section id='project-management-&-consultancy' className={styles.main_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
                          <h2 className={styles.title}>Project Management & Consultancy</h2>

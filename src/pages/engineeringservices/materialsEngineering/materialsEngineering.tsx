@@ -12,6 +12,7 @@ const MaterialsEngineering = () => {
                bgImage: bgImage1,
                img: image1,
                title: 'Advanced Materials Development',
+               link: 'advanced-materials-development',
                description: [
                     'Research and development of lightweight materials (composites, alloys) for energy-efficient products.',
                ],
@@ -20,12 +21,17 @@ const MaterialsEngineering = () => {
                bgImage: bgImage2,
                img: image2,
                title: 'Sustainable Manufacturing Solutions',
+               link: 'sustainable-manufacturing-solutions',
                description:
                     'Adoption of green materials and processes to reduce environmental impact.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='materials-engineering'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Materials Engineering

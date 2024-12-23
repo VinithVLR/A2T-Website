@@ -11,16 +11,22 @@ const EnergyAuditSection = () => {
                title: 'Energy Auditors',
                description:
                     'Certified professionals conducting energy audits for industrial and commercial facilities, helping reduce power consumption.',
+               link: 'energy-auditors',
           },
           {
                img: cardImage2,
                title: 'Sustainability Consultants',
                description:
                     'Experts advising on green energy strategies, carbon footprint reduction, and energy optimization.',
+               link: 'energy-auditors',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='energy-auditors-&-consultants'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Energy Auditors & Consultants
@@ -38,6 +44,7 @@ const EnergyAuditSection = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

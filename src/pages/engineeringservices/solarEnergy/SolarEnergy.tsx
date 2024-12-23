@@ -11,6 +11,7 @@ const SolarEnergy = () => {
           {
                img: image1,
                title: 'Design and Development of Solar Power Plants',
+               link: 'design-and-development-of-solar-power-plants',
                description: [
                     'End-to-end design and project development of utility-scale solar power plants.',
                     'Solar PV system design for residential, commercial, and industrial rooftops.',
@@ -19,6 +20,7 @@ const SolarEnergy = () => {
           {
                img: image2,
                title: 'Solar Farm EPC',
+               link: 'solar-farm-EPC',
                label: '(Engineering, Procurement, and Construction)',
                description: [
                     'Procurement and installation of solar panels, inverters, and related equipment.',
@@ -28,6 +30,7 @@ const SolarEnergy = () => {
           {
                img: image3,
                title: 'Energy Storage Solutions',
+               link: 'energy-storage-solutions',
                description: [
                     'Integration of battery energy storage systems (BESS) with solar projects.',
                     'Design and implementation of hybrid solar systems.',
@@ -36,11 +39,16 @@ const SolarEnergy = () => {
           {
                img: image4,
                title: 'Operation & Maintenance',
+               link: 'operation-&-maintenance',
                description: 'Monitoring, troubleshooting, and maintaining solar energy systems.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='solar-energy'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Solar Energy</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -57,6 +65,7 @@ const SolarEnergy = () => {
                          description={item.description}
                          rowReverse={index % 2 !== 0}
                          label={item.label}
+                         link={item.link}
                     />
                ))}
           </section>

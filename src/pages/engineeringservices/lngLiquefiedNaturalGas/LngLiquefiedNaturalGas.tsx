@@ -13,16 +13,22 @@ const LngLiquefiedNaturalGas = () => {
                img: image1,
                title: 'Operations and Maintenance of LNG Commercial Trucks',
                description: 'Comprehensive evaluation of Scope 1, 2, and 3 emissions.',
+               link: 'operation-&-maintenance-of-LNG-commercial-trucks',
           },
           {
                bgImage: bgImage2,
                img: image2,
                title: 'LNG Technicians deployed for OEM’s ',
+               link: 'LNG-technicians-deployed-for-OEM',
                description: 'Strategies to minimize carbon footprint and achieve net-zero goals.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='liquefied-natural-gas'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          LNG (Liquefied natural gas)

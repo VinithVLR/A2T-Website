@@ -11,22 +11,25 @@ const SkilledDriverProgram = () => {
                title: 'Fleet Management School (Code 93)',
                description:
                     'Advanced training programs for drivers to meet European and global logistics standards.',
+               link: 'fleet-management-school',
           },
           {
                img: image2,
                title: 'Driver Safety and Compliance',
                description:
                     'Focused training on safety protocols, regulatory compliance, and efficient driving practices.',
+               link: 'driver-safety-and-compliance',
           },
           {
                img: image3,
                title: 'Driver Development Centers (DDCs)',
                description: 'Centers for continuous learning and skill enhancement for drivers.',
+               link: 'driver-development-centers',
           },
      ]
 
      return (
-          <section className={styles.main_container}>
+          <section id='driver-training' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Skilled Driver Training and Deployment
@@ -43,6 +46,7 @@ const SkilledDriverProgram = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

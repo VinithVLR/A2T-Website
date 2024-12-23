@@ -7,7 +7,7 @@ import Image from '../../../assets/images/Business/img_buz_lay2.png'
 
 const DigitalChange = () => {
      return (
-          <section className={styles.sec_con}>
+          <section id='business-growth' className={styles.sec_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
                          <TitleDescriptionWithIcon

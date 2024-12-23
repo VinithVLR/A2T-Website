@@ -11,7 +11,7 @@ import imgAb3 from '../../../assets/images/Business/img_buz_ab3.png'
 
 const DigitalGrowth = () => {
      return (
-          <section className={styles.DigitalGrowth_con}>
+          <section id='drive-growth' className={styles.DigitalGrowth_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
                          <TitleDescriptionWithIcon

@@ -9,6 +9,7 @@ const EnergyConsulting = () => {
           {
                img: image1,
                title: 'Energy Audits & Optimization',
+               link: 'energy-audits-&-optimization',
                description: [
                     'Conduct energy audits to optimize power usage.',
                     'Implement energy management systems and automation solutions.',
@@ -17,13 +18,18 @@ const EnergyConsulting = () => {
           {
                img: image2,
                title: 'Carbon Reduction Strategies',
+               link: 'carbon-reduction-strategies',
                description: [
                     'Consulting on carbon capture technologies, sustainable energy solutions, and emission reduction strategies.',
                ],
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='energy-efficiency-and-sustainability-consulting'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          Energy Efficiency and Sustainability Consulting
@@ -42,6 +48,7 @@ const EnergyConsulting = () => {
                          description={item.description}
                          rowReverse={index % 2 !== 0}
                          label={item.label}
+                         link={item.link}
                     />
                ))}
           </section>

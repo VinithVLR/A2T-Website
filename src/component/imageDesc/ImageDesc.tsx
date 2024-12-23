@@ -9,9 +9,18 @@ interface imageDescProps {
      rowReverse?: boolean
      style?: any
      label?: string
+     link?: string
 }
 
-const ImageDesc = ({ imageUrl, title, description, rowReverse, style, label }: imageDescProps) => {
+const ImageDesc = ({
+     imageUrl,
+     title,
+     description,
+     rowReverse,
+     style,
+     label,
+     link,
+}: imageDescProps) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
 
      useEffect(() => {
@@ -28,6 +37,7 @@ const ImageDesc = ({ imageUrl, title, description, rowReverse, style, label }: i
      }, [])
      return (
           <section
+               id={link ? link : ''}
                className={styles.imageDesc_con}
                style={{
                     flexDirection: isSmallScreen

@@ -17,6 +17,7 @@ const SolarEnergy = () => {
                title: 'Operation & Maintenance (O&M) Technicians',
                description:
                     'Ensuring solar farm efficiency by performing preventive and corrective maintenance.',
+               link: 'operation-&-maintenance-technicians',
           },
           {
                bgImage: bgImage2,
@@ -24,6 +25,7 @@ const SolarEnergy = () => {
                title: 'Electrical Engineers',
                description:
                     'Expertise in wiring, grid integration, and power distribution for solar energy systems.',
+               link: 'electrical-engineers',
           },
           {
                bgImage: bgImage1,
@@ -31,24 +33,32 @@ const SolarEnergy = () => {
                title: 'Project Managers',
                description:
                     'Skilled in designing solar photovoltaic (PV) systems for residential, commercial, and utility-scale installations.',
+               link: 'project-managers',
           },
           {
                bgImage: bgImage2,
                img: image4,
-               title: 'Solar Installation Technicians',
+               title: 'Solar Design Engineers',
                description:
-                    'Certified technicians who install solar panels, inverters, and battery storage systems.',
+                    'Skilled in designing solar photovoltaic (PV) systems for residential, commercial, and utility-scale installations.',
+               link: 'solar-design-engineers',
           },
+
           {
                bgImage: bgImage1,
                img: image5,
-               title: 'Collaboration',
+               title: 'Solar Installation Technicians',
                description:
-                    'We value collaboration and teamwork, working closely with our clients to achieve shared success.',
+                    'Certified technicians who install solar panels, inverters, and battery storage systems.',
+               link: 'solar-installation-technicians',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='solid-energy'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Solar Energy</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>

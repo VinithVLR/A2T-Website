@@ -9,18 +9,24 @@ const Specialists = () => {
           {
                img: cardImage1,
                title: 'HSE Managers',
+               link: 'HSE-managers',
                description:
                     'Ensuring compliance with environmental and safety standards in renewable energy plants, LNG terminals, and manufacturing sites.',
           },
           {
                img: cardImage2,
                title: 'Safety Officers',
+               link: 'safety-officers',
                description:
                     'Providing on-site safety oversight, risk assessments, and compliance with occupational health and safety regulations.',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='HS-specialists'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          HSE (Health, Safety, and Environmental) Specialists
@@ -38,6 +44,7 @@ const Specialists = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

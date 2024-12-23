@@ -10,6 +10,7 @@ const OperationsAndMaintenance = () => {
           {
                img: cardImage1,
                title: 'Instrumentation & Control Engineers',
+               link: 'instrumentation-&-control-engineers',
                description: [
                     'Specialized in control systems for monitoring LNG processes and safety protocols',
                     'Skilled LNG OEM Technicians for Commercial Truck Maintenance',
@@ -18,12 +19,14 @@ const OperationsAndMaintenance = () => {
           {
                img: cardImage2,
                title: 'LNG Safety Experts',
+               link: 'LNG-safety-experts',
                description:
                     'Professionals ensuring safety standards are followed during the storage and transport of LNG.',
           },
           {
                img: cardImage3,
                title: 'LNG Technicians',
+               link: 'LNG-technicians',
                description: [
                     'Skilled in the operation of LNG terminals, pipelines, storage tanks, and regasification facilities.',
                     'Skilled LNG OEM Technicians for Commercial Truck Maintenance',
@@ -32,7 +35,11 @@ const OperationsAndMaintenance = () => {
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='LNG-operations-&-maintenance'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          LNG Operations & Maintenance
@@ -50,6 +57,7 @@ const OperationsAndMaintenance = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

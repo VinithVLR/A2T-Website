@@ -17,22 +17,25 @@ const ClimateActionTracker = () => {
                title: 'Emissions Assessment',
                description:
                     'Thorough analysis of Scope 1, 2, and 3 emissions for a complete environmental impact overview.',
+               link: 'emissions-assessment',
           },
           {
                bgImage: bgImage2,
                img: image2,
                title: 'Carbon Reduction Planning',
                description: 'Strategies to minimize carbon footprint and achieve net-zero goals.',
+               link: 'carbon-reduction-planning',
           },
           {
                bgImage: bgImage3,
                img: image3,
                title: 'Compliance and Reporting',
                description: 'Ensure alignment with global standards like the GHG Protocol.',
+               link: 'compliance-and-reporting',
           },
      ]
      return (
-          <section style={{ paddingBlock: '3rem' }}>
+          <section id='accurate-GHG-accounting' style={{ paddingBlock: '3rem' }}>
                <Header
                     title={'Effective Climate Action using Accurate GHG Accounting'}
                     titleStyle={{ width: '60%' }}

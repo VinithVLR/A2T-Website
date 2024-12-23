@@ -8,19 +8,25 @@ const EvChargingInfrastructure = () => {
           {
                img: cardImage1,
                title: 'EV Charging Station Technicians',
+               link: 'EV-charging-station-technicians',
                description:
                     'Technicians specialized in the installation, maintenance, and repair of EV charging stations.',
           },
           {
                img: cardImage2,
                title: 'Electrical Engineers for Charging Networks',
+               link: 'electrical-engineers-for-charging-networks',
                description:
                     'Engineers who design and maintain the electrical infrastructure for large-scale EV charging networks.',
           },
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='EV-charging-infrastructure'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          EV Charging Infrastructure
@@ -38,6 +44,7 @@ const EvChargingInfrastructure = () => {
                          title={item.title}
                          description={item.description}
                          rowReverse={index % 2 !== 0}
+                         link={item.link}
                     />
                ))}
           </section>

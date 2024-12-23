@@ -9,17 +9,23 @@ const ElectricVehicle = () => {
           {
                img: cardImage1,
                title: 'EV ready Technicians',
+               link: 'EV-ready-technicians',
                description: 'Comprehensive evaluation of Scope 1, 2, and 3 emissions.',
           },
           {
                img: cardImage2,
                title: 'Operations and Maintenance of EV',
+               link: 'operations-and-maintenance-of-EV',
                description: 'Strategies to minimize carbon footprint and achieve net-zero goals.',
           },
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='electric-vehicle'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Electric Vehicle</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -35,6 +41,7 @@ const ElectricVehicle = () => {
                                    imageUrl={item.img}
                                    title={item.title}
                                    description={item.description}
+                                   link={item.link}
                               />
                          )
                     })}

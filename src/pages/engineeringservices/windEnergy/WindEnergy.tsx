@@ -10,6 +10,7 @@ const WindEnergy = () => {
           {
                img: image1,
                title: 'Wind Farm Development',
+               link: 'wind-farm-development',
                description: [
                     'Wind resource assessment, site selection, and feasibility studies.',
                     'Design and development of wind turbines and wind farm layouts.',
@@ -18,6 +19,7 @@ const WindEnergy = () => {
           {
                img: image2,
                title: 'Wind Energy EPC Services',
+               link: 'wind-energy-EPC-services',
                description: [
                     'Installation of wind turbines, towers, and electrical systems.',
                     'Grid integration and transmission engineering for wind power.',
@@ -26,13 +28,18 @@ const WindEnergy = () => {
           {
                img: image3,
                title: 'O&M for Wind Turbines',
+               link: 'O&M-for-wind-turbines',
                description: [
                     'Regular maintenance and performance optimization for wind turbines.Specialized in assessing environmental impacts, ensuring sustainability, and compliance with regulations.',
                ],
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='wind-energy'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>Wind Energy</h3>
                     <p className={`${styles.para} ${styles.regularText}`}>
@@ -47,6 +54,7 @@ const WindEnergy = () => {
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
+                         link={item.link}
                     />
                ))}
           </section>

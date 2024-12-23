@@ -12,22 +12,29 @@ const BiomassEnergySolutions = () => {
                title: 'Process Engineers',
                description:
                     'Expertise in the design and operation of biomass and waste-to-energy plants.',
+               link: 'process-engineers',
           },
           {
                img: image2,
                title: 'Biomass Plant Technicians',
                description:
                     'Skilled in the operation, maintenance, and repair of biomass energy systems.',
+               link: 'biomass-plant-technicians',
           },
           {
                img: image3,
                title: 'Environmental Engineers',
                description:
                     'Specialized in assessing environmental impacts, ensuring sustainability, and compliance with regulations.',
+               link: 'environmental-engineers',
           },
      ]
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='biomass-&-waste-to-energy'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3
                          style={{ paddingInlineEnd: '2rem' }}
@@ -47,6 +54,7 @@ const BiomassEnergySolutions = () => {
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
+                         link={item.link}
                     />
                ))}
           </section>

@@ -9,19 +9,25 @@ const EvMaintenanceRepair = () => {
           {
                img: cardImage1,
                title: 'EV Maintenance Technicians',
+               link: 'EV-maintenance-technicians',
                description:
                     'Trained professionals for diagnosing, maintaining, and repairing electric vehicles, including battery diagnostics.',
           },
           {
                img: cardImage2,
                title: 'EV Software Engineers',
+               link: 'EV-software-engineers',
                description:
                     'Experts in software development and integration for EV management systems, including telemetry and energy management.',
           },
      ]
 
      return (
-          <section className={styles.main_container} style={{ backgroundColor: '#fff' }}>
+          <section
+               id='EV-maintenance-and-repair'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <h3 className={`${styles.heading} ${styles.blackText}`}>
                          EV Maintenance and Repair
@@ -38,6 +44,7 @@ const EvMaintenanceRepair = () => {
                          imageUrl={item.img}
                          title={item.title}
                          description={item.description}
+                         link={item.link}
                     />
                ))}
           </section>
