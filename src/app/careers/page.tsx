@@ -32,8 +32,13 @@ const page = () => {
                <GlobalOpportunity />
                <CallToAction
                     data={
-                         "If you don't see a role that matches your skills, feel free to submit a general application, and we'll reach out when a suitable position becomes available."
+                         <>
+                              If you don't see a <span>role that matches your skills</span>, feel
+                              free to submit a general application, and we'll reach out when a
+                              suitable position becomes available.
+                         </>
                     }
+                    img
                />
           </React.Fragment>
      )

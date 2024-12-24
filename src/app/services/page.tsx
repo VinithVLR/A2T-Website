@@ -13,8 +13,9 @@ const page = () => {
                <CallToAction
                     data={
                          <>
-                              Have questions? or need more information about our services? or
-                              Whether you&apos;re ready to start a project? need assistance?
+                              <span>Have questions?</span> or need more information about our
+                              services? or Whether you&apos;re{' '}
+                              <span>ready to start a project?</span> need assistance?
                          </>
                     }
                />

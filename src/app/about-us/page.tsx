@@ -42,7 +42,11 @@ const page = () => {
                <GlobalImpact />
                <CallToAction
                     data={
-                         'Are you looking for Innovative engineering Solutions? or expert workforce management?  or a partner committed to sustainability?  '
+                         <>
+                              Are you looking for <span>Innovative engineering Solutions?</span> or
+                              <span>expert workforce management?</span> or a partner committed to
+                              <span> sustainability?</span>
+                         </>
                     }
                />
           </React.Fragment>

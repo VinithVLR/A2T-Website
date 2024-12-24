@@ -3,7 +3,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Consumption.module.scss'
 import Image from 'next/image'
-import icontool from '../../assets/icons/ic_tool.svg'
+import ic_first from '../../assets/icons/ic_1st.svg'
+import ic_sec from '../../assets/icons/ic_2nd.svg'
+import ic_third from '../../assets/icons/ic_3rd.svg'
+import ic_fourth from '../../assets/icons/ic_4th.svg'
+import ic_fiveth from '../../assets/icons/ic_5th.svg'
 import iconNavigate from '../../assets/icons/ic_navigate.svg'
 import { Inter } from 'next/font/google'
 
@@ -101,7 +105,7 @@ const Consumption = ({ data }: any) => {
                                         style={{ backgroundColor: color }}
                                    >
                                         <Image
-                                             src={icontool}
+                                             src={ic_first}
                                              alt='icon'
                                              className={`${styles.icon}`}
                                         />
@@ -121,7 +125,7 @@ const Consumption = ({ data }: any) => {
                                         style={{ backgroundColor: color }}
                                    >
                                         <Image
-                                             src={icontool}
+                                             src={ic_sec}
                                              alt='icon'
                                              className={`${styles.icon}`}
                                         />
@@ -141,7 +145,7 @@ const Consumption = ({ data }: any) => {
                                         style={{ backgroundColor: color }}
                                    >
                                         <Image
-                                             src={icontool}
+                                             src={ic_third}
                                              alt='icon'
                                              className={`${styles.icon}`}
                                         />
@@ -163,7 +167,7 @@ const Consumption = ({ data }: any) => {
                                         style={{ backgroundColor: color }}
                                    >
                                         <Image
-                                             src={icontool}
+                                             src={ic_fourth}
                                              alt='icon'
                                              className={`${styles.icon}`}
                                         />
@@ -183,7 +187,7 @@ const Consumption = ({ data }: any) => {
                                         style={{ backgroundColor: color }}
                                    >
                                         <Image
-                                             src={icontool}
+                                             src={ic_fiveth}
                                              alt='icon'
                                              className={`${styles.icon}`}
                                         />
