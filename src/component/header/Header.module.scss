@@ -30,12 +30,14 @@
           flex-direction: column;
           padding: 1.5rem;
 
+
           .headerTitle {
-               font-size: 1.5rem;
+               font-size: 16px;
+
           }
 
           .headerSubtitle {
-               font-size: 0.875rem;
+               font-size: 1.25rem;
           }
      }
 }
@@ -48,10 +50,11 @@
           .headerTitle {
                font-size: $default-font;
                width: 100% !important;
+               font-size: 16px;
           }
 
           .headerSubtitle {
-               font-size: $sub-heading-font-size;
+               font-size: 1.25rem;
                margin-block: 1.5rem;
                padding-inline: 0rem;
           }

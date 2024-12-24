@@ -26,7 +26,7 @@ const DigitalGrowth = () => {
                                    'We offer process consultancy services to enhance operational efficiency using IT tools like data analytics, process automation, and ERP systems. Our goal is to simplify workflows, reduce costs, and improve productivity.'
                               }
                               headingStyle={{ fontSize: '2.625rem', paddingBlockEnd: '1rem' }}
-                              paraStyle={{ fontsize: '1.125rem', lineHeight: '1.3rem' }}
+                              paraStyle={{ fontsize: '1.125rem' }}
                          />
                     </div>
                     <div className={styles.image_section}>

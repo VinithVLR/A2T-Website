@@ -69,7 +69,7 @@ const SecondarySection = () => {
      ]
 
      return (
-          <React.Fragment>
+          <section className={styles.main_container}>
                {arr.map((card: any, index: any) => {
                     return (
                          <InfoCardWithIcon
@@ -86,7 +86,7 @@ const SecondarySection = () => {
                          />
                     )
                })}
-          </React.Fragment>
+          </section>
      )
 }
 

@@ -44,7 +44,6 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
 
      const objParaStyle = {
           textAlign: 'end',
-          lineHeight: '1.5rem',
      }
 
      return (

@@ -41,6 +41,7 @@
                color: #6e8871;
           }
      }
+
      div:nth-child(2) {
           background-color: #f3f5fc;
           border: 1px solid #dce8fa;
@@ -49,6 +50,7 @@
                color: #6d7386;
           }
      }
+
      div:nth-child(3) {
           background-color: #fff6f3;
           border: 1px solid #ffe4dd;
@@ -81,5 +83,18 @@
 
      @media screen and (max-width: 600px) {
           grid-template-columns: 1fr;
+     }
+}
+
+
+@media (max-width: 768px) {
+     .mainCon {
+          padding: 2rem
+     }
+}
+
+@media (max-width: 576px) {
+     .mainCon {
+          padding: 2rem
      }
 }

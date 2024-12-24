@@ -67,6 +67,7 @@
         .details_section {
             .details_con {
                 .title {
+                    font-size: 16px;
                     width: 100%;
                     text-align: center;
                 }
@@ -74,6 +75,7 @@
                 .description {
                     text-align: center;
                     width: 100%;
+                    font-size: 1.25rem;
                 }
             }
         }
@@ -89,11 +91,13 @@
                 align-items: center;
 
                 .title {
+                    font-size: 16px;
                     width: 100%;
                     text-align: center;
                 }
 
                 .description {
+                    font-size: 1.25rem;
                     text-align: center;
                     width: 80%;
                 }

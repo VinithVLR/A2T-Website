@@ -81,6 +81,23 @@
                 }
             }
         }
+
+        .textContainer {
+            .details_con {
+
+
+                .desc {
+                    font-size: 1.25rem;
+                }
+
+                ul {
+                    li {
+                        font-size: 1.25rem;
+                        padding-block-end: 0.7rem;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -98,5 +115,22 @@
                 flex: 1;
             }
         }
+
+        .textContainer {
+            .details_con {
+
+                .desc {
+                    font-size: 1.25rem;
+                }
+
+                ul {
+                    li {
+                        font-size: 1.25rem;
+                        padding-block-end: 0.7rem;
+                    }
+                }
+            }
+        }
+
     }
 }

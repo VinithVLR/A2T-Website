@@ -4,6 +4,7 @@
     background-color: #F3FCF4;
     max-width: 1800px;
     margin: auto;
+    padding-block: 1rem;
 
     .content_Wrapper {
         display: flex;
@@ -131,7 +132,7 @@
 
 @media (max-width: 768px) {
     .DigitalSecurity_con {
-        padding-block: 5rem;
+        padding-block: 3rem;
 
         .content_Wrapper {
             flex-direction: column-reverse;
@@ -153,7 +154,7 @@
 
 @media (max-width: 576px) {
     .DigitalSecurity_con {
-        padding-block: 5rem;
+        padding-block: 3rem;
 
         .content_Wrapper {
             flex-direction: column-reverse;

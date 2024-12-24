@@ -58,6 +58,35 @@
                 width: 100%;
 
             }
+
+            .details_con {
+                .para {
+                    font-size: 1.25rem;
+                    padding-inline-end: 0rem
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main_con {
+        .content_Wrapper {
+            flex-direction: column;
+
+            .image_section {
+                width: 100%;
+
+            }
+
+            .details_con {
+                .para {
+                    font-size: 1.25rem;
+                    width: 100%;
+                    padding-inline-end: 0rem
+                }
+            }
         }
     }
 }

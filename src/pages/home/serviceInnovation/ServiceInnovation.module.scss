@@ -12,6 +12,14 @@
 
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .main_container {
+        padding-block-end: 4rem;
+    }
+}
 
-@media (max-width: 480px) {}
+@media (max-width: 576px) {
+    .main_container {
+        padding-block-end: 4rem;
+    }
+}

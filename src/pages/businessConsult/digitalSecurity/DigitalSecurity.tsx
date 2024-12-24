@@ -62,7 +62,7 @@ const DigitalSecurity = () => {
                                    'Protect your business with our comprehensive cybersecurity services. We offer vulnerability assessments, risk management frameworks, and robust security measures.'
                               }
                               headingStyle={{ fontSize: '2.625rem', paddingBlockEnd: '1rem' }}
-                              paraStyle={{ fontsize: '1.125rem', lineHeight: '1.3rem' }}
+                              paraStyle={{ fontsize: '1.125rem' }}
                          />
                     </div>
                </div>

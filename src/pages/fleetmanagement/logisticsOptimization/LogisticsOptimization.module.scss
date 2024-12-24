@@ -103,6 +103,17 @@
             .img_wrapper {
                 width: 100%;
             }
+
+            .details_con {
+                label {
+                    font-size: 1.25rem;
+
+                }
+
+                .desc {
+                    font-size: 1.25rem;
+                }
+            }
         }
 
         .img_Stretch_Full {
@@ -131,6 +142,7 @@
             .details_con {
                 label {
                     margin-block-start: 2rem;
+                    font-size: 1.25rem;
                 }
 
                 .heading {
@@ -139,6 +151,7 @@
 
                 .desc {
                     padding-block-start: 1rem;
+                    font-size: 1.25rem;
 
                 }
             }

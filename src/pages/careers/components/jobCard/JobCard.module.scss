@@ -33,3 +33,20 @@
           }
      }
 }
+
+
+@media (max-width: 768px) {
+     .cardContainer {
+          p {
+               font-size: 1.25rem;
+          }
+     }
+}
+
+@media (max-width: 576px) {
+     .cardContainer {
+          p {
+               font-size: 1.25rem;
+          }
+     }
+}

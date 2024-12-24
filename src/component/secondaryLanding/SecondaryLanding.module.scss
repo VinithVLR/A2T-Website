@@ -6,8 +6,7 @@
     // height: 100vh;
     width: 100%;
     padding-inline: 2rem;
-    padding-block-start: 5.5rem;
-    padding-block-end: 0.5rem;
+    padding-block: 4rem;
     display: flex;
     background-color: #F3F5FC;
     font-family: 'inter';
@@ -129,6 +128,7 @@
 
                 .description {
                     width: 100% !important;
+                    font-size: 1.25rem;
                 }
             }
         }
@@ -172,6 +172,7 @@
 
                 .description {
                     width: 100% !important;
+                    font-size: 1.25rem;
                 }
             }
         }

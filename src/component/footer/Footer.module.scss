@@ -182,6 +182,57 @@
 
         .unOrder_list_con {
             width: 100%;
+
+            li {
+                a {
+
+                    font-size: 1.25rem;
+                }
+            }
         }
+
+        .iconAndText {
+            .icon_content {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .map_con {
+                .label {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main {
+        .para {
+            font-size: 1.25rem;
+        }
+
+        .unOrder_list_con {
+            li {
+                a {
+
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        .iconAndText {
+            .icon_content {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .map_con {
+                .label {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
     }
 }

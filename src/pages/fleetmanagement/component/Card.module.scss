@@ -43,6 +43,40 @@
 
         ul {
             padding-inline-start: 1rem;
+
+            li {
+                color: $sub-heading;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .card_con {
+        .textContainer {
+            .title {
+                font-size: 16px;
+            }
+
+            .desc {
+                font-size: 1.25rem;
+                color: $sub-heading;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .card_con {
+        .textContainer {
+            .title {
+                font-size: 16px;
+            }
+
+            .desc {
+                font-size: 1.25rem;
+                color: $sub-heading;
+            }
         }
     }
 }

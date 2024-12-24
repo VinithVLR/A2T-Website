@@ -28,3 +28,15 @@
     height: 0.25rem;
     background-color: #263B86;
 }
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .text {
+        font-size: 1.25rem;
+    }
+}

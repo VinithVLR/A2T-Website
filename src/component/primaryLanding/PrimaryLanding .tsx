@@ -5,6 +5,7 @@ import Image, { StaticImageData } from 'next/image'
 import img_contact from '../../assets/images/img_contact.png'
 import { Inter } from 'next/font/google'
 import thumb_nail from '../../assets/images/img_contact_thumb.png'
+import Spinner from '../spinner/Spinner'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '600', '800'],

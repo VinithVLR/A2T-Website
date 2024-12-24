@@ -31,7 +31,7 @@ const LatestUpdates = () => {
           <section className={style.main_container}>
                <Header
                     title={'Stay informed with the Latest Updates'}
-                    titleStyle={{ width: '40%', paddingBlock: '2rem' }}
+                    titleStyle={{ width: '40%' }}
                />
 
                <div className={style.three_card_layout}>

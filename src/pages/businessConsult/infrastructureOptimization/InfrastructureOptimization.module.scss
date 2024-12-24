@@ -5,7 +5,7 @@
     height: auto;
     padding-inline: $layout_row_padding;
     background-color: #F3F5FC;
-    padding-block: 5rem;
+    padding-block: 4rem;
     max-width: 1800px;
     margin: auto;
 
@@ -43,7 +43,7 @@
 
 @media (max-width: 576px) {
     .sec_con {
-        margin-block-start: 4rem;
+        // margin-block-start: 4rem;
 
         .content_Wrapper {
             flex-direction: column;

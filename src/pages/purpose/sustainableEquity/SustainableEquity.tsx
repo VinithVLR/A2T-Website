@@ -22,7 +22,7 @@ const SustainableEquity = () => {
                                    'We work with clients who share our passion for sustainability and innovation. Our forward-thinking approach allows us to anticipate market trends and provide future-ready solutions that ensure resilience and adaptability in an ever-changing business landscape.'
                               }
                               headingStyle={{ fontSize: '2.625rem', paddingBlockEnd: '1rem' }}
-                              paraStyle={{ fontsize: '1.125rem', lineHeight: '1.3rem' }}
+                              paraStyle={{ fontsize: '1.125rem' }}
                          />
                     </div>
                     <div className={styles.image_section}>

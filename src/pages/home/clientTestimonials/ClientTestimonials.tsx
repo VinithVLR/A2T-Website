@@ -117,10 +117,7 @@ const ClientTestimonials = () => {
 
      return (
           <section className={styles.main_container}>
-               <Header
-                    title='Hear What Our Clients Say'
-                    titleStyle={{ width: '30%', paddingBlock: '2rem' }}
-               />
+               <Header title='Hear What Our Clients Say' titleStyle={{ width: '30%' }} />
                <div className={styles.wrapper}>
                     <div
                          className={styles.flexContainer}

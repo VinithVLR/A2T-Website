@@ -54,9 +54,18 @@
 
     .container {
         .textContainer {
-
             flex-direction: column;
+
+            .title {
+                font-size: 16px;
+            }
+
+            .description {
+                font-size: 1.25rem;
+            }
         }
+
+
     }
 }
 
@@ -65,6 +74,16 @@
         .textContainer {
 
             flex-direction: column;
+
+            .title {
+                font-size: 16px;
+            }
+
+            .description {
+                font-size: 1.25rem;
+            }
         }
+
+
     }
 }

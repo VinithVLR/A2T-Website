@@ -93,6 +93,35 @@
             .con_wrapper {
                 .description {
                     width: 100%;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main_con {
+        padding-inline: 0rem;
+        flex-direction: column-reverse;
+
+        .image_section {
+
+            .image_wrapper {
+                width: 100%;
+                height: auto;
+
+                .img_ab {
+                    padding: 0rem;
+                }
+            }
+        }
+
+        .details_section {
+            .con_wrapper {
+                .description {
+                    width: 100%;
+                    font-size: 1.25rem;
                 }
             }
         }
