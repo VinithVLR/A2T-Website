@@ -4,6 +4,7 @@ import ImageDesc from '@/component/imageDesc/ImageDesc'
 import image1 from '../../../assets/images/eng-ser/img_winEng_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_winEng_ly2.png'
 import image3 from '../../../assets/images/eng-ser/img_winEng_ly3.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const WindEnergy = () => {
      const windEngArr = [
@@ -41,12 +42,14 @@ const WindEnergy = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Wind Energy</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Wind Energy
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We offer wind farm development, including resource assessment, site
                          selection, and complete EPC services. Our O&M solutions ensure turbines
                          operate at peak performance.
-                    </p>
+                    </MainPara>
                </header>
                {windEngArr.map((item: any, index: any) => (
                     <ImageDesc

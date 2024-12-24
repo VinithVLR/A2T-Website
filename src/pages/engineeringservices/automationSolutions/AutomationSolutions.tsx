@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import image1 from '../../../assets/images/eng-ser/img_aut_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_aut_ly2.png'
 import Card from '@/pages/fleetmanagement/component/Card'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const AutomationSolutions = () => {
      const EngConArr = [
@@ -33,13 +34,13 @@ const AutomationSolutions = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Automation and Robotics Solutions
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We design and implement advanced automation systems, integrating robotics
                          to enhance efficiency and productivity in manufacturing.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {EngConArr.map((item: any, index: any) => {

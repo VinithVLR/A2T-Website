@@ -12,7 +12,6 @@ import mailIc from '../../assets/icons/ic_mail_nav.svg'
 import callIc from '../../assets/icons/ic_call.svg'
 import fbIc from '../../assets/icons/ic_fb.svg'
 import instaIc from '../../assets/icons/ic_insta.svg'
-import { title } from 'process'
 
 interface NavItem {
      label: string
@@ -852,19 +851,19 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          </ul>
                          <div className={styles.socialLinkCont}>
                               <Link href={'https://www.linkedin.com/in/ntarun/'} target='_blank'>
-                                   <Image src={linkedinIc} alt='' />
+                                   <Image priority src={linkedinIc} alt='' />
                               </Link>
 
                               <Link href={''}>
-                                   <Image src={xIc} alt='' style={{ marginTop: '5px' }} />
+                                   <Image priority src={xIc} alt='' style={{ marginTop: '5px' }} />
                               </Link>
 
                               <Link href={''}>
-                                   <Image src={instaIc} alt='' />
+                                   <Image priority src={instaIc} alt='' />
                               </Link>
 
                               <Link href={''}>
-                                   <Image src={fbIc} alt='' />
+                                   <Image priority src={fbIc} alt='' />
                               </Link>
                          </div>
                          <button
@@ -875,12 +874,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               Contact us
                          </button>
                          <a href={'tel:+91-9150523409'} className={styles.linkCont}>
-                              <Image src={callIc} alt='' />
+                              <Image priority src={callIc} alt='' />
                               <span>+91 98866 40104</span>
                          </a>
 
                          <a href={'mailto:finance@a2tgroup.com'} className={styles.linkCont}>
-                              <Image src={mailIc} alt='' />
+                              <Image priority src={mailIc} alt='' />
                               <span>finance@a2tgroup.com</span>
                          </a>
                     </div>

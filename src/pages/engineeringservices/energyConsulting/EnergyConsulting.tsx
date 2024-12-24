@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
 import image1 from '../../../assets/images/eng-ser/img_engCon_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_engCon_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const EnergyConsulting = () => {
      const EngConArr = [
@@ -31,14 +32,14 @@ const EnergyConsulting = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Energy Efficiency and Sustainability Consulting
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We conduct energy audits, provide energy management system implementation,
                          and offer carbon reduction strategies to help industries reduce their
                          environmental impact.
-                    </p>
+                    </MainPara>
                </header>
                {EngConArr.map((item: any, index: any) => (
                     <ImageDesc

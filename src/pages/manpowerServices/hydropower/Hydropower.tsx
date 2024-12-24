@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/man_power/img_hyr_1.png'
 import cardImage2 from '../../../assets/images/man_power/img_hyr_2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const Hydropower = () => {
      let hydroPowerData = [
@@ -27,12 +28,14 @@ const Hydropower = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Hydropower</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Hydropower
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Hydropower Engineers specialize in plant design and O&M Technicians
                          maintain and monitor hydropower systems to ensure continuous and efficient
                          energy production.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {hydroPowerData.map((item: any, index: any) => {

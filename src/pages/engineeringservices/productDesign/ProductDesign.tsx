@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import image1 from '../../../assets/images/eng-ser/img_pdp_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_pdp_ly2.png'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const ProductDesign = () => {
      const productData = [
           {
@@ -32,14 +33,14 @@ const ProductDesign = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Product Design and Prototyping
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our CAD/CAM/CAE services help clients develop mechanical components, while
                          our rapid prototyping and 3D printing capabilities accelerate product
                          development.
-                    </p>
+                    </MainPara>
                </header>
                {productData.map((item: any, index: any) => (
                     <ImageDesc

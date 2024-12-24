@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
 import image1 from '../../../assets/images/eng-ser/img_prc_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_prc_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const ProcessEngineering = () => {
      const processEngData = [
@@ -29,11 +30,13 @@ const ProcessEngineering = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Process Engineering</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Process Engineering
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Using lean manufacturing and Six Sigma principles, we streamline operations
                          and improve product quality.
-                    </p>
+                    </MainPara>
                </header>
                {processEngData.map((item: any, index: any) => (
                     <ImageDesc

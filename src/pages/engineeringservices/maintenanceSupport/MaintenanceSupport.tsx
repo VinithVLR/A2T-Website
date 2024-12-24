@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/eng-ser/img_man-sup_ly1.png'
 import cardImage2 from '../../../assets/images/eng-ser/img_man-sup_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const MaintenanceSupport = () => {
      let MaintenanceData = [
@@ -30,13 +31,13 @@ const MaintenanceSupport = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Maintenance & Support Services for Ports, Automotive & Aviation
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We use AI and machine learning to offer predictive maintenance and field
                          service solutions, reducing downtime and improving operational efficiency.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {MaintenanceData.map((item: any, index: any) => {

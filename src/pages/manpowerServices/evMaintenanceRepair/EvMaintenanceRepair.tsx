@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import cardImage1 from '../../../assets/images/man_power/img_rep_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_rep_ly2.png'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const EvMaintenanceRepair = () => {
      let operationArr = [
@@ -29,14 +30,14 @@ const EvMaintenanceRepair = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          EV Maintenance and Repair
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our EV Maintenance Technicians diagnose and repair EV systems, while EV
                          Software Engineers develop and integrate management systems for smooth
                          vehicle telemetry and energy diagnostics.
-                    </p>
+                    </MainPara>
                </header>
                {operationArr.map((item: any, index: any) => (
                     <ImageDesc

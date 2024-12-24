@@ -6,6 +6,7 @@ import image1 from '../../../assets/images/man_power/img_ev_ly1.png'
 import image2 from '../../../assets/images/man_power/img_ev_ly2.png'
 import image3 from '../../../assets/images/man_power/img_ev_ly3.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const EvManufacturing = () => {
      let arr: any = [
@@ -41,12 +42,14 @@ const EvManufacturing = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>EV Manufacturing</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         EV Manufacturing
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our EV Design Engineers, Battery Technicians, and Automation Engineers
                          specialize in designing, assembling, and automating electric vehicle
                          manufacturing processes, ensuring efficient and scalable EV production.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

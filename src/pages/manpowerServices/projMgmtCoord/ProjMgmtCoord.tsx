@@ -5,6 +5,7 @@ import bgImage1 from '../../../assets/images/purpose/img_pur_bg1.png'
 import bgImage2 from '../../../assets/images/purpose/img_pur_bg2.png'
 import image1 from '../../../assets/images/man_power/img_prj_ly1.png'
 import image2 from '../../../assets/images/man_power/img_prj_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const ProjMgmtCoord = () => {
      let arr: any = [
@@ -32,14 +33,14 @@ const ProjMgmtCoord = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Project Management & Coordination
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Site Managers and Supply Chain Experts coordinate large-scale projects,
                          ensuring seamless collaboration between teams and vendors for efficient
                          project execution.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

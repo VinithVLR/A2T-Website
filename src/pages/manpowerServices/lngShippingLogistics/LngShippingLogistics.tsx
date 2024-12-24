@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/man_power/img_shp_card1.png'
 import cardImage2 from '../../../assets/images/man_power/img_shp_card2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const LngShippingLogistics = () => {
      const hydroPowerData = [
@@ -28,14 +29,14 @@ const LngShippingLogistics = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          LNG Shipping and Logistics Personnel
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Marine Engineers and Logistics Managers oversee safe LNG cargo handling and
                          supply chain management, ensuring efficient LNG distribution across
                          regions.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {hydroPowerData.map((item: any, index: any) => {

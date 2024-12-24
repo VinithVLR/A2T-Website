@@ -4,6 +4,7 @@ import image1 from '../../../assets/images/man_power/img_bio_ly1.png'
 import image2 from '../../../assets/images/man_power/img_bio_ly2.png'
 import image3 from '../../../assets/images/man_power/img_bio_ly3.png'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const BiomassEnergySolutions = () => {
      const bioEngyArr = [
@@ -36,17 +37,17 @@ const BiomassEnergySolutions = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3
+                    <MainHeading
                          style={{ paddingInlineEnd: '2rem' }}
                          className={`${styles.heading} ${styles.blackText}`}
                     >
                          Biomass & Waste-to-Energy
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Process Engineers, Technicians, and Environmental Engineers manage biomass
                          energy production, plant operations, and compliance with sustainability
                          regulations, ensuring efficient waste-to-energy conversion.
-                    </p>
+                    </MainPara>
                </header>
                {bioEngyArr.map((item: any, index: any) => (
                     <ImageDesc

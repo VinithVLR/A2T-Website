@@ -4,6 +4,7 @@ import cardImage1 from '../../../assets/images/fleet/img_card1.png'
 import cardImage2 from '../../../assets/images/fleet/img_card2.png'
 import cardImage3 from '../../../assets/images/fleet/img_card3.png'
 import styles from '../../../scss/layout/common.module.scss'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const TechLogisticsOptimization = () => {
      let cardData = [
@@ -33,13 +34,13 @@ const TechLogisticsOptimization = () => {
      return (
           <section id='technology-driven-logistics-optimization' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Technology-Driven Logistics Optimization
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Utilize AI-driven route optimization, telematics, and digital platforms for
                          enhanced logistics and reduced costs.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.three_card_layout}>
                     {cardData.map((item: any, index: any) => {

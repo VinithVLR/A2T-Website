@@ -5,6 +5,7 @@ import bgImage1 from '../../../assets/images/purpose/img_pur_bg1.png'
 import bgImage2 from '../../../assets/images/purpose/img_pur_bg2.png'
 import image1 from '../../../assets/images/eng-ser/img_lng_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_lng_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const LngLiquefiedNaturalGas = () => {
      let arr: any = [
@@ -30,14 +31,14 @@ const LngLiquefiedNaturalGas = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          LNG (Liquefied natural gas)
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We provide complete operations and maintenance services for LNG commercial
                          trucks. Our LNG technicians are skilled and ready to support OEMs with
                          precision and efficiency.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

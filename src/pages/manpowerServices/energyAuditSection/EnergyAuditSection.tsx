@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
 import cardImage1 from '../../../assets/images/man_power/img_aud_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_aud_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const EnergyAuditSection = () => {
      let engAudData = [
@@ -28,14 +29,14 @@ const EnergyAuditSection = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Energy Auditors & Consultants
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Energy Auditors help optimize energy use and reduce consumption in
                          industrial and commercial facilities. Sustainability Consultants provide
                          expert guidance on green energy strategies and carbon reduction.
-                    </p>
+                    </MainPara>
                </header>
                {engAudData.map((item: any, index: any) => (
                     <ImageDesc

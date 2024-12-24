@@ -4,6 +4,7 @@ import image1 from '../../../assets/images/fleet/img_safe.png'
 import image2 from '../../../assets/images/fleet/img_esg.png'
 import image3 from '../../../assets/images/fleet/img_com.png'
 import styles from '../../../scss/layout/common.module.scss'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SustainableFleetFocus = () => {
      let skillArr: any = [
@@ -31,13 +32,13 @@ const SustainableFleetFocus = () => {
      return (
           <section id='Safety-Compliance-&-Sustainability' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Focus on Safety, Compliance, & Sustainability
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We prioritize safety, sustainability, and compliance to meet regulatory
                          standards and reduce environmental impact.
-                    </p>
+                    </MainPara>
                </header>
                {skillArr.map((item: any, index: any) => (
                     <ImageDesc
