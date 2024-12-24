@@ -4,6 +4,7 @@ import ImageDesc from '@/component/imageDesc/ImageDesc'
 import cardImage1 from '../../../assets/images/man_power/img_opr_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_opr_ly2.png'
 import cardImage3 from '../../../assets/images/man_power/img_opr_ly3.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const OperationsAndMaintenance = () => {
      let operationArr = [
@@ -41,14 +42,14 @@ const OperationsAndMaintenance = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          LNG Operations & Maintenance
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          LNG Technicians manage operations at terminals and pipelines, while Safety
                          Experts ensure compliance with safety protocols and Control Engineers
                          handle LNG monitoring systems.
-                    </p>
+                    </MainPara>
                </header>
                {operationArr.map((item: any, index: any) => (
                     <ImageDesc

@@ -8,6 +8,7 @@ import image3 from '../../../assets/images/man_power/img_slr_3.png'
 import image4 from '../../../assets/images/man_power/img_slr_4.png'
 import image5 from '../../../assets/images/man_power/img_slr_5.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SolarEnergy = () => {
      let arr: any = [
@@ -60,12 +61,14 @@ const SolarEnergy = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Solar Energy</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Solar Energy
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Project Managers, Solar Design Engineers, and Technicians handle solar
                          installations and ensure efficient energy production, while O&M Technicians
                          perform preventive maintenance for long-term solar farm efficiency.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

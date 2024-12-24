@@ -72,11 +72,7 @@ const EducationEmpowerment = () => {
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>
                               <div className={styles.img_index_top}>
-                                   <Image
-                                        src={imgLayer1}
-                                        alt='image'
-                                        className={styles.img_index}
-                                   />
+                                   <Image src={imgLayer1} alt='' className={styles.img_index} />
                               </div>
                               <div className={styles.img_index_right}>
                                    <Image

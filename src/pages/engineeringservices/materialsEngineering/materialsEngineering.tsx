@@ -5,6 +5,7 @@ import bgImage1 from '../../../assets/images/purpose/img_pur_bg1.png'
 import bgImage2 from '../../../assets/images/purpose/img_pur_bg2.png'
 import image1 from '../../../assets/images/eng-ser/img_material_ly1.png'
 import image2 from '../../../assets/images/eng-ser/img_material_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const MaterialsEngineering = () => {
      let arr: any = [
@@ -33,13 +34,13 @@ const MaterialsEngineering = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Materials Engineering
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We develop lightweight and sustainable materials, such as composites and
                          alloys, for energy-efficient products.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

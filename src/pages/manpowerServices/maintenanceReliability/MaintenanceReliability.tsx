@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/man_power/img_reb_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_reb_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const MaintenanceReliability = () => {
      const reliabilityArr = [
@@ -28,14 +29,14 @@ const MaintenanceReliability = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Maintenance & Reliability Engineers
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Predictive Maintenance Engineers use AI-driven diagnostics to anticipate
                          equipment failures, while Technicians ensure routine maintenance, reducing
                          downtime and improving equipment efficiency.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {reliabilityArr.map((item: any, index: any) => {

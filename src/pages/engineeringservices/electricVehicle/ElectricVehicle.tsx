@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/eng-ser/img_ev_ly1.png'
 import cardImage2 from '../../../assets/images/eng-ser/img_ev_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const ElectricVehicle = () => {
      let electricVehicleData = [
@@ -27,11 +28,13 @@ const ElectricVehicle = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Electric Vehicle</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Electric Vehicle
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          From installing charging infrastructure to maintaining EV fleets, our
                          EV-ready technicians are at the forefront of electric vehicle technology.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {electricVehicleData.map((item: any, index: any) => {

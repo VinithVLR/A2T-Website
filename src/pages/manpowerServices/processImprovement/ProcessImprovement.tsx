@@ -5,6 +5,7 @@ import bgImage2 from '../../../assets/images/purpose/img_pur_bg2.png'
 import image1 from '../../../assets/images/man_power/img_prc_ly1.png'
 import image2 from '../../../assets/images/man_power/img_prc_ly2.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const ProcessImprovement = () => {
      let arr: any = [
           {
@@ -31,14 +32,14 @@ const ProcessImprovement = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Process Improvement Specialists
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Lean Manufacturing Experts and Six Sigma Black Belts optimize
                          production processes by implementing waste-reduction strategies and
                          improving product quality.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

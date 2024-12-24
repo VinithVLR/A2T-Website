@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import styles from './FleetCard.module.scss'
-import tool_pic from '../../assets/icons/ic_tool.svg'
 import Skeleton from '../skelton/Skeleton'
 import picture from '../../assets/images/pexel.jpeg'
 import { SecondaryHeading, TertiaryHeading, TertiaryPara } from '../typography/Typography'
@@ -52,6 +51,7 @@ const FleetCard = ({ indexNumber, item }: any) => {
                                         src={picture}
                                         alt='Fleet Management'
                                         className={styles.card_image}
+                                        priority
                                    />
                               </div>
                          </div>
@@ -67,6 +67,7 @@ const FleetCard = ({ indexNumber, item }: any) => {
                                         src={isHovered ? item.whiteIcon : item.iconImage}
                                         alt=''
                                         className={`${styles.image}`}
+                                        priority
                                    />
                               </div>
                               <TertiaryHeading

@@ -4,6 +4,7 @@ import ImageDesc from '@/component/imageDesc/ImageDesc'
 import cardImage1 from '../../../assets/images/man_power/img_skl_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_skl_ly2.png'
 import cardImage3 from '../../../assets/images/man_power/img_skl_ly3.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SkilledWorkforce = () => {
      let skillWorkArr = [
@@ -36,14 +37,14 @@ const SkilledWorkforce = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Skilled Operators & Technicians
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          CNC Machine Operators, 3D Printing Technicians, and Welders provide skilled
                          expertise in operating precision machinery, additive manufacturing, and
                          metal fabrication.
-                    </p>
+                    </MainPara>
                </header>
                {skillWorkArr.map((item: any, index: any) => (
                     <ImageDesc

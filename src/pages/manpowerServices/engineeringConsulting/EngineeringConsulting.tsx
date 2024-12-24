@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
 import cardImage1 from '../../../assets/images/man_power/img_engCon_ly1.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const EngineeringConsulting = () => {
      const consultingArr = [
           {
@@ -19,14 +20,14 @@ const EngineeringConsulting = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Engineering Consulting Services
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Engineering Consultants offer expert advice across renewable energy,
                          LNG, electric vehicles, and manufacturing, helping clients optimize
                          operations and execute feasibility studies.
-                    </p>
+                    </MainPara>
                </header>
                {consultingArr.map((item: any, index: any) => (
                     <ImageDesc

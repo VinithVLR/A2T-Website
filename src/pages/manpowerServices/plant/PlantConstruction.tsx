@@ -6,6 +6,7 @@ import image1 from '../../../assets/images/man_power/img_plant_ly1.png'
 import image2 from '../../../assets/images/man_power/img_plant_ly2.png'
 import image3 from '../../../assets/images/man_power/img_plant_ly3.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const PlantConstruction = () => {
      let arr: any = [
           {
@@ -40,14 +41,14 @@ const PlantConstruction = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          LNG Plant Construction & Commissioning
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Project Managers, Process Engineers, and Construction Engineers manage
                          LNG plant construction, overseeing liquefaction, regasification, and plant
                          development with a focus on efficiency and safety.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

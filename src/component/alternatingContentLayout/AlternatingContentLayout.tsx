@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from './AlternatingContentLayout.module.scss'
 import Image from 'next/image'
-import reverImage from '../../assets/images/img_rever.png'
-import bg_image from '../../assets/images/purpose/img_pur_bg1.png'
-import image from '../../assets/images/purpose/img_pur_1.png'
+import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
 
 interface AlternatingContentLayoutProps {
      content: Array<{
@@ -47,14 +45,16 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                               </div>
                               <div className={styles.details_section}>
                                    <div className={styles.con_wrapper}>
-                                        <h3 className={`${styles.heading} ${styles.blackText}`}>
+                                        <SecondaryHeading
+                                             className={`${styles.heading} ${styles.blackText}`}
+                                        >
                                              {item.title}
-                                        </h3>
-                                        <p
+                                        </SecondaryHeading>
+                                        <SecondaryPara
                                              className={`${styles.description} ${styles.regularText}`}
                                         >
                                              {item.description}
-                                        </p>
+                                        </SecondaryPara>
                                    </div>
                               </div>
                          </section>

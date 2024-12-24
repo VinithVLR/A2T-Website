@@ -4,6 +4,7 @@ import image1 from '../../../assets/images/man_power/img_win_ly1.png'
 import image2 from '../../../assets/images/man_power/img_win_ly2.png'
 import image3 from '../../../assets/images/man_power/img_win_ly3.png'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const WindEnergy = () => {
      const windEnergyArr = [
           {
@@ -35,12 +36,14 @@ const WindEnergy = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>Wind energy</h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
+                         Wind energy
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Project Managers, Solar Design Engineers, and Technicians handle solar
                          installations and ensure efficient energy production, while O&M Technicians
                          perform preventive maintenance for long-term solar farm efficiency.
-                    </p>
+                    </MainPara>
                </header>
                {windEnergyArr.map((item: any, index: any) => (
                     <ImageDesc

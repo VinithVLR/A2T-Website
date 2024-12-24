@@ -4,6 +4,7 @@ import image2 from '../../../assets/images/fleet/img_skil_2.png'
 import image3 from '../../../assets/images/fleet/img_skil_3.png'
 import styles from '../../../scss/layout/common.module.scss'
 import ImageDesc from '@/component/imageDesc/ImageDesc'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const SkilledDriverProgram = () => {
      let skillArr: any = [
           {
@@ -31,13 +32,13 @@ const SkilledDriverProgram = () => {
      return (
           <section id='driver-training' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Skilled Driver Training and Deployment
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our Fleet Management School (Code 93) and Driver Development Centers (DDCs)
                          train drivers to excel in safety, efficiency, and compliance.
-                    </p>
+                    </MainPara>
                </header>
                {skillArr.map((item: any, index: any) => (
                     <ImageDesc

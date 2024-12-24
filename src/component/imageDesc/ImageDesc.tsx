@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import styles from './ImageDesc.module.scss'
 import { useState, useEffect } from 'react'
+import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
 interface imageDescProps {
      imageUrl: string
      title: string
@@ -65,7 +66,7 @@ const ImageDesc = ({
                     }}
                >
                     <div className={styles.details_con}>
-                         <h2 className={styles.title}>{title}</h2>
+                         <SecondaryHeading className={styles.title}>{title}</SecondaryHeading>
                          {label && <label>{label}</label>}
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
@@ -76,7 +77,7 @@ const ImageDesc = ({
                                    ))}
                               </ul>
                          ) : (
-                              <p className={styles.desc}>{description}</p>
+                              <SecondaryPara className={styles.desc}>{description}</SecondaryPara>
                          )}
                     </div>
                </div>

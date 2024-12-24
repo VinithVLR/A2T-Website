@@ -3,6 +3,7 @@ import styles from '../../../scss/layout/common.module.scss'
 import Card from '@/pages/fleetmanagement/component/Card'
 import cardImage1 from '../../../assets/images/man_power/img_aut_ly1.png'
 import cardImage2 from '../../../assets/images/man_power/img_aut_ly2.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const RoboticsSolutions = () => {
      let roboticsData = [
@@ -29,14 +30,14 @@ const RoboticsSolutions = () => {
                style={{ backgroundColor: '#fff' }}
           >
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Automation & Robotics
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Automation Engineers and Robotics Engineers specialize in automating
                          factory processes and integrating robotic systems for improved production
                          efficiency and precision.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.two_card_layout}>
                     {roboticsData.map((item: any, index: any) => {
