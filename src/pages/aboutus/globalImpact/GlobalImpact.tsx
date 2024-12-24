@@ -4,6 +4,7 @@ import imageLeft from '../../../assets/images/img_global_left.png'
 import imageRight from '../../../assets/images/img_global_right.png'
 
 import Image from 'next/image'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const GlobalImpact = () => {
      let arr = [
           {
@@ -19,15 +20,15 @@ const GlobalImpact = () => {
      return (
           <section className={styles.global_impact_sec}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          We are Making a Global Impact
-                    </h3>
+                    </MainHeading>
                </header>
 
                <div className={styles.flex_content}>
                     {arr.map((item: any, index) => (
                          <div key={index} className={styles.details_content}>
-                              <p className={styles.para}>{item.title}</p>
+                              <MainPara className={styles.para}>{item.title}</MainPara>
                               <div className={styles.img_wrapper}>
                                    <Image src={item.image} alt='image' className={styles.image} />
                               </div>

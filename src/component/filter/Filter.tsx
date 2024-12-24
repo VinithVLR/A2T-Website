@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Filter.module.scss'
+import { MainPara } from '../typography/Typography'
 
 const Filter = ({ options, onChange }: any) => {
      const onFilterChange = (value: string) => {
@@ -18,7 +19,7 @@ const Filter = ({ options, onChange }: any) => {
                               onClick={() => onFilterChange(option.value)}
                               className={option.active ? styles.active : ''}
                          >
-                              {option.title}
+                              <MainPara>{option.title}</MainPara>
                          </li>
                     )
                })}

@@ -5,6 +5,7 @@ import globalIcon from '../../../../assets/icons/ic_global.svg'
 import skillIcon from '../../../../assets/icons/ic_skill.svg'
 import humanCapitalIcon from '../../../../assets/icons/ic_human_capital.svg'
 import trustIcon from '../../../../assets/icons/ic_trust.svg'
+import { SecondaryPara, TertiaryHeading, TertiaryPara } from '@/component/typography/Typography'
 
 const CardGrid = () => {
      const cards = [
@@ -70,16 +71,19 @@ const CardGrid = () => {
                               width={40}
                               height={40}
                          />
-                         <h2
+                         <TertiaryHeading
                               className={`${styles.semiBoldText}`}
                               style={{ color: card.titleColor }}
                          >
                               {card.title}
-                         </h2>
+                         </TertiaryHeading>
                          <hr style={{ border: `1px solid ${card.borderColor}` }}></hr>
-                         <p className={`${styles.regularText}`} style={{ color: card.desColor }}>
+                         <SecondaryPara
+                              className={`${styles.regularText}`}
+                              style={{ color: card.desColor }}
+                         >
                               {card.description}
-                         </p>
+                         </SecondaryPara>
                     </div>
                ))}
           </div>

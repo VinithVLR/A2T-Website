@@ -7,6 +7,7 @@ import image_sec from '../../../assets/images/img_row_2.png'
 import image_third from '../../../assets/images/img_row_3.png'
 import image_four from '../../../assets/images/img_row_4.png'
 import image_five from '../../../assets/images/img_row_5.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -18,15 +19,15 @@ const LandingSolutions = () => {
      return (
           <section className={styles.landing_Solutions}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          <span className={styles.label}>Services</span>
                          <br></br>
                          Delivering a Full <span>Spectrum of Solutions </span>for Your Success
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We deliver innovative, sustainable solutions that drive impactful change,
                          empowering businesses to thrive and meet evolving industry demands.
-                    </p>
+                    </MainPara>
                </header>
                {/* <div className={styles.image_con_flex}>
                     {arr.map((item: any, index: any) => {

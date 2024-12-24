@@ -11,6 +11,7 @@ import bgImage3 from '../../../assets/images/img_purp_bg3.png'
 
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import Consumption from '../consumption/Consumption'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SustainableBusinessAlignment = () => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
@@ -75,14 +76,14 @@ const SustainableBusinessAlignment = () => {
      return (
           <section className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Aligning Business Success with Environmental Responsibility
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          From reducing carbon footprints to fostering equality and promoting
                          responsible growth, we align our services with the UN&apos;s Sustainable
                          Development Goals.
-                    </p>
+                    </MainPara>
                </header>
 
                <div className={styles.gridcon}>

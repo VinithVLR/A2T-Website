@@ -5,6 +5,7 @@ import canvaImage from '../../../assets/images/canva_journey.svg'
 import yellowCanvaImage from '../../../assets/images/canva_yellow_journey.svg'
 import pinkCanvaImage from '../../../assets/images/canva_pink_journey.svg'
 import Image from 'next/image'
+import { SecondaryHeading, SecondaryPara } from '@/component/typography/Typography'
 
 function OurJourney() {
      return (
@@ -15,8 +16,12 @@ function OurJourney() {
                ></Header>
                <div className={styles.gridContainer}>
                     <div className={`${styles.period} ${styles.periodone}`}>
-                         <h3>2022</h3>
-                         <span>Founded in Chennai, India</span>
+                         <h3>
+                              <SecondaryHeading>2022</SecondaryHeading>
+                         </h3>
+                         <span>
+                              <SecondaryPara>Founded in Chennai, India</SecondaryPara>
+                         </span>
                     </div>
                     <div className={styles.timeLine}>
                          <div className={styles.dot}>
@@ -46,8 +51,12 @@ function OurJourney() {
                          <Image src={groupPhoto} className={styles.fourimg} alt='' />
                     </div>
                     <div className={`${styles.period} ${styles.periodsecond}`}>
-                         <h3>2023</h3>
-                         <span>Founded in Chennai, India</span>
+                         <h3>
+                              <SecondaryHeading>2022</SecondaryHeading>
+                         </h3>
+                         <span>
+                              <SecondaryPara>Founded in Chennai, India</SecondaryPara>
+                         </span>
                     </div>
                     <div className={`${styles.imageGallary} ${styles.two}`}>
                          <Image src={groupPhoto} className={styles.firstimg} alt='' />
@@ -58,8 +67,12 @@ function OurJourney() {
                          <Image src={groupPhoto} className={styles.fourimg} alt='' />
                     </div>
                     <div className={`${styles.period} ${styles.periodthird}`}>
-                         <h3>2024</h3>
-                         <span>Founded in Chennai, India</span>
+                         <h3>
+                              <SecondaryHeading>2022</SecondaryHeading>
+                         </h3>
+                         <span>
+                              <SecondaryPara>Founded in Chennai, India</SecondaryPara>
+                         </span>
                     </div>
                     <div className={`${styles.imageGallary} ${styles.three}`}>
                          <Image src={groupPhoto} className={styles.firstimg} alt='' />

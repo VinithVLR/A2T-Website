@@ -9,6 +9,7 @@ import bgImage3 from '../../../assets/images/purpose/img_pur_bg3.png'
 import image3 from '../../../assets/images/purpose/img_pur_3.png'
 import bgImage4 from '../../../assets/images/purpose/img_pur_bg4.png'
 import image4 from '../../../assets/images/purpose/img_pur_4.png'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const InnovationAndExcellence = () => {
      let arr: any = [
@@ -44,14 +45,14 @@ const InnovationAndExcellence = () => {
      return (
           <section className={`${styles.innovationAndExcellence_con}`}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Our Values Drive Innovation, Partnership, & Excellence Forward
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          From skilled manpower solutions to sustainable engineering and business
                          consulting, our comprehensive services are designed to meet the evolving
                          needs of industries worldwide.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

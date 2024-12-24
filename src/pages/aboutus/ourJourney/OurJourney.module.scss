@@ -41,6 +41,12 @@
                align-self: center;
                text-align: end;
 
+               span {
+                    display: inline-block;
+                    margin-top: 0.6rem;
+                    color: #797681;
+               }
+
                @media screen and (max-width: 768px) {
                     grid-column: 2/ -1;
                     align-self: flex-start;

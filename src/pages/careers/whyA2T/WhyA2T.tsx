@@ -13,6 +13,7 @@ import impactfulImg from '../../../assets/images/img_impactful.png'
 import careerImg from '../../../assets/images/img_career.png'
 import gsap from 'gsap'
 import Image from 'next/image'
+import { MainPara } from '@/component/typography/Typography'
 
 function WhyA2T() {
      const values = [
@@ -120,7 +121,9 @@ function WhyA2T() {
 
                                    <h3>{value.title}</h3>
                                    <div className={styles.imgWrapper} id={`para${value.id}`}>
-                                        <p>{value.description}</p>
+                                        <p>
+                                             <MainPara>{value.description}</MainPara>
+                                        </p>
                                    </div>
                               </div>
                          </div>

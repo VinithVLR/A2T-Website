@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './SecondaryLanding.module.scss'
 import { Inter } from 'next/font/google'
 import Image, { StaticImageData } from 'next/image'
+import { MainHeading, MainPara } from '../typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -41,23 +42,25 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                     style={{ paddingInlineStart: flexReverse ? '5rem' : '' }}
                >
                     <div className={styles.con_wrapper}>
-                         <h3 className={`${styles.heading}  ${styles.blackText}`}>{heading}</h3>
+                         <MainHeading className={`${styles.heading}  ${styles.blackText}`}>
+                              {heading}
+                         </MainHeading>
 
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (
                                         <li key={index} className={styles.bulletItem}>
-                                             {item}
+                                             <MainPara>{item}</MainPara>
                                         </li>
                                    ))}
                               </ul>
                          ) : (
-                              <p
+                              <MainPara
                                    className={`${styles.description} ${styles.regularText}`}
                                    style={{ width: flexReverse ? '100%' : '75%' }}
                               >
                                    {description}
-                              </p>
+                              </MainPara>
                          )}
                     </div>
                </div>

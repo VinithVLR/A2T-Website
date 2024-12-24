@@ -6,6 +6,7 @@ import Image from 'next/image'
 import icontool from '../../assets/icons/ic_tool.svg'
 import iconNavigate from '../../assets/icons/ic_navigate.svg'
 import { Inter } from 'next/font/google'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -35,9 +36,9 @@ const Consumption = ({ data }: any) => {
           <section className={`${styles.consumption} ${inter.className}`}>
                <div className={`${styles.header}`}>
                     <div className={`${styles.flex_con}`}>
-                         <h4>{title} &nbsp;</h4>
+                         <MainHeading>{title} &nbsp;</MainHeading>
                     </div>
-                    <p className={`${styles.para} ${styles.regularText}`}>{des}</p>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>{des}</MainPara>
                </div>
                {windowWidth <= 768 ? (
                     <div className={styles.mob_img_wrp}>

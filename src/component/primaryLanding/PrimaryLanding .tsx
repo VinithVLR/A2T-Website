@@ -6,6 +6,7 @@ import img_contact from '../../assets/images/img_contact.png'
 import { Inter } from 'next/font/google'
 import thumb_nail from '../../assets/images/img_contact_thumb.png'
 import Spinner from '../spinner/Spinner'
+import { MainHeading, MainPara } from '../typography/Typography'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '600', '800'],
@@ -99,10 +100,12 @@ const PrimaryLanding = ({
                          <div className={`${styles.btn_container} ${styles.semiBoldText}`}>
                               {title}
                          </div>
-                         <h3 className={`${styles.heading}  ${styles.blackText}`}>{heading}</h3>
-                         <p className={`${styles.description} ${styles.regularText}`}>
+                         <MainHeading className={`${styles.heading}  ${styles.blackText}`}>
+                              {heading}
+                         </MainHeading>
+                         <MainPara className={`${styles.description} ${styles.regularText}`}>
                               {description}
-                         </p>
+                         </MainPara>
                          {!isThumbnailHidden && (
                               <div className={styles.thumb_nailWrapper_con}>
                                    <div className={styles.thumb_nailWrapper}>

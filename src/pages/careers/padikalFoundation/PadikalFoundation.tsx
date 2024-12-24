@@ -11,6 +11,7 @@ import lg2 from '../../../assets/images/careers/img_padikal_lg2.png'
 import Button from '@/component/button/Button'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { MainHeading, MainPara, TertiaryPara } from '@/component/typography/Typography'
 
 function PadikalFoundation() {
      const [width, setWidth] = useState(true)
@@ -31,13 +32,13 @@ function PadikalFoundation() {
                          {width && <Image src={lg1} alt='' />}
                     </div>
                     <div>
-                         <p className={styles.para}>
+                         <MainPara className={styles.para}>
                               Padikkal Foundation empowers underprivileged individuals by offering
                               access to quality education and professional training. We connect
                               aspiring talents with expert mentors and renowned institutes, ensuring
                               they gain the skills and opportunities needed to succeed in their
                               careers and build a brighter future.
-                         </p>
+                         </MainPara>
                          <Button
                               label='Explore our Purpose'
                               disabled={false}
@@ -52,12 +53,14 @@ function PadikalFoundation() {
                     </div>
                </div>
                <div className={`${styles.cont} ${styles.paddingTop}`}>
-                    <div className={styles.titleCard}>The Padikkal Foundation</div>
-                    <h2
+                    <div className={styles.titleCard}>
+                         <TertiaryPara>The Padikkal Foundation</TertiaryPara>
+                    </div>
+                    <MainHeading
                          className={`${styles.heading} ${styles.blackText} ${styles.sectionHeading}`}
                     >
                          Shaping Futures with Professional Training and Global Opportunities
-                    </h2>
+                    </MainHeading>
                     {width && (
                          <div className={`${styles.flex} ${styles.secondContainer}`}>
                               <Image src={sm2} alt='' />

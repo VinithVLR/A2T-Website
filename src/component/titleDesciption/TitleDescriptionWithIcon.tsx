@@ -7,6 +7,7 @@ import Button from '../button/Button'
 import Image1 from '../../assets/images/img_service_1.png'
 import { Inter } from 'next/font/google'
 import { useRouter } from 'next/navigation'
+import { MainPara } from '../typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -66,9 +67,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          <Image src={bgimage} alt='' className={styles.image} />
                     </div>
                )}
-               <p className={styles.description} style={{ ...paraStyle }}>
+               <MainPara className={styles.description} style={{ ...paraStyle }}>
                     {description}
-               </p>
+               </MainPara>
                {btn && (
                     <Button
                          label={'Explore more'}
