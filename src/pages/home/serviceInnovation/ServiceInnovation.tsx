@@ -13,6 +13,7 @@ import whiteman from '../../../assets/icons/ic_manpower_white.svg'
 import whiteEng from '../../../assets/icons/ic_engineering_white.svg'
 import whiteEsg from '../../../assets/icons/ic_sustainability_white.svg'
 import whiteBusiness from '../../../assets/icons/ic_business_consult_white.svg'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -97,14 +98,14 @@ const ServiceInnovation = () => {
      return (
           <section className={`${styles.main_container}  ${inter.className}`}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Driving Innovation and Efficiency Across Every Service We Offer
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          From skilled manpower solutions to sustainable engineering and business
                          consulting, our comprehensive services are designed to meet the evolving
                          needs of industries worldwide.
-                    </p>
+                    </MainPara>
                </header>
                <div className={styles.five_card_layout}>
                     {arr.map((data: any, index: any) => {

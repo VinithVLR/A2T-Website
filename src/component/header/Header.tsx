@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import styles from './Header.module.scss'
 import { Inter } from 'next/font/google'
+import { MainHeading, MainPara } from '../typography/Typography'
 
 interface ObjProps {
      title: string | ReactNode
@@ -25,19 +26,19 @@ const Header: React.FC<ObjProps> = ({
 }) => {
      return (
           <section className={`${styles.headerSection} ${inter.className} ${containerStyle}`}>
-               <h2
+               <MainHeading
                     className={`${styles.headerTitle} ${styles.blackText}`}
                     style={titleStyle ?? titleStyle}
                >
                     {title}
-               </h2>
+               </MainHeading>
                {subTitle && (
-                    <h5
+                    <MainPara
                          className={`${styles.headerSubtitle} ${styles.regularText}`}
                          style={subtitleStyle ?? subtitleStyle}
                     >
                          {subTitle}
-                    </h5>
+                    </MainPara>
                )}
           </section>
      )

@@ -8,6 +8,7 @@ import Button from '../button/Button'
 import { Inter } from 'next/font/google'
 
 import { useRouter } from 'next/navigation'
+import { MainHeading, MainPara } from '../typography/Typography'
 
 interface ImageDescriptionPanelProps {
      bgImage?: any
@@ -51,8 +52,8 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                     </div>
                </div>
                <div className={style.detailss_con}>
-                    <h1 className={`${style.blackText}`}>{heading}</h1>
-                    <p className={`${style.regularText}`}>{subHeading}</p>
+                    <MainHeading className={`${style.blackText}`}>{heading}</MainHeading>
+                    <MainPara className={`${style.regularText}`}>{subHeading}</MainPara>
                     <Button
                          label={'Explore more'}
                          disabled={false}

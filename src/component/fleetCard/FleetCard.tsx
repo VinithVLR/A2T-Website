@@ -5,6 +5,7 @@ import styles from './FleetCard.module.scss'
 import tool_pic from '../../assets/icons/ic_tool.svg'
 import Skeleton from '../skelton/Skeleton'
 import picture from '../../assets/images/pexel.jpeg'
+import { SecondaryHeading, TertiaryHeading, TertiaryPara } from '../typography/Typography'
 
 interface FleetCardData {
      bgImage: string
@@ -68,19 +69,19 @@ const FleetCard = ({ indexNumber, item }: any) => {
                                         className={`${styles.image}`}
                                    />
                               </div>
-                              <h3
+                              <TertiaryHeading
                                    className={styles.title}
                                    style={{ color: isHovered ? '#fff' : item.fontColor }}
                               >
                                    {item.title}
-                              </h3>
+                              </TertiaryHeading>
                               <hr className={styles.separator} />
-                              <p
+                              <TertiaryPara
                                    className={styles.description}
                                    style={{ color: isHovered ? '#fff' : item.desColor }}
                               >
                                    {item.des}
-                              </p>
+                              </TertiaryPara>
                          </div>
                     </div>
                )}
