@@ -10,6 +10,7 @@ import icon_arrow from '../../../assets/icons/ic_btn_arrow.svg'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '800'],
@@ -28,13 +29,13 @@ const WelcomeLanding = () => {
                     Your browser does not support the video tag.
                </video>
                <div className={`${styles.container}`}>
-                    <h3 className={`${styles.heading}`}>
+                    <MainHeading className={`${styles.heading}`}>
                          Pioneering Engineering Solutions for a <span>Greener Tomorrow</span>
-                    </h3>
-                    <p className={`${styles.para}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para}`}>
                          Delivering innovative engineering solutions that minimize environmental
                          impact and foster sustainable growth for a cleaner, greener future.
-                    </p>
+                    </MainPara>
                     <div className={`${styles.flex_con}`}>
                          <Button
                               label={'Contact us'}
