@@ -48,6 +48,7 @@ const MaintenanceSupport = () => {
                                    title={item.title}
                                    description={item.description}
                                    link={item.link}
+                                   index={index}
                               />
                          )
                     })}

@@ -50,6 +50,7 @@ const EmergingBusinessESG = () => {
                          description={item.description}
                          style={{ paddingBlock: '2rem' }}
                          link={item.link}
+                         opacityAnimation={false}
                     />
                ))}
           </section>

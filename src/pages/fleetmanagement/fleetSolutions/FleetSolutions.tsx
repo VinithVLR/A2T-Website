@@ -1,5 +1,4 @@
 import React from 'react'
-
 import bgImage1 from '../../../assets/images/fleet/img_flt_bg1.png'
 import image1 from '../../../assets/images/fleet/img_flt_1.png'
 import bgImage2 from '../../../assets/images/fleet/img_flt_bg2.png'
@@ -10,6 +9,7 @@ import bgImage4 from '../../../assets/images/fleet/img_flt_bg4.png'
 import image4 from '../../../assets/images/fleet/img_flt_4.png'
 import AlternatingContentLayout from '@/component/alternatingContentLayout/AlternatingContentLayout'
 import styles from '../../../scss/layout/common.module.scss'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 const FleetSolutions = () => {
      let arr: any = [
           {
@@ -48,13 +48,13 @@ const FleetSolutions = () => {
      return (
           <section id='fleet-solutions' className={styles.main_container}>
                <header className={`${styles.flex_con}`}>
-                    <h3 className={`${styles.heading} ${styles.blackText}`}>
+                    <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          End-to-End Fleet Solutions Tailored to Your Needs
-                    </h3>
-                    <p className={`${styles.para} ${styles.regularText}`}>
+                    </MainHeading>
+                    <MainPara className={`${styles.para} ${styles.regularText}`}>
                          Our services cover vehicle procurement, maintenance, route optimization,
                          and fuel management, ensuring peak performance and cost efficiency.
-                    </p>
+                    </MainPara>
                </header>
                <AlternatingContentLayout content={arr} />
           </section>

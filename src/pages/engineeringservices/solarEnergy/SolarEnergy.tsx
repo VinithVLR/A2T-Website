@@ -69,6 +69,7 @@ const SolarEnergy = () => {
                          rowReverse={index % 2 !== 0}
                          label={item.label}
                          link={item.link}
+                         opacityAnimation={true}
                     />
                ))}
           </section>

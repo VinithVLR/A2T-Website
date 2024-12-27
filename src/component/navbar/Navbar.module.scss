@@ -2,7 +2,7 @@
 
 .navbar {
      background: #333333;
-     box-shadow: 0 2px 3px -1px #0000001a;
+     // box-shadow: 0 2px 3px -1px #0000001a;
      backdrop-filter: blur(3px);
      -webkit-backdrop-filter: blur(3px);
      border: 1px solid rgba(255, 255, 255, 0.18);
@@ -396,11 +396,13 @@
           grid-template-columns: 1fr 1fr 1fr;
           height: 80vh;
           background-color: #fff;
+
           div {
                h3 {
                     color: #0a2540;
                     font-size: 0.95rem;
                }
+
                li {
                     color: #0a2540;
                     margin-block: 0.8rem;
@@ -419,11 +421,13 @@
           grid-template-columns: 1fr 1fr 1fr;
           height: 80vh;
           background-color: #fff;
+
           div {
                h3 {
                     color: #0a2540;
                     font-size: 0.95rem;
                }
+
                li {
                     color: #0a2540;
                     margin-block: 0.8rem;

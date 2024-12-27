@@ -46,6 +46,7 @@ const EnergyAuditSection = () => {
                          description={item.description}
                          rowReverse={index % 2 !== 0}
                          link={item.link}
+                         opacityAnimation={false}
                     />
                ))}
           </section>

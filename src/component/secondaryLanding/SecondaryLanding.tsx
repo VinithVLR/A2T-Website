@@ -1,9 +1,12 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './SecondaryLanding.module.scss'
 import { Inter } from 'next/font/google'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { MainHeading, MainPara } from '../typography/Typography'
+gsap.registerPlugin(ScrollTrigger)
 
 const inter = Inter({
      subsets: ['latin'],
@@ -31,6 +34,48 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
      bsStyle,
      id,
 }) => {
+     const imgOverlayRef = useRef(null)
+     const textSectionRef = useRef(null)
+
+     useEffect(() => {
+          if (imgOverlayRef.current) {
+               gsap.fromTo(
+                    imgOverlayRef.current,
+                    { opacity: 0, scale: 0.8 },
+                    {
+                         opacity: 1,
+                         scale: 1,
+                         duration: 1.5,
+                         ease: 'power3.out',
+                         scrollTrigger: {
+                              trigger: imgOverlayRef.current,
+                              start: 'top 80%',
+                              toggleActions: 'play none none none',
+                              once: true,
+                         },
+                    },
+               )
+          }
+          gsap.fromTo(
+               textSectionRef.current,
+               {
+                    opacity: 0,
+                    y: 50,
+               },
+               {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                         trigger: textSectionRef.current,
+                         start: 'top 80%',
+                         toggleActions: 'play none none none',
+                         once: true,
+                    },
+               },
+          )
+     }, [])
+
      return (
           <section
                id={id ? id : ''}
@@ -41,7 +86,7 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                     className={styles.details_section}
                     style={{ paddingInlineStart: flexReverse ? '5rem' : '' }}
                >
-                    <div className={styles.con_wrapper}>
+                    <div className={styles.con_wrapper} ref={textSectionRef}>
                          <MainHeading className={`${styles.heading}  ${styles.blackText}`}>
                               {heading}
                          </MainHeading>
@@ -68,7 +113,13 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                     <div className={styles.image_wrapper}>
                          <Image src={bgImage} alt='image' priority className={styles.image} />
                          <div className={styles.image_ab_con} style={{ ...bsStyle }}>
-                              <Image src={image} alt='image' priority className={styles.img_ab} />
+                              <Image
+                                   src={image}
+                                   alt='image'
+                                   ref={imgOverlayRef}
+                                   priority
+                                   className={styles.img_ab}
+                              />
                          </div>
                     </div>
                </div>
