@@ -1,12 +1,9 @@
 'use client'
 import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './SecondaryLanding.module.scss'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import { MainHeading, MainPara } from '../typography/Typography'
-gsap.registerPlugin(ScrollTrigger)
 
 const inter = Inter({
      subsets: ['latin'],
@@ -36,19 +33,41 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
 }) => {
      const imgOverlayRef = useRef(null)
      const textSectionRef = useRef(null)
-
-     useEffect(() => {
-          if (imgOverlayRef.current) {
+     const initialFunc = async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (imgOverlayRef.current) {
+                    gsap.fromTo(
+                         imgOverlayRef.current,
+                         { opacity: 0, scale: 0.8 },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1.5,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: imgOverlayRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
                gsap.fromTo(
-                    imgOverlayRef.current,
-                    { opacity: 0, scale: 0.8 },
+                    textSectionRef.current,
                     {
+                         opacity: 0,
+                         y: 50,
+                    },
+                    {
+                         y: 0,
                          opacity: 1,
-                         scale: 1,
-                         duration: 1.5,
-                         ease: 'power3.out',
+                         duration: 1,
                          scrollTrigger: {
-                              trigger: imgOverlayRef.current,
+                              trigger: textSectionRef.current,
                               start: 'top 80%',
                               toggleActions: 'play none none none',
                               once: true,
@@ -56,24 +75,9 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                     },
                )
           }
-          gsap.fromTo(
-               textSectionRef.current,
-               {
-                    opacity: 0,
-                    y: 50,
-               },
-               {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    scrollTrigger: {
-                         trigger: textSectionRef.current,
-                         start: 'top 80%',
-                         toggleActions: 'play none none none',
-                         once: true,
-                    },
-               },
-          )
+     }
+     useEffect(() => {
+          initialFunc()
      }, [])
 
      return (

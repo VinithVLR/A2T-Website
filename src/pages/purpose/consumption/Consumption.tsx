@@ -42,8 +42,8 @@ const Consumption = ({ data }: any) => {
                </div>
                {windowWidth <= 768 ? (
                     <div className={styles.mob_img_wrp}>
-                         <Image src={data.image} alt='icon' className={styles.image} />
-                         <Image src={data.bgImage} alt='icon' className={styles.bgImage} />
+                         <Image src={data?.image} alt='icon' className={styles.image} />
+                         <Image src={data?.bgImage} alt='icon' className={styles.bgImage} />
                     </div>
                ) : null}
           </section>

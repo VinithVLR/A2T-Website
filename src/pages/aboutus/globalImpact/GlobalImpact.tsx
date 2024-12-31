@@ -5,9 +5,7 @@ import imageLeft from '../../../assets/images/img_global_left.png'
 import imageRight from '../../../assets/images/img_global_right.png'
 import Image from 'next/image'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+
 const GlobalImpact = () => {
      let arr = [
           {
@@ -23,26 +21,34 @@ const GlobalImpact = () => {
      const containerRef = useRef<HTMLDivElement | null>(null)
      const cardRefs = useRef<HTMLDivElement[]>([])
 
-     useEffect(() => {
-          const tl = gsap.timeline({
-               scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none',
-               },
-          })
+     const initialFunc = async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               const tl = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: containerRef.current,
+                         start: 'top 80%',
+                         toggleActions: 'play none none none',
+                    },
+               })
 
-          tl.fromTo(
-               cardRefs.current,
-               { opacity: 0, y: 50 },
-               {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    stagger: 0.2,
-               },
-          )
+               tl.fromTo(
+                    cardRefs.current,
+                    { opacity: 0, y: 50 },
+                    {
+                         opacity: 1,
+                         y: 0,
+                         duration: 1,
+                         ease: 'power3.out',
+                         stagger: 0.2,
+                    },
+               )
+          }
+     }
+     useEffect(() => {
+          initialFunc()
      }, [])
 
      return (

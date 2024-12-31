@@ -58,6 +58,7 @@ const WindEnergy = () => {
                          title={item.title}
                          description={item.description}
                          link={item.link}
+                         opacityAnimation={false}
                     />
                ))}
           </section>

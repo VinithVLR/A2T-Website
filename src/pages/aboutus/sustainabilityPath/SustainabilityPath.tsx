@@ -10,12 +10,6 @@ import { Inter } from 'next/font/google'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 
-const inter = Inter({
-     subsets: ['latin'],
-     weight: ['400', '800'],
-     style: ['normal'],
-})
-
 const SustainabilityPath = () => {
      return (
           <section className={styles.sec_con}>

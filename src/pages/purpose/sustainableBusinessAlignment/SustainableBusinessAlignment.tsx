@@ -149,12 +149,12 @@ const SustainableBusinessAlignment = () => {
                                                   className={`${styles.image_con} ${styles.flexend}`}
                                              >
                                                   <Image
-                                                       src={item.image}
+                                                       src={item?.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
                                                   <Image
-                                                       src={item.bgImage}
+                                                       src={item?.bgImage}
                                                        alt='icon'
                                                        className={styles.bgImage}
                                                   />
@@ -172,12 +172,12 @@ const SustainableBusinessAlignment = () => {
                                              </div>
                                              <div className={styles.image_con}>
                                                   <Image
-                                                       src={item.image}
+                                                       src={item?.image}
                                                        alt='icon'
                                                        className={styles.image}
                                                   />
                                                   <Image
-                                                       src={item.bgImage}
+                                                       src={item?.bgImage}
                                                        alt='icon'
                                                        className={styles.bgImage}
                                                   />
@@ -193,20 +193,3 @@ const SustainableBusinessAlignment = () => {
 }
 
 export default SustainableBusinessAlignment
-
-{
-     /* <div className={styles.image_con}>
-                                             <Image
-                                                  src={item.bgImage}
-                                                  alt='icon'
-                                                  className={styles.image}
-                                             />
-                                             <div className={styles.img_wrp}>
-                                                  <Image
-                                                       src={item.image}
-                                                       alt='icon'
-                                                       className={styles.image}
-                                                  />
-                                             </div>
-                                        </div> */
-}

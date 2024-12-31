@@ -1,11 +1,7 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styles from './AlternatingContentLayout.module.scss'
 import Image from 'next/image'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface ContentItem {
      title: string
@@ -20,50 +16,59 @@ interface AlternatingContentLayoutProps {
 }
 
 const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ content }) => {
-     useEffect(() => {
-          content.forEach((_, index) => {
-               const timeline = gsap.timeline({
-                    scrollTrigger: {
-                         trigger: `.image-section-${index}`,
-                         start: 'top 90%',
-                         toggleActions: 'play none none none',
-                    },
+     const initialFunc = useCallback(async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               content.forEach((_, index) => {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: `.image-section-${index}`,
+                              start: 'top 90%',
+                              toggleActions: 'play none none none',
+                         },
+                    })
+
+                    timeline.fromTo(
+                         `.image-section-${index} .${styles.image}`,
+                         { opacity: 0, scale: 0.5 },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                         },
+                    )
+
+                    timeline.fromTo(
+                         `.image-section-${index} .${styles.img_ab}`,
+                         { opacity: 0, scale: 0.9 },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                         },
+                         '-=0.5',
+                    )
+
+                    timeline.fromTo(
+                         `.image-section-${index} .${styles.details_section}`,
+                         { x: '30%', opacity: 0 },
+                         {
+                              x: '0%',
+                              opacity: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                         },
+                         '-=0.5',
+                    )
                })
-
-               timeline.fromTo(
-                    `.image-section-${index} .${styles.image}`,
-                    { opacity: 0, scale: 0.5 },
-                    {
-                         opacity: 1,
-                         scale: 1,
-                         duration: 1,
-                    },
-               )
-
-               timeline.fromTo(
-                    `.image-section-${index} .${styles.img_ab}`,
-                    { opacity: 0, scale: 0.9 },
-                    {
-                         opacity: 1,
-                         scale: 1,
-                         duration: 1,
-                    },
-                    '-=0.5',
-               )
-
-               timeline.fromTo(
-                    `.image-section-${index} .${styles.details_section}`,
-                    { x: '30%', opacity: 0 },
-                    {
-                         x: '0%',
-                         opacity: 1,
-                         duration: 1,
-                         ease: 'power3.out',
-                    },
-                    '-=0.5',
-               )
-          })
+          }
      }, [content])
+
+     useEffect(() => {
+          initialFunc()
+     }, [initialFunc])
 
      return (
           <>

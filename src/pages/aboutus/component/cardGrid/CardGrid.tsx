@@ -6,10 +6,7 @@ import globalIcon from '../../../../assets/icons/ic_global.svg'
 import skillIcon from '../../../../assets/icons/ic_skill.svg'
 import humanCapitalIcon from '../../../../assets/icons/ic_human_capital.svg'
 import trustIcon from '../../../../assets/icons/ic_trust.svg'
-import { SecondaryPara, TertiaryHeading, TertiaryPara } from '@/component/typography/Typography'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+
 const CardGrid = () => {
      const cards = [
           {
@@ -57,25 +54,35 @@ const CardGrid = () => {
           },
      ]
 
-     useEffect(() => {
-          gsap.fromTo(
-               `.${styles.card}`,
-               { y: '100%', opacity: 0, rotate: 20 },
-               {
-                    y: '0%',
-                    opacity: 1,
-                    rotate: 0,
-                    duration: 0.9,
-                    ease: 'power2.out',
-                    stagger: 0.2,
-                    scrollTrigger: {
-                         trigger: `.${styles.cardsContainer}`,
-                         start: 'top 70%',
-                         end: 'bottom 10%',
-                         toggleActions: 'play none none none',
+     const initialFunc = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               gsap.fromTo(
+                    `.${styles.card}`,
+                    { y: '100%', opacity: 0, rotate: 20 },
+                    {
+                         y: '0%',
+                         opacity: 1,
+                         rotate: 0,
+                         duration: 0.7,
+                         delay: 0.3,
+                         ease: 'power2.out',
+                         stagger: 0.2,
+                         scrollTrigger: {
+                              trigger: `.${styles.cardsContainer}`,
+                              start: 'top 70%',
+                              end: 'bottom 10%',
+                              toggleActions: 'play none none none',
+                         },
                     },
-               },
-          )
+               )
+          }
+     }
+
+     useEffect(() => {
+          initialFunc()
      }, [])
 
      return (

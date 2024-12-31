@@ -13,7 +13,6 @@ import imgLayer7 from '../../../assets/images/img_emp_7.png'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const EducationEmpowerment = () => {
      const router = useRouter()
@@ -24,144 +23,154 @@ const EducationEmpowerment = () => {
      const imgAbRef2 = useRef(null)
      const imgAbRef3 = useRef(null)
      const imgAbRef4 = useRef(null)
+
+     const initialFunc = async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (imgRef1.current) {
+                    gsap.fromTo(
+                         imgRef1.current,
+                         { opacity: 0, y: 100 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: imgRef1.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+
+               if (imgRef2.current) {
+                    gsap.fromTo(
+                         imgRef2.current,
+                         { opacity: 0, y: 100 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.2,
+                              scrollTrigger: {
+                                   trigger: imgRef2.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+
+               if (imgRef3.current) {
+                    gsap.fromTo(
+                         imgRef3.current,
+                         { opacity: 0, y: 100 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.4,
+                              scrollTrigger: {
+                                   trigger: imgRef3.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+
+               if (imgAbRef1.current) {
+                    gsap.fromTo(
+                         imgAbRef1.current,
+                         { opacity: 0, y: 30 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.5,
+                              scrollTrigger: {
+                                   trigger: imgAbRef1.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+               if (imgAbRef2.current) {
+                    gsap.fromTo(
+                         imgAbRef2.current,
+                         { opacity: 0, y: 30 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.7,
+                              scrollTrigger: {
+                                   trigger: imgAbRef2.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+
+               if (imgAbRef3.current) {
+                    gsap.fromTo(
+                         imgAbRef3.current,
+                         { opacity: 0, y: 5 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.9,
+                              scrollTrigger: {
+                                   trigger: imgAbRef3.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+
+               if (imgAbRef4.current) {
+                    gsap.fromTo(
+                         imgAbRef4.current,
+                         { opacity: 0, y: 10 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 1,
+                              scrollTrigger: {
+                                   trigger: imgAbRef4.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+          }
+     }
+
      useEffect(() => {
-          if (imgRef1.current) {
-               gsap.fromTo(
-                    imgRef1.current,
-                    { opacity: 0, y: 100 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         scrollTrigger: {
-                              trigger: imgRef1.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-
-          if (imgRef2.current) {
-               gsap.fromTo(
-                    imgRef2.current,
-                    { opacity: 0, y: 100 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 0.2,
-                         scrollTrigger: {
-                              trigger: imgRef2.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-
-          if (imgRef3.current) {
-               gsap.fromTo(
-                    imgRef3.current,
-                    { opacity: 0, y: 100 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 0.4,
-                         scrollTrigger: {
-                              trigger: imgRef3.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-
-          if (imgAbRef1.current) {
-               gsap.fromTo(
-                    imgAbRef1.current,
-                    { opacity: 0, y: 30 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 0.5,
-                         scrollTrigger: {
-                              trigger: imgAbRef1.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-          if (imgAbRef2.current) {
-               gsap.fromTo(
-                    imgAbRef2.current,
-                    { opacity: 0, y: 30 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 0.7,
-                         scrollTrigger: {
-                              trigger: imgAbRef2.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-
-          if (imgAbRef3.current) {
-               gsap.fromTo(
-                    imgAbRef3.current,
-                    { opacity: 0, y: 5 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 0.9,
-                         scrollTrigger: {
-                              trigger: imgAbRef3.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
-
-          if (imgAbRef4.current) {
-               gsap.fromTo(
-                    imgAbRef4.current,
-                    { opacity: 0, y: 10 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: 1,
-                         scrollTrigger: {
-                              trigger: imgAbRef4.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
-          }
+          initialFunc()
      }, [])
 
      return (

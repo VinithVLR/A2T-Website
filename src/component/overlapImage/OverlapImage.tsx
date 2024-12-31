@@ -1,10 +1,7 @@
 'use client'
 import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './OverlapImage.module.scss'
 import Image, { StaticImageData } from 'next/image'
-gsap.registerPlugin(ScrollTrigger)
 interface OverlapImageProps {
      bgImage: StaticImageData
      bgStyle?: any
@@ -23,44 +20,54 @@ const OverlapImage: React.FC<OverlapImageProps> = ({
      const imgOverlayRef = useRef(null)
      const bgImageWrapperRef = useRef(null)
 
-     useEffect(() => {
-          if (bgImageWrapperRef.current) {
-               gsap.fromTo(
-                    bgImageWrapperRef.current,
-                    { opacity: 0 },
-                    {
-                         opacity: 1,
-                         duration: 1.5,
-                         ease: 'power3.out',
-                         scrollTrigger: {
-                              trigger: bgImageWrapperRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
+     const initialFunc = async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (bgImageWrapperRef.current) {
+                    gsap.fromTo(
+                         bgImageWrapperRef.current,
+                         { opacity: 0 },
+                         {
+                              opacity: 1,
+                              duration: 1.5,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: bgImageWrapperRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
                          },
-                    },
-               )
-          }
+                    )
+               }
 
-          if (imgOverlayRef.current) {
-               gsap.fromTo(
-                    imgOverlayRef.current,
-                    { opacity: 0, scale: 0.8 },
-                    {
-                         opacity: 1,
-                         scale: 1,
-                         duration: 1.5,
-                         ease: 'power3.out',
-                         scrollTrigger: {
-                              trigger: imgOverlayRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
+               if (imgOverlayRef.current) {
+                    gsap.fromTo(
+                         imgOverlayRef.current,
+                         { opacity: 0, scale: 0.8 },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1.5,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: imgOverlayRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
                          },
-                    },
-               )
+                    )
+               }
           }
+     }
+
+     useEffect(() => {
+          initialFunc()
      }, [])
+
      return (
           <div
                className={styles.mainContainer}

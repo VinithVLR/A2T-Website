@@ -7,9 +7,14 @@ import image2 from '../../../assets/images/careers/img_explore_integrity.png'
 import bgImage3 from '../../../assets/images/purpose/img_pur_bg3.png'
 import image3 from '../../../assets/images/careers/img_explore_sustainability.png'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
-
+interface ContentItem {
+     bgImage: any
+     img: any
+     title: string
+     description: string
+}
 function Explore() {
-     const arr: any = [
+     const arr: ContentItem[] = [
           {
                bgImage: bgImage1,
                img: image1,

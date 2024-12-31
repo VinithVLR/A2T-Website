@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styles from './Card.module.scss'
 import { TertiaryHeading, TertiaryPara } from '@/component/typography/Typography'
@@ -16,28 +16,35 @@ interface cardPorps {
 const Card: React.FC<cardPorps> = ({ imageUrl, title, description, link, index }) => {
      const cardRef = useRef<HTMLDivElement>(null)
 
-     useEffect(() => {
-          gsap.registerPlugin(ScrollTrigger)
-
-          if (cardRef.current) {
-               gsap.fromTo(
-                    cardRef.current,
-                    { opacity: 0, y: 50 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         delay: index * 0.3,
-                         scrollTrigger: {
-                              trigger: cardRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
+     const initialFunc = useCallback(async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (cardRef.current) {
+                    gsap.fromTo(
+                         cardRef.current,
+                         { opacity: 0, y: 50 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: index * 0.3,
+                              scrollTrigger: {
+                                   trigger: cardRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                              },
                          },
-                    },
-               )
+                    )
+               }
           }
      }, [index])
+
+     useEffect(() => {
+          initialFunc()
+     }, [initialFunc])
 
      return (
           <section id={link} className={styles.card_con} ref={cardRef}>

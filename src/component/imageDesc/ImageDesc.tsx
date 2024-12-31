@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import Image from 'next/image'
 import styles from './ImageDesc.module.scss'
@@ -42,87 +42,96 @@ const ImageDesc = ({
                window.removeEventListener('resize', handleResize)
           }
      }, [])
-     useEffect(() => {
-          if (opacityAnimation) {
-               if (!imageSectionRef.current || !textSectionRef.current) return
-               gsap.fromTo(
-                    imageSectionRef.current,
-                    {
-                         opacity: 0,
-                         scale: 0.5,
-                    },
-                    {
-                         opacity: 1,
-                         scale: 1,
-                         duration: 1,
-                         scrollTrigger: {
-                              trigger: imageSectionRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
-                         },
-                    },
-               )
 
-               gsap.fromTo(
-                    textSectionRef.current,
-                    {
-                         x: rowReverse ? '-30%' : '30%',
-                         opacity: 0,
-                    },
-                    {
-                         x: '0%',
-                         opacity: 1,
-                         duration: 1,
-                         scrollTrigger: {
-                              trigger: textSectionRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
+     const initialFunc = useCallback(async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (opacityAnimation) {
+                    if (!imageSectionRef.current || !textSectionRef.current) return
+                    gsap.fromTo(
+                         imageSectionRef.current,
+                         {
+                              opacity: 0,
+                              scale: 0.5,
                          },
-                    },
-               )
-          } else {
-               if (!imageSectionRef.current || !textSectionRef.current) return
-               gsap.fromTo(
-                    imageSectionRef.current,
-                    {
-                         opacity: 0,
-                         // scale: 0.5,
-                    },
-                    {
-                         opacity: 1,
-                         scale: 1,
-                         duration: 1,
-                         scrollTrigger: {
-                              trigger: imageSectionRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                              scrollTrigger: {
+                                   trigger: imageSectionRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
                          },
-                    },
-               )
-               gsap.fromTo(
-                    textSectionRef.current,
-                    {
-                         opacity: 0,
-                         y: 30,
-                    },
-                    {
-                         y: 0,
-                         opacity: 1,
-                         duration: 1,
-                         scrollTrigger: {
-                              trigger: textSectionRef.current,
-                              start: 'top 80%',
-                              toggleActions: 'play none none none',
-                              once: true,
+                    )
+
+                    gsap.fromTo(
+                         textSectionRef.current,
+                         {
+                              x: rowReverse ? '-30%' : '30%',
+                              opacity: 0,
                          },
-                    },
-               )
+                         {
+                              x: '0%',
+                              opacity: 1,
+                              duration: 1,
+                              scrollTrigger: {
+                                   trigger: textSectionRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               } else {
+                    if (!imageSectionRef.current || !textSectionRef.current) return
+                    gsap.fromTo(
+                         imageSectionRef.current,
+                         {
+                              opacity: 0,
+                              // scale: 0.5,
+                         },
+                         {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                              scrollTrigger: {
+                                   trigger: imageSectionRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+                    gsap.fromTo(
+                         textSectionRef.current,
+                         {
+                              opacity: 0,
+                              y: 30,
+                         },
+                         {
+                              y: 0,
+                              opacity: 1,
+                              duration: 1,
+                              scrollTrigger: {
+                                   trigger: textSectionRef.current,
+                                   start: 'top 80%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
           }
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [rowReverse])
+     }, [rowReverse, opacityAnimation])
+
+     useEffect(() => {
+          initialFunc()
+     }, [initialFunc])
 
      return (
           <section
