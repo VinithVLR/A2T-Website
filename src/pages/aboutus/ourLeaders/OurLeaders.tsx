@@ -109,6 +109,7 @@ const OurLeaders = () => {
                               title={item.title}
                               position={item.position}
                               location={item.location}
+                              index={index}
                          />
                     ))}
                </div>

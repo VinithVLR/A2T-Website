@@ -161,31 +161,29 @@ const DigitalGrowth = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>
-                              <div className={styles.img_wrapper_index}>
-                                   <div className={styles.img_index_top}>
-                                        <Image
-                                             ref={imgRef1}
-                                             src={imgLayer1}
-                                             alt='Image 1'
-                                             className={styles.img_index}
-                                        />
-                                   </div>
-                                   <div className={styles.img_index_right}>
-                                        <Image
-                                             ref={imgRef2}
-                                             src={imgLayer4}
-                                             alt='Image 4'
-                                             className={styles.img_index}
-                                        />
-                                   </div>
-                                   <div className={styles.img_index_left}>
-                                        <Image
-                                             ref={imgRef3}
-                                             src={imgLayer5}
-                                             alt='Image 5'
-                                             className={styles.img_index}
-                                        />
-                                   </div>
+                              <div className={styles.img_index_top}>
+                                   <Image
+                                        ref={imgRef1}
+                                        src={imgLayer1}
+                                        alt='Image 1'
+                                        className={styles.img_index}
+                                   />
+                              </div>
+                              <div className={styles.img_index_right}>
+                                   <Image
+                                        ref={imgRef2}
+                                        src={imgLayer4}
+                                        alt='Image 4'
+                                        className={styles.img_index}
+                                   />
+                              </div>
+                              <div className={styles.img_index_left}>
+                                   <Image
+                                        ref={imgRef3}
+                                        src={imgLayer5}
+                                        alt='Image 5'
+                                        className={styles.img_index}
+                                   />
                               </div>
 
                               <div className={styles.img_wrapper_absolute}>

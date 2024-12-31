@@ -1,10 +1,13 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef } from 'react'
 import styles from './GlobalImpact.module.scss'
 import imageLeft from '../../../assets/images/img_global_left.png'
 import imageRight from '../../../assets/images/img_global_right.png'
-
 import Image from 'next/image'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 const GlobalImpact = () => {
      let arr = [
           {
@@ -17,6 +20,31 @@ const GlobalImpact = () => {
           },
      ]
 
+     const containerRef = useRef<HTMLDivElement | null>(null)
+     const cardRefs = useRef<HTMLDivElement[]>([])
+
+     useEffect(() => {
+          const tl = gsap.timeline({
+               scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+               },
+          })
+
+          tl.fromTo(
+               cardRefs.current,
+               { opacity: 0, y: 50 },
+               {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    stagger: 0.2,
+               },
+          )
+     }, [])
+
      return (
           <section className={styles.global_impact_sec}>
                <header className={`${styles.flex_con}`}>
@@ -27,7 +55,11 @@ const GlobalImpact = () => {
 
                <div className={styles.flex_content}>
                     {arr.map((item: any, index) => (
-                         <div key={index} className={styles.details_content}>
+                         <div
+                              key={index}
+                              className={styles.details_content}
+                              ref={(el: any) => (cardRefs.current[index] = el)}
+                         >
                               <MainPara className={styles.para}>{item.title}</MainPara>
                               <div className={styles.img_wrapper}>
                                    <Image src={item.image} alt='image' className={styles.image} />
