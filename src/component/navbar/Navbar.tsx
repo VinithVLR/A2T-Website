@@ -904,9 +904,10 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                              </h3>
                                         </Link>
                                         <ul className={`${styles.noListStyle}`}>
-                                             {nav.list.map((link: any) => {
+                                             {nav.list.map((link: any, index: any) => {
                                                   return (
                                                        <Link
+                                                            key={index}
                                                             onClick={onNav}
                                                             href={`/fleet-management#${link.link}`}
                                                        >
@@ -937,7 +938,11 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     <div className={styles.singleLinkPage}>
                          {businessConsulting.map((link, index) => {
                               return (
-                                   <Link onClick={onNav} href={`/business-consult#${link.link}`}>
+                                   <Link
+                                        key={index}
+                                        onClick={onNav}
+                                        href={`/business-consult#${link.link}`}
+                                   >
                                         <div key={index}>
                                              <h3>{link.title}</h3>
                                         </div>
@@ -965,6 +970,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               return (
                                    <div key={index}>
                                         <Link
+                                             key={index}
                                              onClick={onNav}
                                              href={`/esg-sustainability#${nav.link}`}
                                         >
@@ -974,6 +980,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                              {nav.list.map((link: any, index) => {
                                                   return (
                                                        <Link
+                                                            key={index}
                                                             onClick={onNav}
                                                             href={`/esg-sustainability#${link.link}`}
                                                        >
@@ -1007,6 +1014,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               {manpowersolutions.map((link, index) => {
                                    return (
                                         <Link
+                                             key={index}
                                              onClick={onNav}
                                              href={`/manpower-services#${link.link}`}
                                         >
@@ -1038,6 +1046,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                                   {link.list.map((sublink: any, indexw) => {
                                                        return (
                                                             <Link
+                                                                 key={index}
                                                                  onClick={onNav}
                                                                  href={`/manpower-services#${sublink.link}`}
                                                             >
@@ -1073,6 +1082,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               {engineeringServices.map((link, index) => {
                                    return (
                                         <Link
+                                             key={index}
                                              onClick={onNav}
                                              href={`/engineering-service#${link.link}`}
                                         >
@@ -1105,6 +1115,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                                        {link.list.map((slink: any, indexs) => {
                                                             return (
                                                                  <Link
+                                                                      key={index}
                                                                       onClick={onNav}
                                                                       href={`/engineering-services#${slink.link}`}
                                                                  >

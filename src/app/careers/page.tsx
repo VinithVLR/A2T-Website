@@ -33,9 +33,9 @@ const page = () => {
                <CallToAction
                     data={
                          <>
-                              If you don't see a <span>role that matches your skills</span>, feel
-                              free to submit a general application, and we'll reach out when a
-                              suitable position becomes available.
+                              If you don&apos;t see a <span>role that matches your skills</span>,
+                              feel free to submit a general application, and we&apos;ll reach out
+                              when a suitable position becomes available.
                          </>
                     }
                     img
