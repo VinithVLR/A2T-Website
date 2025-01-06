@@ -4,6 +4,8 @@ import Navbar from '@/component/navbar/Navbar'
 import Footer from '@/component/footer/Footer'
 import { inter } from '../../public/fonts/inter'
 import { nunito } from '../../public/fonts/inter'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 export const metadata: Metadata = {
      title: {
@@ -20,9 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <link rel='icon' href='/favicon.ico' />
                </head>
                <body>
-                    <Navbar />
-                    {children}
-                    <Footer />
+                    <Suspense fallback={<Loading />}>
+                         <Navbar />
+                         {children}
+                         <Footer />
+                    </Suspense>
                </body>
           </html>
      )
