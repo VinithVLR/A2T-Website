@@ -9,8 +9,6 @@ import imgLayer5 from '../../../assets/images/img_emp_5.png'
 import imgAb1 from '../../../assets/images/Business/img_sec_ab1.png'
 import imgAb2 from '../../../assets/images/Business/img_sec_ab2.png'
 import imgAb3 from '../../../assets/images/Business/img_sec_ab3.png'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const DigitalSecurity = () => {
      const imgRef1 = useRef(null)

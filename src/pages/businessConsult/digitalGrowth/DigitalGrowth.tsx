@@ -23,7 +23,6 @@ const DigitalGrowth = () => {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
-
                if (imgRef1.current) {
                     gsap.fromTo(
                          imgRef1.current,

@@ -91,7 +91,10 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                               id={item.link || ''}
                               key={index}
                               ref={(el: any) => (sectionRefs.current[index] = el)}
-                              className={`${styles.main_con} ${isOdd ? styles.odd : styles.even}`}
+                              className={`${styles.main_con} `}
+                              style={{
+                                   justifyContent: isOdd ? 'flex-start' : 'center',
+                              }}
                          >
                               <div className={styles.image_section}>
                                    <div

@@ -8,8 +8,6 @@ import Image1 from '../../assets/images/img_service_1.png'
 import { Inter } from 'next/font/google'
 import { useRouter } from 'next/navigation'
 import { MainPara } from '../typography/Typography'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -58,66 +56,74 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      const detailsRef = useRef<HTMLDivElement | null>(null)
      const subTitleRef = useRef<HTMLDivElement | null>(null)
 
-     useEffect(() => {
-          gsap.registerPlugin(ScrollTrigger)
-          if (isFlag) {
-               if (typeof window !== 'undefined') {
+     const initialFunc = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               if (isFlag) {
+                    if (typeof window !== 'undefined') {
+                         gsap.fromTo(
+                              detailsRef.current,
+                              {
+                                   x: rowReverse ? '-30%' : '30%',
+                                   opacity: 0,
+                                   overflow: 'hidden',
+                              },
+                              {
+                                   x: '0%',
+                                   opacity: 1,
+                                   duration: 1,
+                                   ease: 'power3.out',
+                                   scrollTrigger: {
+                                        trigger: detailsRef.current,
+                                        start: 'top 50%',
+                                        end: 'bottom 20%',
+                                        toggleActions: 'play none none none',
+                                   },
+                              },
+                         )
+                    }
+               } else {
                     gsap.fromTo(
-                         detailsRef.current,
+                         [titleRef.current, descRef.current, subTitleRef.current],
+                         { y: '80%', opacity: 0 },
                          {
-                              x: rowReverse ? '-30%' : '30%',
-                              opacity: 0,
-                              overflow: 'hidden',
-                         },
-                         {
-                              x: '0%',
+                              y: '0%',
                               opacity: 1,
-                              duration: 1,
-                              ease: 'power3.out',
+                              duration: 0.8,
+                              ease: 'power2.out',
+
                               scrollTrigger: {
-                                   trigger: detailsRef.current,
-                                   start: 'top 50%',
+                                   trigger: titleRef.current,
+                                   start: 'top 70%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                              },
+                         },
+                    )
+                    gsap.fromTo(
+                         iconWrapperRef.current,
+                         { y: '-80%', opacity: 0 },
+                         {
+                              y: '0%',
+                              opacity: 1,
+                              duration: 0.8,
+                              ease: 'power2.out',
+                              scrollTrigger: {
+                                   trigger: iconWrapperRef.current,
+                                   start: 'top 70%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                               },
                          },
                     )
                }
-          } else {
-               gsap.fromTo(
-                    [titleRef.current, descRef.current, subTitleRef.current],
-                    { y: '80%', opacity: 0 },
-                    {
-                         y: '0%',
-                         opacity: 1,
-                         duration: 0.8,
-                         ease: 'power2.out',
-
-                         scrollTrigger: {
-                              trigger: titleRef.current,
-                              start: 'top 70%',
-                              end: 'bottom 20%',
-                              toggleActions: 'play none none none',
-                         },
-                    },
-               )
-               gsap.fromTo(
-                    iconWrapperRef.current,
-                    { y: '-80%', opacity: 0 },
-                    {
-                         y: '0%',
-                         opacity: 1,
-                         duration: 0.8,
-                         ease: 'power2.out',
-                         scrollTrigger: {
-                              trigger: iconWrapperRef.current,
-                              start: 'top 70%',
-                              end: 'bottom 20%',
-                              toggleActions: 'play none none none',
-                         },
-                    },
-               )
           }
+     }
+
+     useEffect(() => {
+          initialFunc()
           // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 

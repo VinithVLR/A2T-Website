@@ -6,15 +6,16 @@ import bgImage from '../../../assets/images/img_layer_bg.png'
 import image from '../../../assets/images/img_enp_double.png'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+
 const PadikkalFoundationImpact = () => {
      const detailsRef = useRef<HTMLDivElement | null>(null)
      const textRef = useRef(null)
 
-     useEffect(() => {
+     const initialFunc = async () => {
           if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: detailsRef.current,
@@ -37,6 +38,11 @@ const PadikkalFoundationImpact = () => {
                     },
                )
           }
+     }
+
+     useEffect(() => {
+          initialFunc()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
      return (
           <section className={styles.main_con}>
