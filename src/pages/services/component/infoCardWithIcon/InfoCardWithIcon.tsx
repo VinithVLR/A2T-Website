@@ -1,10 +1,12 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef } from 'react'
 import styles from './InfoCardWithIcon.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import Image1 from '../../../../assets/images/img_service_1.png'
 import eyeIcon from '../../../../assets/icons/ic_eye.svg'
 import Image from 'next/image'
-
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 interface InfoCardWithIconProps {
      icon?: string
      title: string
@@ -19,6 +21,7 @@ interface InfoCardWithIconProps {
      labelStyle?: any
      link?: any
      id?: any
+     isFlag: any
 }
 const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      icon,
@@ -34,6 +37,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      labelStyle,
      link,
      id,
+     isFlag,
 }) => {
      const objStyle: any = {
           paddingInline: '2rem',
@@ -45,14 +49,38 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      const objParaStyle = {
           textAlign: 'end',
      }
+     const imageSectionRef = useRef(null)
+     const imgWrapperRef = useRef(null)
+     useEffect(() => {
+          if (imageSectionRef.current && imgWrapperRef.current) {
+               gsap.fromTo(
+                    imgWrapperRef.current,
+                    {
+                         opacity: 0,
+                    },
+                    {
+                         opacity: 1,
+                         scrollTrigger: {
+                              trigger: imageSectionRef.current,
+                              start: 'top 50%',
+                              end: 'top 30%',
+                              scrub: true,
+                              toggleActions: 'play none none none',
+                              once: true,
+                              // markers: true,
+                         },
+                    },
+               )
+          }
+     }, [])
 
      return (
           <div id={id ? id : ''} className={styles.secondary_section}>
                <div
                     className={rowReverse ? styles.content_Wrapper_reverse : styles.content_Wrapper}
                >
-                    <div className={styles.image_section}>
-                         <div className={styles.img_wrapper}>
+                    <div className={styles.image_section} ref={imageSectionRef}>
+                         <div className={styles.img_wrapper} ref={imgWrapperRef}>
                               <Image src={dataImage} alt={'image'} className={styles.image} />
                          </div>
                     </div>
@@ -60,6 +88,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                          <TitleDescriptionWithIcon
                               btn={btn}
                               btnColor={btnColor}
+                              rowReverse={rowReverse ? true : false}
                               style={rowReverse ? objStyle : { paddingInline: '2rem' }}
                               headingStyle={{ textAlign: rowReverse ? 'end' : undefined }}
                               icon={icon}
@@ -70,6 +99,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                               label={label}
                               link={link}
                               labelStyle={labelStyle}
+                              isFlag={isFlag}
                          />
                     </div>
                </div>

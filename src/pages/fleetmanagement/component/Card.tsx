@@ -30,10 +30,11 @@ const Card: React.FC<cardPorps> = ({ imageUrl, title, description, link, index }
                               y: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: index * 0.3,
+                              delay: index * 0.2,
                               scrollTrigger: {
                                    trigger: cardRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                               },
                          },

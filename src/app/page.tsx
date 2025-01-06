@@ -1,9 +1,6 @@
-import Footer from '@/component/footer/Footer'
 import ImageDescriptionPanel from '@/component/imageDescriptionPanel/ImageDescriptionPanel'
-import Navbar from '@/component/navbar/Navbar'
 import ClientTestimonials from '@/pages/home/clientTestimonials/ClientTestimonials'
 import GlobalTrustSection from '@/pages/home/globalTrustSection/GlobalTrustSection'
-import LandingPage from '@/pages/home/landingPage/WelcomeLanding'
 import LatestUpdates from '@/pages/home/latestUpdates/LatestUpdates'
 import ServiceInnovation from '@/pages/home/serviceInnovation/ServiceInnovation'
 import React from 'react'
@@ -13,16 +10,24 @@ import img_growth from '../assets/images/img_growth.png'
 import img_future from '../assets/images/img_future.png'
 import img_business from '../assets/images/img_business.png'
 import WelcomeLanding from '@/pages/home/landingPage/WelcomeLanding'
-import PrimaryLanding from '@/component/primaryLanding/PrimaryLanding '
-import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
-import contactImage from '../assets/images/img_contact_sec.png'
-import reverImage from '../assets/images/img_rever.png'
 import SustainableGoals from '@/pages/home/sustainableGoals/SustainableGoals'
+
+import bgImage1 from '../assets/images/double/img_bg_1.png'
+import lyImage1 from '../assets/images/double/img_ly_1.png'
+import bgImage2 from '../assets/images/double/img_bg_2.png'
+import lyImage2 from '../assets/images/double/img_ly_2.png'
+import bgImage3 from '../assets/images/double/img_bg_3.png'
+import lyImage3 from '../assets/images/double/img_ly_3.png'
+import bgImage4 from '../assets/images/double/img_bg_4.png'
+import lyImage4 from '../assets/images/double/img_ly_4.png'
+import bgImage5 from '../assets/images/double/img_bg_5.png'
+import lyImage5 from '../assets/images/double/img_ly_5.png'
 
 const page = () => {
      const panelData = [
           {
-               bgImage: img_impower,
+               bgImage: bgImage1,
+               lyImage: lyImage1,
                heading: 'Empowering Businesses with Skilled Manpower to Mitigate Labour Risks',
                subHeading:
                     'Get to a decision faster by bringing requests into chat. Allow your teams to file, track and resolve tickets in Slack.',
@@ -31,7 +36,8 @@ const page = () => {
                link: '/manpower-services',
           },
           {
-               bgImage: img_fleet,
+               bgImage: bgImage2,
+               lyImage: lyImage2,
                heading: 'Sustainable Growth through Innovative Engineering Solutions',
                subHeading:
                     'Committed to delivering cutting-edge engineering services that drive project success and operational efficiency.',
@@ -40,7 +46,8 @@ const page = () => {
                link: '/engineering-services',
           },
           {
-               bgImage: img_growth,
+               bgImage: bgImage3,
+               lyImage: lyImage3,
                heading: 'Smart Fleet Management through Innovative Engineering Solutions',
                subHeading:
                     'Dedicated to optimizing your fleet operations, reducing costs, and enhancing safety.',
@@ -50,7 +57,8 @@ const page = () => {
           },
 
           {
-               bgImage: img_future,
+               bgImage: bgImage4,
+               lyImage: lyImage4,
                heading: 'Our Commitment to a Sustainable Future',
                subHeading:
                     'Dedicated to reducing carbon emissions and enhancing environmental responsibility.',
@@ -59,7 +67,8 @@ const page = () => {
                link: '/esg-sustainability',
           },
           {
-               bgImage: img_business,
+               bgImage: bgImage5,
+               lyImage: lyImage5,
                heading: 'Transforming Businesses through Strategic Consulting',
                subHeading:
                     'Focused on providing tailored consulting solutions that empower organizations to achieve their goals and thrive in a competitive landscape.',
@@ -82,7 +91,9 @@ const page = () => {
                          bgColor={panel.bgColor}
                          btnColor={panel.btnColor}
                          bgImage={panel.bgImage}
+                         lyImage={panel.lyImage}
                          link={panel.link}
+                         index={index}
                     />
                ))}
                <ClientTestimonials />

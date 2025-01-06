@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import styles from './AlternatingContentLayout.module.scss'
 import Image from 'next/image'
 
@@ -16,59 +16,71 @@ interface AlternatingContentLayoutProps {
 }
 
 const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ content }) => {
+     const sectionRefs = useRef<HTMLDivElement[]>([])
+     const imageSectionRefs = useRef<HTMLDivElement[]>([])
+     const imgWrapperRefs = useRef<HTMLDivElement[]>([])
+     const descRefs = useRef<HTMLDivElement[]>([])
      const initialFunc = useCallback(async () => {
-          if (typeof window != 'undefined') {
+          if (typeof window !== 'undefined') {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
                content.forEach((_, index) => {
                     const timeline = gsap.timeline({
                          scrollTrigger: {
-                              trigger: `.image-section-${index}`,
-                              start: 'top 90%',
+                              trigger: sectionRefs.current[index],
+                              start: 'top 50%',
+                              end: 'bottom 20%',
                               toggleActions: 'play none none none',
+                              // markers: true, // Remove this in production
                          },
                     })
-
-                    timeline.fromTo(
-                         `.image-section-${index} .${styles.image}`,
-                         { opacity: 0, scale: 0.5 },
-                         {
-                              opacity: 1,
-                              scale: 1,
-                              duration: 1,
-                         },
-                    )
-
-                    timeline.fromTo(
-                         `.image-section-${index} .${styles.img_ab}`,
-                         { opacity: 0, scale: 0.9 },
-                         {
-                              opacity: 1,
-                              scale: 1,
-                              duration: 1,
-                         },
-                         '-=0.5',
-                    )
-
-                    timeline.fromTo(
-                         `.image-section-${index} .${styles.details_section}`,
-                         { x: '30%', opacity: 0 },
-                         {
-                              x: '0%',
-                              opacity: 1,
-                              duration: 1,
-                              ease: 'power3.out',
-                         },
-                         '-=0.5',
-                    )
+                    timeline
+                         .fromTo(
+                              imageSectionRefs.current[index],
+                              {
+                                   opacity: 0,
+                                   scale: 1,
+                              },
+                              {
+                                   opacity: 1,
+                                   scale: 1,
+                                   duration: 1,
+                              },
+                              0,
+                         )
+                         .fromTo(
+                              imgWrapperRefs.current[index],
+                              {
+                                   opacity: 0,
+                                   scale: 0.5,
+                              },
+                              {
+                                   opacity: 1,
+                                   scale: 1,
+                                   duration: 1,
+                              },
+                              0,
+                         )
+                         .fromTo(
+                              descRefs.current[index],
+                              {
+                                   x: '30%',
+                                   opacity: 0,
+                              },
+                              {
+                                   x: '0%',
+                                   opacity: 1,
+                                   duration: 1,
+                              },
+                              0,
+                         )
                })
           }
      }, [content])
-
      useEffect(() => {
           initialFunc()
-     }, [initialFunc])
+     }, [])
 
      return (
           <>
@@ -78,17 +90,24 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                          <section
                               id={item.link || ''}
                               key={index}
-                              className={`${styles.main_con} ${isOdd ? styles.odd : styles.even} image-section-${index}`}
+                              ref={(el: any) => (sectionRefs.current[index] = el)}
+                              className={`${styles.main_con} ${isOdd ? styles.odd : styles.even}`}
                          >
                               <div className={styles.image_section}>
-                                   <div className={styles.image_wrapper}>
+                                   <div
+                                        className={styles.image_wrapper}
+                                        ref={(el: any) => (imageSectionRefs.current[index] = el)}
+                                   >
                                         <Image
                                              src={item.bgImage}
                                              alt='Background image'
                                              priority
                                              className={styles.image}
                                         />
-                                        <div className={styles.img_ab}>
+                                        <div
+                                             className={styles.img_ab}
+                                             ref={(el: any) => (imgWrapperRefs.current[index] = el)}
+                                        >
                                              <Image
                                                   src={item.img}
                                                   alt='Overlay image'
@@ -98,7 +117,10 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                                         </div>
                                    </div>
                               </div>
-                              <div className={styles.details_section}>
+                              <div
+                                   className={styles.details_section}
+                                   ref={(el: any) => (descRefs.current[index] = el)}
+                              >
                                    <div className={styles.con_wrapper}>
                                         <h2 className={`${styles.heading} ${styles.blackText}`}>
                                              {item.title}

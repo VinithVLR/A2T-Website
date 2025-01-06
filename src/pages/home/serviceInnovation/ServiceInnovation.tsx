@@ -13,6 +13,13 @@ import whiteman from '../../../assets/icons/ic_manpower_white.svg'
 import whiteEng from '../../../assets/icons/ic_engineering_white.svg'
 import whiteEsg from '../../../assets/icons/ic_sustainability_white.svg'
 import whiteBusiness from '../../../assets/icons/ic_business_consult_white.svg'
+
+import img_1 from '../../../assets/images/img_bg_man.png'
+import img_2 from '../../../assets/images/img_bg_ser.png'
+import img_3 from '../../../assets/images/img_bg_flt.png'
+import img_4 from '../../../assets/images/img_bg_esg.png'
+import img_5 from '../../../assets/images/img_bg_bus.png'
+
 import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const inter = Inter({
@@ -33,7 +40,7 @@ interface FleetCardData {
 const ServiceInnovation = () => {
      let arr: any = [
           {
-               bgImage: '',
+               bgImage: img_1,
                overLayer: '#F5E8E9',
                iconImage: iconFleet,
                title: 'Fleet Management',
@@ -45,7 +52,7 @@ const ServiceInnovation = () => {
                whiteIcon: whiteFleet,
           },
           {
-               bgImage: '',
+               bgImage: img_2,
                overLayer: '#F0F3F6',
                iconImage: iconMan,
                title: 'Manpower Solutions',
@@ -57,7 +64,7 @@ const ServiceInnovation = () => {
                whiteIcon: whiteman,
           },
           {
-               bgImage: '',
+               bgImage: img_3,
                overLayer: '#EBF5F5',
                iconImage: iconEng,
                title: 'Engineering Services',
@@ -70,7 +77,7 @@ const ServiceInnovation = () => {
           },
 
           {
-               bgImage: '',
+               bgImage: img_4,
                overLayer: '#EEF8F1',
                iconImage: iconEsg,
                title: 'ESG & Sustainability',
@@ -83,7 +90,7 @@ const ServiceInnovation = () => {
           },
 
           {
-               bgImage: '',
+               bgImage: img_5,
                overLayer: '#F6EFFC',
                iconImage: iconBusiness,
                title: 'Business Consulting',

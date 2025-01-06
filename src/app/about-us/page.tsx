@@ -24,6 +24,7 @@ const page = () => {
                          </>
                     }
                     description='We deliver innovative, sustainable solutions that drive impactful change, empowering businesses to thrive and meet evolving industry demands.'
+                    enableModal={true}
                />
                <SecondaryLanding
                     heading={'Leading the Way in Sustainable Innovation and Industry Excellence'}

@@ -49,7 +49,8 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: imgOverlayRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -68,7 +69,8 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                          duration: 1,
                          scrollTrigger: {
                               trigger: textSectionRef.current,
-                              start: 'top 80%',
+                              start: 'top 50%',
+                              end: 'bottom 20%',
                               toggleActions: 'play none none none',
                               once: true,
                          },

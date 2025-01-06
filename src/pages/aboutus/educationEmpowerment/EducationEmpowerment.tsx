@@ -12,7 +12,6 @@ import imgLayer6 from '../../../assets/images/img_emp_6.png'
 import imgLayer7 from '../../../assets/images/img_emp_7.png'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import gsap from 'gsap'
 
 const EducationEmpowerment = () => {
      const router = useRouter()
@@ -41,6 +40,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgRef1.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -61,6 +61,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgRef2.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -81,6 +82,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgRef3.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -101,6 +103,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -120,6 +123,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef2.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -140,6 +144,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -160,6 +165,7 @@ const EducationEmpowerment = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef4.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },

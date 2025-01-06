@@ -61,19 +61,18 @@ const CardGrid = () => {
                gsap.registerPlugin(ScrollTrigger)
                gsap.fromTo(
                     `.${styles.card}`,
-                    { y: '100%', opacity: 0, rotate: 20 },
+                    { x: '10%', y: '30%', opacity: 0, rotate: -10 },
                     {
                          y: '0%',
                          opacity: 1,
                          rotate: 0,
                          duration: 0.7,
-                         delay: 0.3,
                          ease: 'power2.out',
-                         stagger: 0.2,
+                         // stagger: 0.2,
                          scrollTrigger: {
-                              trigger: `.${styles.cardsContainer}`,
-                              start: 'top 70%',
-                              end: 'bottom 10%',
+                              trigger: `.${styles.four_card_layout}`,
+                              start: 'top 50%',
+                              end: 'bottom 20%',
                               toggleActions: 'play none none none',
                          },
                     },
@@ -96,13 +95,7 @@ const CardGrid = () => {
                               backgroundColor: card.bgColor,
                          }}
                     >
-                         <Image
-                              src={card.icon}
-                              alt={card.title}
-                              className={styles.icon}
-                              width={40}
-                              height={40}
-                         />
+                         <Image src={card.icon} alt={card.title} className={styles.icon} />
                          <h3
                               className={`${styles.semiBoldText}`}
                               style={{ color: card.titleColor }}

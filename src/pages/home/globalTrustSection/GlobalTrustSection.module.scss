@@ -8,6 +8,9 @@
     background-color: $color-white;
     padding-block: 4rem;
     padding-inline: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 
     .para {
         font-size: $paragraph-font-size;
@@ -25,6 +28,7 @@
 
     .img_wrapper {
         padding: 0.3rem;
+        padding-inline: 1rem;
 
         .icon {
             width: 100%;
@@ -35,7 +39,21 @@
 
 }
 
+.flex_row {
+    display: flex;
+    margin-block: 1rem;
+}
+
 @media (max-width: 768px) {
+    .main_container {
+        .flex_con {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media (max-width: 568px) {
     .main_container {
         .flex_con {
             display: flex;

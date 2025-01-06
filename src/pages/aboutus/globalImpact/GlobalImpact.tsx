@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import styles from './GlobalImpact.module.scss'
 import imageLeft from '../../../assets/images/img_global_left.png'
 import imageRight from '../../../assets/images/img_global_right.png'
@@ -18,39 +18,37 @@ const GlobalImpact = () => {
           },
      ]
 
-     const containerRef = useRef<HTMLDivElement | null>(null)
-     const cardRefs = useRef<HTMLDivElement[]>([])
+     const cardRef = useRef<HTMLDivElement>(null)
 
-     const initialFunc = async () => {
+     const initialFunc = useCallback(async () => {
           if (typeof window != 'undefined') {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
-               const tl = gsap.timeline({
-                    scrollTrigger: {
-                         trigger: containerRef.current,
-                         start: 'top 80%',
-                         toggleActions: 'play none none none',
-                    },
-               })
-
-               tl.fromTo(
-                    cardRefs.current,
-                    { opacity: 0, y: 50 },
-                    {
-                         opacity: 1,
-                         y: 0,
-                         duration: 1,
-                         ease: 'power3.out',
-                         stagger: 0.2,
-                    },
-               )
+               if (cardRef.current) {
+                    gsap.fromTo(
+                         cardRef.current,
+                         { opacity: 0, y: 50 },
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 2,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: cardRef.current,
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                              },
+                         },
+                    )
+               }
           }
-     }
-     useEffect(() => {
-          initialFunc()
      }, [])
 
+     useEffect(() => {
+          initialFunc()
+     }, [initialFunc])
      return (
           <section className={styles.global_impact_sec}>
                <header className={`${styles.flex_con}`}>
@@ -59,13 +57,9 @@ const GlobalImpact = () => {
                     </MainHeading>
                </header>
 
-               <div className={styles.flex_content}>
+               <div className={styles.flex_content} ref={cardRef}>
                     {arr.map((item: any, index) => (
-                         <div
-                              key={index}
-                              className={styles.details_content}
-                              ref={(el: any) => (cardRefs.current[index] = el)}
-                         >
+                         <div key={index} className={styles.details_content}>
                               <MainPara className={styles.para}>{item.title}</MainPara>
                               <div className={styles.img_wrapper}>
                                    <Image src={item.image} alt='image' className={styles.image} />

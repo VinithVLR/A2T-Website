@@ -37,55 +37,51 @@ const FleetCard = ({ indexNumber, item }: any) => {
 
      return (
           <div className={styles.fleet_card}>
-               {isLoading ? (
-                    <Skeleton />
-               ) : (
-                    <div
-                         className={styles.card_content}
-                         onMouseEnter={handleMouseEnter}
-                         onMouseLeave={handleMouseLeave}
-                    >
-                         <div className={styles.main_container}>
-                              <div className={styles.image_container}>
-                                   <Image
-                                        src={picture}
-                                        alt='Fleet Management'
-                                        className={styles.card_image}
-                                        priority
-                                   />
-                              </div>
-                         </div>
-                         <div
-                              className={styles.card_overlay}
-                              style={{
-                                   zIndex: 25 - indexNumber,
-                                   backgroundColor: isHovered ? item.titleColor : item.overLayer,
-                              }}
-                         >
-                              <div className={styles.img_wrapper}>
-                                   <Image
-                                        src={isHovered ? item.whiteIcon : item.iconImage}
-                                        alt=''
-                                        className={`${styles.image}`}
-                                        priority
-                                   />
-                              </div>
-                              <TertiaryHeading
-                                   className={styles.title}
-                                   style={{ color: isHovered ? '#fff' : item.fontColor }}
-                              >
-                                   {item.title}
-                              </TertiaryHeading>
-                              <hr className={styles.separator} />
-                              <TertiaryPara
-                                   className={styles.description}
-                                   style={{ color: isHovered ? '#fff' : item.desColor }}
-                              >
-                                   {item.des}
-                              </TertiaryPara>
+               <div
+                    className={styles.card_content}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+               >
+                    <div className={styles.main_container}>
+                         <div className={styles.image_container}>
+                              <Image
+                                   src={item.bgImage}
+                                   alt='Fleet Management'
+                                   className={styles.card_image}
+                                   priority
+                              />
                          </div>
                     </div>
-               )}
+                    <div
+                         className={styles.card_overlay}
+                         style={{
+                              zIndex: 25 - indexNumber,
+                              backgroundColor: isHovered ? item.titleColor : item.overLayer,
+                         }}
+                    >
+                         <div className={styles.img_wrapper}>
+                              <Image
+                                   src={isHovered ? item.whiteIcon : item.iconImage}
+                                   alt=''
+                                   className={`${styles.image}`}
+                                   priority
+                              />
+                         </div>
+                         <TertiaryHeading
+                              className={styles.title}
+                              style={{ color: isHovered ? '#fff' : item.fontColor }}
+                         >
+                              {item.title}
+                         </TertiaryHeading>
+                         <hr className={styles.separator} />
+                         <TertiaryPara
+                              className={styles.description}
+                              style={{ color: isHovered ? '#fff' : item.desColor }}
+                         >
+                              {item.des}
+                         </TertiaryPara>
+                    </div>
+               </div>
           </div>
      )
 }

@@ -73,6 +73,7 @@ const DeliverCore = () => {
                               label={card.label}
                               id={card.link}
                               labelStyle={{ backgroundColor: '#EDEDED', color: '' }}
+                              isFlag={true}
                          />
                     )
                })}

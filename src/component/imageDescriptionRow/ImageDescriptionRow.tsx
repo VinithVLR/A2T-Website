@@ -42,7 +42,8 @@ const ImageDescriptionRow: React.FC<ImageDescriptionRowProps> = ({ keyProp }) =>
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: ref.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -62,7 +63,8 @@ const ImageDescriptionRow: React.FC<ImageDescriptionRowProps> = ({ keyProp }) =>
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: ref.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },

@@ -24,6 +24,7 @@ interface heading {
      style?: any
      layoutMod?: boolean
      flexRow?: any
+     enableModal?: boolean
 }
 const PrimaryLanding = ({
      title,
@@ -36,6 +37,7 @@ const PrimaryLanding = ({
      style,
      layoutMod,
      flexRow,
+     enableModal,
 }: heading) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
      const [isModalOpen, setIsModalOpen] = useState(false)
@@ -106,52 +108,69 @@ const PrimaryLanding = ({
                          <MainPara className={`${styles.description} ${styles.regularText}`}>
                               {description}
                          </MainPara>
-                         {!isThumbnailHidden && (
-                              <div className={styles.thumb_nailWrapper_con}>
-                                   <div className={styles.thumb_nailWrapper}>
-                                        <Image
-                                             src={smallImageSrc ? smallImageSrc : thumb_nail}
-                                             alt=''
-                                             className={styles.image}
-                                        />
-                                   </div>
-                              </div>
-                         )}
-                         {/* 
-                         {!isModalOpen && (
-                              <div className={styles.thumb_nailWrapper_con}>
-                                   <div className={styles.thumb_nailWrapper} onClick={openModal}>
-                                        <Image
-                                             src={smallImageSrc || thumb_nail}
-                                             alt='Thumbnail'
-                                             className={styles.image}
-                                             width={300}
-                                             height={200}
-                                        />
-                                   </div>
-                              </div>
-                         )}
 
-                         {isModalOpen && (
-                              <div className={styles.modalOverlay} onClick={closeModal}>
-                                   <div
-                                        className={styles.modalContent}
-                                        onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
-                                   >
-                                        <button className={styles.closeButton} onClick={closeModal}>
-                                             &times;
-                                        </button>
-                                        <video
-                                             className={styles.videoPlayer}
-                                             controls
-                                             autoPlay
-                                             src={
-                                                  'https://cdn.pixabay.com/video/2021/03/09/67460-522170651_large.mp4'
-                                             }
-                                        />
-                                   </div>
-                              </div>
-                         )} */}
+                         {enableModal ? (
+                              <>
+                                   {!isModalOpen && (
+                                        <div className={styles.thumb_nailWrapper_con}>
+                                             <div
+                                                  className={styles.thumb_nailWrapper}
+                                                  onClick={openModal}
+                                             >
+                                                  <Image
+                                                       src={smallImageSrc || thumb_nail}
+                                                       alt='Thumbnail'
+                                                       className={styles.image}
+                                                       width={300}
+                                                       height={200}
+                                                  />
+                                             </div>
+                                        </div>
+                                   )}
+
+                                   {isModalOpen && (
+                                        <div className={styles.modalOverlay} onClick={closeModal}>
+                                             <div
+                                                  className={styles.modalContent}
+                                                  onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+                                             >
+                                                  <button
+                                                       className={styles.closeButton}
+                                                       onClick={closeModal}
+                                                  >
+                                                       &times;
+                                                  </button>
+                                                  <video
+                                                       className={styles.videoPlayer}
+                                                       controls
+                                                       autoPlay
+                                                       src={
+                                                            'https://cdn.pixabay.com/video/2021/03/09/67460-522170651_large.mp4'
+                                                       }
+                                                  />
+                                             </div>
+                                        </div>
+                                   )}
+                              </>
+                         ) : (
+                              <>
+                                   {!isThumbnailHidden && (
+                                        <div className={styles.thumb_nailWrapper_con}>
+                                             <div className={styles.thumb_nailWrapper}>
+                                                  <Image
+                                                       src={
+                                                            smallImageSrc
+                                                                 ? smallImageSrc
+                                                                 : thumb_nail
+                                                       }
+                                                       alt=''
+                                                       className={styles.image}
+                                                  />
+                                             </div>
+                                        </div>
+                                   )}
+                              </>
+                         )}
                     </div>
                </div>
           </section>

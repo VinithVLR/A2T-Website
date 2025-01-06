@@ -1,3 +1,4 @@
+'use client'
 import Header from '@/component/header/Header'
 import React from 'react'
 import img_electric from '../../../assets/images/img_electric.png'
@@ -43,6 +44,7 @@ const LatestUpdates = () => {
                               title={item.title}
                               description={item.para}
                               tags={['Automotive', 'Technology']}
+                              index={index}
                          />
                     ))}
                </div>

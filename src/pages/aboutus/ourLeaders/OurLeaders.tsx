@@ -75,7 +75,8 @@ const OurLeaders = () => {
                                    bgImage={bgImage}
                                    img={clientImage}
                                    // bgStyle={{ height: '380px' }}
-                                   imgWrapper={{ width: '80%', height: '90%' }}
+                                   imgWrapper={{ width: '75%', height: '80%' }}
+                                   style={{ width: '90%', height: '90%' }}
                               />
                          </div>
                     </div>

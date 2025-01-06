@@ -36,7 +36,8 @@ const DigitalSecurity = () => {
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: imgRef1.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -56,7 +57,8 @@ const DigitalSecurity = () => {
                               delay: 0.2,
                               scrollTrigger: {
                                    trigger: imgRef2.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -76,7 +78,8 @@ const DigitalSecurity = () => {
                               delay: 0.4,
                               scrollTrigger: {
                                    trigger: imgRef3.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -96,7 +99,8 @@ const DigitalSecurity = () => {
                               delay: 0.6,
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -115,7 +119,8 @@ const DigitalSecurity = () => {
                               delay: 0.8,
                               scrollTrigger: {
                                    trigger: imgAbRef2.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -135,7 +140,8 @@ const DigitalSecurity = () => {
                               delay: 1,
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },

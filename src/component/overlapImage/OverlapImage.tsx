@@ -35,7 +35,8 @@ const OverlapImage: React.FC<OverlapImageProps> = ({
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: bgImageWrapperRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -54,7 +55,8 @@ const OverlapImage: React.FC<OverlapImageProps> = ({
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: imgOverlayRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },

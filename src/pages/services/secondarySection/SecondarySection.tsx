@@ -83,6 +83,7 @@ const SecondarySection = () => {
                               rowReverse={index % 2 !== 0}
                               hoverColor={card.hoverColor}
                               link={card.link}
+                              isFlag={true}
                          />
                     )
                })}

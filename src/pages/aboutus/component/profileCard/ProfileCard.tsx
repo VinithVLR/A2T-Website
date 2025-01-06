@@ -28,7 +28,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ image, title, position, locat
                               y: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: index * 0.3,
+                              delay: index * 0.2,
                               scrollTrigger: {
                                    trigger: cardRef.current,
                                    start: 'top 80%',

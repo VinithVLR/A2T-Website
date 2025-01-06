@@ -101,7 +101,8 @@ const ImageDesc = ({
                               duration: 1,
                               scrollTrigger: {
                                    trigger: imageSectionRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 50%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
