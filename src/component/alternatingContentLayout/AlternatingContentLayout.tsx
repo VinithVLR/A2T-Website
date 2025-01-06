@@ -32,7 +32,6 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                               start: 'top 50%',
                               end: 'bottom 20%',
                               toggleActions: 'play none none none',
-                              // markers: true, // Remove this in production
                          },
                     })
                     timeline
@@ -80,6 +79,7 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
      }, [content])
      useEffect(() => {
           initialFunc()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 
      return (

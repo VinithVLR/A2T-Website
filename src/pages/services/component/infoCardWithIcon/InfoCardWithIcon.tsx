@@ -67,7 +67,6 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                               scrub: true,
                               toggleActions: 'play none none none',
                               once: true,
-                              // markers: true,
                          },
                     },
                )

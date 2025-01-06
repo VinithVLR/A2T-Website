@@ -55,7 +55,6 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                          start: 'top 50%',
                          end: 'bottom 20%',
                          toggleActions: 'play none none none',
-                         // markers: true,
                     },
                })
 

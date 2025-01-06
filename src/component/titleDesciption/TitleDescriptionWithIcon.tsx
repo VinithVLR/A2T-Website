@@ -79,7 +79,6 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                                    start: 'top 50%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
-                                   markers: true,
                               },
                          },
                     )
@@ -99,7 +98,6 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                               start: 'top 70%',
                               end: 'bottom 20%',
                               toggleActions: 'play none none none',
-                              markers: true,
                          },
                     },
                )
@@ -116,7 +114,6 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                               start: 'top 70%',
                               end: 'bottom 20%',
                               toggleActions: 'play none none none',
-                              // markers: true,
                          },
                     },
                )
