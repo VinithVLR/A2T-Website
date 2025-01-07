@@ -3,6 +3,7 @@ import styles from './UpdateCard.module.scss'
 import calendarIcon from '../../assets/icons/ic_calendar.svg'
 import { Inter } from 'next/font/google'
 import { useCallback, useEffect, useRef } from 'react'
+import { SecondaryHeading, TertiaryHeading, TertiaryPara } from '../typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -20,7 +21,7 @@ const UpdateCard = ({ imageUrl, date, title, description, tags, index }: any) =>
                if (cardRef.current) {
                     gsap.fromTo(
                          cardRef.current,
-                         { opacity: 0, y: 50 },
+                         { opacity: 0, y: 70 },
                          {
                               opacity: 1,
                               y: 0,
@@ -28,7 +29,7 @@ const UpdateCard = ({ imageUrl, date, title, description, tags, index }: any) =>
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: cardRef.current,
-                                   start: 'top 50%',
+                                   start: 'top 80%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                               },
@@ -49,10 +50,10 @@ const UpdateCard = ({ imageUrl, date, title, description, tags, index }: any) =>
                <div className={styles.content}>
                     <div className={styles.date}>
                          <Image src={calendarIcon} alt='calendar_icon' />
-                         {date}
+                         <TertiaryPara> {date}</TertiaryPara>
                     </div>
-                    <h2 className={styles.title}>{title}</h2>
-                    <p className={styles.description}>{description}</p>
+                    <TertiaryHeading className={styles.title}>{title}</TertiaryHeading>
+                    <TertiaryPara className={styles.description}>{description}</TertiaryPara>
                     <div className={styles.tags}>
                          {tags.map((tag: any, index: any) => (
                               <span key={index} className={styles.tag}>

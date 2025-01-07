@@ -1,4 +1,4 @@
-@import '../../../scss/abstracts//variable.scss';
+@import '../../../scss/abstracts/variable.scss';
 
 .main_con {
     height: auto;
@@ -49,7 +49,7 @@
             .heading {
                 font-size: $font-44px;
                 color: $color-heading;
-                font-weight: $font-weight-sem-bold;
+                font-weight: $font-weight-bold;
                 padding-block: 1rem;
             }
 

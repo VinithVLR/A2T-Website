@@ -1,7 +1,8 @@
 'use client'
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './AlternatingContentLayout.module.scss'
 import Image from 'next/image'
+import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
 
 interface ContentItem {
      title: string
@@ -20,6 +21,9 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
      const imageSectionRefs = useRef<HTMLDivElement[]>([])
      const imgWrapperRefs = useRef<HTMLDivElement[]>([])
      const descRefs = useRef<HTMLDivElement[]>([])
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
      const initialFunc = useCallback(async () => {
           if (typeof window !== 'undefined') {
                const { gsap } = await import('gsap')
@@ -29,7 +33,7 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                     const timeline = gsap.timeline({
                          scrollTrigger: {
                               trigger: sectionRefs.current[index],
-                              start: 'top 50%',
+                              ...(windowWidth <= 768 ? { start: 'top 80%' } : { start: 'top 50%' }),
                               end: 'bottom 20%',
                               toggleActions: 'play none none none',
                          },
@@ -64,11 +68,11 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                          .fromTo(
                               descRefs.current[index],
                               {
-                                   x: '30%',
+                                   ...(windowWidth <= 768 ? { y: '100%' } : { x: '30%' }),
                                    opacity: 0,
                               },
                               {
-                                   x: '0%',
+                                   ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),
                                    opacity: 1,
                                    duration: 1,
                               },
@@ -76,9 +80,12 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                          )
                })
           }
-     }, [content])
+     }, [content, windowWidth])
      useEffect(() => {
           initialFunc()
+          const handleResize = () => setWindowWidth(window.innerWidth)
+          window.addEventListener('resize', handleResize)
+          return () => window.removeEventListener('resize', handleResize)
           // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 
@@ -125,14 +132,16 @@ const AlternatingContentLayout: React.FC<AlternatingContentLayoutProps> = ({ con
                                    ref={(el: any) => (descRefs.current[index] = el)}
                               >
                                    <div className={styles.con_wrapper}>
-                                        <h2 className={`${styles.heading} ${styles.blackText}`}>
+                                        <SecondaryHeading
+                                             className={`${styles.heading} ${styles.blackText}`}
+                                        >
                                              {item.title}
-                                        </h2>
-                                        <p
+                                        </SecondaryHeading>
+                                        <SecondaryPara
                                              className={`${styles.description} ${styles.regularText}`}
                                         >
                                              {item.description}
-                                        </p>
+                                        </SecondaryPara>
                                    </div>
                               </div>
                          </section>

@@ -189,8 +189,8 @@ $card-width: 18%;
 .fleet_card {
     position: relative;
     width: 100%;
-    min-height: 350px;
-    max-height: 350px;
+    min-height: 250px;
+    max-height: 380px;
     // height: 22.313rem;
     perspective: 100px;
     cursor: pointer;
@@ -292,5 +292,15 @@ $card-width: 18%;
         &:hover .main_container .image_container {
             transform: rotate(-2deg);
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .fleet_card {}
+}
+
+@media (max-width: 576px) {
+    .fleet_card {
+        max-height: 260px;
     }
 }

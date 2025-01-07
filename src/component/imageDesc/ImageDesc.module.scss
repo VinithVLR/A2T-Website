@@ -9,6 +9,7 @@
     font-family: 'Inter';
     align-items: center;
     justify-content: center;
+    margin-block-end: 3.5rem;
 
     .image_section {
         flex: 0.4;
@@ -67,21 +68,24 @@
             flex-direction: column;
 
             .title {
-                font-size: $font-32px;
-                font-weight: $font-weight-sem-bold;
+                font-size: $default-font;
                 color: $color-heading;
                 padding-block-end: 1rem;
+                text-align: left;
             }
 
             .desc {
                 font-size: $font-16px;
                 font-weight: $font-weight-regular;
                 color: $color-des;
+                text-align: left;
 
             }
 
             ul {
                 padding-inline-start: 1rem;
+                text-align: left;
+
             }
         }
     }

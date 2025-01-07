@@ -6,6 +6,8 @@ import bgImage from '../../../assets/images/img_layer_bg.png'
 import image from '../../../assets/images/img_enp_double.png'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
+import firsLayerImg from '../../../assets/images/doubleimage/img_empow_ly1.png'
+import seconLayerImg from '../../../assets/images/doubleimage/img_empow_ly2.png'
 
 const PadikkalFoundationImpact = () => {
      const detailsRef = useRef<HTMLDivElement | null>(null)
@@ -62,7 +64,12 @@ const PadikkalFoundationImpact = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper}>
-                              <OverlapImage bgImage={bgImage} img={image} />
+                              <OverlapImage
+                                   bgImage={bgImage}
+                                   hasMultipleImages
+                                   imageLayerOne={firsLayerImg}
+                                   imageLayerTwo={seconLayerImg}
+                              />
                          </div>
                     </div>
                </div>

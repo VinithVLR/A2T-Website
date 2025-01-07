@@ -22,6 +22,8 @@ const EducationEmpowerment = () => {
      const imgAbRef2 = useRef(null)
      const imgAbRef3 = useRef(null)
      const imgAbRef4 = useRef(null)
+     const abtextLeft = useRef(null)
+     const abtextRight = useRef(null)
 
      const initialFunc = async () => {
           if (typeof window != 'undefined') {
@@ -47,7 +49,6 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgRef2.current) {
                     gsap.fromTo(
                          imgRef2.current,
@@ -68,7 +69,6 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgRef3.current) {
                     gsap.fromTo(
                          imgRef3.current,
@@ -89,17 +89,16 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef1.current) {
                     gsap.fromTo(
                          imgAbRef1.current,
-                         { opacity: 0, y: 30 },
+                         { opacity: 0, x: -40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: 0.5,
+                              delay: 0.6,
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
                                    start: 'top 80%',
@@ -113,10 +112,10 @@ const EducationEmpowerment = () => {
                if (imgAbRef2.current) {
                     gsap.fromTo(
                          imgAbRef2.current,
-                         { opacity: 0, y: 30 },
+                         { opacity: 0, x: 40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
                               delay: 0.7,
@@ -130,17 +129,16 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef3.current) {
                     gsap.fromTo(
                          imgAbRef3.current,
-                         { opacity: 0, y: 5 },
+                         { opacity: 0, x: -40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
                               duration: 1,
                               ease: 'power3.out',
-                              delay: 0.9,
+                              delay: 0.8,
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
                                    start: 'top 80%',
@@ -151,19 +149,57 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
-
                if (imgAbRef4.current) {
                     gsap.fromTo(
                          imgAbRef4.current,
-                         { opacity: 0, y: 10 },
+                         { opacity: 0, x: 40 },
                          {
                               opacity: 1,
-                              y: 0,
+                              x: 0,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 0.9,
+                              scrollTrigger: {
+                                   trigger: imgAbRef4.current,
+                                   start: 'top 80%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+               if (abtextLeft.current) {
+                    gsap.fromTo(
+                         abtextLeft.current,
+                         { opacity: 0, scale: 0.9 },
+                         {
+                              opacity: 1,
+                              scale: 1,
                               duration: 1,
                               ease: 'power3.out',
                               delay: 1,
                               scrollTrigger: {
-                                   trigger: imgAbRef4.current,
+                                   trigger: abtextLeft.current,
+                                   start: 'top 80%',
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
+                                   once: true,
+                              },
+                         },
+                    )
+               }
+               if (abtextRight.current) {
+                    gsap.fromTo(
+                         abtextRight.current,
+                         { opacity: 0, scale: 0.9 },
+                         {
+                              opacity: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                              delay: 1,
+                              scrollTrigger: {
+                                   trigger: abtextRight.current,
                                    start: 'top 80%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
@@ -289,6 +325,12 @@ const EducationEmpowerment = () => {
                                              alt='image'
                                              className={styles.img_ab}
                                         />
+                                   </div>
+                                   <h4 className={styles.text_left} ref={abtextLeft}>
+                                        PADIKKAL
+                                   </h4>
+                                   <div className={styles.text_right} ref={abtextRight}>
+                                        <h4>FOUNDATION</h4>
                                    </div>
                               </div>
                          </div>

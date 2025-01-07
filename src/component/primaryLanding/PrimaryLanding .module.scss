@@ -1,10 +1,10 @@
 @import '../../scss/abstracts/variable.scss';
 
 .main_con {
-     height: auto;
+     height: 100vh;
      width: 100%;
      padding-inline: 2rem;
-     padding-block-start: 4.5rem;
+     padding-block-start: 2rem;
      padding-block-end: 0.5rem;
      display: flex;
      background-color: $color-white;
@@ -130,12 +130,17 @@
 
                     .closeButton {
                          position: absolute;
-                         top: 10px;
-                         right: 10px;
+                         top: -3rem;
+                         right: -10rem;
                          background: none;
                          border: none;
-                         font-size: 1.5rem;
+                         font-size: 2rem;
                          cursor: pointer;
+                         padding-inline: 13px;
+                         padding-block: 7px;
+                         // background-color: #fff;
+                         border-radius: 5px;
+                         color: #fff;
 
                          &:hover {
                               color: red;

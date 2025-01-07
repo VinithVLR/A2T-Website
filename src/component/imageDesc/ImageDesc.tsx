@@ -1,6 +1,5 @@
 'use client'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
 import Image from 'next/image'
 import styles from './ImageDesc.module.scss'
 import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
@@ -27,7 +26,9 @@ const ImageDesc = ({
      opacityAnimation,
 }: imageDescProps) => {
      const [isSmallScreen, setIsSmallScreen] = useState(false)
-
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
      const imageSectionRef = useRef(null)
      const textSectionRef = useRef(null)
      useEffect(() => {
@@ -54,15 +55,15 @@ const ImageDesc = ({
                          imageSectionRef.current,
                          {
                               opacity: 0,
-                              scale: 0.5,
                          },
                          {
                               opacity: 1,
-                              scale: 1,
+
                               duration: 1,
                               scrollTrigger: {
                                    trigger: imageSectionRef.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -72,16 +73,19 @@ const ImageDesc = ({
                     gsap.fromTo(
                          textSectionRef.current,
                          {
-                              x: rowReverse ? '-30%' : '30%',
+                              ...(windowWidth <= 768
+                                   ? { y: '30%' }
+                                   : { x: rowReverse ? '-30%' : '30%' }),
                               opacity: 0,
                          },
                          {
-                              x: '0%',
+                              ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),
                               opacity: 1,
                               duration: 1,
                               scrollTrigger: {
                                    trigger: textSectionRef.current,
                                    start: 'top 80%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -93,15 +97,13 @@ const ImageDesc = ({
                          imageSectionRef.current,
                          {
                               opacity: 0,
-                              // scale: 0.5,
                          },
                          {
                               opacity: 1,
-                              scale: 1,
                               duration: 1,
                               scrollTrigger: {
                                    trigger: imageSectionRef.current,
-                                   start: 'top 50%',
+                                   start: 'top 70%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
@@ -112,7 +114,7 @@ const ImageDesc = ({
                          textSectionRef.current,
                          {
                               opacity: 0,
-                              y: 30,
+                              y: 50,
                          },
                          {
                               y: 0,
@@ -120,15 +122,19 @@ const ImageDesc = ({
                               duration: 1,
                               scrollTrigger: {
                                    trigger: textSectionRef.current,
-                                   start: 'top 80%',
+                                   start: 'top 85%',
+                                   end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
                          },
                     )
                }
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
           }
-     }, [rowReverse, opacityAnimation])
+     }, [rowReverse, opacityAnimation, windowWidth])
 
      useEffect(() => {
           initialFunc()
@@ -166,8 +172,13 @@ const ImageDesc = ({
                     }}
                >
                     <div className={styles.details_con}>
-                         <SecondaryHeading className={styles.title}>{title}</SecondaryHeading>
-                         {label && <label>{label}</label>}
+                         <SecondaryHeading
+                              style={{ textAlign: rowReverse ? 'end' : undefined }}
+                              className={styles.title}
+                         >
+                              {title}
+                         </SecondaryHeading>
+                         {label && <label style={{ textAlign: 'left' }}>{label}</label>}
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (

@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './ProjectConsultancy.module.scss'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import bgImage from '../../../assets/images/img_layer_bg.png'
-import image from '../../../assets/images/eng-ser/img_prj_ly (1).png'
 import { MainHeading } from '@/component/typography/Typography'
+import firsLayerImg from '../../../assets/images/doubleimage/img_proj_ly1.png'
+import seconLayerImg from '../../../assets/images/doubleimage/img_proj_ly2.png'
 
 const ProjectConsultancy = () => {
      return (
@@ -28,7 +29,9 @@ const ProjectConsultancy = () => {
                          <div className={styles.img_wrapper}>
                               <OverlapImage
                                    bgImage={bgImage}
-                                   img={image}
+                                   hasMultipleImages
+                                   imageLayerOne={firsLayerImg}
+                                   imageLayerTwo={seconLayerImg}
                                    style={{ width: '100%' }}
                               />
                          </div>

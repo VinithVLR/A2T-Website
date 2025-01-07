@@ -2,9 +2,7 @@
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import styles from './FleetCard.module.scss'
-import Skeleton from '../skelton/Skeleton'
-import picture from '../../assets/images/pexel.jpeg'
-import { SecondaryHeading, TertiaryHeading, TertiaryPara } from '../typography/Typography'
+import { TertiaryHeading, TertiaryPara } from '../typography/Typography'
 
 interface FleetCardData {
      bgImage: string
@@ -23,17 +21,10 @@ interface FleetCardProps {
 }
 
 const FleetCard = ({ indexNumber, item }: any) => {
-     const [isLoading, setIsLoading] = useState(true)
-
-     useEffect(() => {
-          const timer = setTimeout(() => setIsLoading(false), 1000)
-          return () => clearTimeout(timer)
-     }, [])
      const [isHovered, setIsHovered] = useState(false)
 
      const handleMouseEnter = () => setIsHovered(true)
      const handleMouseLeave = () => setIsHovered(false)
-     console.log('border-color', item.desColor)
 
      return (
           <div className={styles.fleet_card}>

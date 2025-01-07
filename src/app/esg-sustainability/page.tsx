@@ -25,7 +25,7 @@ const page = () => {
                          }}
                          heading={
                               <>
-                                   Empowering<span>Sustainable Growth</span>Through Comprehensive
+                                   Empowering <span>Sustainable Growth</span> Through Comprehensive
                                    ESG Strategies
                               </>
                          }
