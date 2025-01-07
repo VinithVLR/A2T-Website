@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useRef, useLayoutEffect, useEffect } from 'react'
+import React, { useCallback, useRef, useLayoutEffect, useEffect, useState } from 'react'
 import style from './ImageDescriptionPanel.module.scss'
 import Image from 'next/image'
 import toolpic from '../../assets/layer_img.png'
@@ -9,10 +9,6 @@ import { Inter } from 'next/font/google'
 
 import { useRouter } from 'next/navigation'
 import { MainHeading, MainPara } from '../typography/Typography'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface ImageDescriptionPanelProps {
      bgImage?: any
@@ -46,9 +42,15 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
      const detailsRef = useRef<HTMLDivElement | null>(null)
      const imageSectionRef = useRef(null)
      const imgWrapperRef = useRef(null)
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
 
-     useEffect(() => {
+     const initialFunc = useCallback(async () => {
           if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: detailsRef.current,
@@ -57,37 +59,41 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                          toggleActions: 'play none none none',
                     },
                })
-
                timeline
-                    .fromTo(
-                         detailsRef.current,
-                         {
-                              x: '-100%',
-                              opacity: 0,
-                              overflow: 'hidden',
-                         },
-                         {
-                              x: '0%',
-                              opacity: 1,
-                              duration: 1,
-                              ease: 'power3.out',
-                         },
-                    )
                     .fromTo(
                          imgWrapperRef.current,
                          {
                               opacity: 0,
-                              scale: 0.5,
+                              scale: 0.95,
                          },
                          {
                               opacity: 1,
                               scale: 1,
                               duration: 1,
                          },
-                         0,
+                    )
+                    .fromTo(
+                         detailsRef.current,
+                         {
+                              ...(windowWidth <= 768 ? { y: '50%' } : { x: '-100%' }),
+                              opacity: 0,
+                              overflow: 'hidden',
+                         },
+                         {
+                              ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),
+                              opacity: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                         },
                     )
           }
-     }, [index])
+     }, [windowWidth])
+     useEffect(() => {
+          initialFunc()
+          const handleResize = () => setWindowWidth(window.innerWidth)
+          window.addEventListener('resize', handleResize)
+          return () => window.removeEventListener('resize', handleResize)
+     }, [initialFunc])
 
      return (
           <div

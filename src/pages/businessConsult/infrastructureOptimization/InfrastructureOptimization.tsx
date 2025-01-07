@@ -4,6 +4,8 @@ import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescripti
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import bgImage from '../../../assets/images/Business/img_buz_lay1.png'
 import Image from '../../../assets/images/Business/img_opt_lay2.png'
+import firstLayerImg from '../../../assets/images/doubleimage/img_opt_ly1.png'
+import secondLayerImg from '../../../assets/images/doubleimage/img_opt_ly2.png'
 
 const InfrastructureOptimization = () => {
      return (
@@ -20,7 +22,13 @@ const InfrastructureOptimization = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper}>
-                              <OverlapImage bgImage={bgImage} img={Image} />
+                              <OverlapImage
+                                   bgImage={bgImage}
+                                   hasMultipleImages
+                                   imageLayerOne={firstLayerImg}
+                                   imageLayerTwo={secondLayerImg}
+                                   imgWrapper={{ width: '90%' }}
+                              />
                          </div>
                     </div>
                </div>

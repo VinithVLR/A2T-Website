@@ -95,6 +95,7 @@ const DigitalGrowth = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef1.current,
                                    start: 'top 80%',
+                                   end: 'bottom 10%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -114,6 +115,7 @@ const DigitalGrowth = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef2.current,
                                    start: 'top 80%',
+                                   end: 'bottom 10%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },
@@ -134,6 +136,7 @@ const DigitalGrowth = () => {
                               scrollTrigger: {
                                    trigger: imgAbRef3.current,
                                    start: 'top 80%',
+                                   end: 'bottom 10%',
                                    toggleActions: 'play none none none',
                                    once: true,
                               },

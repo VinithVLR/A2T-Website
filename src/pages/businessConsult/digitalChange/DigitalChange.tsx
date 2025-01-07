@@ -3,7 +3,8 @@ import styles from './DigitalChange.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import bgImage from '../../../assets/images/Business/img_buz_lay1.png'
-import Image from '../../../assets/images/Business/img_buz_lay2.png'
+import firstLayerImg from '../../../assets/images/doubleimage/img_emb_ly1.png'
+import secondLayerImg from '../../../assets/images/doubleimage/img_emb_ly2.png'
 
 const DigitalChange = () => {
      return (
@@ -20,7 +21,13 @@ const DigitalChange = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper}>
-                              <OverlapImage bgImage={bgImage} img={Image} />
+                              <OverlapImage
+                                   bgImage={bgImage}
+                                   hasMultipleImages
+                                   imgWrapper={{ width: '90%' }}
+                                   imageLayerOne={firstLayerImg}
+                                   imageLayerTwo={secondLayerImg}
+                              />
                          </div>
                     </div>
                </div>

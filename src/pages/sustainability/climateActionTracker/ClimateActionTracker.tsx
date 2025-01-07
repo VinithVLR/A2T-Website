@@ -35,7 +35,7 @@ const ClimateActionTracker = () => {
           },
      ]
      return (
-          <section id='accurate-GHG-accounting' style={{ paddingBlock: '3rem' }}>
+          <section id='accurate-GHG-accounting' className={styles.main_container}>
                <Header
                     title={'Effective Climate Action using Accurate GHG Accounting'}
                     titleStyle={{ width: '60%' }}

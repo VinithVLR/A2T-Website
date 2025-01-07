@@ -20,8 +20,8 @@ function JobCard({ data }: any) {
                          duration: 0.7,
                          ease: 'power2.out',
                          scrollTrigger: {
-                              trigger: `.${styles.four_card_layout}`,
-                              start: 'top 50%',
+                              trigger: `.${styles.cardContainer}`,
+                              start: 'top 70%',
                               end: 'bottom 20%',
                               toggleActions: 'play none none none',
                          },

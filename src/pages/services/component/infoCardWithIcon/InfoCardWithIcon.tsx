@@ -2,11 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './InfoCardWithIcon.module.scss'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
-import Image1 from '../../../../assets/images/img_service_1.png'
-import eyeIcon from '../../../../assets/icons/ic_eye.svg'
 import Image from 'next/image'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 interface InfoCardWithIconProps {
      icon?: string
      title: string
@@ -51,8 +48,12 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
      }
      const imageSectionRef = useRef(null)
      const imgWrapperRef = useRef(null)
-     useEffect(() => {
-          if (imageSectionRef.current && imgWrapperRef.current) {
+
+     const initialFunc = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
                gsap.fromTo(
                     imgWrapperRef.current,
                     {
@@ -62,7 +63,7 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                          opacity: 1,
                          scrollTrigger: {
                               trigger: imageSectionRef.current,
-                              start: 'top 50%',
+                              start: 'top 60%',
                               end: 'top 30%',
                               scrub: true,
                               toggleActions: 'play none none none',
@@ -71,6 +72,10 @@ const InfoCardWithIcon: React.FC<InfoCardWithIconProps> = ({
                     },
                )
           }
+     }
+
+     useEffect(() => {
+          initialFunc()
      }, [])
 
      return (

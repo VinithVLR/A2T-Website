@@ -9,7 +9,8 @@ import CardGrid from '../component/cardGrid/CardGrid'
 import { Inter } from 'next/font/google'
 import TitleDescriptionWithIcon from '@/component/titleDesciption/TitleDescriptionWithIcon'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
-
+import ly1 from '../../../assets/images/doubleimage/img_ourpath_ly1.png'
+import ly2 from '../../../assets/images/doubleimage/img_ourpath_ly2.png'
 const SustainabilityPath = () => {
      return (
           <section className={styles.sec_con}>
@@ -29,7 +30,12 @@ const SustainabilityPath = () => {
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper}>
-                              <OverlapImage bgImage={bgImage} img={Image} />
+                              <OverlapImage
+                                   bgImage={bgImage}
+                                   hasMultipleImages
+                                   imageLayerOne={ly1}
+                                   imageLayerTwo={ly2}
+                              />
                          </div>
                     </div>
                </div>

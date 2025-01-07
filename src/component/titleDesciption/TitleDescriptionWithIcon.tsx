@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './TitleDescriptionWithIcon.module.scss'
 import Image, { StaticImageData } from 'next/image'
 import Button from '../button/Button'
@@ -55,35 +55,40 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      const iconWrapperRef = useRef<HTMLDivElement>(null)
      const detailsRef = useRef<HTMLDivElement | null>(null)
      const subTitleRef = useRef<HTMLDivElement | null>(null)
-
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
      const initialFunc = async () => {
           if (typeof window !== 'undefined') {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
                if (isFlag) {
-                    if (typeof window !== 'undefined') {
-                         gsap.fromTo(
-                              detailsRef.current,
-                              {
-                                   x: rowReverse ? '-30%' : '30%',
-                                   opacity: 0,
-                                   overflow: 'hidden',
+                    gsap.fromTo(
+                         detailsRef.current,
+                         {
+                              ...(windowWidth <= 768
+                                   ? { y: '50%' }
+                                   : { x: rowReverse ? '-30%' : '30%' }),
+
+                              opacity: 0,
+                              overflow: 'hidden',
+                         },
+                         {
+                              ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),
+                              opacity: 1,
+                              duration: 1,
+                              ease: 'power3.out',
+                              scrollTrigger: {
+                                   trigger: detailsRef.current,
+                                   ...(windowWidth <= 768
+                                        ? { start: 'top 90%' }
+                                        : { start: 'top 50%' }),
+                                   end: 'bottom 20%',
+                                   toggleActions: 'play none none none',
                               },
-                              {
-                                   x: '0%',
-                                   opacity: 1,
-                                   duration: 1,
-                                   ease: 'power3.out',
-                                   scrollTrigger: {
-                                        trigger: detailsRef.current,
-                                        start: 'top 50%',
-                                        end: 'bottom 20%',
-                                        toggleActions: 'play none none none',
-                                   },
-                              },
-                         )
-                    }
+                         },
+                    )
                } else {
                     gsap.fromTo(
                          [titleRef.current, descRef.current, subTitleRef.current],
@@ -96,7 +101,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
 
                               scrollTrigger: {
                                    trigger: titleRef.current,
-                                   start: 'top 70%',
+                                   start: 'top 80%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                               },
@@ -119,6 +124,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          },
                     )
                }
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
           }
      }
 

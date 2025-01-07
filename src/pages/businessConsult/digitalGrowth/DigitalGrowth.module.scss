@@ -7,11 +7,13 @@
     max-width: 1800px;
     margin: auto;
     padding-block: 1rem;
+    height: auto;
 
     .content_Wrapper {
         display: flex;
         align-items: center;
         // height: 100vh;
+        height: auto;
 
         .details_con {
             flex: 0.4;
@@ -31,7 +33,7 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
-
+                align-items: center;
 
                 .img_index {
                     width: 100%;
@@ -40,18 +42,18 @@
                 }
 
                 .img_index_top {
-                    width: 40%;
-                    transform: translateX(8rem) translateY(2rem);
+                    width: 30%;
+                    transform: translateX(0rem) translateY(1rem);
                 }
 
                 .img_index_right {
-                    width: 40%;
-                    transform: translateX(23rem) translateY(0rem)
+                    width: 30%;
+                    transform: translateX(12rem) translateY(2rem);
                 }
 
                 .img_index_left {
-                    width: 40%;
-                    transform: translateX(2rem) translateY(-11rem),
+                    width: 30%;
+                    transform: translateX(-8rem) translateY(0rem);
                 }
 
                 .img_wrapper_absolute {
@@ -65,7 +67,7 @@
                     }
 
                     .img_top_con {
-                        width: 80%;
+                        width: 70%;
                         height: 100%;
                         transform: translateX(15rem) translateY(4rem);
                         z-index: 0;
@@ -74,7 +76,7 @@
                     }
 
                     .img_right_con {
-                        width: 80%;
+                        width: 70%;
                         height: 100%;
                         z-index: 2;
                         position: relative;
@@ -145,7 +147,7 @@
                     .img_index_right {}
 
                     .img_index_top {
-                        transform: translateX(14rem) translateY(2rem);
+                        transform: translateX(-5rem) translateY(2rem);
                     }
 
                     .img_wrapper_absolute {
@@ -175,8 +177,13 @@
                 width: 100%;
 
                 .img_wrapper_index {
+
+                    .img_index_top {
+                        transform: translateX(-10rem) translateY(2rem);
+                    }
+
                     .img_index_right {
-                        transform: translateX(13rem) translateY(5rem);
+                        transform: translateX(4rem) translateY(5rem);
                     }
 
                     .img_wrapper_absolute {
