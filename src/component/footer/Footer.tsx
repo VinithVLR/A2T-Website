@@ -33,7 +33,7 @@ const Footer = () => {
           },
           {
                icon: iconEmail,
-               label: 'arun@a2group.com , finance@a2group.com',
+               label: 'arun@a2tgroup.com , finance@a2group.com',
                locationUrl: 'mailto:arun@a2group.com,finance@a2group.com',
           },
      ]

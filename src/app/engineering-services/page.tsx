@@ -34,7 +34,7 @@ const page = () => {
                          title='Engineering Services'
                          style={{
                               paddingBlockStart: '2rem',
-                              justifyContent: 'center',
+                              justifyContent: 'flex-end',
                               gap: '1rem',
                               paddingInline: '1.5rem',
                               display: 'flex',
