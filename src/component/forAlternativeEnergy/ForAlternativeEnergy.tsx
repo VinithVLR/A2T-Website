@@ -1,67 +1,62 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import styles from './ForAlternativeEnergy.module.scss'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
 const ForAlternativeEnergy = ({ title, id }: any) => {
      const detailsRef = useRef<HTMLDivElement | null>(null)
      const linerightRef = useRef(null)
-     const lineleftRef = useRef(null)
+     const titleRef = useRef<HTMLDivElement | null>(null)
 
-     useEffect(() => {
+     const initial = async () => {
           if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: detailsRef.current,
-                         start: 'top 50%',
-                         end: 'bottom 20%',
+                         start: 'top center+=100',
                          toggleActions: 'play none none none',
                     },
                })
 
                timeline
                     .fromTo(
-                         linerightRef.current,
+                         titleRef.current,
                          {
-                              x: '-500%',
+                              y: -40,
                               opacity: 0,
-                              overflow: 'hidden',
-                              // clipPath: 'inset(0 -500% 0 0)',
                          },
                          {
-                              x: '0%',
-                              // clipPath: 'inset(0 0 0 0)',
+                              y: 0,
                               opacity: 1,
-                              duration: 1,
+                              duration: 0.6,
                               ease: 'power3.out',
                          },
                     )
                     .fromTo(
-                         lineleftRef.current,
+                         linerightRef.current,
                          {
-                              x: '500%',
-                              opacity: 0,
+                              scaleX: 0,
                               overflow: 'hidden',
-                              // clipPath: 'inset(0 500% 0 0)',
                          },
                          {
-                              x: '0%',
-                              // clipPath: 'inset(0 0 0 0)',
-                              opacity: 1,
-                              duration: 1,
+                              scaleX: 1,
+                              duration: 0.8,
                               ease: 'power3.out',
                          },
-                         0,
                     )
           }
+     }
+     useEffect(() => {
+          initial()
      }, [])
      return (
-          <section id={id ? id : ''} className={styles.wrapper}>
-               <hr className={styles.line_left} ref={lineleftRef}></hr>
-               <div className={styles.text}>{title}</div>
-               <hr className={styles.line_right} ref={linerightRef}></hr>
+          <section id={id ? id : ''} ref={detailsRef} className={styles.wrapper}>
+               <hr className={styles.line_left} ref={linerightRef}></hr>
+               <div className={styles.text} ref={titleRef}>
+                    {title}
+               </div>
           </section>
      )
 }

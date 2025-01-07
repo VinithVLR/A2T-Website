@@ -9,10 +9,14 @@ import Image from 'next/image'
 function FAQCard({ data }: any) {
      const [isOpened, setIsOpened] = useState(false)
      return (
-          <div className={`${styles.card} ${isOpened ? styles.active : ''}`}>
+          <div
+               onClick={() => setIsOpened(!isOpened)}
+               style={{ cursor: 'pointer' }}
+               className={`${styles.card} ${isOpened ? styles.active : ''}`}
+          >
                <div className={styles.row}>
                     <h4>{data?.question}</h4>
-                    <button onClick={() => setIsOpened(!isOpened)}>
+                    <button>
                          <Image src={isOpened ? closeIcon : plusIcon} alt='' />
                     </button>
                </div>

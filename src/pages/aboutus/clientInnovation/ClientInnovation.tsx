@@ -26,54 +26,63 @@ const inter = Inter({
 })
 
 const ClientInnovation = () => {
-     const arrayItems = [
-          { id: 1, icon: ic1 },
-          { id: 2, icon: ic2 },
-          { id: 3, icon: ic3 },
-          { id: 4, icon: ic4 },
-          { id: 5, icon: ic5 },
-          { id: 6, icon: ic6 },
-          { id: 7, icon: ic7 },
-          { id: 8, icon: ic8 },
-          { id: 9, icon: ic9 },
-          { id: 10, icon: ic10 },
-          { id: 11, icon: ic11 },
-          { id: 12, icon: ic12 },
-          { id: 13, icon: ic13 },
-          { id: 14, icon: ic14 },
-     ]
-
+     const obj: any = {
+          first: [ic1, ic2, ic3, ic4, ic5, ic12],
+          second: [ic6, ic13, ic8, ic9, ic10, ic11],
+          third: [ic12, ic7, ic14, ic3, ic1, ic5],
+          fourth: [ic11, ic2, ic6, ic4, ic10, ic8],
+     }
      return (
           <section className={` ${styles.main_con} ${inter.className}`}>
                <div className={styles.details_section}>
                     <div className={styles.details_con}>
-                         <h2 className={`${styles.title} ${styles.blackText}`}>
-                              <MainHeading>
-                                   Our Key Clients Shape Innovation and Success Together{' '}
-                              </MainHeading>
-                         </h2>
-                         <p className={styles.description}>
-                              <MainPara>
-                                   We collaborate with leading organizations, driving innovation and
-                                   delivering tailored solutions to meet their goals.
-                              </MainPara>
-                         </p>
+                         <MainHeading className={`${styles.title} ${styles.blackText}`}>
+                              Our Key Clients Shape Innovation and Success Together{' '}
+                         </MainHeading>
+                         <MainPara className={styles.description}>
+                              We collaborate with leading organizations, driving innovation and
+                              delivering tailored solutions to meet their goals.
+                         </MainPara>
                     </div>
                </div>
                <div className={styles.utils_section}>
-                    {Array.from({ length: 4 }).map((_, index) => (
+                    {['first', 'second', 'third', 'fourth'].map((keyName, index) => (
                          <div
                               key={index}
-                              className={`${styles.utlis_wrapper} ${index % 2 === 0 ? styles.moveUp : styles.moveDown}`}
+                              className={`${styles.utlis_wrapper} ${index % 2 == 0 ? styles.reverse : ''}`}
                          >
-                              {arrayItems.map((arrayItem, subIndex) => (
-                                   <Image
-                                        key={subIndex}
-                                        src={arrayItem.icon}
-                                        alt='image'
-                                        className={styles.image}
-                                   />
-                              ))}
+                              <div
+                                   className={styles.imgSec}
+                                   style={{ animationDelay: `${index * 0.25}s` }}
+                              >
+                                   {obj[keyName].map((arrayItem: any, subIndex: any) => {
+                                        return (
+                                             <React.Fragment key={subIndex}>
+                                                  <Image
+                                                       src={arrayItem}
+                                                       alt='image'
+                                                       className={styles.image}
+                                                  />
+                                             </React.Fragment>
+                                        )
+                                   })}
+                              </div>
+                              <div
+                                   className={styles.imgSec}
+                                   style={{ animationDelay: `${index * 0.25}s` }}
+                              >
+                                   {obj[keyName].map((arrayItem: any, subIndex: any) => {
+                                        return (
+                                             <React.Fragment key={subIndex}>
+                                                  <Image
+                                                       src={arrayItem}
+                                                       alt='image'
+                                                       className={styles.image}
+                                                  />
+                                             </React.Fragment>
+                                        )
+                                   })}
+                              </div>
                          </div>
                     ))}
                </div>

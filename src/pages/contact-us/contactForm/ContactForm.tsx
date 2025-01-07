@@ -1,10 +1,45 @@
+'use client'
+
 import Header from '@/component/header/Header'
 import Form from '../component/Form'
 import styles from './ContactForm.module.scss'
+import { useEffect, useRef } from 'react'
 
 function ContactForm() {
+     const sectionRef: any = useRef(null)
+
+     const initial = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: sectionRef.current,
+                         start: 'top center+=100',
+                         toggleActions: 'play none none none',
+                    },
+               })
+               timeline.fromTo(
+                    sectionRef.current,
+                    {
+                         y: 100,
+                         opacity: 0,
+                    },
+                    {
+                         y: 0,
+                         opacity: 1,
+                         duration: 0.8,
+                         ease: 'power3.out',
+                    },
+               )
+          }
+     }
+     useEffect(() => {
+          initial()
+     }, [])
      return (
-          <section className={styles.maincon}>
+          <section className={styles.maincon} ref={sectionRef}>
                <div className={styles.formCont}>
                     <Header title={'Send us a Message'} containerStyle={styles.headerContainer} />
                     <Form />

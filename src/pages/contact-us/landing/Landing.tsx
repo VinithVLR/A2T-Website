@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './Landing.module.scss'
 import phoneIcon from '../../../assets/icons/ic_social_phone.svg'
 import mailIcon from '../../../assets/icons/ic_social_mail.svg'
@@ -8,8 +10,31 @@ import xicon from '../../../assets/icons/ic_social_x.svg'
 import twitterIcon from '../../../assets/icons/ic_social_twitter.svg'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 function Landing() {
+     const sectionRef: any = useRef(null)
+     const initial = async () => {
+          if (typeof window !== 'undefined') {
+               const { gsap } = await import('gsap')
+               gsap.fromTo(
+                    sectionRef.current,
+                    {
+                         y: 100,
+                         opacity: 0,
+                    },
+                    {
+                         y: 0,
+                         opacity: 1,
+                         duration: 0.8,
+                         ease: 'power3.out',
+                    },
+               )
+          }
+     }
+     useEffect(() => {
+          initial()
+     }, [])
      return (
           <section className={`${styles.maincon}`}>
                <div></div>
@@ -23,7 +48,7 @@ function Landing() {
                          guidance.
                     </p>
                </div>
-               <div className={styles.footer}>
+               <div className={styles.footer} ref={sectionRef}>
                     <Link href={'tel:+91-9150523409'} target='_blank'>
                          <div className={styles.card}>
                               <Image src={phoneIcon} className={styles.cardImage} alt='' />

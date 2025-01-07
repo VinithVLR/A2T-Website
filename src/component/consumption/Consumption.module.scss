@@ -25,6 +25,11 @@
                align-items: center;
                margin-block: 20px;
 
+               @media screen and (max-width: 800px) {
+                    margin-block: 0px;
+                    margin-bottom: 20px;
+               }
+
                h4 {
                     width: 85%;
                     margin-inline-start: 1.5rem;
@@ -53,22 +58,61 @@
 
      .mob_img_wrp {
           flex: 1;
+
+          padding-block: 10px;
           padding-right: 2rem;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          .num {
+               position: absolute;
+               top: 50%;
+               left: 0%;
+               z-index: 20;
+               background-color: transparent;
+               transition: background-color 0.1s ease 0.3s;
+               width: 90%;
+               border-radius: 15px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               transform: translateY(-50%);
+
+               &:hover {
+                    background-color: var(--hover-color);
+                    transition: background-color 0s ease 0s;
+                    .image {
+                         transform: translate(-3%, 20%) rotateZ(7deg);
+                    }
+               }
+
+               .numberText {
+                    position: absolute;
+                    top: 0.5rem;
+                    left: 50%;
+                    font-size: 2.2rem;
+                    transform: translateX(-50%);
+                    z-index: -1;
+                    color: #fff;
+               }
+          }
 
           .image {
                width: 100%;
                height: 100%;
                object-fit: cover;
+               transition: all 0.3s ease;
+          }
 
-               @media screen and (max-width: 800px) {
-                    width: 85%;
+          .canva {
+               width: 95%;
+               height: auto;
+          }
 
-                    max-width: 500px;
-               }
-
-               @media screen and (max-width: 800px) {
-                    width: 100%;
-               }
+          @media screen and (max-width: 800px) {
+               max-width: 500px;
           }
      }
 

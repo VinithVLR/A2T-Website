@@ -396,6 +396,9 @@
           grid-template-columns: 1fr 1fr 1fr;
           height: 80vh;
           background-color: #fff;
+          box-shadow:
+               0 4px 6px -1px #0000001a,
+               0 2px 4px -2px #0000001a;
 
           div {
                h3 {
@@ -421,6 +424,9 @@
           grid-template-columns: 1fr 1fr 1fr;
           height: 80vh;
           background-color: #fff;
+          box-shadow:
+               0 4px 6px -1px #0000001a,
+               0 2px 4px -2px #0000001a;
 
           div {
                h3 {
@@ -542,6 +548,9 @@
      padding-top: 15vh;
      height: 80vh;
      background-color: #fff;
+     box-shadow:
+          0 4px 6px -1px #0000001a,
+          0 2px 4px -2px #0000001a;
 
      h3 {
           color: #0a2540;

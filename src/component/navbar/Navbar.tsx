@@ -884,6 +884,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          </a>
                     </div>
                </div>
+
                <div
                     ref={gridContRef}
                     className={styles.gridcont}
@@ -899,9 +900,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                              onClick={onNav}
                                              href={`/fleet-management#${nav.link}`}
                                         >
-                                             <h3>
-                                                  <a>{nav.title}</a>
-                                             </h3>
+                                             <h3>{nav.title}</h3>
                                         </Link>
                                         <ul className={`${styles.noListStyle}`}>
                                              {nav.list.map((link: any, index: any) => {
@@ -928,6 +927,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          }}
                     ></div>
                </div>
+
                <div
                     ref={gridContRef}
                     className={styles.gridcont}
@@ -1046,13 +1046,11 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                                   {link.list.map((sublink: any, indexw) => {
                                                        return (
                                                             <Link
-                                                                 key={index}
+                                                                 key={indexw}
                                                                  onClick={onNav}
                                                                  href={`/manpower-services#${sublink.link}`}
                                                             >
-                                                                 <li key={indexw}>
-                                                                      {sublink.title}
-                                                                 </li>
+                                                                 <li>{sublink.title}</li>
                                                             </Link>
                                                        )
                                                   })}
@@ -1115,7 +1113,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                                        {link.list.map((slink: any, indexs) => {
                                                             return (
                                                                  <Link
-                                                                      key={index}
+                                                                      key={indexs}
                                                                       onClick={onNav}
                                                                       href={`/engineering-services#${slink.link}`}
                                                                  >

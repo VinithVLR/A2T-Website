@@ -30,17 +30,23 @@
           }
      }
 
+     .desktop {
+          display: flex;
+
+          @media screen and (max-width: 800px) {
+               display: none;
+          }
+     }
+
      .dot {
-          width: 1.5rem;
-          height: 1.5rem;
+          width: 2rem;
+          height: 2rem;
           border-radius: 50%;
-          background-color: #cddbde;
+          background-color: #f6f3fc;
           display: flex;
           align-items: center;
           justify-content: center;
-          // outline-color: yellow;
-          // outline-width: 8px;
-          // outline-style: solid;
+          transition: all 1s ease;
 
           .md {
                width: 65%;
@@ -50,18 +56,29 @@
                display: flex;
                align-items: center;
                justify-content: center;
+               transition: all 0.3s ease;
 
                .sd {
                     width: 50%;
                     height: 50%;
                     border-radius: 50%;
-                    background-color: #0e7b68;
+                    background-color: transparent;
+                    transition: all 1s ease;
+               }
+          }
+     }
+
+     .appear {
+          background-color: #cddbde !important;
+          .md {
+               .sd {
+                    background-color: #0e7b68 !important;
                }
           }
      }
 
      .line {
-          width: 3px;
+          width: 2px;
           flex: 1;
           background-color: #0e7b68;
      }
@@ -76,6 +93,14 @@
           padding-top: 5px;
      }
 
+     .mobileLayout {
+          display: none;
+
+          @media screen and (max-width: 800px) {
+               display: flex;
+          }
+     }
+
      .image_con {
           width: 100%;
           height: 100%;
@@ -88,6 +113,64 @@
                width: 90%;
                height: auto;
                object-fit: cover;
+          }
+
+          .image_section {
+               width: 90%;
+               height: 100%;
+               padding: 10px;
+               position: relative;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+
+               .num {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    background-color: transparent;
+                    transition: background-color 0.1s ease 0.3s;
+                    width: 90%;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: translate(-50%, -50%);
+
+                    &:hover {
+                         background-color: var(--hover-color);
+                         transition: background-color 0s ease 0s;
+                         .image {
+                              transform: translate(3%, 20%) rotateZ(-7deg);
+                         }
+
+                         .revImg {
+                              transform: translate(-3%, 20%) rotateZ(7deg);
+                         }
+                    }
+
+                    .numberText {
+                         position: absolute;
+                         top: 0.5rem;
+                         left: 50%;
+                         font-size: 2.2rem;
+                         transform: translateX(-50%);
+                         z-index: -1;
+                         color: #fff;
+                    }
+               }
+
+               .image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all 0.3s ease;
+               }
+
+               .canva {
+                    width: 90%;
+                    height: auto;
+               }
           }
      }
 

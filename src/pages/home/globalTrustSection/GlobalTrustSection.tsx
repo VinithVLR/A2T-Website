@@ -17,105 +17,50 @@ const inter = Inter({
 })
 const GlobalTrustSection = () => {
      let arr = [img1, img2, img3, img4, img5, img6]
-     const [windowWidth, setWindowWidth] = useState(
-          typeof window != 'undefined' ? window.innerWidth : 0,
-     )
 
-     useEffect(() => {
-          const flexCon = document.querySelector(`.${styles.flex_con}`)
-          if (flexCon) {
-               const duplicateContent = flexCon.innerHTML
-               flexCon.innerHTML += duplicateContent
-          }
-
-          const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 })
-
-          tl.to(`.${styles.flex_con}`, {
-               x: '-50%',
-               duration: 10,
-               ease: 'linear',
-               onRepeat: () => {
-                    gsap.set(`.${styles.flex_con}`, { x: 0 })
-               },
-          })
-     }, [])
-
-     useEffect(() => {
-          if (typeof window != 'undefined') {
-               const handleResize = () => setWindowWidth(window.innerWidth)
-               window.addEventListener('resize', handleResize)
-               return () => window.removeEventListener('resize', handleResize)
-          }
-     }, [])
-
-     const rowOneRef = useRef(null)
-     const rowTwoRef = useRef(null)
-
-     useEffect(() => {
-          const rowOne = rowOneRef.current
-          const rowTwo = rowTwoRef.current
-
-          if (rowOne && rowTwo) {
-               const timeline = gsap.timeline({
-                    repeat: -1,
-                    defaults: { ease: 'linear', duration: 10 },
-               })
-
-               // Row One Animation - Left to Right
-               timeline
-                    .to(rowOne, { x: '100%' }) // Move Row One to the right
-                    .set(rowOne, { x: '-100%' }) // Reset Row One to the left
-
-               // Row Two Animation - Right to Left (starts simultaneously)
-               timeline
-                    .to(
-                         rowTwo,
-                         { x: '-100%' },
-                         0, // Ensures both rows start at the same time
-                    )
-                    .set(rowTwo, { x: '100%' }) // Reset Row Two to the right
-          }
-     }, [])
      return (
           <>
-               {windowWidth <= 768 ? (
-                    <section className={`${styles.main_container} ${inter.className}`}>
-                         <p className={`${styles.para} ${styles.regularText}`}>
-                              Trusted By Global Companies
-                         </p>
-
-                         {/* Row 1 L to R */}
-                         <div className={styles.flex_row} ref={rowOneRef}>
-                              {arr.map((item, index) => (
-                                   <div key={index} className='img-wrapper'>
-                                        <Image src={item} alt={`Image ${index}`} />
-                                   </div>
-                              ))}
-                         </div>
-
-                         {/* Row 2 R to L */}
-                         <div className={styles.flex_row} ref={rowTwoRef}>
-                              {arr.map((item, index) => (
-                                   <div key={index} className='img-wrapper'>
-                                        <Image src={item} alt={`Image ${index}`} />
-                                   </div>
-                              ))}
-                         </div>
-                    </section>
-               ) : (
-                    <section className={`${styles.main_container} ${inter.className}`}>
-                         <p className={`${styles.para} ${styles.regularText}`}>
-                              Trusted By Global Companies
-                         </p>
+               <section className={`${styles.main_container} ${inter.className}`}>
+                    <p className={`${styles.para} ${styles.regularText}`}>
+                         Trusted By Global Companies
+                    </p>
+                    <div className={styles.mainSec}>
                          <div className={styles.flex_con}>
-                              {arr.map((item: any, index: any) => (
-                                   <div key={index} className={styles.img_wrapper}>
-                                        <Image src={item} alt='' />
-                                   </div>
-                              ))}
+                              <div className={styles.imgSec}>
+                                   {arr.map((item: any, index: any) => (
+                                        <div key={index} className={styles.img_wrapper}>
+                                             <Image src={item} alt='' />
+                                        </div>
+                                   ))}
+                              </div>
+                              <div className={styles.imgSec}>
+                                   {arr.map((item: any, index: any) => (
+                                        <div key={index} className={styles.img_wrapper}>
+                                             <Image src={item} alt='' />
+                                        </div>
+                                   ))}
+                              </div>
                          </div>
-                    </section>
-               )}
+                    </div>
+                    <div className={`${styles.mainSec} ${styles.reverse}`}>
+                         <div className={styles.flex_con}>
+                              <div className={styles.imgSec}>
+                                   {arr.map((item: any, index: any) => (
+                                        <div key={index} className={styles.img_wrapper}>
+                                             <Image src={item} alt='' />
+                                        </div>
+                                   ))}
+                              </div>
+                              <div className={styles.imgSec}>
+                                   {arr.map((item: any, index: any) => (
+                                        <div key={index} className={styles.img_wrapper}>
+                                             <Image src={item} alt='' />
+                                        </div>
+                                   ))}
+                              </div>
+                         </div>
+                    </div>
+               </section>
           </>
      )
 }

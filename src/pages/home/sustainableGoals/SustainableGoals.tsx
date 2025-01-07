@@ -3,13 +3,6 @@
 import styles from './SustainableGoals.module.scss'
 import Header from '@/component/header/Header'
 import Image from 'next/image'
-import img_gender from '../../../assets/images/img_gender.png'
-import img_decentWork from '../../../assets/images/img_decentWork.png'
-import img_industry from '../../../assets/images/img_industry.png'
-import img_inequal from '../../../assets/images/img_inequal.png'
-import img_com_product from '../../../assets/images/img_com_product.png'
-import img_climate from '../../../assets/images/img_climate.png'
-import img_institutions from '../../../assets/images/img_institutions.png'
 import ic_gender from '../../../assets/icons/ic_gender.svg'
 import ic_decentWork from '../../../assets/icons/ic_decent.svg'
 import ic_inequal from '../../../assets/icons/ic_inequal.svg'
@@ -17,30 +10,35 @@ import ic_com_product from '../../../assets/icons/ic_com_product.svg'
 import ic_climate from '../../../assets/icons/ic_climate.svg'
 import ic_industry from '../../../assets/icons/ic_industry.svg'
 import ic_institutions from '../../../assets/icons/ic_institutions.svg'
-import imagess from '../../../assets/images/img_susgoals.png'
 import Consumption from '@/component/consumption/Consumption'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import React from 'react'
 
+import genderCard from '../../../assets/images/sustainableGoals/img_gender_equality.png'
+import genderCanva from '../../../assets/images/sustainableGoals/canva_cont_gender_equality.png'
+
+import workGrowthCard from '../../../assets/images/sustainableGoals/img_work_growth.png'
+import workGrowthCanva from '../../../assets/images/sustainableGoals/canva_work_growth.png'
+
+import innovationCard from '../../../assets/images/sustainableGoals/img_innnovatio_infrastructure.png'
+import innovationCanva from '../../../assets/images/sustainableGoals/canva_innnovatio_infrastructure.png'
+
+import inequalitiesCard from '../../../assets/images/sustainableGoals/img_inequalities.png'
+import inequalitiesCanva from '../../../assets/images/sustainableGoals/canva_inequalities.png'
+
+import consumptionCard from '../../../assets/images/sustainableGoals/img_consumption_production.png'
+import consumptionCanva from '../../../assets/images/sustainableGoals/canva_consumption_production.png'
+
+import climateCard from '../../../assets/images/sustainableGoals/img_climate_action.png'
+import climateCanva from '../../../assets/images/sustainableGoals/canva_climate_action.png'
+
+import strongCard from '../../../assets/images/sustainableGoals/img_strong_institutions.png'
+import strongCanva from '../../../assets/images/sustainableGoals/canva_strong_institutions.png'
+
 function SustainableGoals() {
-     const [windowWidth, setWindowWidth] = useState(
-          typeof window != 'undefined' ? window.innerWidth : 0,
-     )
-
-     const currentViewRef = useRef(null)
-
-     useEffect(() => {
-          if (typeof window != 'undefined') {
-               const handleResize = () => setWindowWidth(window.innerWidth)
-               window.addEventListener('resize', handleResize)
-               return () => window.removeEventListener('resize', handleResize)
-          }
-     }, [])
-
-     let arr = [
+     const arr = [
           {
                no: 1,
-               image: imagess,
                icon: ic_gender,
                title: 'Gender Equality',
                description:
@@ -48,10 +46,11 @@ function SustainableGoals() {
                target: [],
                bgColor: '#EF402D',
                hoverColor: '#FCE4E1',
+               cardImg: genderCard,
+               canva: genderCanva,
           },
           {
                no: 2,
-               image: img_decentWork,
                icon: ic_decentWork,
                title: 'Decent Work & Economic Growth',
                description:
@@ -59,10 +58,11 @@ function SustainableGoals() {
                target: [],
                bgColor: '#A31C44',
                hoverColor: '#F2DFE5',
+               cardImg: workGrowthCard,
+               canva: workGrowthCanva,
           },
           {
                no: 3,
-               image: img_industry,
                icon: ic_industry,
                title: 'Industry, innovation and infrastructure',
                description:
@@ -70,10 +70,11 @@ function SustainableGoals() {
                target: [],
                bgColor: '#F26A2E',
                hoverColor: '#FDEAE1',
+               cardImg: innovationCard,
+               canva: innovationCanva,
           },
           {
                no: 4,
-               image: img_inequal,
                icon: ic_inequal,
                title: 'Reduced Inequalities',
                description:
@@ -81,10 +82,11 @@ function SustainableGoals() {
                target: [],
                bgColor: '#E01483',
                hoverColor: '#FADEED',
+               cardImg: inequalitiesCard,
+               canva: inequalitiesCanva,
           },
           {
                no: 5,
-               image: img_com_product,
                icon: ic_com_product,
                title: 'Responsible Consumption & Production',
                description:
@@ -92,20 +94,22 @@ function SustainableGoals() {
                target: [],
                bgColor: '#BF8D2C',
                hoverColor: '#F6EFE1',
+               cardImg: consumptionCard,
+               canva: consumptionCanva,
           },
           {
                no: 6,
-               image: img_climate,
                icon: ic_climate,
                title: 'Climate action',
                description: 'Take urgent action to combat climatic change and its impacts.',
                target: [],
                bgColor: '#407F46',
                hoverColor: '#E4EDE5',
+               cardImg: climateCard,
+               canva: climateCanva,
           },
           {
                no: 7,
-               image: img_institutions,
                icon: ic_institutions,
                title: 'Peace, Justice, & Strong Institutions',
                description:
@@ -113,8 +117,115 @@ function SustainableGoals() {
                target: [],
                bgColor: '#136A9F',
                hoverColor: '#DEEAF1',
+               cardImg: strongCard,
+               canva: strongCanva,
           },
      ]
+     const [windowWidth, setWindowWidth] = useState(0)
+     const lineHeightValue = useRef(0)
+     const dotsRefs = useRef<HTMLDivElement[]>([])
+     const imageSectionRefs = useRef<HTMLDivElement[]>([])
+     const detailsContentRefs = useRef<HTMLDivElement[]>([])
+
+     useLayoutEffect(() => {
+          if (typeof window != 'undefined') {
+               const handleResize = () => {
+                    setWindowWidth(window.innerWidth)
+                    const desktopLine = document.querySelector('.desktop-line')
+                    if (desktopLine) {
+                         const rect = desktopLine.getBoundingClientRect()
+                         lineHeightValue.current = rect.height
+                    }
+               }
+               handleResize()
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
+          }
+     }, [])
+
+     const initial = async () => {
+          const { gsap } = await import('gsap')
+          const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+          gsap.registerPlugin(ScrollTrigger)
+
+          // console.log('dot elements list', dots)
+          arr.forEach((each, index) => {
+               const dot = dotsRefs.current[index]
+               const detailsContainer = detailsContentRefs.current[index]
+               const imageContainer = imageSectionRefs.current[index]
+
+               if (!detailsContainer) return
+
+               ScrollTrigger.create({
+                    trigger: dotsRefs.current[index],
+                    start: 'top center+=100',
+                    toggleClass: {
+                         targets: dot,
+                         className: styles.appear,
+                    },
+                    toggleActions: 'play reverse play reverse',
+               })
+
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: dot,
+                         start: 'top center+=100',
+                         toggleActions: 'play none none reverse',
+                    },
+               })
+
+               timeline
+                    .from(dot, {
+                         duration: 0.5,
+                         ease: 'back.out(1.7)',
+                    })
+                    .from(
+                         [detailsContainer, imageContainer],
+                         {
+                              y: 50,
+                              opacity: 0,
+                              duration: 0.8,
+                              ease: 'power2.out',
+                              stagger: 0,
+                         },
+                         0,
+                    )
+
+               const nextLine = dot.nextElementSibling
+               if (nextLine && nextLine.classList.contains(styles.line)) {
+                    const nextDot = dotsRefs.current[index + 1]
+
+                    if (nextDot) {
+                         gsap.timeline({
+                              scrollTrigger: {
+                                   trigger: dot,
+                                   start: 'center center',
+                                   endTrigger: nextDot,
+                                   end: 'top center+=100',
+                                   scrub: 1,
+                              },
+                         }).fromTo(
+                              nextLine,
+                              {
+                                   scaleY: 0,
+                                   transformOrigin: 'top',
+                              },
+                              {
+                                   scaleY: 1,
+                                   duration: 1,
+                                   ease: 'none',
+                              },
+                         )
+                    }
+               }
+          })
+     }
+
+     useEffect(() => {
+          initial()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [])
+
      return (
           <section className={styles.maincon}>
                <Header
@@ -124,45 +235,44 @@ function SustainableGoals() {
                     }
                />
                <div className={styles.gridcon}>
-                    {windowWidth > 800 && (
+                    {windowWidth >= 800 && (
                          <div
-                              className={styles.time_line}
+                              className={`${styles.time_line}`}
                               style={{ position: 'relative', zIndex: 2 }}
                          >
                               {Array.from({ length: 7 }).map((_, index) => {
                                    return (
                                         <React.Fragment key={index}>
-                                             <div className={styles.dot}>
+                                             <div
+                                                  className={styles.dot}
+                                                  ref={(el: any) => (dotsRefs.current[index] = el)}
+                                             >
                                                   <div className={styles.md}>
                                                        <div className={styles.sd}></div>
                                                   </div>
                                              </div>
-                                             {index != 6 && <div className={styles.line}></div>}
+                                             {index != 6 && (
+                                                  <div
+                                                       className={`desktop-line ${styles.line}`}
+                                                  ></div>
+                                             )}
                                         </React.Fragment>
                                    )
                               })}
-
-                              {/* <div
-                                   className={`${styles.line} ${styles.draw_line}`}
-                                   style={{
-                                        background: 'red',
-                                        width: '2px',
-                                        height: '90%',
-                                        position: 'absolute',
-                                        zIndex: 1,
-                                   }}
-                              ></div> */}
                          </div>
                     )}
-                    {windowWidth <= 800 &&
+                    {windowWidth < 800 &&
                          Array.from({ length: 7 }).map((_, index) => {
                               return (
                                    <div
                                         key={index}
-                                        className={styles.timelineCont}
+                                        className={`${styles.timelineCont}`}
                                         style={{ gridRow: `${index + 1}/${index + 2}` }}
                                    >
-                                        <div className={styles.dot}>
+                                        <div
+                                             className={styles.dot}
+                                             ref={(el: any) => (dotsRefs.current[index] = el)}
+                                        >
                                              <div className={styles.md}>
                                                   <div className={styles.sd}></div>
                                              </div>
@@ -176,38 +286,99 @@ function SustainableGoals() {
                               <React.Fragment key={index}>
                                    {windowWidth <= 800 ? (
                                         <>
-                                             <div className={styles.details_con}>
-                                                  <Consumption data={item} />
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
+                                                  <Consumption data={item} isMobile={true} />
                                              </div>
                                         </>
                                    ) : index % 2 === 0 ? (
                                         <>
                                              <div
+                                                  ref={(el: any) =>
+                                                       (imageSectionRefs.current[index] = el)
+                                                  }
                                                   className={`${styles.image_con} ${styles.flexend}`}
                                              >
-                                                  <Image
-                                                       src={item.image}
-                                                       alt='icon'
-                                                       className={styles.image}
-                                                  />
+                                                  <div className={styles.image_section}>
+                                                       <Image
+                                                            src={item.canva}
+                                                            alt='icon'
+                                                            className={`${styles.canva}`}
+                                                       />
+                                                       <div
+                                                            className={styles.num}
+                                                            style={
+                                                                 {
+                                                                      '--hover-color': item.bgColor,
+                                                                 } as React.CSSProperties
+                                                            }
+                                                       >
+                                                            <Image
+                                                                 src={item.cardImg}
+                                                                 alt='icon'
+                                                                 className={`${styles.image} ${styles.img}`}
+                                                            />
+                                                            <h1 className={styles.numberText}>
+                                                                 #0{index + 1}
+                                                            </h1>
+                                                       </div>
+                                                  </div>
                                              </div>
-                                             <div className={styles.details_con}>
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
                                                   <Consumption data={item} />
                                              </div>
                                         </>
                                    ) : (
                                         <>
-                                             <div className={styles.details_con}>
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
                                                   <div className={styles.middleware}>
                                                        <Consumption data={item} />
                                                   </div>
                                              </div>
-                                             <div className={styles.image_con}>
-                                                  <Image
-                                                       src={item.image}
-                                                       alt='icon'
-                                                       className={styles.image}
-                                                  />
+                                             <div
+                                                  className={styles.image_con}
+                                                  ref={(el: any) =>
+                                                       (imageSectionRefs.current[index] = el)
+                                                  }
+                                             >
+                                                  <div className={styles.image_section}>
+                                                       <Image
+                                                            src={item.canva}
+                                                            alt='icon'
+                                                            className={`${styles.canva}`}
+                                                       />
+                                                       <div
+                                                            className={styles.num}
+                                                            style={
+                                                                 {
+                                                                      '--hover-color': item.bgColor,
+                                                                 } as React.CSSProperties
+                                                            }
+                                                       >
+                                                            <Image
+                                                                 src={item.cardImg}
+                                                                 alt='icon'
+                                                                 className={`${styles.image} ${styles.img} ${styles.revImg}`}
+                                                            />
+                                                            <h1 className={styles.numberText}>
+                                                                 #0{index + 1}
+                                                            </h1>
+                                                       </div>
+                                                  </div>
                                              </div>
                                         </>
                                    )}

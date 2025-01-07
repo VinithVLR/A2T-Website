@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './SustainableBusinessAlignment.module.scss'
 import Image from 'next/image'
 import bg_Image from '../../../assets/images/img_purpose_bg1.png'
@@ -14,33 +14,7 @@ import Consumption from '../consumption/Consumption'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
 
 const SustainableBusinessAlignment = () => {
-     const [isSmallScreen, setIsSmallScreen] = useState(false)
-     const [windowWidth, setWindowWidth] = useState(
-          typeof window != 'undefined' ? window.innerWidth : 0,
-     )
-
-     useEffect(() => {
-          if (typeof window != 'undefined') {
-               const handleResize = () => setWindowWidth(window.innerWidth)
-               window.addEventListener('resize', handleResize)
-               return () => window.removeEventListener('resize', handleResize)
-          }
-     }, [])
-
-     useEffect(() => {
-          const handleResize = () => {
-               setIsSmallScreen(window.innerWidth <= 768)
-          }
-
-          handleResize()
-          window.addEventListener('resize', handleResize)
-
-          return () => {
-               window.removeEventListener('resize', handleResize)
-          }
-     }, [])
-
-     let arr = [
+     const arr = [
           {
                no: 1,
                image: bg_Image,
@@ -72,6 +46,103 @@ const SustainableBusinessAlignment = () => {
                hoverColor: '#FDEAE1',
           },
      ]
+     const [windowWidth, setWindowWidth] = useState(
+          typeof window != 'undefined' ? window.innerWidth : 0,
+     )
+     const dotsRefs = useRef<HTMLDivElement[]>([])
+     const imageSectionRefs = useRef<HTMLDivElement[]>([])
+     const detailsContentRefs = useRef<HTMLDivElement[]>([])
+
+     useEffect(() => {
+          if (typeof window != 'undefined') {
+               const handleResize = () => setWindowWidth(window.innerWidth)
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
+          }
+     }, [])
+
+     const initialFunc = async () => {
+          const { gsap } = await import('gsap')
+          const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+          gsap.registerPlugin(ScrollTrigger)
+
+          // console.log('dot elements list', dots)
+          arr.forEach((each, index) => {
+               const dot = dotsRefs.current[index]
+               const detailsContainer = detailsContentRefs.current[index]
+               const imageContainer = imageSectionRefs.current[index]
+
+               if (!detailsContainer) return
+
+               ScrollTrigger.create({
+                    trigger: dotsRefs.current[index],
+                    start: 'top center+=100',
+                    toggleClass: {
+                         targets: dot,
+                         className: styles.appear,
+                    },
+                    toggleActions: 'play reverse play reverse',
+               })
+
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: dot,
+                         start: 'top center+=100',
+                         toggleActions: 'play none none reverse',
+                    },
+               })
+
+               timeline
+                    .from(dot, {
+                         duration: 0.5,
+                         ease: 'back.out(1.7)',
+                    })
+                    .from(
+                         [detailsContainer, imageContainer],
+                         {
+                              y: 50,
+                              opacity: 0,
+                              duration: 0.8,
+                              ease: 'power2.out',
+                              stagger: 0,
+                         },
+                         0,
+                    )
+
+               const nextLine = dot.nextElementSibling
+               if (nextLine && nextLine.classList.contains(styles.line)) {
+                    const nextDot = dotsRefs.current[index + 1]
+
+                    if (nextDot) {
+                         gsap.timeline({
+                              scrollTrigger: {
+                                   trigger: dot,
+                                   start: 'center center',
+                                   endTrigger: nextDot,
+                                   end: 'top center+=100',
+                                   scrub: 1,
+                              },
+                         }).fromTo(
+                              nextLine,
+                              {
+                                   scaleY: 0,
+                                   transformOrigin: 'top',
+                              },
+                              {
+                                   scaleY: 1,
+                                   duration: 1,
+                                   ease: 'none',
+                              },
+                         )
+                    }
+               }
+          })
+     }
+
+     useEffect(() => {
+          initialFunc()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [])
 
      return (
           <section className={styles.main_container}>
@@ -95,7 +166,10 @@ const SustainableBusinessAlignment = () => {
                               {Array.from({ length: 3 }).map((_, index) => {
                                    return (
                                         <React.Fragment key={index}>
-                                             <div className={styles.dot}>
+                                             <div
+                                                  className={styles.dot}
+                                                  ref={(el: any) => (dotsRefs.current[index] = el)}
+                                             >
                                                   <div className={styles.md}>
                                                        <div className={styles.sd}></div>
                                                   </div>
@@ -104,17 +178,6 @@ const SustainableBusinessAlignment = () => {
                                         </React.Fragment>
                                    )
                               })}
-
-                              {/* <div
-                                   className={`${styles.line} ${styles.draw_line}`}
-                                   style={{
-                                        background: 'red',
-                                        width: '2px',
-                                        height: '90%',
-                                        position: 'absolute',
-                                        zIndex: 1,
-                                   }}
-                              ></div> */}
                          </div>
                     )}
                     {windowWidth <= 800 &&
@@ -125,7 +188,10 @@ const SustainableBusinessAlignment = () => {
                                         className={styles.timelineCont}
                                         style={{ gridRow: `${index + 1}/${index + 2}` }}
                                    >
-                                        <div className={styles.dot}>
+                                        <div
+                                             className={styles.dot}
+                                             ref={(el: any) => (dotsRefs.current[index] = el)}
+                                        >
                                              <div className={styles.md}>
                                                   <div className={styles.sd}></div>
                                              </div>
@@ -139,14 +205,22 @@ const SustainableBusinessAlignment = () => {
                               <React.Fragment key={index}>
                                    {windowWidth <= 800 ? (
                                         <>
-                                             <div className={styles.details_con}>
-                                                  <Consumption data={item} />
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
+                                                  <Consumption data={item} isMobile />
                                              </div>
                                         </>
                                    ) : index % 2 === 0 ? (
                                         <>
                                              <div
                                                   className={`${styles.image_con} ${styles.flexend}`}
+                                                  ref={(el: any) =>
+                                                       (imageSectionRefs.current[index] = el)
+                                                  }
                                              >
                                                   <Image
                                                        src={item?.image}
@@ -159,18 +233,33 @@ const SustainableBusinessAlignment = () => {
                                                        className={styles.bgImage}
                                                   />
                                              </div>
-                                             <div className={styles.details_con}>
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
                                                   <Consumption data={item} />
                                              </div>
                                         </>
                                    ) : (
                                         <>
-                                             <div className={styles.details_con}>
+                                             <div
+                                                  className={styles.details_con}
+                                                  ref={(el: any) =>
+                                                       (detailsContentRefs.current[index] = el)
+                                                  }
+                                             >
                                                   <div className={styles.middleware}>
                                                        <Consumption data={item} />
                                                   </div>
                                              </div>
-                                             <div className={styles.image_con}>
+                                             <div
+                                                  className={styles.image_con}
+                                                  ref={(el: any) =>
+                                                       (imageSectionRefs.current[index] = el)
+                                                  }
+                                             >
                                                   <Image
                                                        src={item?.image}
                                                        alt='icon'

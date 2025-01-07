@@ -14,23 +14,9 @@ const inter = Inter({
      style: ['normal'],
 })
 
-const Consumption = ({ data }: any) => {
+const Consumption = ({ data, isMobile }: any) => {
      const title = data?.title
      const des = data?.description
-
-     const [windowWidth, setWindowWidth] = useState(
-          typeof window != 'undefined' ? window.innerWidth : 0,
-     )
-
-     const containerRef = useRef<HTMLDivElement>(null)
-
-     useEffect(() => {
-          if (typeof window != 'undefined') {
-               const handleResize = () => setWindowWidth(window.innerWidth)
-               window.addEventListener('resize', handleResize)
-               return () => window.removeEventListener('resize', handleResize)
-          }
-     }, [])
 
      return (
           <section className={`${styles.consumption} ${inter.className}`}>
@@ -40,7 +26,7 @@ const Consumption = ({ data }: any) => {
                     </div>
                     <MainPara className={`${styles.para} ${styles.regularText}`}>{des}</MainPara>
                </div>
-               {windowWidth <= 768 ? (
+               {isMobile ? (
                     <div className={styles.mob_img_wrp}>
                          <Image src={data?.image} alt='icon' className={styles.image} />
                          <Image src={data?.bgImage} alt='icon' className={styles.bgImage} />

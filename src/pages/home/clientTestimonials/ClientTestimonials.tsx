@@ -127,7 +127,7 @@ const ClientTestimonials = () => {
                          }}
                     >
                          {arr.map((data: any, index: any) => (
-                              <CarousCard key={data.title} indexNumber={index} item={data} />
+                              <CarousCard key={index} indexNumber={index} item={data} />
                          ))}
                     </div>
                </div>

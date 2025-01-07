@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styles from './OurOpportunities.module.scss'
 import Header from '@/component/header/Header'
 import SearchInput from '@/component/searchInput/SearchInput'
@@ -42,7 +42,7 @@ const OurOpportunities = () => {
           },
      ])
 
-     const jobsList: any = [
+     const jobsList = [
           {
                title: 'Mechanical Engineer',
                location: 'Mumbai',
@@ -69,6 +69,65 @@ const OurOpportunities = () => {
      const [totalPage, setTotalPage] = useState(8)
      const [currentPage, setCurrentPage] = useState(1)
 
+     const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+     const listContainerRef = useRef<HTMLDivElement | null>(null)
+
+     useEffect(() => {
+          const initAnimation = async () => {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+
+               if (!listContainerRef.current || cardRefs.current.length === 0) return
+
+               // Reset any existing animations
+               gsap.set(cardRefs.current, {
+                    clearProps: 'all',
+               })
+
+               const firstCardRect = cardRefs.current[0]?.getBoundingClientRect()
+               const firstCardTop = firstCardRect?.top || 0
+
+               cardRefs.current.forEach((card, index) => {
+                    if (!card) return
+
+                    if (index === 0) {
+                         gsap.set(card, {
+                              opacity: 0,
+                              y: 0,
+                         })
+                    } else {
+                         gsap.set(card, {
+                              opacity: 0,
+                              y: -(index * card.offsetHeight),
+                         })
+                    }
+               })
+
+               const tl = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: listContainerRef.current,
+                         start: 'top center+=100',
+                    },
+               })
+
+               cardRefs.current.forEach((card, index) => {
+                    tl.to(
+                         card,
+                         {
+                              opacity: 1,
+                              y: 0,
+                              duration: 0.6,
+                              ease: 'power2.out',
+                         },
+                         0,
+                    )
+               })
+          }
+
+          initAnimation()
+     }, [])
+
      return (
           <section className={styles.mainContainer}>
                <Header title={'Our Current Opportunities'} titleStyle={{ width: '65%' }} />
@@ -80,17 +139,20 @@ const OurOpportunities = () => {
                               style={styles.searchInput}
                          />
                     </div>
-                    <div className={styles.listContainer}>
-                         {jobsList.map((job: any, index: number) => {
-                              return (
-                                   <React.Fragment key={index}>
-                                        <OpportunityCard data={job} />
-                                        {index != jobsList.length - 1 && (
-                                             <div className={styles.horizontalRule}></div>
-                                        )}
-                                   </React.Fragment>
-                              )
-                         })}
+                    <div className={styles.listContainer} ref={listContainerRef}>
+                         {jobsList.map((job: any, index: number) => (
+                              <React.Fragment key={index}>
+                                   <OpportunityCard
+                                        data={job}
+                                        ref={(el) => {
+                                             cardRefs.current[index] = el
+                                        }}
+                                   />
+                                   {index !== jobsList.length - 1 && (
+                                        <div className={styles.horizontalRule}></div>
+                                   )}
+                              </React.Fragment>
+                         ))}
                     </div>
                     <div className={styles.paginationContainer}>
                          <Pagination

@@ -1,42 +1,34 @@
 @import '../../scss/abstracts/variable.scss';
 
-
 .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    font-family: 'inter';
-    margin-block: 1rem;
-    max-width: 1750px;
-    margin: auto;
-    position: relative;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 50px;
+     font-family: 'inter';
+     max-width: 1750px;
+     margin: auto;
+     margin-block: 2rem;
+     position: relative;
 }
 
 .text {
-    background-color: #263B86;
-    color: white;
-    padding-block: 0.8rem;
-    padding-inline: 1rem;
-    border-radius: 25px;
-    font-size: $font-16px;
-    position: absolute;
-    font-weight: $font-weight-sem-bold;
-    animation: fadeIn 1s ease-in-out forwards;
-    z-index: 2;
+     background-color: #263b86;
+     color: white;
+     padding-block: 0.8rem;
+     padding-inline: 1.5rem;
+     border-radius: 25px;
+     font-size: 1.2rem;
+     position: absolute;
+     font-weight: $font-weight-sem-bold;
+     animation: fadeIn 1s ease-in-out forwards;
+     z-index: 2;
 }
-
 
 .line_left {
-    width: 50%;
-    height: 15%;
-    background-color: #263B86;
-    position: relative;
-}
-
-.line_right {
-    width: 50%;
-    height: 15%;
-    background-color: #263B86;
-    position: relative;
+     width: 100%;
+     height: 0.45rem;
+     background-color: #263b86;
+     position: relative;
+     border: none;
 }
