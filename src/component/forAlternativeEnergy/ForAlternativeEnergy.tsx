@@ -15,7 +15,7 @@ const ForAlternativeEnergy = ({ title, id }: any) => {
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: detailsRef.current,
-                         start: 'top center+=100',
+                         start: 'bottom center+=200',
                          toggleActions: 'play none none none',
                     },
                })

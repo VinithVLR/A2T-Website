@@ -12,6 +12,10 @@ import mailIc from '../../assets/icons/ic_mail_nav.svg'
 import callIc from '../../assets/icons/ic_call.svg'
 import fbIc from '../../assets/icons/ic_fb.svg'
 import instaIc from '../../assets/icons/ic_insta.svg'
+import ActiveLinkedIc from '../../assets/icons/ic_linkedin_active.svg'
+import Activex from '../../assets/icons/ic_x_active.svg'
+import ActiveInstaIc from '../../assets/icons/ic_insta_active.svg'
+import ActiveFbIc from '../../assets/icons/ic_fb_active.svg'
 
 interface NavItem {
      label: string
@@ -624,6 +628,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
      const [activeMenu, setActiveMenu] = useState('')
      const [acitveSubMenu, setActiveSubMenu] = useState(0)
      const [isScrolledLanding, setIsScrolledLanding] = useState(false)
+     const [socialLinkHover, setSocialLinkHover] = useState('')
      const menuBarRef: any = useRef(null)
      const gridContRef: any = useRef(null)
 
@@ -663,6 +668,10 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
      const handleNavigation = () => {
           router.push('/contact-us')
           setIsOpen(false)
+     }
+
+     const onSocailLinkHover = (key: string) => {
+          setSocialLinkHover(key)
      }
 
      useEffect(() => {
@@ -780,31 +789,35 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                >
                     <ul className={styles.mainnav}>
                          <Link href={'/manpower-services'}>
-                              <li>
+                              <li style={{ opacity: pathname == '/manpower-services' ? 0.6 : 1 }}>
                                    <span>01</span>
                                    <h1>Manpower solutions</h1>
                               </li>
                          </Link>
                          <Link href={'/engineering-services'}>
-                              <li>
+                              <li
+                                   style={{
+                                        opacity: pathname == '/engineering-services' ? 0.6 : 1,
+                                   }}
+                              >
                                    <span>02</span>
                                    <h1>Engineering services</h1>
                               </li>
                          </Link>
                          <Link href={'/fleet-management'}>
-                              <li>
+                              <li style={{ opacity: pathname == '/fleet-management' ? 0.6 : 1 }}>
                                    <span>03</span>
                                    <h1>Fleet management service</h1>
                               </li>
                          </Link>
                          <Link href={'/esg-sustainability'}>
-                              <li>
+                              <li style={{ opacity: pathname == '/esg-sustainability' ? 0.6 : 1 }}>
                                    <span>04</span>
                                    <h1>ESG & Sustainability</h1>
                               </li>
                          </Link>
                          <Link href={'/business-consult'}>
-                              <li>
+                              <li style={{ opacity: pathname == '/business-consult' ? 0.6 : 1 }}>
                                    <span>05</span>
                                    <h1>Business Consulting</h1>
                               </li>
@@ -813,25 +826,25 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                     <div className={styles.sidenav}>
                          <ul>
                               <Link href={'/about-us'}>
-                                   <li>
+                                   <li style={{ opacity: pathname == '/about-us' ? 0.6 : 1 }}>
                                         <span>06</span>
                                         <h1>About us</h1>
                                    </li>
                               </Link>
                               <Link href={'/services'}>
-                                   <li>
+                                   <li style={{ opacity: pathname == '/services' ? 0.6 : 1 }}>
                                         <span>07</span>
                                         <h1>Services</h1>
                                    </li>
                               </Link>
                               <Link href={'/purpose'}>
-                                   <li>
+                                   <li style={{ opacity: pathname == '/purpose' ? 0.6 : 1 }}>
                                         <span>08</span>
                                         <h1>Purpose</h1>
                                    </li>
                               </Link>
                               <Link href={'/careers'}>
-                                   <li>
+                                   <li style={{ opacity: pathname == '/careers' ? 0.6 : 1 }}>
                                         <span>09</span>
                                         <h1>Careers</h1>
                                    </li>
@@ -850,20 +863,66 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               </Link> */}
                          </ul>
                          <div className={styles.socialLinkCont}>
-                              <Link href={'https://www.linkedin.com/in/ntarun/'} target='_blank'>
-                                   <Image priority src={linkedinIc} alt='' />
+                              <Link
+                                   href={'https://www.linkedin.com/in/ntarun/'}
+                                   target='_blank'
+                                   onMouseEnter={() => {
+                                        onSocailLinkHover('linkedIn')
+                                   }}
+                                   onMouseLeave={() => setSocialLinkHover('')}
+                              >
+                                   <Image
+                                        priority
+                                        src={
+                                             socialLinkHover == 'linkedIn'
+                                                  ? ActiveLinkedIc
+                                                  : linkedinIc
+                                        }
+                                        alt=''
+                                   />
                               </Link>
 
-                              <Link href={''}>
-                                   <Image priority src={xIc} alt='' style={{ marginTop: '5px' }} />
+                              <Link
+                                   href={''}
+                                   onMouseEnter={() => {
+                                        onSocailLinkHover('x')
+                                   }}
+                                   onMouseLeave={() => setSocialLinkHover('')}
+                              >
+                                   <Image
+                                        priority
+                                        src={socialLinkHover == 'x' ? Activex : xIc}
+                                        alt=''
+                                        style={{ marginTop: '5px' }}
+                                   />
                               </Link>
 
-                              <Link href={''}>
-                                   <Image priority src={instaIc} alt='' />
+                              <Link
+                                   href={''}
+                                   onMouseEnter={() => {
+                                        onSocailLinkHover('insta')
+                                   }}
+                                   onMouseLeave={() => setSocialLinkHover('')}
+                              >
+                                   <Image
+                                        priority
+                                        src={socialLinkHover == 'insta' ? ActiveInstaIc : instaIc}
+                                        alt=''
+                                   />
                               </Link>
 
-                              <Link href={''}>
-                                   <Image priority src={fbIc} alt='' />
+                              <Link
+                                   href={''}
+                                   onMouseEnter={() => {
+                                        onSocailLinkHover('fb')
+                                   }}
+                                   onMouseLeave={() => setSocialLinkHover('')}
+                              >
+                                   <Image
+                                        priority
+                                        src={socialLinkHover == 'fb' ? ActiveFbIc : fbIc}
+                                        alt=''
+                                   />
                               </Link>
                          </div>
                          <button
