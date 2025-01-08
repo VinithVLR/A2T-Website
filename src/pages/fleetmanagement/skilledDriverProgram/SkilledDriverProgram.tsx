@@ -30,7 +30,11 @@ const SkilledDriverProgram = () => {
      ]
 
      return (
-          <section id='driver-training' className={styles.main_container}>
+          <section
+               id='driver-training'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Skilled Driver Training and Deployment

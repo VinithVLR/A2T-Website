@@ -3,9 +3,13 @@
 
 .landing_Solutions {
     padding-inline: 2rem;
-    padding-block: 4rem;
+    padding-block-end: 2rem;
     max-width: 1800px;
     margin: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     .flex_con {
         display: flex;
@@ -132,6 +136,9 @@
 
 @media (max-width: 768px) {
     .landing_Solutions {
+        padding-block-end: 2rem;
+        height: auto;
+
         .flex_con {
             flex-direction: column;
         }
@@ -174,6 +181,9 @@
 
 @media (max-width: 576px) {
     .landing_Solutions {
+        padding-block-end: 2rem;
+        height: auto;
+
         .flex_con {
             flex-direction: column;
         }

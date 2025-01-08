@@ -46,7 +46,11 @@ const FleetSolutions = () => {
           },
      ]
      return (
-          <section id='fleet-solutions' className={styles.main_container}>
+          <section
+               id='fleet-solutions'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          End-to-End Fleet Solutions Tailored to Your Needs
