@@ -42,16 +42,20 @@
                 .img_index_top {
                     width: 40%;
                     transform: translateX(8rem) translateY(2rem);
+                    max-width: 600px;
+
                 }
 
                 .img_index_right {
                     width: 40%;
-                    transform: translateX(23rem) translateY(0rem)
+                    transform: translateX(23rem) translateY(0rem);
+                    max-width: 600px;
                 }
 
                 .img_index_left {
                     width: 40%;
-                    transform: translateX(2rem) translateY(-11rem),
+                    transform: translateX(2rem) translateY(-11rem);
+                    max-width: 600px;
                 }
 
                 .img_wrapper_absolute {
@@ -71,6 +75,7 @@
                         z-index: 0;
                         position: relative;
                         border-radius: 10px;
+                        max-width: 600px;
                     }
 
                     .img_right_con {
@@ -80,6 +85,7 @@
                         position: relative;
                         transform: translateY(-11rem) translateX(9rem);
                         border-radius: 7px;
+                        max-width: 600px;
                     }
 
                     .img_left_con {
@@ -89,6 +95,7 @@
                         position: relative;
                         transform: translateY(-4rem);
                         border-radius: 20px;
+                        max-width: 600px;
                     }
                 }
             }
