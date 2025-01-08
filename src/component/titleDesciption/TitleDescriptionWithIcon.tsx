@@ -72,7 +72,6 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                                    : { x: rowReverse ? '-30%' : '30%' }),
 
                               opacity: 0,
-                              overflow: 'hidden',
                          },
                          {
                               ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),

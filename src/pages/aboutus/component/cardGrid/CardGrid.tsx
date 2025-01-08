@@ -64,6 +64,7 @@ const CardGrid = () => {
                     { x: '10%', y: '30%', opacity: 0, rotate: -10 },
                     {
                          x: '0%',
+                         y: 0,
                          opacity: 1,
                          rotate: 0,
                          duration: 0.7,

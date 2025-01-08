@@ -17,6 +17,7 @@ interface ButtonProps {
      iconStyle?: React.CSSProperties
      className?: string
      iconleft?: string
+     ref?: any
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -32,6 +33,7 @@ const Button: React.FC<ButtonProps> = ({
      iconStyle,
      className = '',
      iconleft,
+     ref,
 }) => {
      return (
           <button

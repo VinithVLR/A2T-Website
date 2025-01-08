@@ -5,7 +5,8 @@
     height: auto;
     padding-inline: $layout_row_padding;
     background-color: $color-white;
-    padding-block: 4rem;
+    padding-block-end: 5rem;
+    padding-block-start: 4rem;
     max-width: 1800px;
     margin: auto;
 
@@ -36,6 +37,11 @@
     .sec_con {
         .content_Wrapper {
             flex-direction: column;
+
+            .details_con {
+                padding-block-start: 2rem;
+                width: 80%;
+            }
         }
     }
 }

@@ -125,7 +125,10 @@ const ClientTestimonials = () => {
 
      return (
           <section className={styles.main_container}>
-               <Header title='Hear What Our Clients Say' titleStyle={{ width: '30%' }} />
+               <Header
+                    title='Hear What Our Clients Say'
+                    titleStyle={{ width: '30%', paddingBlockEnd: '2rem' }}
+               />
                <div className={styles.wrapper}>
                     <Swiper
                          spaceBetween={20}

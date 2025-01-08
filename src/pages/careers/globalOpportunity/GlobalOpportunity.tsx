@@ -58,7 +58,7 @@ function GlobalOpportunity() {
                     <Header
                          title={'Unlock Your Potential with Global Opportunities'}
                          containerStyle={styles.headerContainer}
-                         titleStyle={{ width: '65%', textAlign: 'left', marginBottom: '0px' }}
+                         titleStyle={{ width: '100%', textAlign: 'left', marginBottom: '0px' }}
                     />
                     <SearchInput placeHolder='Search a course name' style={styles.searchInput} />
                </div>

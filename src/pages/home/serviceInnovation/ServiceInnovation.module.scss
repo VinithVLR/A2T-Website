@@ -9,17 +9,20 @@
     padding-inline: 2rem;
     background-color: $color-grey-light-1;
     padding-block-end: 5rem;
+    padding-block-start: 4rem;
 
 }
 
 @media (max-width: 768px) {
     .main_container {
+        padding-block-start: 2rem;
         padding-block-end: 4rem;
     }
 }
 
 @media (max-width: 576px) {
     .main_container {
+        padding-block-start: 2rem;
         padding-block-end: 4rem;
     }
 }
