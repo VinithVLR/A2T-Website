@@ -60,7 +60,7 @@ const page = () => {
                     data={
                          <>
                               Are you looking for <span>Innovative engineering Solutions?</span> or
-                              <span>expert workforce management?</span> or a partner committed to
+                              <span> expert workforce management?</span> or a partner committed to
                               <span> sustainability?</span>
                          </>
                     }

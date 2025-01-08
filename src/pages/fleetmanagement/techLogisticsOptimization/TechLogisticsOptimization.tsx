@@ -32,7 +32,11 @@ const TechLogisticsOptimization = () => {
      ]
 
      return (
-          <section id='technology-driven-logistics-optimization' className={styles.main_container}>
+          <section
+               id='technology-driven-logistics-optimization'
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Technology-Driven Logistics Optimization

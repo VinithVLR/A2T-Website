@@ -32,7 +32,11 @@ const GlobalLocalExpertise = () => {
      ]
 
      return (
-          <section id={'global-reach-and-local-expertise'} className={styles.main_container}>
+          <section
+               id={'global-reach-and-local-expertise'}
+               className={styles.main_container}
+               style={{ backgroundColor: '#fff' }}
+          >
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
                          Global Reach and Local Expertise

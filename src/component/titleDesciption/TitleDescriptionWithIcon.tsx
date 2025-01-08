@@ -77,8 +77,8 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          {
                               ...(windowWidth <= 768 ? { y: '0%' } : { x: '0%' }),
                               opacity: 1,
-                              duration: 1,
-                              ease: 'power3.out',
+                              duration: 1.2,
+                              ease: 'power2.inOut',
                               scrollTrigger: {
                                    trigger: detailsRef.current,
                                    ...(windowWidth <= 768
