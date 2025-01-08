@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google'
 import thumb_nail from '../../assets/images/img_contact_thumb.png'
 import Spinner from '../spinner/Spinner'
 import { MainHeading, MainPara } from '../typography/Typography'
+import playBtn from '../../assets/icons/ic_play_btn.png'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '600', '800'],
@@ -118,6 +119,9 @@ const PrimaryLanding = ({
                                                        width={300}
                                                        height={200}
                                                   />
+                                                  <div className={styles.playbtn}>
+                                                       <Image src={playBtn} alt='Play btn' />
+                                                  </div>
                                              </div>
                                         </div>
                                    )}

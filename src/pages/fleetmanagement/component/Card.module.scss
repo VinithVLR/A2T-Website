@@ -1,82 +1,82 @@
 @import '../../../scss/abstracts/variable.scss';
 
 .card_con {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    text-align: left;
-    font-family: 'inter';
+     display: flex;
+     flex-direction: column;
+     align-items: left;
+     text-align: left;
+     font-family: 'inter';
 
-    .imageContainer {
-        position: relative;
-        width: 100%;
-        // max-width: 400px;
-        height: 250px;
-        overflow: hidden;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+     .imageContainer {
+          position: relative;
+          width: 100%;
+          // max-width: 400px;
+          height: 250px;
+          overflow: hidden;
+          border-radius: 8px;
+          margin-bottom: 1rem;
 
-        .image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+          .image {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+          }
+     }
 
-    .textContainer {
-        max-width: 600px;
-        text-align: start;
+     .textContainer {
+          max-width: 600px;
+          text-align: start;
 
-        .title {
-            font-size: 1.7rem;
-            font-weight: $font-weight-sem-bold;
-            color: #111;
-            padding-block: 1rem;
-        }
+          .title {
+               font-size: 1.7rem;
+               font-weight: $font-weight-sem-bold;
+               color: #111;
+               padding-block: 1rem;
+          }
 
-        .description {
-            font-size: $font-16px;
-            font-weight: 400;
-            color: #555;
-            width: 90%;
-        }
+          .desc {
+               font-size: $font-16px;
+               font-weight: 400;
+               color: #797681;
+               width: 90%;
+          }
 
-        ul {
-            padding-inline-start: 1rem;
+          ul {
+               padding-inline-start: 1rem;
 
-            li {
-                color: $sub-heading;
-            }
-        }
-    }
+               li {
+                    color: $sub-heading;
+               }
+          }
+     }
 }
 
 @media (max-width: 768px) {
-    .card_con {
-        .textContainer {
-            .title {
-                font-size: 16px;
-            }
+     .card_con {
+          .textContainer {
+               .title {
+                    font-size: 16px;
+               }
 
-            .desc {
-                font-size: 1.25rem;
-                color: $sub-heading;
-            }
-        }
-    }
+               .desc {
+                    font-size: 1.25rem;
+                    color: $sub-heading;
+               }
+          }
+     }
 }
 
 @media (max-width: 576px) {
-    .card_con {
-        .textContainer {
-            .title {
-                font-size: 16px;
-            }
+     .card_con {
+          .textContainer {
+               .title {
+                    font-size: 16px;
+               }
 
-            .desc {
-                font-size: 1.25rem;
-                color: $sub-heading;
-            }
-        }
-    }
+               .desc {
+                    font-size: 1.25rem;
+                    color: $sub-heading;
+               }
+          }
+     }
 }

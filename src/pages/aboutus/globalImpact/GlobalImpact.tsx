@@ -36,8 +36,7 @@ const GlobalImpact = () => {
                               ease: 'power3.out',
                               scrollTrigger: {
                                    trigger: cardRef.current,
-                                   start: 'top 50%',
-                                   end: 'bottom 20%',
+                                   start: 'top center+=100',
                                    toggleActions: 'play none none none',
                               },
                          },

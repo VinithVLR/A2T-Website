@@ -54,12 +54,22 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: detailsRef.current,
-                         start: 'top 50%',
-                         end: 'bottom 20%',
+                         start: 'top center',
+                         // end: 'bottom 20%',
                          toggleActions: 'play none none none',
                     },
                })
                timeline
+                    .fromTo(
+                         imageSectionRef.current,
+                         {
+                              opacity: 0,
+                         },
+                         {
+                              opacity: 1,
+                              duration: 0.3,
+                         },
+                    )
                     .fromTo(
                          imgWrapperRef.current,
                          {
@@ -71,6 +81,7 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                               scale: 1,
                               duration: 1,
                          },
+                         0,
                     )
                     .fromTo(
                          detailsRef.current,

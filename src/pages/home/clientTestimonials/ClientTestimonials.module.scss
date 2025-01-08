@@ -43,10 +43,11 @@
                     height: 5px;
                     border-radius: 10px;
                     background-color: #0e7b68;
-                    transition: all 0.3s ease;
+                    transition: all 1.5s ease;
                     position: relative;
 
                     .counter {
+                         white-space: nowrap;
                          font-family: 'Inter';
                          font-weight: 600;
                          color: #0e7b68;

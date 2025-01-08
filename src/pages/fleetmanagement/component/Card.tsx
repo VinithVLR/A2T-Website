@@ -63,7 +63,7 @@ const Card: React.FC<cardPorps> = ({ imageUrl, title, description, link, index }
                          <ul className={styles.desc}>
                               {description.map((item, index) => (
                                    <li key={index} className={styles.bulletItem}>
-                                        {item}
+                                        <SecondaryPara>{item}</SecondaryPara>
                                    </li>
                               ))}
                          </ul>

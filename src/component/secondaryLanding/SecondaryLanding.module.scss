@@ -1,187 +1,177 @@
 @import '../../scss/abstracts/variable.scss';
 
 .main_con {
-    height: 100vh;
-    width: 100%;
-    padding-inline: 2rem;
-    padding-block: 4rem;
-    display: flex;
-    background-color: #F3F5FC;
-    font-family: var(--font-inter);
-    max-width: 1800px;
-    margin: auto;
+     height: 100vh;
+     width: 100%;
+     padding-inline: 2rem;
+     padding-block: 4rem;
+     display: flex;
+     background-color: #f3f5fc;
+     font-family: var(--font-inter);
+     max-width: 1800px;
+     margin: auto;
 
-    .image_section {
-        font-family: inherit;
-        flex: 0.6;
-        height: auto;
-        position: relative;
-        max-width: 450px;
-        margin: auto;
+     .image_section {
+          font-family: inherit;
+          flex: 0.6;
+          height: auto;
+          position: relative;
+          max-width: 450px;
+          margin: auto;
 
-        .image_wrapper {
-            width: 100%;
-            height: auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          .image_wrapper {
+               width: 100%;
+               height: auto;
+               position: relative;
+               display: flex;
+               align-items: center;
+               justify-content: center;
 
-            .image_ab_con {
-                position: absolute;
-                display: flex;
-                justify-content: center;
+               .image_ab_con {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
 
-                .img_ab {
-                    width: 90%;
-                    height: auto;
-                    object-fit: contain;
-                }
-            }
-        }
+                    .img_ab {
+                         width: 90%;
+                         height: auto;
+                         object-fit: contain;
+                    }
+               }
+          }
+     }
 
-    }
+     .image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+     }
 
-    .image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+     .details_section {
+          // flex: 0.6;
+          flex: 0.6;
 
-    .details_section {
-        // flex: 0.6;
-        flex: 0.6;
+          .con_wrapper {
+               height: 100%;
+               height: 100%;
+               padding-block-end: 1rem;
+               padding-block-start: 2rem;
+               padding-inline: 1.5rem;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               gap: 1.5rem;
 
-        .con_wrapper {
-            height: 100%;
-            height: 100%;
-            padding-block-end: 1rem;
-            padding-block-start: 2rem;
-            padding-inline: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1.5rem;
+               .heading {
+                    font-size: $heading-font-size;
+                    width: 95%;
+                    color: #011309;
+                    // line-height: 3.5rem;
+               }
 
+               .description {
+                    color: $color-des;
+                    width: 75%;
+                    font-size: $sub-heading-font-size;
+                    font-weight: $font-weight-regular;
+               }
+          }
+     }
 
-            .heading {
-                font-size: $heading-font-size;
-                width: 95%;
-                // line-height: 3.5rem;
+     &.reverse {
+          flex-direction: row-reverse;
 
-            }
-
-            .description {
-                color: $color-des;
-                width: 75%;
-                font-size: $sub-heading-font-size;
-                font-weight: $font-weight-regular ;
-            }
-
-
-
-        }
-
-    }
-
-    &.reverse {
-        flex-direction: row-reverse;
-
-        .details_section .con_wrapper .description {
-            width: 100%; // Adjust description width for reverse layout
-        }
-    }
+          .details_section .con_wrapper .description {
+               width: 100%; // Adjust description width for reverse layout
+          }
+     }
 }
 
 @media (max-width: 768px) {
-    .main_con {
-        flex-direction: column;
-        padding-block: 3rem;
-        gap: 2rem;
-        height: auto;
+     .main_con {
+          flex-direction: column;
+          padding-block: 3rem;
+          gap: 2rem;
+          height: auto;
 
-        .image_section {
-            max-width: 450px;
-            margin: auto;
+          .image_section {
+               max-width: 450px;
+               margin: auto;
 
-            .image_wrapper {
-                .image_ab_con {
-                    .img_ab {
-                        width: 90%;
-                        height: auto;
-                        object-fit: contain;
+               .image_wrapper {
+                    .image_ab_con {
+                         .img_ab {
+                              width: 90%;
+                              height: auto;
+                              object-fit: contain;
+                         }
                     }
-                }
-            }
-        }
+               }
+          }
 
-        .details_section {
-            padding-inline-start: 0rem !important;
+          .details_section {
+               padding-inline-start: 0rem !important;
 
-            .con_wrapper {
-                padding-inline: 0rem;
+               .con_wrapper {
+                    padding-inline: 0rem;
 
-                .heading {
-                    width: 100% !important;
-                    font-size: $default-font;
-                }
+                    .heading {
+                         width: 100% !important;
+                         font-size: $default-font;
+                    }
 
-                .description {
-                    width: 100% !important;
-                    font-size: 1.25rem;
-                }
-            }
-        }
+                    .description {
+                         width: 100% !important;
+                         font-size: 1.25rem;
+                    }
+               }
+          }
 
-        &.reverse {
-
-            flex-direction: column !important;
-
-        }
-    }
+          &.reverse {
+               flex-direction: column !important;
+          }
+     }
 }
 
 @media (max-width: 576px) {
-    .main_con {
-        flex-direction: column;
-        padding-block: 3rem;
-        gap: 2rem;
-        height: auto;
+     .main_con {
+          flex-direction: column;
+          padding-block: 3rem;
+          gap: 2rem;
+          height: auto;
 
-        .image_section {
-            .image_wrapper {
-                .image_ab_con {
-                    .img_ab {
-                        width: 90%;
-                        height: auto;
-                        object-fit: contain;
+          .image_section {
+               .image_wrapper {
+                    .image_ab_con {
+                         .img_ab {
+                              width: 90%;
+                              height: auto;
+                              object-fit: contain;
+                         }
                     }
-                }
-            }
-        }
+               }
+          }
 
-        .details_section {
-            padding-inline-start: 0rem !important;
+          .details_section {
+               padding-inline-start: 0rem !important;
 
-            .con_wrapper {
-                padding-inline: 0rem;
+               .con_wrapper {
+                    padding-inline: 0rem;
 
-                .heading {
-                    width: 100% !important;
-                    font-size: $default-font;
-                }
+                    .heading {
+                         width: 100% !important;
+                         font-size: $default-font;
+                    }
 
-                .description {
-                    width: 100% !important;
-                    font-size: 1.25rem;
-                }
-            }
-        }
+                    .description {
+                         width: 100% !important;
+                         font-size: 1.25rem;
+                    }
+               }
+          }
 
-        &.reverse {
-            flex-direction: column !important;
-
-
-        }
-    }
+          &.reverse {
+               flex-direction: column !important;
+          }
+     }
 }

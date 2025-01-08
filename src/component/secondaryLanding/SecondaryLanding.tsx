@@ -100,7 +100,11 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (
-                                        <li key={index} className={styles.bulletItem}>
+                                        <li
+                                             key={index}
+                                             className={styles.bulletItem}
+                                             style={{ color: '#797681' }}
+                                        >
                                              <MainPara>{item}</MainPara>
                                         </li>
                                    ))}

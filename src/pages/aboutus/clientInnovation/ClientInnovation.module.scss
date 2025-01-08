@@ -10,6 +10,10 @@
      margin: auto;
      background-color: #f3f5fc;
 
+     @media screen and (max-width: 768px) {
+          padding-inline: 0rem;
+     }
+
      .details_section {
           flex: 0.5;
           display: flex;
@@ -27,6 +31,10 @@
                align-items: flex-start;
                flex-direction: column;
                justify-content: center;
+
+               @media screen and (max-width: 768px) {
+                    padding-inline: 2rem;
+               }
 
                .title {
                     font-size: $font-50px;
@@ -54,7 +62,7 @@
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          padding-block: 10px;
+          // padding-block: 10px;
 
           @media screen and (max-width: 769px) {
                flex-direction: column;

@@ -137,6 +137,8 @@ const ClientTestimonials = () => {
                          onSwiper={(swiper) => {
                               setSwiperRef(swiper)
                          }}
+                         slidesPerGroup={maxIndex}
+                         speed={1500}
                          onSlideChange={(swiper) => {
                               setActive(swiper.activeIndex + maxIndex)
                          }}
@@ -167,7 +169,7 @@ const ClientTestimonials = () => {
                                    }
                               >
                                    <span className={styles.counter}>
-                                        {activeNum} / {12}
+                                        {activeNum / maxIndex} / {12 / maxIndex}
                                    </span>
                               </div>
                          </div>

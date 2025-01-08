@@ -355,9 +355,9 @@ const EducationEmpowerment = () => {
                                    <h4 className={styles.text_left} ref={abtextLeft}>
                                         PADIKKAL
                                    </h4>
-                                   <div className={styles.text_right} ref={abtextRight}>
-                                        <h4>FOUNDATION</h4>
-                                   </div>
+                                   <h4 className={styles.text_right} ref={abtextRight}>
+                                        FOUNDATION
+                                   </h4>
                               </div>
                          </div>
                     </div>

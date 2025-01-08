@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './ProjectConsultancy.module.scss'
 import OverlapImage from '@/component/overlapImage/OverlapImage'
 import bgImage from '../../../assets/images/img_layer_bg.png'
-import { MainHeading } from '@/component/typography/Typography'
+import { MainHeading, MainPara } from '@/component/typography/Typography'
 import firsLayerImg from '../../../assets/images/doubleimage/img_proj_ly1.png'
 import seconLayerImg from '../../../assets/images/doubleimage/img_proj_ly2.png'
 
@@ -16,12 +16,16 @@ const ProjectConsultancy = () => {
                          </MainHeading>
                          <ul className={styles.para}>
                               <li className={styles.bulletItem}>
-                                   Feasibility studies, financial analysis, and risk assessment for
-                                   large-scale energy and manufacturing projects.
+                                   <MainPara>
+                                        Feasibility studies, financial analysis, and risk assessment
+                                        for large-scale energy and manufacturing projects.
+                                   </MainPara>
                               </li>
                               <li className={styles.bulletItem}>
-                                   End-to-end project management for energy plant construction and
-                                   manufacturing facility setup.
+                                   <MainPara>
+                                        End-to-end project management for energy plant construction
+                                        and manufacturing facility setup.
+                                   </MainPara>
                               </li>
                          </ul>
                     </div>

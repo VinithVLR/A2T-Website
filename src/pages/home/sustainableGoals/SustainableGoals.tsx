@@ -38,7 +38,7 @@ import strongCanva from '../../../assets/images/sustainableGoals/canva_strong_in
 function SustainableGoals() {
      const arr = [
           {
-               no: 1,
+               no: '05',
                icon: ic_gender,
                title: 'Gender Equality',
                description:
@@ -48,9 +48,10 @@ function SustainableGoals() {
                hoverColor: '#FCE4E1',
                cardImg: genderCard,
                canva: genderCanva,
+               url: 'https://sdgs.un.org/goals/goal5',
           },
           {
-               no: 2,
+               no: '08',
                icon: ic_decentWork,
                title: 'Decent Work & Economic Growth',
                description:
@@ -60,9 +61,10 @@ function SustainableGoals() {
                hoverColor: '#F2DFE5',
                cardImg: workGrowthCard,
                canva: workGrowthCanva,
+               url: 'https://sdgs.un.org/goals/goal8',
           },
           {
-               no: 3,
+               no: '09',
                icon: ic_industry,
                title: 'Industry, innovation and infrastructure',
                description:
@@ -72,9 +74,10 @@ function SustainableGoals() {
                hoverColor: '#FDEAE1',
                cardImg: innovationCard,
                canva: innovationCanva,
+               url: 'https://sdgs.un.org/goals/goal9',
           },
           {
-               no: 4,
+               no: '10',
                icon: ic_inequal,
                title: 'Reduced Inequalities',
                description:
@@ -84,9 +87,10 @@ function SustainableGoals() {
                hoverColor: '#FADEED',
                cardImg: inequalitiesCard,
                canva: inequalitiesCanva,
+               url: 'https://sdgs.un.org/goals/goal10',
           },
           {
-               no: 5,
+               no: '12',
                icon: ic_com_product,
                title: 'Responsible Consumption & Production',
                description:
@@ -96,9 +100,10 @@ function SustainableGoals() {
                hoverColor: '#F6EFE1',
                cardImg: consumptionCard,
                canva: consumptionCanva,
+               url: 'https://sdgs.un.org/goals/goal12',
           },
           {
-               no: 6,
+               no: '13',
                icon: ic_climate,
                title: 'Climate action',
                description: 'Take urgent action to combat climatic change and its impacts.',
@@ -107,9 +112,10 @@ function SustainableGoals() {
                hoverColor: '#E4EDE5',
                cardImg: climateCard,
                canva: climateCanva,
+               url: 'https://sdgs.un.org/goals/goal13',
           },
           {
-               no: 7,
+               no: '16',
                icon: ic_institutions,
                title: 'Peace, Justice, & Strong Institutions',
                description:
@@ -119,6 +125,7 @@ function SustainableGoals() {
                hoverColor: '#DEEAF1',
                cardImg: strongCard,
                canva: strongCanva,
+               url: 'https://sdgs.un.org/goals/goal16',
           },
      ]
      const [windowWidth, setWindowWidth] = useState(0)
@@ -163,14 +170,14 @@ function SustainableGoals() {
                          targets: dot,
                          className: styles.appear,
                     },
-                    toggleActions: 'play reverse play reverse',
+                    toggleActions: 'play none none none',
                })
 
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: dot,
                          start: 'top center+=100',
-                         toggleActions: 'play none none reverse',
+                         toggleActions: 'play none none none',
                     },
                })
 
@@ -323,7 +330,7 @@ function SustainableGoals() {
                                                                  className={`${styles.image} ${styles.img}`}
                                                             />
                                                             <h1 className={styles.numberText}>
-                                                                 #0{index + 1}
+                                                                 #{item.no}
                                                             </h1>
                                                        </div>
                                                   </div>
@@ -375,7 +382,7 @@ function SustainableGoals() {
                                                                  className={`${styles.image} ${styles.img} ${styles.revImg}`}
                                                             />
                                                             <h1 className={styles.numberText}>
-                                                                 #0{index + 1}
+                                                                 #0{item.no}
                                                             </h1>
                                                        </div>
                                                   </div>
