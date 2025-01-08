@@ -4,7 +4,7 @@
      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
      .grid_item {
-          height: 20rem;
+          height: auto;
           background-color: #f4f4f4;
           padding: 20px;
           border-radius: 8px;

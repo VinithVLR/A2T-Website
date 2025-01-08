@@ -173,7 +173,7 @@ const ImageDesc = ({
                >
                     <div className={styles.details_con}>
                          <SecondaryHeading
-                              style={{ textAlign: rowReverse ? 'end' : undefined }}
+                              style={{ textAlign: rowReverse ? 'left' : undefined }}
                               className={styles.title}
                          >
                               {title}

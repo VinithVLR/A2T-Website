@@ -24,7 +24,8 @@ const EducationEmpowerment = () => {
      const imgAbRef4 = useRef(null)
      const abtextLeft = useRef(null)
      const abtextRight = useRef(null)
-
+     const labelRef = useRef(null)
+     const btnRef = useRef(null)
      const initialFunc = async () => {
           if (typeof window != 'undefined') {
                const { gsap } = await import('gsap')
@@ -208,6 +209,27 @@ const EducationEmpowerment = () => {
                          },
                     )
                }
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: labelRef.current,
+                         start: 'top 80%',
+                         end: 'bottom 20%',
+                         toggleActions: 'play none none none',
+                    },
+               })
+
+               timeline
+                    .fromTo(
+                         labelRef.current,
+                         { y: '80%', opacity: 0 },
+                         { y: '0%', opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    )
+                    .fromTo(
+                         btnRef.current,
+                         { y: '80%', opacity: 0 },
+                         { y: '0%', opacity: 1, duration: 0.8, ease: 'power2.out' },
+                         '<',
+                    )
           }
      }
 
@@ -219,18 +241,20 @@ const EducationEmpowerment = () => {
           <section className={styles.eduction_con}>
                <div className={styles.content_Wrapper}>
                     <div className={styles.details_con}>
-                         <Button
-                              label={'The Padikkal Foundation'}
-                              disabled={false}
+                         <div
+                              ref={labelRef}
                               style={{
-                                   height: '2rem',
+                                   height: 'auto',
+                                   width: 'fit-content',
                                    backgroundColor: '#0E7B68',
-                                   gap: '1rem',
-                                   marginBlock: '2rem',
+                                   color: '#fff',
+                                   paddingInline: '1rem',
+                                   paddingBlock: '0.5rem',
+                                   borderRadius: '20px',
                               }}
-                              loading={false}
-                              labestyle={{ marginLeft: '0px', fontSize: '0.9rem' }}
-                         />
+                         >
+                              The Padikkal Foundation
+                         </div>
                          <TitleDescriptionWithIcon
                               style={{ paddingInline: '0rem' }}
                               title={'Empowering Dreams Through Education'}
@@ -242,30 +266,32 @@ const EducationEmpowerment = () => {
                                    paddingInlineEnd: '3rem',
                               }}
                          />
-                         <Button
-                              label='Explore our Purpose'
-                              disabled={false}
-                              icon
-                              style={{
-                                   height: '3rem',
-                                   backgroundColor: '#0E7B68',
-                                   gap: '1rem',
-                                   borderRadius: '7px',
-                                   alignItems: 'center',
-                                   justifyContent: 'center',
-                                   marginBlock: '2rem',
-                              }}
-                              loading={false}
-                              labestyle={{
-                                   marginLeft: '0px',
-                                   fontSize: '1.125rem',
-                                   color: '#fff',
-                                   fontWeight: '400',
-                              }}
-                              onClick={() => {
-                                   router.push('/purpose')
-                              }}
-                         />
+                         <div ref={btnRef}>
+                              <Button
+                                   label='Explore our Purpose'
+                                   disabled={false}
+                                   icon
+                                   style={{
+                                        height: '3rem',
+                                        backgroundColor: '#0E7B68',
+                                        gap: '1rem',
+                                        borderRadius: '7px',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        marginBlock: '2rem',
+                                   }}
+                                   loading={false}
+                                   labestyle={{
+                                        marginLeft: '0px',
+                                        fontSize: '1.125rem',
+                                        color: '#fff',
+                                        fontWeight: '400',
+                                   }}
+                                   onClick={() => {
+                                        router.push('/purpose')
+                                   }}
+                              />
+                         </div>
                     </div>
                     <div className={styles.image_section}>
                          <div className={styles.img_wrapper_index}>
