@@ -9,12 +9,27 @@ import PadikalFoundation from '@/pages/careers/padikalFoundation/PadikalFoundati
 import GlobalOpportunity from '@/pages/careers/globalOpportunity/GlobalOpportunity'
 import CallToAction from '@/component/calltoaction/CallToAction'
 
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+
+export const metadata: Metadata = {
+     title: 'Careers',
+     description: 'Be a part of a Dynamic & Innovative Workforce.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/careers',
+     },
+}
+
 const page = () => {
      return (
           <React.Fragment>
-               <PrimaryLanding
+               <PrimaryLanding2
                     isReverse
                     title='Careers'
+                    style={{
+                         justifyContent: 'center',
+                         gap: '2rem',
+                    }}
                     heading={
                          <>
                               Be a part of a <span>Dynamic</span> <br /> & <span>Innovative</span>{' '}

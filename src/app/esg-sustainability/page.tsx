@@ -8,11 +8,23 @@ import ClimateActionTracker from '@/pages/sustainability/climateActionTracker/Cl
 import EmergingBusinessESG from '@/pages/sustainability/emergingBusinessESG/EmergingBusinessESG'
 import CallToAction from '@/component/calltoaction/CallToAction'
 import Wrapper from '../Wrapper'
+
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+
+export const metadata: Metadata = {
+     title: 'ESG & Sustainability Services',
+     description: 'Empowering Sustainable Growth Through Comprehensive ESG Strategies.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/esg-sustainability',
+     },
+}
+
 const page = () => {
      return (
           <Wrapper>
                <React.Fragment>
-                    <PrimaryLanding
+                    <PrimaryLanding2
                          title='ESG & Sustainability Services'
                          isThumbnailHidden
                          style={{

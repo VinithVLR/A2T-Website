@@ -13,11 +13,26 @@ import CallToAction from '@/component/calltoaction/CallToAction'
 import EducationEmpowerment from '@/pages/aboutus/educationEmpowerment/EducationEmpowerment'
 import SecondaryLanding from '@/component/secondaryLanding/SecondaryLanding'
 import OurJourney from '@/pages/aboutus/ourJourney/OurJourney'
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+
+export const metadata: Metadata = {
+     title: 'About us',
+     description: 'Innovative Solutions for a Sustainable & Impactful Future.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/about-us',
+     },
+}
+
 const page = () => {
      return (
           <React.Fragment>
-               <PrimaryLanding
+               <PrimaryLanding2
                     title='About us'
+                    style={{
+                         justifyContent: 'flex-end',
+                         gap: '2rem',
+                    }}
                     heading={
                          <>
                               Innovative Solutions for a <span>Sustainable</span> & Impactful Future

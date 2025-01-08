@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /_next/
+
+Sitemap: https://prakashrg09.github.io/a2t-technologies/

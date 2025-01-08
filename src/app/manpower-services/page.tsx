@@ -29,16 +29,28 @@ import ProjMgmtCoord from '@/pages/manpowerServices/projMgmtCoord/ProjMgmtCoord'
 import Specialists from '@/pages/manpowerServices/specialists/Specialists'
 import CallToAction from '@/component/calltoaction/CallToAction'
 import Wrapper from '../Wrapper'
+
+import { Metadata } from 'next'
+import ServiceLanding from '@/component/ServiceLanding/ServiceLanding'
+
+export const metadata: Metadata = {
+     title: 'Workforce and Manpower Solutions',
+     description: 'Empowering Businesses with Skilled Talent across All Domains.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/manpower-services',
+     },
+}
+
 const page = () => {
      return (
           <Wrapper>
                <React.Fragment>
-                    <PrimaryLanding
+                    <ServiceLanding
                          title='Workforce and Manpower Solutions'
                          style={{
                               paddingBlockStart: '2rem',
                               justifyContent: 'flex-end',
-                              gap: '1rem',
+                              gap: '2rem',
                               paddingInline: '1.5rem',
                               display: 'flex',
                               flexDirection: 'column',
