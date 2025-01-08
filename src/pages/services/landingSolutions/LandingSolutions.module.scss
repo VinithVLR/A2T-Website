@@ -17,6 +17,7 @@
         justify-content: space-between;
         padding-block-start: 5rem;
         // padding-block-end: 2.5rem;
+        padding-block-end: 1rem;
 
         .heading {
             font-size: $heading-font-size;
@@ -47,6 +48,8 @@
             padding-inline: 1rem;
             padding-block: 0.3rem;
             border-radius: 25px;
+            width: fit-content;
+            margin-block: 1rem;
         }
     }
 
@@ -89,9 +92,11 @@
         gap: 1rem;
         align-items: end;
         grid-template-columns: repeat(5, 1fr);
+        height: 60vh;
 
         @media (max-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
+            height: auto;
 
             .card:nth-child(3) {
                 grid-column: 1 / span 2;
@@ -141,6 +146,8 @@
 
         .flex_con {
             flex-direction: column;
+            margin-block-start: 4rem;
+
         }
 
 
@@ -186,6 +193,8 @@
 
         .flex_con {
             flex-direction: column;
+            margin-block-start: 4rem;
+
         }
     }
 }

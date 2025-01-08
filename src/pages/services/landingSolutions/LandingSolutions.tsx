@@ -20,8 +20,7 @@ const LandingSolutions = () => {
           <section className={styles.landing_Solutions}>
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
-                         <span className={styles.label}>Services</span>
-                         <br></br>
+                         <div className={styles.label}>Services</div>
                          Delivering a Full <span>Spectrum of Solutions </span>for Your Success
                     </MainHeading>
                     <MainPara className={`${styles.para} ${styles.regularText}`}>
