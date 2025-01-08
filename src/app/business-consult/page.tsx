@@ -12,11 +12,23 @@ import DigitalSecurity from '@/pages/businessConsult/digitalSecurity/DigitalSecu
 import CallToAction from '@/component/calltoaction/CallToAction'
 import InfrastructureOptimization from '@/pages/businessConsult/infrastructureOptimization/InfrastructureOptimization'
 import Wrapper from '../Wrapper'
+
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+
+export const metadata: Metadata = {
+     title: 'Business & IT consulting services',
+     description: 'Optimized Transforming Businesses with IT-Driven ConsultingServices.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/business-consult',
+     },
+}
+
 const page = () => {
      return (
           <Wrapper>
                <React.Fragment>
-                    <PrimaryLanding
+                    <PrimaryLanding2
                          isReverse
                          title='Business & IT consulting services'
                          isThumbnailHidden

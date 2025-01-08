@@ -797,7 +797,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                    <h1>Fleet management service</h1>
                               </li>
                          </Link>
-                         <Link href={'/egs-sustainability'}>
+                         <Link href={'/esg-sustainability'}>
                               <li>
                                    <span>04</span>
                                    <h1>ESG & Sustainability</h1>

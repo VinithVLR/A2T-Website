@@ -12,10 +12,21 @@ import bg from '../../assets/images/img_emp_4.png'
 import img from '../../assets/images/img_cont_image.png'
 import bigImageSrc from '../../assets/images/purpose/img_lan_ver.png'
 import smallImageSrc from '../../assets/images/purpose/img_lan_hoz.png'
+
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+
+export const metadata: Metadata = {
+     title: 'Purpose',
+     description: 'Crafting a Greener Future Through Purpose-Driven Innovation.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/purpose',
+     },
+}
 const page = () => {
      return (
           <React.Fragment>
-               <PrimaryLanding
+               <PrimaryLanding2
                     title='Purpose'
                     isReverse
                     heading={

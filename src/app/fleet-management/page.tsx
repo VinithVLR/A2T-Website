@@ -12,6 +12,16 @@ import AirCargoSolutions from '@/pages/fleetmanagement/airCargoSolutions/AirCarg
 import CallToAction from '@/component/calltoaction/CallToAction'
 import Wrapper from '../Wrapper'
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+     title: 'Fleet Management',
+     description: 'Efficient Fleet Solutions for Reliable Logistics.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/fleet-management',
+     },
+}
+
 const page = () => {
      return (
           <Wrapper>

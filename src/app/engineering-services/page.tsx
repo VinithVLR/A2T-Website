@@ -26,15 +26,27 @@ import imgRcc from '../../assets/images/eng-ser/img_rcc_ly.png'
 import DeliverCore from '@/pages/engineeringservices/deliverCore/DeliverCore'
 import CallToAction from '@/component/calltoaction/CallToAction'
 import Wrapper from '../Wrapper'
+
+import { Metadata } from 'next'
+import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
+import ServiceLanding from '@/component/ServiceLanding/ServiceLanding'
+
+export const metadata: Metadata = {
+     title: 'Engineering Services',
+     description: ' Innovative Solutions for Complex Engineering Challenges.',
+     alternates: {
+          canonical: 'https://prakashrg09.github.io/a2t-technologies/engineering-services',
+     },
+}
 const page = () => {
      return (
           <Wrapper>
                <React.Fragment>
-                    <PrimaryLanding
+                    <ServiceLanding
                          title='Engineering Services'
                          style={{
                               paddingBlockStart: '2rem',
-                              justifyContent: 'flex-end',
+                              justifyContent: 'center',
                               gap: '1rem',
                               paddingInline: '1.5rem',
                               display: 'flex',

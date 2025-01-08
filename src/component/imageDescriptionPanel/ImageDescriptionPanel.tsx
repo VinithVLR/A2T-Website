@@ -85,6 +85,7 @@ const ImageDescriptionPanel: React.FC<ImageDescriptionPanelProps> = ({
                               duration: 1,
                               ease: 'power3.out',
                          },
+                         0.3,
                     )
           }
      }, [windowWidth])
