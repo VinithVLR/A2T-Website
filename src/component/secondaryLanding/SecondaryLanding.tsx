@@ -117,11 +117,18 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                </div>
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
-                         <Image src={bgImage} alt='image' priority className={styles.image} />
+                         <Image
+                              src={bgImage}
+                              alt='image'
+                              placeholder='blur'
+                              priority
+                              className={styles.image}
+                         />
                          <div className={styles.image_ab_con} style={{ ...bsStyle }}>
                               <Image
                                    src={image}
                                    alt='image'
+                                   placeholder='blur'
                                    ref={imgOverlayRef}
                                    priority
                                    className={styles.img_ab}

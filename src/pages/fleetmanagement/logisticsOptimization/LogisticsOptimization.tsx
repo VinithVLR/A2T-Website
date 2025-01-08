@@ -12,7 +12,13 @@ const LogisticsOptimization = () => {
                <div className={styles.container_wrp}>
                     <div className={styles.img_wrapper}>
                          <div className={styles.img}>
-                              <Image src={img} alt='' className={styles.image} />
+                              <Image
+                                   src={img}
+                                   alt=''
+                                   priority
+                                   placeholder='blur'
+                                   className={styles.image}
+                              />
                          </div>
                     </div>
                     <div className={styles.details_con}>
@@ -29,7 +35,13 @@ const LogisticsOptimization = () => {
                </div>
                <div className={styles.img_Stretch_Full}>
                     <div className={styles.img_wrapper}>
-                         <Image src={img1} alt='' className={styles.fullimage} />
+                         <Image
+                              src={img1}
+                              alt=''
+                              priority
+                              placeholder='blur'
+                              className={styles.fullimage}
+                         />
                     </div>
                </div>
           </section>

@@ -87,6 +87,7 @@ const PrimaryLanding = ({
                               src={bigImageSrc ? bigImageSrc : img_contact}
                               alt='image'
                               priority
+                              placeholder='blur'
                               className={styles.image}
                          />
                     </div>
@@ -125,6 +126,8 @@ const PrimaryLanding = ({
                                                        alt='Thumbnail'
                                                        className={styles.image}
                                                        width={300}
+                                                       priority
+                                                       placeholder='blur'
                                                        height={200}
                                                   />
                                              </div>
@@ -167,6 +170,8 @@ const PrimaryLanding = ({
                                                                  : thumb_nail
                                                        }
                                                        alt=''
+                                                       priority
+                                                       placeholder='blur'
                                                        className={styles.image}
                                                   />
                                              </div>

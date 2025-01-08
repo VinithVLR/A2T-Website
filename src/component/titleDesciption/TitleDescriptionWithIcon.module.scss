@@ -1,111 +1,112 @@
 @import '../../scss/abstracts/variable.scss';
 
 .main_con {
-    height: auto;
-    padding-inline: 5rem;
-    font-family: 'Inter';
+     height: auto;
+     padding-inline: 5rem;
+     font-family: 'Inter';
 
-    .iconWrapper {
-        width: 3rem;
-        height: 3rem;
-        margin-block-end: 1.5rem;
+     .iconWrapper {
+          width: 3rem;
+          height: 3rem;
+          margin-block-end: 1.5rem;
 
-        .image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+          .image {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+          }
+     }
 
-    .label {
-        width: fit-content;
-        border-radius: 20px;
-        padding-inline: 0.9rem;
-        padding-block: 0.5rem;
-        color: #0e7b68;
-        font-size: 0.875rem;
-        background-color: #CFECE7;
-        font-weight: $font-weight-sem-bold;
-    }
+     .label {
+          width: fit-content;
+          border-radius: 20px;
+          padding-inline: 0.9rem;
+          padding-block: 0.5rem;
+          color: #0e7b68;
+          font-size: 0.875rem;
+          background-color: #cfece7;
+          font-weight: $font-weight-sem-bold;
+     }
 
-    .title {
-        font-size: $default-font;
-        color: $color-heading;
-        font-weight: $font-weight-sem-bold;
-        margin-block-end: 1rem;
-        font-family: inherit;
-        margin-block-start: 2rem;
-    }
+     .title {
+          font-size: $default-font;
+          color: $color-heading;
+          font-weight: $font-weight-sem-bold;
+          margin-block-end: 1rem;
+          font-family: inherit;
+          margin-block-start: 2rem;
+          font-weight: 700;
+     }
 
-    .subTitle {
-        color: #5E5F6E;
-        font-size: $font-22px;
-        margin-block-end: 1rem;
-        font-weight: $font-weight-regular;
-        font-family: inherit;
-    }
+     .subTitle {
+          color: #5e5f6e;
+          font-size: $font-22px;
+          margin-block-end: 1rem;
+          font-weight: $font-weight-regular;
+          font-family: inherit;
+     }
 
-    .img_wrapper {
-        width: 100%;
-        height: 100%;
-        display: none;
-        border-radius: 10px;
+     .img_wrapper {
+          width: 100%;
+          height: 100%;
+          display: none;
+          border-radius: 10px;
 
-        .image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: inherit;
-        }
-    }
+          .image {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               border-radius: inherit;
+          }
+     }
 
-    .description {
-        color: $color-des;
-        font-size: $font-16px;
-        font-weight: $font-weight-regular;
-        font-family: inherit;
-    }
+     .description {
+          color: $color-des;
+          font-size: $font-16px;
+          font-weight: $font-weight-regular;
+          font-family: inherit;
+     }
 
-    span {
-        color: #0E7B68;
-    }
+     span {
+          color: #0e7b68;
+     }
 }
 
 @media (min-width: 1200) and (max-width: 768px) {
-    .main_con {
-        .img_wrapper {
-            display: block;
-            padding-block-end: 1rem;
-        }
-    }
+     .main_con {
+          .img_wrapper {
+               display: block;
+               padding-block-end: 1rem;
+          }
+     }
 }
 
 @media (max-width: 768px) {
-    .main_con {
-        padding-inline: 0rem;
+     .main_con {
+          padding-inline: 0rem;
 
-        .img_wrapper {
-            display: block;
-            padding-block-end: 1rem;
-        }
+          .img_wrapper {
+               display: block;
+               padding-block-end: 1rem;
+          }
 
-        .description {
-            font-size: 1.25rem !important;
-        }
-    }
+          .description {
+               font-size: 1.25rem !important;
+          }
+     }
 }
 
 @media (max-width: 576px) {
-    .main_con {
-        padding-inline: 0rem !important;
+     .main_con {
+          padding-inline: 0rem !important;
 
-        .img_wrapper {
-            display: block;
-            padding-block-end: 1rem;
-        }
+          .img_wrapper {
+               display: block;
+               padding-block-end: 1rem;
+          }
 
-        .description {
-            font-size: 1.25rem !important;
-        }
-    }
+          .description {
+               font-size: 1.25rem !important;
+          }
+     }
 }

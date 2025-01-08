@@ -74,6 +74,7 @@ const PrimaryLanding = ({
                               src={bigImageSrc ? bigImageSrc : img_contact}
                               alt='image'
                               priority
+                              placeholder='blur'
                               className={`${styles.image} ${title == 'About us' ? styles.aboutImage : ''} `}
                          />
                     </div>
@@ -111,6 +112,8 @@ const PrimaryLanding = ({
                                                   <Image
                                                        src={smallImageSrc || thumb_nail}
                                                        alt='Thumbnail'
+                                                       placeholder='blur'
+                                                       priority
                                                        className={styles.image}
                                                        width={300}
                                                        height={200}
@@ -149,6 +152,8 @@ const PrimaryLanding = ({
                                         <Image
                                              src={smallImageSrc || thumb_nail}
                                              alt='Thumbnail'
+                                             placeholder='blur'
+                                             priority
                                              className={styles.bottomImage}
                                              //   width={300}
                                              //   height={200}

@@ -145,14 +145,21 @@
                }
 
                .thumb_nailWrapper_con {
+                    width: 100%;
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
 
                     .thumb_nailWrapper {
+                         max-width: 300px;
+                         width: 100%;
                          cursor: pointer;
                          overflow: hidden;
                          border-radius: 8px;
+
+                         @media screen and (max-width) {
+                              max-width: 50vw;
+                         }
 
                          .image {
                               width: 100%;

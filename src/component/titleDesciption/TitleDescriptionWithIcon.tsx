@@ -7,7 +7,7 @@ import Button from '../button/Button'
 import Image1 from '../../assets/images/img_service_1.png'
 import { Inter } from 'next/font/google'
 import { useRouter } from 'next/navigation'
-import { MainPara } from '../typography/Typography'
+import { MainHeading, MainPara, SecondaryHeading } from '../typography/Typography'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -146,9 +146,9 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
                          {label ? label : 'The Padikkal Foundation'}
                     </label>
                )}
-               <h2 className={styles.title} ref={titleRef} style={{ ...headingStyle }}>
+               <MainHeading className={styles.title} ref={titleRef} style={{ ...headingStyle }}>
                     {title}
-               </h2>
+               </MainHeading>
                {subTitle && (
                     <h4 ref={subTitleRef} className={styles.subTitle}>
                          {subTitle}
