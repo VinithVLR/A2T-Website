@@ -42,18 +42,25 @@
                 }
 
                 .img_index_top {
-                    width: 30%;
+                    width: 16rem;
                     transform: translateX(0rem) translateY(1rem);
+                    max-width: 600px;
+
                 }
 
                 .img_index_right {
-                    width: 30%;
-                    transform: translateX(12rem) translateY(2rem);
+                    width: 16rem;
+                    transform: translateX(10rem) translateY(-1rem);
+                    max-width: 600px;
+
+
                 }
 
                 .img_index_left {
-                    width: 30%;
-                    transform: translateX(-8rem) translateY(0rem);
+                    width: 16rem;
+                    transform: translateX(-3rem) translateY(-7rem);
+                    max-width: 600px;
+
                 }
 
                 .img_wrapper_absolute {
@@ -67,30 +74,36 @@
                     }
 
                     .img_top_con {
-                        width: 70%;
+                        width: 25rem;
                         height: 100%;
-                        transform: translateX(15rem) translateY(4rem);
+                        transform: translateX(10rem) translateY(4rem);
                         z-index: 0;
                         position: relative;
                         border-radius: 10px;
+                        max-width: 600px;
+
                     }
 
                     .img_right_con {
-                        width: 70%;
+                        width: 25rem;
                         height: 100%;
                         z-index: 2;
                         position: relative;
                         transform: translateY(-11rem) translateX(9rem);
                         border-radius: 7px;
+                        max-width: 600px;
+
                     }
 
                     .img_left_con {
-                        width: 50%;
+                        width: 19rem;
                         height: 100%;
                         z-index: 2;
                         position: relative;
                         transform: translateY(-4rem);
                         border-radius: 20px;
+                        max-width: 600px;
+
                     }
                 }
             }
@@ -152,12 +165,16 @@
 
                     .img_wrapper_absolute {
                         .img_right_con {
-                            transform: translateY(-14rem) translateX(20rem);
-
+                            transform: translateX(4rem) translateY(-10rem);
+                            width: 30rem;
                         }
 
                         .img_top_con {
-                            transform: translateX(20rem) translateY(4rem);
+                            transform: translateX(9rem) translateY(4rem);
+                        }
+
+                        .img_left_con {
+                            transform: translateY(-4rem) translateX(-9rem);
                         }
                     }
                 }
@@ -182,18 +199,30 @@
                         transform: translateX(-10rem) translateY(2rem);
                     }
 
+                    .img_index_left {
+                        width: 16rem;
+                        transform: translateX(-8rem) translateY(2rem);
+                    }
+
                     .img_index_right {
                         transform: translateX(4rem) translateY(5rem);
                     }
 
                     .img_wrapper_absolute {
                         .img_right_con {
-                            transform: translateY(-11rem) translateX(7rem);
+                            transform: translateX(2rem) translateY(-10rem);
+                            width: 25rem;
                         }
 
                         .img_top_con {
-                            transform: translateX(7rem) translateY(2rem);
+                            transform: translateX(2rem) translateY(4rem);
                         }
+
+                        .img_left_con {
+                            transform: translateY(-5rem) translateX(-4rem);
+
+                        }
+
                     }
                 }
             }
