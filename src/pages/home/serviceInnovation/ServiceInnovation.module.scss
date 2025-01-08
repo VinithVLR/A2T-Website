@@ -15,12 +15,14 @@
 
 @media (max-width: 768px) {
     .main_container {
+        padding-block-start: 2rem;
         padding-block-end: 4rem;
     }
 }
 
 @media (max-width: 576px) {
     .main_container {
+        padding-block-start: 2rem;
         padding-block-end: 4rem;
     }
 }

@@ -37,6 +37,11 @@
     .sec_con {
         .content_Wrapper {
             flex-direction: column;
+
+            .details_con {
+                padding-block-start: 2rem;
+                width: 80%;
+            }
         }
     }
 }
