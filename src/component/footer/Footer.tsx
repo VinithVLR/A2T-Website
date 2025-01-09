@@ -66,37 +66,28 @@ const Footer = () => {
                     <div></div>
                </div>
                <div className={styles.flex_con_left}>
-                    <div
-                         style={{ display: 'flex', gap: '1rem' }}
-                         className={styles.social_icon_con}
-                    >
-                         {arrImage.map((item: any, index: any) => {
-                              return (
-                                   <div className={styles.icon_con} key={index}>
-                                        {/* <Image src={item} className={styles.icon} alt='icon' /> */}
-                                        <Image src={item} alt={`Social Icon ${index + 1}`} />
-                                   </div>
-                              )
-                         })}
+                    <div className={styles.icon_right}>
+                         <div
+                              style={{ display: 'flex', gap: '1rem' }}
+                              className={styles.social_icon_con}
+                         >
+                              {arrImage.map((item: any, index: any) => {
+                                   return (
+                                        <div className={styles.icon_con} key={index}>
+                                             {/* <Image src={item} className={styles.icon} alt='icon' /> */}
+                                             <Image src={item} alt={`Social Icon ${index + 1}`} />
+                                        </div>
+                                   )
+                              })}
+                         </div>
+                         <div className={styles.condition_con}>
+                              <div className={styles.label}>Terms of service </div>
+                              <div className={styles.label}> Privacy policy</div>
+                              <div className={styles.label}> © 2022, All Rights Reserved</div>
+                         </div>
                     </div>
 
                     <div className={styles.iconAndText}>
-                         {/* {arr.map((item: any, index: any) => {
-                              return (
-                                   <div className={styles.map_con} key={index}>
-                                        <Link href={item.label} className={styles.label}>
-                                             {item.label}
-                                        </Link>
-                                        <div className={styles.icon_content}>
-                                             <Image
-                                                  src={item.icon}
-                                                  className={styles.icon}
-                                                  alt='icon'
-                                             />
-                                        </div>
-                                   </div>
-                              )
-                         })} */}
                          {arr.map((item, index) => {
                               return (
                                    <div className={styles.map_con} key={index}>
@@ -127,11 +118,6 @@ const Footer = () => {
                     </div>
                </div>
                <div className={styles.condition_con_wrapper}>
-                    <div className={styles.condition_con}>
-                         <div className={styles.label}>Terms of service </div>
-                         <div className={styles.label}> Privacy policy</div>
-                         <div className={styles.label}> © 2022, All Rights Reserved</div>
-                    </div>
                     <div className={styles.image_wrapper}>
                          <div className={styles.logo_con}>
                               <Image src={companyLogo} alt='icon' className={styles.icon} />
