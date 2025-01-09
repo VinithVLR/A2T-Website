@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from './ClientTestimonials.module.scss'
 import Header from '@/component/header/Header'
 import bg_image from '../../../assets/images/pexel.jpeg'
@@ -13,18 +13,14 @@ import janeSmith from '../../../assets/images/img_jane_smith.svg'
 import tomWillaims from '../../../assets/images/img_tom_willaims.svg'
 import michaelBrow from '../../../assets/images/img_michael_brow.svg'
 
-interface FleetCardData {
-     bgImage: string
-     iconImage: any
-     title: string
-     des: string
-     overLayer: string
-     titleColor: string
-     desColor: string
-}
+import { Swiper, SwiperSlide } from 'swiper/react'
+import type { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
+
 const ClientTestimonials = () => {
-     const [index, setIndex] = useState(1)
-     const [maxIndex, setMaxIndex] = useState(3)
+     const [swiperRef, setSwiperRef] = useState<SwiperType | null>(null)
+     const [activeNum, setActive] = useState(4)
+     const [maxIndex, setMaxIndex] = useState(4)
      let arr: any = [
           {
                position: 'Head of SEO Banca Sella',
@@ -103,15 +99,27 @@ const ClientTestimonials = () => {
           },
      ]
 
-     useEffect(() => {
+     useLayoutEffect(() => {
           if (typeof window != 'undefined') {
-               if (window.innerWidth >= 970) {
-                    setMaxIndex(3)
-               } else if (window.innerWidth > 700 && window.innerWidth <= 500) {
-                    setMaxIndex(4)
-               } else if (window.innerWidth < 500) {
-                    setMaxIndex(8)
+               const handleResize = () => {
+                    if (window.innerWidth >= 970) {
+                         setMaxIndex(4)
+                         setActive(4)
+                    } else if (window.innerWidth < 970 && window.innerWidth >= 650) {
+                         setMaxIndex(3)
+                         setActive(3)
+                    } else if (window.innerWidth < 650 && window.innerWidth >= 500) {
+                         setMaxIndex(2)
+                         setActive(2)
+                    } else if (window.innerWidth < 500) {
+                         setMaxIndex(1)
+                         setActive(1)
+                    }
                }
+
+               handleResize()
+               window.addEventListener('resize', handleResize)
+               return () => window.removeEventListener('resize', handleResize)
           }
      }, [])
 
@@ -122,47 +130,53 @@ const ClientTestimonials = () => {
                     titleStyle={{ width: '30%', paddingBlockEnd: '2rem' }}
                />
                <div className={styles.wrapper}>
-                    <div
-                         className={styles.flexContainer}
-                         style={{
-                              transform: `translateX(-${(index - 1) * 100}%)`,
-                              transition: 'all 1.5s ease',
+                    <Swiper
+                         spaceBetween={20}
+                         slidesPerView={maxIndex}
+                         style={{ height: '100%', overflow: 'initial' }}
+                         onSwiper={(swiper) => {
+                              setSwiperRef(swiper)
+                         }}
+                         slidesPerGroup={maxIndex}
+                         speed={1500}
+                         onSlideChange={(swiper) => {
+                              setActive(swiper.activeIndex + maxIndex)
                          }}
                     >
                          {arr.map((data: any, index: any) => (
-                              <CarousCard key={index} indexNumber={index} item={data} />
+                              <SwiperSlide key={index}>
+                                   <CarousCard indexNumber={index} item={data} />
+                              </SwiperSlide>
                          ))}
-                    </div>
+                    </Swiper>
                </div>
 
                <div>
                     <div className={styles.pagination}>
                          <Image
                               src={prevIcon}
-                              alt=''
-                              onClick={() => {
-                                   if (index > 1) {
-                                        setIndex(index - 1)
-                                   }
-                              }}
+                              alt='Previous'
+                              onClick={() => swiperRef?.slidePrev()}
                               className={styles.navBtn}
                          />
                          <div className={styles.bar}>
                               <div
                                    className={styles.filler}
-                                   style={{
-                                        width: `${(index / maxIndex) * 100}%`,
-                                   }}
-                              ></div>
+                                   style={
+                                        {
+                                             width: `${(activeNum / 12) * 100}%`,
+                                        } as React.CSSProperties
+                                   }
+                              >
+                                   <span className={styles.counter}>
+                                        {activeNum / maxIndex} / {12 / maxIndex}
+                                   </span>
+                              </div>
                          </div>
                          <Image
                               src={prevIcon}
-                              alt=''
-                              onClick={() => {
-                                   if (index < maxIndex) {
-                                        setIndex(index + 1)
-                                   }
-                              }}
+                              alt='Next'
+                              onClick={() => swiperRef?.slideNext()}
                               className={styles.navBtn}
                               style={{ transform: 'rotateY(180deg)' }}
                          />

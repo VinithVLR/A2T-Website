@@ -69,18 +69,18 @@ const OverlapImage: React.FC<OverlapImageProps> = ({
                          {
                               opacity: 1,
                               scale: 1,
-                              duration: 1.5,
+                              duration: 1,
                               ease: 'power3.out',
                          },
                     )
 
                     timeline.fromTo(
                          secondLayerRef.current,
-                         { opacity: 0, scale: 0.8 },
+                         { opacity: 0.5, scale: 0.8 },
                          {
                               opacity: 1,
                               scale: 1,
-                              duration: 1.5,
+                              duration: 1,
                               ease: 'power3.out',
                          },
                          '<',

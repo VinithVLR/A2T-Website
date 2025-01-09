@@ -56,19 +56,49 @@ const LandingSolutions = () => {
                </div> */}
                <div className={styles.image_con_grid}>
                     <div className={styles.card}>
-                         <Image src={image_frst} alt='' className={styles.image} />
+                         <Image
+                              src={image_frst}
+                              priority
+                              placeholder='blur'
+                              alt=''
+                              className={styles.image}
+                         />
                     </div>
                     <div className={styles.card}>
-                         <Image src={image_sec} alt='' className={styles.image} />
+                         <Image
+                              src={image_sec}
+                              priority
+                              placeholder='blur'
+                              alt=''
+                              className={styles.image}
+                         />
                     </div>
                     <div className={styles.card}>
-                         <Image src={image_third} alt='' className={styles.image} />
+                         <Image
+                              src={image_third}
+                              priority
+                              placeholder='blur'
+                              alt=''
+                              className={styles.image}
+                         />
                     </div>
                     <div className={styles.card}>
-                         <Image src={image_four} alt='' className={styles.image} />
+                         <Image
+                              src={image_four}
+                              priority
+                              placeholder='blur'
+                              alt=''
+                              className={styles.image}
+                         />
                     </div>
                     <div className={styles.card}>
-                         <Image src={image_five} alt='' className={styles.image} />
+                         <Image
+                              src={image_five}
+                              priority
+                              placeholder='blur'
+                              alt=''
+                              className={styles.image}
+                         />
                     </div>
                </div>
           </section>

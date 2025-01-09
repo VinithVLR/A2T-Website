@@ -10,6 +10,8 @@ import ic_fourth from '../../assets/icons/ic_4th.svg'
 import ic_fiveth from '../../assets/icons/ic_5th.svg'
 import iconNavigate from '../../assets/icons/ic_navigate.svg'
 import { Inter } from 'next/font/google'
+import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
+import Link from 'next/link'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -55,21 +57,25 @@ const Consumption = ({ data, isMobile }: any) => {
                          <div className={`${styles.image_wrapper}`}>
                               <Image src={icon} alt='icon' className={`${styles.icon}`} />
                          </div>
-                         <h4>
-                              {title} &nbsp;
-                              <span
-                                   className={styles.icon_wrapper}
-                                   onClick={() => alert('navigate')}
-                              >
-                                   <Image
-                                        src={iconNavigate}
-                                        alt='icon'
-                                        className={`${styles.icon}`}
-                                   />
-                              </span>
-                         </h4>
+                         <SecondaryHeading>
+                              <Link href={data.url}>
+                                   {title} &nbsp;
+                                   <span
+                                        className={styles.icon_wrapper}
+                                        onClick={() => alert('navigate')}
+                                   >
+                                        <Image
+                                             src={iconNavigate}
+                                             alt='icon'
+                                             className={`${styles.icon}`}
+                                        />
+                                   </span>
+                              </Link>
+                         </SecondaryHeading>
                     </div>
-                    <p className={`${styles.para} ${styles.regularText}`}>{des}</p>
+                    <SecondaryPara className={`${styles.para} ${styles.regularText}`}>
+                         {des}
+                    </SecondaryPara>
                </div>
                {isMobile ? (
                     <div className={styles.mob_img_wrp}>
@@ -88,7 +94,7 @@ const Consumption = ({ data, isMobile }: any) => {
                                    alt='icon'
                                    className={`${styles.image} ${styles.img}`}
                               />
-                              <h1 className={styles.numberText}>#0{id}</h1>
+                              <h1 className={styles.numberText}>#{id}</h1>
                          </div>
                     </div>
                ) : null}

@@ -234,6 +234,12 @@
                     column-gap: 0.575rem;
                }
 
+               &:hover {
+                    h1 {
+                         color: #0e7b68;
+                    }
+               }
+
                h1 {
                     margin: 0;
                     font-size: 2.3rem;
@@ -294,11 +300,17 @@
                     column-gap: 0.875rem;
                     margin-bottom: 1.5rem;
 
+                    &:hover {
+                         h1 {
+                              color: #0e7b68;
+                         }
+                    }
+
                     h1 {
                          margin: 0;
                          font-size: 1.3rem;
                          margin-top: -2px;
-                         color: #9b9b9b;
+                         color: #c7c7c7;
                          font-weight: 400;
 
                          @media screen and (max-width: 550px) {
@@ -308,7 +320,7 @@
 
                     span {
                          font-size: 14px;
-                         color: #9b9b9b;
+                         color: #c7c7c7;
 
                          @media screen and (max-width: 550px) {
                               font-size: 10px;
@@ -344,6 +356,11 @@
                column-gap: 0.7rem;
                cursor: pointer;
                margin-bottom: 1.5rem;
+               color: #c7c7c7;
+
+               &:hover {
+                    color: #0e7b68;
+               }
 
                @media screen and (max-width: 550px) {
                     justify-content: center;

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import styles from './LogisticsOptimization.module.scss'
 import Image from 'next/image'
-import bgImage from '../../../assets/images/img_emp_7.png'
+import playBtn from '../../../assets/icons/ic_play_btn.png'
 import img from '../../../assets/images/fleet/img_lan_1.png'
 import img1 from '../../../assets/images/fleet/img_lan_2.png'
 import { MainHeading, MainPara } from '@/component/typography/Typography'
@@ -28,6 +28,9 @@ const LogisticsOptimization = () => {
                                              width={300}
                                              height={200}
                                         />
+                                        <div className={styles.playbtn}>
+                                             <Image src={playBtn} alt='Play btn' />
+                                        </div>
                                    </div>
                               </div>
                          )}
@@ -46,7 +49,7 @@ const LogisticsOptimization = () => {
                                              controls
                                              autoPlay
                                              src={
-                                                  'https://cdn.pixabay.com/video/2021/03/09/67460-522170651_large.mp4'
+                                                  'https://cdn.pixabay.com/video/2017/11/01/12714-241674172_large.mp4'
                                              }
                                         />
                                    </div>
@@ -67,7 +70,13 @@ const LogisticsOptimization = () => {
                </div>
                <div className={styles.img_Stretch_Full}>
                     <div className={styles.img_wrapper}>
-                         <Image src={img1} alt='' className={styles.fullimage} />
+                         <Image
+                              src={img1}
+                              alt=''
+                              priority
+                              placeholder='blur'
+                              className={styles.fullimage}
+                         />
                     </div>
                </div>
           </section>

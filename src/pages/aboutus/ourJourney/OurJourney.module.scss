@@ -2,6 +2,7 @@
      width: 100%;
      height: auto;
      padding-block: 4rem;
+     padding-bottom: 6rem;
 
      .gridContainer {
           width: 100%;
@@ -74,6 +75,7 @@
                     left: 0rem;
                     top: 0rem;
                     opacity: 0;
+                    transform: rotate(-135deg);
                     transition:
                          all 0.7s ease,
                          opacity 0.3s ease;

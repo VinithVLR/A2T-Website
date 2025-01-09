@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google'
 import thumb_nail from '../../assets/images/img_contact_thumb.png'
 import Spinner from '../spinner/Spinner'
 import { MainHeading, MainPara } from '../typography/Typography'
+import playBtn from '../../assets/icons/ic_play_btn.png'
 const inter = Inter({
      subsets: ['latin'],
      weight: ['400', '600', '800'],
@@ -74,6 +75,7 @@ const PrimaryLanding = ({
                               src={bigImageSrc ? bigImageSrc : img_contact}
                               alt='image'
                               priority
+                              placeholder='blur'
                               className={`${styles.image} ${title == 'About us' ? styles.aboutImage : ''} `}
                          />
                     </div>
@@ -111,10 +113,14 @@ const PrimaryLanding = ({
                                                   <Image
                                                        src={smallImageSrc || thumb_nail}
                                                        alt='Thumbnail'
+                                                       priority
                                                        className={styles.image}
                                                        width={300}
                                                        height={200}
                                                   />
+                                                  <div className={styles.playbtn}>
+                                                       <Image src={playBtn} alt='Play btn' />
+                                                  </div>
                                              </div>
                                         </div>
                                    )}
@@ -149,6 +155,8 @@ const PrimaryLanding = ({
                                         <Image
                                              src={smallImageSrc || thumb_nail}
                                              alt='Thumbnail'
+                                             placeholder='blur'
+                                             priority
                                              className={styles.bottomImage}
                                              //   width={300}
                                              //   height={200}

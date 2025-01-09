@@ -31,184 +31,105 @@ const EducationEmpowerment = () => {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
-               if (imgRef1.current) {
-                    gsap.fromTo(
-                         imgRef1.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              scrollTrigger: {
-                                   trigger: imgRef1.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
+               if (imgRef1.current && imgRef2.current && imgRef3.current) {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: imgRef1.current, // Use imgRef1 as the trigger
+                              start: 'top 80%',
+                              end: 'bottom 20%',
+                              toggleActions: 'play none none none',
+                              once: true,
                          },
-                    )
+                    })
+
+                    timeline
+                         .fromTo(
+                              imgRef1.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+                         )
+                         .fromTo(
+                              imgRef2.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+                         )
+                         .fromTo(
+                              imgRef3.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+                         )
                }
-               if (imgRef2.current) {
-                    gsap.fromTo(
-                         imgRef2.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.2,
-                              scrollTrigger: {
-                                   trigger: imgRef2.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
+               if (
+                    imgAbRef1.current &&
+                    imgAbRef2.current &&
+                    imgAbRef3.current &&
+                    imgAbRef4.current
+               ) {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: imgAbRef1.current,
+                              start: 'top 90%',
+                              end: 'bottom 20%',
+                              toggleActions: 'play none none none',
+                              once: true,
                          },
-                    )
+                    })
+
+                    timeline
+                         .fromTo(
+                              imgAbRef1.current,
+                              { opacity: 0, x: -40 },
+                              { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out', delay: 0.6 },
+                         )
+                         .fromTo(
+                              imgAbRef2.current,
+                              { opacity: 0, x: 40 },
+                              { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' },
+                              '-=0.3',
+                         )
+                         .fromTo(
+                              imgAbRef3.current,
+                              { opacity: 0, x: -40 },
+                              { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' },
+                              '-=0.3',
+                         )
+                         .fromTo(
+                              imgAbRef4.current,
+                              { opacity: 0, x: 40 },
+                              { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' },
+                              '-=0.3',
+                         )
                }
-               if (imgRef3.current) {
-                    gsap.fromTo(
-                         imgRef3.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.4,
-                              scrollTrigger: {
-                                   trigger: imgRef3.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
+               if (abtextLeft.current && abtextRight.current) {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: abtextLeft.current,
+                              start: 'top 100%',
+                              end: 'bottom 20%',
+                              toggleActions: 'play none none none',
+                              once: true,
                          },
-                    )
-               }
-               if (imgAbRef1.current) {
-                    gsap.fromTo(
-                         imgAbRef1.current,
-                         { opacity: 0, x: -40 },
-                         {
-                              opacity: 1,
-                              x: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.6,
-                              scrollTrigger: {
-                                   trigger: imgAbRef1.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
+                    })
+
+                    timeline
+                         .fromTo(
+                              abtextLeft.current,
+                              { opacity: 0, scale: 0.9 },
+                              {
+                                   opacity: 1,
+                                   scale: 1,
+                                   duration: 1,
+                                   delay: 1,
+                                   ease: 'power3.out',
                               },
-                         },
-                    )
+                         )
+                         .fromTo(
+                              abtextRight.current,
+                              { opacity: 0, scale: 0.9 },
+                              { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' },
+                         )
                }
-               if (imgAbRef2.current) {
-                    gsap.fromTo(
-                         imgAbRef2.current,
-                         { opacity: 0, x: 40 },
-                         {
-                              opacity: 1,
-                              x: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.7,
-                              scrollTrigger: {
-                                   trigger: imgAbRef2.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-               if (imgAbRef3.current) {
-                    gsap.fromTo(
-                         imgAbRef3.current,
-                         { opacity: 0, x: -40 },
-                         {
-                              opacity: 1,
-                              x: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.8,
-                              scrollTrigger: {
-                                   trigger: imgAbRef3.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-               if (imgAbRef4.current) {
-                    gsap.fromTo(
-                         imgAbRef4.current,
-                         { opacity: 0, x: 40 },
-                         {
-                              opacity: 1,
-                              x: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.9,
-                              scrollTrigger: {
-                                   trigger: imgAbRef4.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-               if (abtextLeft.current) {
-                    gsap.fromTo(
-                         abtextLeft.current,
-                         { opacity: 0, scale: 0.9 },
-                         {
-                              opacity: 1,
-                              scale: 1,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 1,
-                              scrollTrigger: {
-                                   trigger: abtextLeft.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-               if (abtextRight.current) {
-                    gsap.fromTo(
-                         abtextRight.current,
-                         { opacity: 0, scale: 0.9 },
-                         {
-                              opacity: 1,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 1,
-                              scrollTrigger: {
-                                   trigger: abtextRight.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 20%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
+
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: labelRef.current,
@@ -217,7 +138,6 @@ const EducationEmpowerment = () => {
                          toggleActions: 'play none none none',
                     },
                })
-
                timeline
                     .fromTo(
                          labelRef.current,
@@ -261,6 +181,7 @@ const EducationEmpowerment = () => {
                               description={
                                    'The Padikkal Foundation is dedicated to empowering underprivileged individuals by providing access to quality education and professional training. We help aspiring talents pursue their desired careers by connecting them with renowned institutes, ensuring they receive the skills and opportunities needed for a brighter future.'
                               }
+                              triggerKey={'top 100%'}
                               paraStyle={{
                                    fontSize: '1rem',
                                    paddingInlineEnd: '3rem',
@@ -355,9 +276,9 @@ const EducationEmpowerment = () => {
                                    <h4 className={styles.text_left} ref={abtextLeft}>
                                         PADIKKAL
                                    </h4>
-                                   <div className={styles.text_right} ref={abtextRight}>
-                                        <h4>FOUNDATION</h4>
-                                   </div>
+                                   <h4 className={styles.text_right} ref={abtextRight}>
+                                        FOUNDATION
+                                   </h4>
                               </div>
                          </div>
                     </div>

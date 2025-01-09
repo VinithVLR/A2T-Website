@@ -75,6 +75,7 @@ const ServiceLanding = ({
                                    src={bigImageSrc ? bigImageSrc : img_contact}
                                    alt='image'
                                    priority
+                                   placeholder='blur'
                                    className={styles.image}
                               />
                          </div>
@@ -120,7 +121,9 @@ const ServiceLanding = ({
                                                             alt='Thumbnail'
                                                             className={styles.image}
                                                             width={300}
+                                                            placeholder='blur'
                                                             height={200}
+                                                            priority
                                                        />
                                                   </div>
                                              </div>
@@ -159,6 +162,8 @@ const ServiceLanding = ({
                                              <Image
                                                   src={smallImageSrc || thumb_nail}
                                                   alt='Thumbnail'
+                                                  placeholder='blur'
+                                                  priority
                                                   className={styles.bottomImage}
                                                   //   width={300}
                                                   //   height={200}
@@ -173,6 +178,8 @@ const ServiceLanding = ({
                     <Image
                          src={smallImageSrc || thumb_nail}
                          alt='Thumbnail'
+                         placeholder='blur'
+                         priority
                          className={styles.mobbottomImage}
                          //   width={300}
                          //   height={200}

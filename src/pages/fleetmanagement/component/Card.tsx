@@ -2,7 +2,12 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styles from './Card.module.scss'
-import { TertiaryHeading, TertiaryPara } from '@/component/typography/Typography'
+import {
+     SecondaryHeading,
+     SecondaryPara,
+     TertiaryHeading,
+     TertiaryPara,
+} from '@/component/typography/Typography'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 interface cardPorps {
@@ -53,17 +58,17 @@ const Card: React.FC<cardPorps> = ({ imageUrl, title, description, link, index }
                     <Image src={imageUrl} alt={title} className={styles.image} layout='fill' />
                </div>
                <div className={styles.textContainer}>
-                    <TertiaryHeading className={styles.title}>{title}</TertiaryHeading>
+                    <SecondaryHeading className={styles.title}>{title}</SecondaryHeading>
                     {Array.isArray(description) ? (
                          <ul className={styles.desc}>
                               {description.map((item, index) => (
                                    <li key={index} className={styles.bulletItem}>
-                                        {item}
+                                        <SecondaryPara>{item}</SecondaryPara>
                                    </li>
                               ))}
                          </ul>
                     ) : (
-                         <TertiaryPara className={styles.desc}>{description}</TertiaryPara>
+                         <SecondaryPara className={styles.desc}>{description}</SecondaryPara>
                     )}
                </div>
           </section>

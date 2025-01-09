@@ -27,6 +27,7 @@
           .card {
                padding-left: 2rem;
                border-right: 1px solid #dde1e0;
+               color: #011309;
 
                @media screen and (max-width: 768px) {
                     border-right: none;
@@ -88,6 +89,7 @@
                font-size: $heading-font-size;
                font-weight: 700;
                margin-block: 2rem 1rem;
+               color: #011309;
 
                span {
                     color: #0e7b68;

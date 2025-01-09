@@ -37,7 +37,7 @@ const SustainableFleetFocus = () => {
           >
                <header className={`${styles.flex_con}`}>
                     <MainHeading className={`${styles.heading} ${styles.blackText}`}>
-                         Focus on Safety, Compliance, & Sustainability
+                         Focus on Safety, Compliance & Sustainability
                     </MainHeading>
                     <MainPara className={`${styles.para} ${styles.regularText}`}>
                          We prioritize safety, sustainability, and compliance to meet regulatory

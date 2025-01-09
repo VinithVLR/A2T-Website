@@ -81,14 +81,14 @@ const SustainableBusinessAlignment = () => {
                          targets: dot,
                          className: styles.appear,
                     },
-                    toggleActions: 'play reverse play reverse',
+                    toggleActions: 'play none none none',
                })
 
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: dot,
                          start: 'top center+=100',
-                         toggleActions: 'play none none reverse',
+                         toggleActions: 'play none none none',
                     },
                })
 

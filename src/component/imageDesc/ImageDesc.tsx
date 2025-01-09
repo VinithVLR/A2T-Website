@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import styles from './ImageDesc.module.scss'
-import { SecondaryHeading, SecondaryPara } from '../typography/Typography'
+import { SecondaryHeading, SecondaryPara, TertiaryHeading } from '../typography/Typography'
 
 interface imageDescProps {
      imageUrl: string
@@ -178,12 +178,26 @@ const ImageDesc = ({
                          >
                               {title}
                          </SecondaryHeading>
-                         {label && <label style={{ textAlign: 'left' }}>{label}</label>}
+                         {label && (
+                              <label
+                                   style={{
+                                        textAlign: 'left',
+                                        color: '#201A2D',
+                                        fontSize: '1.3rem',
+                                        fontWeight: '600',
+                                        marginBottom: '1rem',
+                                        width: 'fit-content',
+                                        whiteSpace: 'nowrap',
+                                   }}
+                              >
+                                   {label}
+                              </label>
+                         )}
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (
                                         <li key={index} className={styles.bulletItem}>
-                                             {item}
+                                             <SecondaryPara> {item}</SecondaryPara>
                                         </li>
                                    ))}
                               </ul>

@@ -100,7 +100,11 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                          {Array.isArray(description) ? (
                               <ul className={styles.desc}>
                                    {description.map((item, index) => (
-                                        <li key={index} className={styles.bulletItem}>
+                                        <li
+                                             key={index}
+                                             className={styles.bulletItem}
+                                             style={{ color: '#797681' }}
+                                        >
                                              <MainPara>{item}</MainPara>
                                         </li>
                                    ))}
@@ -117,11 +121,18 @@ const SecondaryLanding: React.FC<SecondaryLandingProps> = ({
                </div>
                <div className={styles.image_section}>
                     <div className={styles.image_wrapper}>
-                         <Image src={bgImage} alt='image' priority className={styles.image} />
+                         <Image
+                              src={bgImage}
+                              alt='image'
+                              placeholder='blur'
+                              priority
+                              className={styles.image}
+                         />
                          <div className={styles.image_ab_con} style={{ ...bsStyle }}>
                               <Image
                                    src={image}
                                    alt='image'
+                                   placeholder='blur'
                                    ref={imgOverlayRef}
                                    priority
                                    className={styles.img_ab}
