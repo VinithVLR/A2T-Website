@@ -31,6 +31,7 @@ interface ItemProps {
      link?: any
      isFlag?: any
      rowReverse?: any
+     triggerKey?: any
 }
 const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      title,
@@ -48,6 +49,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
      link,
      isFlag,
      rowReverse,
+     triggerKey,
 }) => {
      const router = useRouter()
      const titleRef = useRef<HTMLHeadingElement>(null)
@@ -100,7 +102,7 @@ const TitleDescriptionWithIcon: React.FC<ItemProps> = ({
 
                               scrollTrigger: {
                                    trigger: titleRef.current,
-                                   start: 'top 80%',
+                                   start: triggerKey ? triggerKey : 'top 80%',
                                    end: 'bottom 20%',
                                    toggleActions: 'play none none none',
                               },

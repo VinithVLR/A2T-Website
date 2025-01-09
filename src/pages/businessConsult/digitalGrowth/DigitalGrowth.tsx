@@ -23,125 +23,66 @@ const DigitalGrowth = () => {
                const { gsap } = await import('gsap')
                const { ScrollTrigger } = await import('gsap/ScrollTrigger')
                gsap.registerPlugin(ScrollTrigger)
-               if (imgRef1.current) {
-                    gsap.fromTo(
-                         imgRef1.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              scrollTrigger: {
-                                   trigger: imgRef1.current,
-                                   start: 'top 80%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
+
+               if (imgRef1.current && imgRef2.current && imgRef3.current) {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: imgRef1.current,
+                              start: 'top 80%',
+                              toggleActions: 'play none none none',
+                              once: true,
                          },
-                    )
+                    })
+
+                    timeline
+                         .fromTo(
+                              imgRef1.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' },
+                         )
+                         .fromTo(
+                              imgRef2.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, delay: 0.2, duration: 0.5, ease: 'power3.out' },
+                              '-=0.3',
+                         )
+                         .fromTo(
+                              imgRef3.current,
+                              { opacity: 0, y: 100 },
+                              { opacity: 1, y: 0, delay: 0.3, duration: 0.5, ease: 'power3.out' },
+                              '-=0.3',
+                         )
                }
 
-               if (imgRef2.current) {
-                    gsap.fromTo(
-                         imgRef2.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.2,
-                              scrollTrigger: {
-                                   trigger: imgRef2.current,
-                                   start: 'top 80%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
+               if (imgAbRef1.current && imgAbRef2.current && imgAbRef3.current) {
+                    const timeline = gsap.timeline({
+                         scrollTrigger: {
+                              trigger: imgAbRef1.current,
+                              start: 'top 100%',
+                              end: 'bottom 20%',
+                              toggleActions: 'play none none none',
+                              once: true,
                          },
-                    )
-               }
+                    })
 
-               if (imgRef3.current) {
-                    gsap.fromTo(
-                         imgRef3.current,
-                         { opacity: 0, y: 100 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.4,
-                              scrollTrigger: {
-                                   trigger: imgRef3.current,
-                                   start: 'top 80%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-
-               if (imgAbRef1.current) {
-                    gsap.fromTo(
-                         imgAbRef1.current,
-                         { opacity: 0, y: 30 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.6,
-                              scrollTrigger: {
-                                   trigger: imgAbRef1.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 10%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-               if (imgAbRef2.current) {
-                    gsap.fromTo(
-                         imgAbRef2.current,
-                         { opacity: 0, y: 30 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 0.8,
-                              scrollTrigger: {
-                                   trigger: imgAbRef2.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 10%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
-               }
-
-               if (imgAbRef3.current) {
-                    gsap.fromTo(
-                         imgAbRef3.current,
-                         { opacity: 0, y: 10 },
-                         {
-                              opacity: 1,
-                              y: 0,
-                              duration: 1,
-                              ease: 'power3.out',
-                              delay: 1,
-                              scrollTrigger: {
-                                   trigger: imgAbRef3.current,
-                                   start: 'top 80%',
-                                   end: 'bottom 10%',
-                                   toggleActions: 'play none none none',
-                                   once: true,
-                              },
-                         },
-                    )
+                    timeline
+                         .fromTo(
+                              imgAbRef1.current,
+                              { opacity: 0, y: 30 },
+                              { opacity: 1, y: 0, delay: 0.8, duration: 0.6, ease: 'power3.out' },
+                         )
+                         .fromTo(
+                              imgAbRef2.current,
+                              { opacity: 0, y: 30 },
+                              { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+                              '-=0.3',
+                         )
+                         .fromTo(
+                              imgAbRef3.current,
+                              { opacity: 0, y: 10 },
+                              { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+                              '-=0.3',
+                         )
                }
           }
      }
@@ -161,6 +102,7 @@ const DigitalGrowth = () => {
                                         Transformation
                                    </>
                               }
+                              triggerKey={'top 100%'}
                               description={
                                    'We offer process consultancy services to enhance operational efficiency using IT tools like data analytics, process automation, and ERP systems. Our goal is to simplify workflows, reduce costs, and improve productivity.'
                               }

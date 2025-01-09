@@ -87,6 +87,76 @@
         }
     }
 
+    .thumb_nailWrapper_con {
+        display: flex;
+        align-items: center;
+
+
+        .thumb_nailWrapper {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+            width: 100%;
+
+            .image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                transition: transform 0.2s ease-in-out;
+                border-radius: inherit;
+                // &:hover {
+                //      transform: scale(1.05);
+                // }
+            }
+        }
+    }
+
+    .modalOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modalContent {
+        padding: 1rem;
+        border-radius: 8px;
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+
+        .closeButton {
+            position: absolute;
+            top: -3rem;
+            right: -10rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding-inline: 13px;
+            padding-block: 7px;
+            // background-color: #fff;
+            border-radius: 5px;
+            color: #fff;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .videoPlayer {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+
 }
 
 @media (max-width: 768px) {
