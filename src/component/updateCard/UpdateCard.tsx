@@ -11,7 +11,10 @@ const inter = Inter({
      style: ['normal'],
 })
 const UpdateCard = forwardRef(
-     ({ imageUrl, date, title, description, tags, index, sectionStyle }: any, forwardRef: any) => {
+     (
+          { imageUrl, date, title, description, tags, index, sectionStyle, tagStyle }: any,
+          forwardRef: any,
+     ) => {
           return (
                <div
                     className={`${styles.card} ${inter.className}`}
@@ -30,7 +33,7 @@ const UpdateCard = forwardRef(
                          <TertiaryPara className={styles.description}>{description}</TertiaryPara>
                          <div className={styles.tags}>
                               {tags.map((tag: any, index: any) => (
-                                   <span key={index} className={styles.tag}>
+                                   <span key={index} className={styles.tag} style={{ ...tagStyle }}>
                                         {tag}
                                    </span>
                               ))}

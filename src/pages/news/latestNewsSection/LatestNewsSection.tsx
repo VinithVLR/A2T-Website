@@ -54,7 +54,7 @@ const LatestNewsSection = () => {
           {
                img: img_electric,
                date: '24, March 23’',
-               title: 'Automakers Shift to Electric Vehicle Production',
+               title: 'Renewable Energy Demand Fuels Skilled Workforce Needs',
                para: 'Top automakers announce plans to transition towards fully electric vehicle production by 2030.',
           },
      ]
@@ -225,6 +225,7 @@ const LatestNewsSection = () => {
                                    {posts.map((post: any, index: any) => (
                                         <UpdateCard
                                              key={index}
+                                             tagStyle={{ padding: '10px 14px', fontSize: '0.7rem' }}
                                              imageUrl={img_electric}
                                              date={'24, March 23'}
                                              title={post.title}
