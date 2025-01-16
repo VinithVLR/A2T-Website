@@ -1,0 +1,147 @@
+@import '../../../scss/abstracts/variable.scss';
+
+.maincon {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    max-width: 1600px;
+    margin: auto;
+
+    .land_sec {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .centerContent {
+        text-align: center;
+
+        .title {
+            width: fit-content;
+            border-radius: 20px;
+            padding-inline: 0.9rem;
+            padding-block: 0.5rem;
+            color: #0e7b68;
+            font-size: 0.875rem;
+            background-color: #ededed;
+            font-weight: $font-weight-sem-bold;
+        }
+
+        h1 {
+            font-size: $heading-font-size;
+            font-weight: 700;
+            margin-block: 2rem 1rem;
+            color: #011309;
+            padding-inline: 11rem;
+
+            span {
+                color: #0e7b68;
+            }
+        }
+
+        p {
+            color: #6a6a6a;
+        }
+    }
+
+    .searchInput {
+        margin-block: 2rem;
+    }
+
+    .details_con {
+        flex: 1;
+        display: flex;
+        height: 100%;
+        // margin-block-start: 4rem;
+
+        .single_card_con {
+            flex: 0.5;
+        }
+
+        .three_card_con {
+            flex: 0.5;
+            width: 100%;
+            display: flex;
+        }
+
+        .list_card {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            padding-inline: 10px;
+        }
+
+
+
+
+    }
+
+    .latest_news {
+        width: 100%;
+
+        .title {
+            margin-block: 2rem;
+        }
+
+        .card_con_wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+            gap: 20px;
+        }
+
+        .btn_con {
+            margin: 20px auto 0px;
+            padding: 12px 20px;
+            background-color: $color-primary;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .maincon {
+
+        .centerContent {
+            text-align: center;
+
+            .title {}
+
+            h1 {
+                padding-inline: 0rem;
+            }
+
+
+        }
+
+        .land_sec {
+            width: 100%;
+            height: auto;
+            margin-top: 7rem;
+        }
+
+        .details_con {
+            flex-direction: column;
+            margin-block-start: 2rem;
+
+            .list_card {
+                padding-inline: 0px;
+                margin-block: 1rem;
+            }
+        }
+
+        .latest_news {
+            width: auto;
+        }
+    }
+}

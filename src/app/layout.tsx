@@ -6,7 +6,6 @@ import { inter } from '../../public/fonts/inter'
 import { nunito } from '../../public/fonts/inter'
 import { Suspense } from 'react'
 import Loading from './loading'
-import PageWrapper from './PageWrapper'
 
 export const metadata: Metadata = {
      title: {

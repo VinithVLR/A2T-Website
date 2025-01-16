@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Filter.module.scss'
 import { MainPara } from '../typography/Typography'
 
-const Filter = ({ options, onChange }: any) => {
+const Filter = ({ options, onChange, style }: any) => {
      const onFilterChange = (value: string) => {
           onChange(
                options.map((option: any) => {
@@ -11,7 +11,7 @@ const Filter = ({ options, onChange }: any) => {
           )
      }
      return (
-          <ul className={styles.container}>
+          <ul className={styles.container} style={{ ...style }}>
                {options.map((option: any) => {
                     return (
                          <li

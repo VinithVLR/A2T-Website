@@ -1,6 +1,6 @@
 'use client'
 import Header from '@/component/header/Header'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import img_electric from '../../../assets/images/img_electric.png'
 import img_tech from '../../../assets/images/img_tech.png'
 import img_wild from '../../../assets/images/img_wild.png'
@@ -28,6 +28,37 @@ const LatestUpdates = () => {
                para: 'Non-profits unite to protect endangered species through innovative conservation programs.',
           },
      ]
+
+     const updateCardRef = useRef<HTMLDivElement | null>(null)
+     const initialFunc = async () => {
+          if (typeof window != 'undefined') {
+               const { gsap } = await import('gsap')
+               const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+               gsap.registerPlugin(ScrollTrigger)
+               const timeline = gsap.timeline({
+                    scrollTrigger: {
+                         trigger: updateCardRef.current,
+                         start: 'top center+=100',
+                         toggleActions: 'play none none none',
+                    },
+               })
+               timeline.fromTo(
+                    updateCardRef.current,
+                    { opacity: 0, y: 100 },
+                    {
+                         opacity: 1,
+                         y: 0,
+                         duration: 1,
+                         ease: 'power3.out',
+                    },
+                    0,
+               )
+          }
+     }
+
+     useEffect(() => {
+          initialFunc()
+     }, [])
      return (
           <section className={style.main_container}>
                <Header
@@ -35,11 +66,12 @@ const LatestUpdates = () => {
                     titleStyle={{ width: '40%' }}
                />
 
-               <div className={style.three_card_layout}>
+               <div className={style.three_card_layout} ref={updateCardRef}>
                     {arr.map((item, index) => (
                          <UpdateCard
                               key={index}
                               imageUrl={item.img}
+                              ref={updateCardRef}
                               date={item.date}
                               title={item.title}
                               description={item.para}

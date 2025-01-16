@@ -1,0 +1,134 @@
+// Variables
+$shimmer-bg: #f6f7f8;
+$shimmer-highlight: rgba(255, 255, 255, 0.8);
+$card-bg: white;
+$border-radius: 8px;
+$spacing-unit: 1rem;
+
+// Keyframes for shimmer effect
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+// Skeleton base styles
+%skeleton-base {
+    position: relative;
+    overflow: hidden;
+    background-color: $shimmer-bg;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg,
+                transparent 0%,
+                $shimmer-highlight 50%,
+                transparent 100%);
+        animation: shimmer 1.5s infinite;
+    }
+}
+
+// Card skeleton styles
+.card-skeleton {
+    background-color: $card-bg;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        padding: 7px;
+
+        .image {
+            @extend %skeleton-base;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    .content {
+        padding: $spacing-unit;
+
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: $spacing-unit;
+
+            .calendar-icon {
+                @extend %skeleton-base;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+            }
+
+            .date-label {
+                @extend %skeleton-base;
+                width: 100px;
+                height: 16px;
+                border-radius: 4px;
+            }
+        }
+
+        .title {
+            @extend %skeleton-base;
+            width: 80%;
+            height: 24px;
+            border-radius: 4px;
+            margin-bottom: $spacing-unit;
+        }
+
+        .description {
+            margin-bottom: $spacing-unit;
+
+            .line {
+                @extend %skeleton-base;
+                height: 16px;
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+
+                &:last-child {
+                    width: 90%;
+                }
+            }
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            .tag {
+                @extend %skeleton-base;
+                width: 60px;
+                height: 24px;
+                border-radius: 999px;
+            }
+        }
+    }
+}
+
+// Grid layout for multiple skeletons
+.skeleton-grid {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

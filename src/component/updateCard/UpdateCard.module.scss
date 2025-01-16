@@ -39,12 +39,15 @@
                margin-block: 20px;
                width: 90%;
                color: #201a2d;
+               max-height: 65px;
+               height: 27rem;
           }
 
           .description {
                font-size: $font-16px;
                color: #4c4c4c;
                margin-block: 20px;
+               max-height: 100px;
           }
 
           .tags {

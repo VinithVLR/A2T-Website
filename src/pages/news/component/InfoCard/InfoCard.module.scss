@@ -1,0 +1,127 @@
+@import '../../../../scss/abstracts/variable.scss';
+
+.card {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 7px;
+    max-height: 200px;
+    display: flex;
+    min-height: 190px;
+
+    .imageContainer {
+        width: 100%;
+        flex: 0.4;
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+
+    .content {
+        padding-inline: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        flex: 0.6;
+
+
+        .date {
+            color: #6c757d;
+            font-size: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-inline-end: 1rem;
+        }
+
+        .datelable {
+            font-size: 0.7rem !important;
+            color: #6D6D6D;
+        }
+
+        .title {
+            font-size: 0.9rem !important;
+            margin-block: 4px;
+            width: 90%;
+            color: #201a2d;
+        }
+
+        .description {
+            font-size: 0.7rem !important;
+            color: #4c4c4c;
+            line-height: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 1.1rem;
+            margin-top: 12px;
+
+            .tag {
+                padding: 5px 10px;
+                font-size: 0.6rem;
+                border-radius: 25px;
+                color: #27a745;
+                border: 1px solid #27a745;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        .content {
+            .date {
+                font-size: 1.25rem;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .description {
+                font-size: 1.25rem;
+            }
+
+            .tags {
+                .tag {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        min-height: 150px;
+        gap: 0.5rem;
+
+        .content {
+            .date {
+                font-size: 1.25rem;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .description {
+                font-size: 1.25rem;
+            }
+
+            .tags {
+                .tag {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

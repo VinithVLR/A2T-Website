@@ -849,12 +849,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                                         <h1>Careers</h1>
                                    </li>
                               </Link>
-                              {/* <Link href={'/careers'}>
-                              <li>
-                                   <span>10</span>
-                                   <h1>Newsroom</h1>
-                              </li>
-                              </Link> */}
+                              <Link href={'/newsroom'}>
+                                   <li style={{ opacity: pathname == '/newsroom' ? 0.6 : 1 }}>
+                                        <span>10</span>
+                                        <h1>Newsroom</h1>
+                                   </li>
+                              </Link>
                               {/* <Link href={'/careers'}>
                                    <li>
                                         <span>11</span>
