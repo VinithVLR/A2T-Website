@@ -6,6 +6,7 @@ import uploadIcon from '../../../assets/icons/ic_file_upload.svg'
 import Checkbox from '@/component/checkbox/Checkbox'
 import Loader from '@/component/loader/Loader'
 import Image from 'next/image'
+import trashIcon from '../../../assets/icons/ic_trash.svg'
 
 function Form() {
      const uploadBtnRef: any = useRef(null)
@@ -23,6 +24,7 @@ function Form() {
           name: '',
           email: '',
           idea: '',
+          file: '',
      })
 
      const [checkBoxError, setCheckboxError] = useState(false)
@@ -34,7 +36,7 @@ function Form() {
           }
      }
 
-     const onChange = (key: string, value: string) => {
+     const onChange = (key: string, value: string | null) => {
           setData((prev) => {
                return { ...prev, [key]: value }
           })
@@ -49,6 +51,39 @@ function Form() {
           return emailRegex.test(email)
      }
 
+     const submitForm = async () => {
+          setLoading(true)
+          try {
+               const formData = new FormData()
+               formData.append('name', data.name.trim())
+               formData.append('email', data.email.trim())
+               formData.append('phone', data.phone?.trim() || '')
+               formData.append('message', data.idea.trim())
+
+               if (data.file) {
+                    formData.append('file', data.file)
+               }
+
+               const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: formData,
+               })
+
+               const result = await response.json()
+
+               if (response.ok) {
+                    setData({ name: '', email: '', phone: '', idea: '', file: null })
+                    setIsChecked(false)
+               } else {
+                    throw new Error(result.error || 'Failed to submit form')
+               }
+          } catch (error) {
+               console.error('Error submitting form:', error)
+          } finally {
+               setLoading(false)
+          }
+     }
+
      const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           e.preventDefault()
 
@@ -58,7 +93,7 @@ function Form() {
           }
 
           if (data.name && data.email && data.idea && checkValidEmail(data.email)) {
-               setLoading(true)
+               submitForm()
           } else {
                let obj = { ...errors }
 
@@ -80,6 +115,20 @@ function Form() {
           }
      }
 
+     function displayFileSize(file: File) {
+          const sizeInBytes = file.size // Get the file size in bytes
+
+          if (sizeInBytes < 1024) {
+               return `${sizeInBytes} Bytes`
+          } else if (sizeInBytes < 1024 * 1024) {
+               return `${(sizeInBytes / 1024).toFixed(2)} KB`
+          } else if (sizeInBytes < 1024 * 1024 * 1024) {
+               return `${(sizeInBytes / (1024 * 1024)).toFixed(2)} MB`
+          } else {
+               return `${(sizeInBytes / (1024 * 1024 * 1024)).toFixed(2)} GB`
+          }
+     }
+
      return (
           <div className={styles.contactForm}>
                <div className={styles.inputCont}>
@@ -87,6 +136,7 @@ function Form() {
                          className={`${styles.input} ${errors.name && styles.error}`}
                          onChange={(e) => onChange('name', e.target.value)}
                          type='text'
+                         value={data?.name}
                          placeholder='Contact name*'
                     />
                     {errors.name && <span>{errors.name}</span>}
@@ -98,6 +148,7 @@ function Form() {
                               className={`${styles.input}`}
                               onChange={(e) => onChange('phone', e.target.value)}
                               type='text'
+                              value={data?.phone}
                               placeholder='Contact phone'
                          />
                     </div>
@@ -106,6 +157,7 @@ function Form() {
                               className={`${styles.input} ${errors.email && styles.error}`}
                               onChange={(e) => onChange('email', e.target.value)}
                               type='text'
+                              value={data?.email}
                               placeholder='E-mail*'
                          />
                          {errors.email && <span>{errors.email}</span>}
@@ -115,22 +167,70 @@ function Form() {
                     <textarea
                          className={`${errors.idea && styles.error}`}
                          placeholder='Let’s talk about your idea*'
+                         value={data?.idea}
                          onChange={(e) => onChange('idea', e.target.value)}
                     />
                     {errors.idea && <span>{errors.idea}</span>}
                </div>
 
-               <div onClick={openFileUploader} className={styles.uploadBtn}>
-                    <Image src={uploadIcon} alt='' />
-                    <span>Upload Additional file</span>
-               </div>
-               <p className={styles.infoNote}>File size of your documents should not exceed 10MB</p>
+               {data?.file ? (
+                    <div className={styles.filePreview}>
+                         <div
+                              style={{
+                                   display: 'flex',
+                                   alignItems: 'flex-end',
+                                   columnGap: '0.5rem',
+                              }}
+                         >
+                              <span> {(data?.file as File)?.name ?? ''}</span>
+                              <pre className={styles.size}>( {displayFileSize(data.file)} )</pre>
+                         </div>
+
+                         <button
+                              onClick={() => {
+                                   setData((prev) => {
+                                        return { ...prev, ['file']: null }
+                                   })
+                              }}
+                              className={styles.deleteBtn}
+                         >
+                              <Image src={trashIcon} alt='' />
+                         </button>
+                    </div>
+               ) : (
+                    <div onClick={openFileUploader} className={styles.uploadBtn}>
+                         <Image src={uploadIcon} alt='' />
+                         <span>Upload Additional file</span>
+                    </div>
+               )}
+               {errors.file ? (
+                    <p className={styles.infoNote} style={{ color: 'red' }}>
+                         {errors.file}
+                    </p>
+               ) : (
+                    <p className={styles.infoNote}>
+                         File size of your documents should not exceed 10MB
+                    </p>
+               )}
 
                <input
                     style={{ display: 'none' }}
                     type='file'
                     placeholder='Contact name'
                     ref={uploadBtnRef}
+                    onChange={(e: any) => {
+                         if (e.target.files[0]) {
+                              const MAX_FILE_SIZE = 10 * 1024 * 1024
+                              if (e.target.files[0].size > MAX_FILE_SIZE) {
+                                   setErrors({
+                                        ...errors,
+                                        file: 'File size of your documents should not exceed 10MB',
+                                   })
+                              } else {
+                                   onChange('file', e.target.files ? e.target.files[0] : null)
+                              }
+                         }
+                    }}
                />
                <div className={styles.checkbox}>
                     <Checkbox
