@@ -68,6 +68,15 @@ a {
      /* color of scrollbar track */
 }
 
+::-moz-selection {
+     /* Code for Firefox */
+     background: #e4f5e7;
+}
+
+::selection {
+     background: #e4f5e7;
+}
+
 @media screen and (max-width: 1220px) {
      :root {
           font-size: 14px;
