@@ -13,12 +13,11 @@ const inter = Inter({
      style: ['normal'],
 })
 const InfoCard = forwardRef(({ data, isLoading }: any, forwardRefs: any) => {
-     const cardRefs = useRef<(HTMLDivElement | null)[]>([])
      const arr = ['Automotive', 'Technology']
 
      return (
           <>
-               {data.map((item: any, index: any) =>
+               {data?.map((item: any, index: any) =>
                     false ? (
                          <NewsCardSkeleton
                               key={index}
