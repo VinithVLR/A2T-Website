@@ -211,6 +211,13 @@ const LatestNewsSection = () => {
                          ) : (
                               arr.map((item, index) => (
                                    <UpdateCard
+                                        flexCon={{
+                                             display: 'flex',
+                                             flexDirection: 'column',
+                                             height: 'auto',
+                                             minHeight: '122px',
+                                             gap: '1rem',
+                                        }}
                                         key={index}
                                         imageUrl={item.img}
                                         date={item.date}

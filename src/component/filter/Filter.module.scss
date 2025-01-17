@@ -11,6 +11,7 @@
      @media screen and (max-width: 768px) {
           justify-content: unset;
      }
+
      &::-webkit-scrollbar {
           -webkit-appearance: none;
           width: 0px;
@@ -27,11 +28,15 @@
           transition: all 0.3s;
           border-radius: 8px;
           border: 1px solid transparent;
+          font-weight: 500;
 
           &.active {
                border: 1px solid #e4eaf2;
                background-color: #fff;
                box-shadow: rgba(70, 70, 70, 0.15) 0px 5px 15px 0px;
+               color: #0e7b68;
+               font-weight: 500;
+
           }
      }
 }

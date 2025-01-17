@@ -54,6 +54,7 @@
                display: flex;
                gap: 1.1rem;
                margin-top: 12px;
+               align-items: flex-end;
 
                .tag {
                     padding: 10px 25px;
@@ -61,6 +62,25 @@
                     border-radius: 25px;
                     color: #27a745;
                     border: 1px solid #27a745;
+               }
+          }
+
+          .flexCon {
+               min-height: 210px;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+
+               .titleSec {
+                    min-height: 100px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    margin-block-end: 1rem;
+
+                    .header {
+                         padding-block: 1rem;
+                    }
                }
           }
      }
@@ -85,6 +105,14 @@
                .tags {
                     .tag {
                          font-size: 1rem;
+                    }
+               }
+
+               .flexCon {
+                    min-height: fit-content;
+
+                    .titleSec {
+                         min-height: fit-content;
                     }
                }
           }
@@ -112,6 +140,16 @@
                          font-size: 1rem;
                     }
                }
+
+               .flexCon {
+                    min-height: fit-content;
+
+                    .titleSec {
+                         min-height: fit-content;
+                    }
+               }
           }
+
+
      }
 }

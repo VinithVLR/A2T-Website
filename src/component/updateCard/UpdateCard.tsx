@@ -12,7 +12,18 @@ const inter = Inter({
 })
 const UpdateCard = forwardRef(
      (
-          { imageUrl, date, title, description, tags, index, sectionStyle, tagStyle, isFlag }: any,
+          {
+               imageUrl,
+               date,
+               title,
+               description,
+               tags,
+               index,
+               sectionStyle,
+               tagStyle,
+               isFlag,
+               flexCon,
+          }: any,
           forwardRef: any,
      ) => {
           const cardRef = useRef<HTMLDivElement>(null)
@@ -62,14 +73,27 @@ const UpdateCard = forwardRef(
                               <Image src={calendarIcon} alt='calendar_icon' />
                               <TertiaryPara> {date}</TertiaryPara>
                          </div>
-                         <TertiaryHeading className={styles.title}>{title}</TertiaryHeading>
-                         <TertiaryPara className={styles.description}>{description}</TertiaryPara>
-                         <div className={styles.tags}>
-                              {tags.map((tag: any, index: any) => (
-                                   <span key={index} className={styles.tag} style={{ ...tagStyle }}>
-                                        {tag}
-                                   </span>
-                              ))}
+                         <div className={styles.flexCon}>
+                              <div className={styles.titleSec}>
+                                   <TertiaryHeading className={styles.header}>
+                                        {title}
+                                   </TertiaryHeading>
+                                   <TertiaryPara className={styles.sub_header}>
+                                        {description}
+                                   </TertiaryPara>
+                              </div>
+
+                              <div className={styles.tags}>
+                                   {tags.map((tag: any, index: any) => (
+                                        <span
+                                             key={index}
+                                             className={styles.tag}
+                                             style={{ ...tagStyle }}
+                                        >
+                                             {tag}
+                                        </span>
+                                   ))}
+                              </div>
                          </div>
                     </div>
                </div>
