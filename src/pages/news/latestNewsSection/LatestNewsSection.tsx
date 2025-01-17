@@ -9,6 +9,13 @@ import img_electric from '../../../assets/images/img_electric.png'
 import InfoCard from '../component/InfoCard/InfoCard'
 import Loading from '@/app/loading'
 import NewsCardSkeleton from '../component/skeleton/NewsCardSkeleton'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+     subsets: ['latin'],
+     weight: ['400', '800'],
+     style: ['normal'],
+})
 
 const LatestNewsSection = () => {
      const [isLoading, setIsLoading] = useState(true)
@@ -18,6 +25,7 @@ const LatestNewsSection = () => {
                setIsLoading(false)
           }, 1000)
      }, [])
+
      const [options, setOptions] = useState([
           {
                title: 'All',
@@ -50,10 +58,11 @@ const LatestNewsSection = () => {
                active: false,
           },
      ])
+
      let arr = [
           {
                img: img_electric,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Renewable Energy Demand Fuels Skilled Workforce Needs',
                para: 'Top automakers announce plans to transition towards fully electric vehicle production by 2030.',
           },
@@ -61,20 +70,20 @@ const LatestNewsSection = () => {
      let listItem = [
           {
                img: img_electric,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Automakers Shift to Electric Vehicle Production',
                para: 'New AI technology promises faster data processing for businesses across various industries.',
           },
           {
                img: img_electric,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Automakers Shift to Electric Vehicle Production',
                para: 'New AI technology promises faster data processing for businesses across various industries.',
           },
 
           {
                img: img_electric,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Automakers Shift to Electric Vehicle Production',
                para: 'New AI technology promises faster data processing for businesses across various industries.',
           },
@@ -82,6 +91,7 @@ const LatestNewsSection = () => {
      const [posts, setPosts]: any = useState([])
      const [page, setPage] = useState(1)
      const [loading, setLoading] = useState(false)
+     const [isToggle, setIsToggle] = useState(true)
      const pageSize = 9
 
      const fetchPosts = async (pageNumber: number) => {
@@ -122,8 +132,9 @@ const LatestNewsSection = () => {
                const timeline = gsap.timeline({
                     scrollTrigger: {
                          trigger: cardRefs.current,
-                         start: 'top center+=100',
+                         start: () => (window.innerWidth < 768 ? 'top 100%' : 'top center+=100'),
                          toggleActions: 'play none none none',
+                         // invalidateOnRefresh: true,
                     },
                })
                timeline.fromTo(
@@ -147,7 +158,7 @@ const LatestNewsSection = () => {
                               duration: 1,
                               ease: 'power3.out',
                          },
-                         index == 0 ? 0 : index == 1 ? 0.5 : 1,
+                         index == 0 ? 0 : index == 1 ? 0.1 : index == 2 ? 0.2 : 1,
                     )
                })
           }
@@ -163,11 +174,11 @@ const LatestNewsSection = () => {
                <div className={styles.land_sec}>
                     <div className={styles.centerContent}>
                          <span className={styles.title}>News</span>
-                         <MainHeading>
+                         <MainHeading className={`${styles.header} ${styles.blackText}`}>
                               Stay Informed with our <span>Latest Industry News</span> and Company
                               Updates
                          </MainHeading>
-                         <MainPara>
+                         <MainPara className={`${inter.className} ${styles.regularText}`}>
                               Explore our latest announcements, industry insights, and company
                               updates.
                          </MainPara>
@@ -178,12 +189,22 @@ const LatestNewsSection = () => {
                     />
                     <Filter
                          options={options}
-                         style={{ margin: '0%' }}
+                         style={{
+                              margin: '0%',
+                              minHeight: '100px',
+                         }}
+                         shadowStyle={{
+                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                              marginBlock: '0.1rem',
+                         }}
                          onChange={(value: any) => setOptions(value)}
                     />
                </div>
+               <div className={styles.header}>
+                    <SecondaryHeading className={styles.title}>Featured news</SecondaryHeading>
+               </div>
 
-               <div className={styles.details_con} ref={cardRefs}>
+               <div className={styles.details_con} ref={cardRefs} style={{}}>
                     <div className={styles.single_card_con}>
                          {false ? (
                               <NewsCardSkeleton style={{ width: '37rem' }} />
@@ -225,6 +246,7 @@ const LatestNewsSection = () => {
                                    {posts.map((post: any, index: any) => (
                                         <UpdateCard
                                              key={index}
+                                             ref={updateCardRef}
                                              tagStyle={{ padding: '10px 14px', fontSize: '0.7rem' }}
                                              imageUrl={img_electric}
                                              date={'24, March 23'}
@@ -232,6 +254,7 @@ const LatestNewsSection = () => {
                                              description={
                                                   'New AI technology promises faster data processing for businesses across various industries.'
                                              }
+                                             isFlag={true}
                                              tags={['Automotive', 'Technology']}
                                              index={index}
                                              sectionStyle={{ height: '100%' }}

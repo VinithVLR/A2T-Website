@@ -382,7 +382,7 @@ function SustainableGoals() {
                                                                  className={`${styles.image} ${styles.img} ${styles.revImg}`}
                                                             />
                                                             <h1 className={styles.numberText}>
-                                                                 #0{item.no}
+                                                                 #{item.no}
                                                             </h1>
                                                        </div>
                                                   </div>

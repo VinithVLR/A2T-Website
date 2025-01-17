@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Filter.module.scss'
 import { MainPara } from '../typography/Typography'
 
-const Filter = ({ options, onChange, style }: any) => {
+const Filter = ({ options, onChange, style, shadowStyle }: any) => {
      const onFilterChange = (value: string) => {
           onChange(
                options.map((option: any) => {
@@ -17,6 +17,7 @@ const Filter = ({ options, onChange, style }: any) => {
                          <li
                               key={option.value}
                               onClick={() => onFilterChange(option.value)}
+                              style={option.active ? shadowStyle : {}}
                               className={option.active ? styles.active : ''}
                          >
                               <MainPara>{option.title}</MainPara>

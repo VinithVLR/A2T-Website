@@ -11,19 +11,19 @@ const LatestUpdates = () => {
      let arr = [
           {
                img: img_electric,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Automakers Shift to Electric Vehicle Production',
                para: 'Top automakers announce plans to transition towards fully electric vehicle production by 2030.',
           },
           {
                img: img_tech,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'Tech Firm Launches Revolutionary AI Platform',
                para: 'New AI technology promises faster data processing for businesses across various industries.',
           },
           {
                img: img_wild,
-               date: '24, March 23’',
+               date: '24, March 23',
                title: 'New Wildlife Conservation Initiative Launched',
                para: 'Non-profits unite to protect endangered species through innovative conservation programs.',
           },

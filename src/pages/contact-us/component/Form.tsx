@@ -87,31 +87,45 @@ function Form() {
      const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           e.preventDefault()
 
+          let isValid = true
+
           if (!isChecked) {
                setCheckboxError(true)
-               return
+               isValid = false
+          } else {
+               setCheckboxError(false)
           }
 
-          if (data.name && data.email && data.idea && checkValidEmail(data.email)) {
-               submitForm()
+          let obj = { ...errors }
+
+          if (!data.name) {
+               obj.name = 'Please enter name'
+               isValid = false
           } else {
-               let obj = { ...errors }
+               obj.name = ''
+          }
 
-               if (!data.name) {
-                    obj.name = 'Please enter name'
-               }
+          if (!data.email) {
+               obj.email = 'Please enter email'
+               isValid = false
+          } else if (!checkValidEmail(data.email)) {
+               obj.email = 'Please enter a valid email'
+               isValid = false
+          } else {
+               obj.email = ''
+          }
 
-               if (!data.email) {
-                    obj.email = 'Please enter email'
-               } else {
-                    obj.email = 'Please enter valid email'
-               }
+          if (!data.idea) {
+               obj.idea = 'Please enter idea'
+               isValid = false
+          } else {
+               obj.idea = ''
+          }
 
-               if (!data.idea) {
-                    obj.idea = 'Please enter idea'
-               }
+          setErrors(obj)
 
-               setErrors(obj)
+          if (isValid) {
+               submitForm()
           }
      }
 
