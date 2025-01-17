@@ -13,10 +13,12 @@ const CallToAction = ({
      img,
      data,
      style,
+     detailsSection,
 }: {
      img?: boolean
      data: React.ReactNode
      style?: any
+     detailsSection?: any
 }) => {
      const router = useRouter()
 
@@ -61,7 +63,10 @@ const CallToAction = ({
                          </div>
                     )}
 
-                    <div className={img ? styles.details_section : styles.detailsCon}>
+                    <div
+                         className={img ? styles.details_section : styles.detailsCon}
+                         style={{ ...detailsSection }}
+                    >
                          <div className={img ? styles.con_wrapper : styles.conWrapper}>
                               <h2 className={styles.title}>{data}</h2>
                               <Button
