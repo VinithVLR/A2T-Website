@@ -10,6 +10,7 @@ import { Inter } from 'next/font/google'
 import iconLoc from '../../assets/icons/ic_location.svg'
 import iconMob from '../../assets/icons/ic_phone.svg'
 import iconEmail from '../../assets/icons/ic_mail.svg'
+import iconInstagram from '../../assets/icons/ic_instagram.svg'
 
 const inter = Inter({
      subsets: ['latin'],
@@ -18,7 +19,7 @@ const inter = Inter({
 })
 
 const Footer = () => {
-     let arrImage = [youtubeIcon, linkedIcon, xIcon]
+     let arrImage = [youtubeIcon, linkedIcon, xIcon, iconInstagram]
 
      let arr = [
           {

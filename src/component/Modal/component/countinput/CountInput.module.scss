@@ -1,0 +1,51 @@
+.counterContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 180px;
+
+    .label {
+        text-align: left;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #DADADA;
+
+    }
+
+    .counterBox {
+        display: flex;
+        align-items: center;
+        background-color: #092019;
+        border-radius: 8px;
+        // padding: 5px;
+        border: 1px solid #0A352E;
+        // min-width: 150px;
+
+        .button {
+            background-color: #0A352E;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            // border-radius: 6px;
+
+            &:hover {
+                background-color: #0c5e50;
+            }
+        }
+
+        .value {
+            background-color: black;
+            color: #fff;
+            padding: 5px 10px;
+            min-width: 40px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            // border-radius: 6px;
+        }
+    }
+}

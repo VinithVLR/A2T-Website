@@ -4,6 +4,8 @@ import Navbar from '@/component/navbar/Navbar'
 import Footer from '@/component/footer/Footer'
 import { inter } from '../../public/fonts/inter'
 import { nunito } from '../../public/fonts/inter'
+import { dmSans } from '../../public/fonts/inter'
+
 import { Suspense } from 'react'
 import Loading from './loading'
 
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
      return (
-          <html lang='en' className={`${inter.variable} ${nunito.variable}`}>
+          <html lang='en' className={`${inter.variable} ${nunito.variable} ${dmSans.variable}`}>
                <head>
                     <link rel='icon' href='/favicon.ico' />
                </head>

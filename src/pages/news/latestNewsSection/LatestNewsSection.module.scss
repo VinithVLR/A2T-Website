@@ -26,13 +26,13 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
     }
 
     .centerContent {
         text-align: center;
-        padding-block-end: 2rem;
+        // padding-block-end: 2rem;
 
         .title {
             width: fit-content;

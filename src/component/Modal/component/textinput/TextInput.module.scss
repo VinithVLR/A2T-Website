@@ -1,0 +1,51 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 0.5rem;
+    min-width: 200px;
+
+    .label {
+        color: #DADADA;
+        font-weight: 400;
+        text-align: left;
+        font-size: 0.8rem;
+        padding-block-end: 7px;
+        text-align: left;
+
+    }
+
+    .inputWrapper {
+        display: flex;
+        align-items: center;
+        background: #111;
+        border: 1px solid #0A352E;
+        border-radius: 7px;
+        width: 100%;
+    }
+
+    .input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: white;
+        outline: none;
+        padding-inline: 0.5rem;
+    }
+
+    .suffix {
+        color: #ccc;
+        margin-left: 8px;
+        font-size: 0.7rem;
+        background-color: #0A352E;
+        padding-block: 0.7rem;
+        padding-inline: 0.5rem;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+}

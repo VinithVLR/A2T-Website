@@ -1,0 +1,37 @@
+.spanText {
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+    font-family: var(--font-dm-sans);
+}
+
+
+.large {
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.medium {
+    font-size: 12px;
+    font-family: inherit;
+
+}
+
+.small {
+    font-size: 10px;
+    font-family: inherit;
+
+}
+
+@media (max-width: 768px) {
+    .large {
+        font-size: 14px;
+    }
+
+    .medium {
+        font-size: 10px;
+    }
+
+    .small {
+        font-size: 8px;
+    }
+}
