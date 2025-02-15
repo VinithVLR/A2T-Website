@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #060606;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,14 +19,15 @@
     border-radius: 8px;
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 85%;
     max-width: 1200px;
     border: 1.5px solid #0e7b68;
     // overflow: hidden;
+    background-color: #060606;
 
     .closeButton {
         position: absolute;
-        top: -4rem;
+        top: -3.5rem;
         right: -1rem;
         background: none;
         border: none;
@@ -37,8 +38,11 @@
         border-radius: 5px;
         color: antiquewhite;
 
-        &:hover {
-            color: red;
+        // &:hover {
+        //     color: red;
+        // }
+        &:active {
+            opacity: 0.5;
         }
     }
 }

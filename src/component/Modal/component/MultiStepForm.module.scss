@@ -3,6 +3,7 @@
     text-align: center;
     position: relative;
     font-family: var(--font-dm-sans);
+    user-select: none;
 
     .fieldset {
         // background: white;
@@ -18,7 +19,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 300px;
+        min-height: 270px;
         font-family: inherit;
 
         .count {
@@ -94,7 +95,7 @@
         .fourthform {
             align-items: center;
             justify-content: center;
-            margin-block-start: 3rem;
+            margin-block-start: 1rem;
         }
 
     }
@@ -103,25 +104,47 @@
         display: none;
     }
 
+
     .actionButton {
         width: 100px;
         background: #051F1A;
-        font-weight: bold;
         color: #0A9A81;
+        border: 1px solid #0A9A81;
+        border-radius: 20px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+        margin-inline: 1rem;
+        transition: background-color 0.3s, color 0.3s, border 0.3s;
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &--next {
+            background-color: #0E7B68;
+            color: #fff;
+            border: none;
+        }
+    }
+
+    .submitButton {
+        width: 100px;
+        background: #0A9A81;
+        color: #fff;
         border: none;
         border-radius: 20px;
         cursor: pointer;
         padding: 10px 5px;
         margin: 10px 5px;
-        border: 1px solid #0A9A81;
+        margin-inline: 1rem;
+        transition: background-color 0.3s;
 
-        &:active {
-            background-color: #0E7B68;
-            color: #fff;
-            border: none;
-
+        &:hover {
+            background-color: #08705E;
         }
     }
+
 
     .submitButton {
         @extend .actionButton;
@@ -136,9 +159,9 @@
 
     .fsTitle {
         font-size: 1rem;
-        color: #fff;
-        font-weight: 100;
-        margin-bottom: 10px;
+        color: #DADADA;
+        font-weight: 400;
+        margin-block-end: 1.5rem;
 
         span {
             color: #8A8A8A;
@@ -157,6 +180,7 @@
         color: #fff;
         width: 100%;
         font-weight: 200;
+        margin-block-start: 1rem;
 
         span {
             color: #0CFF3F;
@@ -165,155 +189,81 @@
 
     .radioCon {
         display: flex;
-        width: 90%;
-        justify-content: space-between;
+        gap: 5rem;
+        padding-block-start: 2rem;
+        // width: 70%;
+        // justify-content: space-between;
 
-        .bike_con,
-        .cars_con {
+        .flexContainer {
             display: flex;
+            justify-content: flex-start;
             flex-direction: column;
+            min-width: 300px;
+            flex: 1 1;
+
+            .flex {
+                display: flex;
+                gap: 0.5rem;
+                padding-inline-end: 1rem;
+            }
         }
 
         .type_con {
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
+            min-height: 50px;
 
-            .input_label {
-                text-align: left;
-                font-size: 1rem;
-                font-weight: 300;
+            label {
                 color: #DADADA;
-                padding-block: 1rem;
+                // text-align: left;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
             }
         }
 
-
-
-        .flex {
+        .inputWrapper {
             display: flex;
-            gap: 0.5rem;
-            align-items: center;
+            flex-direction: column;
+
+            label {
+                font-size: 0.8rem;
+                color: #DADADA;
+                -webkit-padding-after: 0.5rem;
+                padding-block: 0.7rem;
+                text-align: justify;
+            }
         }
 
         input[type='radio'] {
             appearance: none;
             width: 15px;
             height: 15px;
-            border: 3px solid #0A352E;
+            border: 3px solid #0a352e;
             border-radius: 50%;
-            display: inline-block;
-            position: relative;
             cursor: pointer;
-            background: transparent;
             transition: all 0.3s ease-in-out;
-            padding: 2px;
         }
-
 
         input[type='radio']:checked {
-            border: 7px solid #0E7B68;
+            border: 7px solid #0e7b68;
+        }
+
+        .input_kilometer {
+            border: 1px solid #0a352e;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
             background-color: transparent;
+            color: #fff;
+            max-width: 250px;
         }
 
-
-        input[type='radio']::before {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: transparent;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-        }
-
-        input[type='radio']:checked::before {
-            background: #060606;
-            transform: translate(-50%, -50%) scale(1);
+        .input_kilometer:focus {
+            outline: none;
         }
     }
-
-    .flex_con {
-        display: flex;
-        width: 90%;
-        justify-content: space-between;
-
-        .inputCar {
-            display: flex;
-            flex-direction: column;
-            // width: 50%;
-            margin-block-start: 1.5rem;
-
-            .input_kilometer {
-                border: 1px solid #0A352E;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                background-color: transparent;
-                color: #fff;
-                max-width: 300px;
-
-            }
-
-            label {
-                text-align: left;
-                font-size: 0.8rem;
-                padding-block-end: 0.5rem;
-                color: #DADADA;
-            }
-
-            .input_kilometer:focus {
-                outline: none;
-            }
-
-            .label_kilometer {
-                color: #DADADA;
-                font-weight: 400;
-                text-align: left;
-                font-size: 1rem;
-                margin-block-end: 0.5rem;
-            }
-        }
-
-        .inputBike {
-            display: flex;
-            flex-direction: column;
-            // width: 50%;
-            margin-block-start: 1.5rem;
-
-            label {
-                text-align: left;
-                font-size: 0.8rem;
-                padding-block-end: 0.5rem;
-                color: #DADADA;
-            }
-
-            .input_kilometer {
-                border: 1px solid #0A352E;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                background-color: transparent;
-                color: #fff;
-                max-width: 300px;
-
-            }
-
-            .input_kilometer:focus {
-                outline: none;
-            }
-
-            .label_kilometer {
-                color: #DADADA;
-                font-weight: 400;
-                text-align: left;
-                font-size: 1rem;
-                margin-block-end: 0.5rem;
-            }
-        }
-    }
-
 
     .Commute_container {
         display: flex;
@@ -321,6 +271,8 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        row-gap: 2rem;
+        column-gap: 3rem;
 
         .row {
             display: flex;
@@ -337,7 +289,7 @@
     }
 
     .progressbar {
-        margin-block-start: 2rem;
+        margin-block: 2rem;
         overflow: hidden;
         display: flex;
         justify-content: space-between;
@@ -456,27 +408,37 @@
 
             }
 
-            .right {
-                background-color: #08160B;
-                border: 1px solid #1E2B21;
-                padding: 0.5rem;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                overflow: hidden;
+            .parentContainer {
                 position: relative;
 
-                .image_wrapper {
-                    width: 3.5rem;
-                    height: auto;
-                    cursor: pointer;
-                    margin-inline-start: 2rem;
+                .right {
+                    background-color: #08160B;
+                    border: 1px solid #1E2B21;
+                    padding: 0.5rem;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden; // Hides bg_value
+                    position: relative;
 
-                    .icon {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
-                        // padding: 2px;
+                    .sustainability_rank {
+                        position: relative;
+                        z-index: 1;
+                        color: #F4FFF6;
+                    }
+
+                    .image_wrapper {
+                        width: 3.5rem;
+                        height: auto;
+                        cursor: pointer;
+                        // margin-inline-start: 2rem;
+
+                        .icon {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            // padding: 2px;
+                        }
                     }
                 }
 
@@ -488,33 +450,31 @@
                     font-weight: 900;
                     right: 13rem;
                     top: -1rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100%;
                 }
 
-                .sustainability_rank {
+                .image_wrapper_recycle {
+                    height: 5rem;
                     position: absolute;
-                    width: 100%;
-                    gap: 0.5rem;
-                    display: flex;
-                    flex-direction: column;
+                    right: 10px;
+                    top: -0.9rem;
+                    z-index: 2;
 
-
-                    .score {
-                        color: #F4FFF6;
-                        font-size: 0.9rem;
-                        font-family: inherit;
-                        text-align: left;
-                        padding-inline-start: 5rem;
+                    .icon {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
                     }
 
-                    .rank {
-                        color: #F4FFF6;
-                        font-size: 0.9rem;
-                        font-family: inherit;
-                        padding-inline-start: 1rem;
-                        text-align: left;
-                    }
+
                 }
             }
+
+
+
         }
 
         .maingrid {
@@ -769,9 +729,38 @@
 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 250px) and (max-width: 768px) {
     .msform {
         height: auto;
+        margin-top: 15rem;
+
+
+
+        .fsTitle {
+            margin-block: 2rem;
+        }
+
+        .radioCon {
+            flex-direction: column;
+            gap: 2rem;
+            min-width: 250px;
+
+            .flexContainer {
+                min-width: 0px;
+            }
+        }
+
+
+        .Commute_container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 2rem;
+            // column-gap: 3rem;
+            // justify-content: flex-start;
+        }
 
         .title {
             padding-block-end: 1rem;
@@ -780,7 +769,7 @@
 
         .fieldset {
             min-height: 450px;
-            overflow-y: auto;
+            // overflow-y: auto;
 
             .firstform,
             .fourthform {
@@ -794,7 +783,57 @@
         .grid_layout {
 
             .header {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr 1fr;
+
+                @media (max-width: 600px) {
+                    grid-template-columns: 1fr;
+                }
+
+                .left {
+                    min-height: 100px;
+
+                    .image_wrapper {
+                        width: 5rem;
+                    }
+                }
+
+                .parentContainer {
+                    .image_wrapper_recycle {
+                        top: 1.1rem;
+
+                        @media (max-width: 600px) {
+                            top: 2.1rem
+                        }
+                    }
+
+                    .right {
+                        min-height: 100px;
+                        overflow: hidden;
+
+                        .bg_value {
+                            right: 0;
+                            top: 6rem;
+
+                            @media (max-width: 500px) {
+                                top: 6.5rem;
+
+                            }
+                        }
+
+                        .image_wrapper {
+                            width: 5rem;
+                        }
+
+                        .image_wrapper_recycle {
+                            position: relative;
+                            top: 0;
+                        }
+
+                        .sustainability_rank {
+                            position: relative;
+                        }
+                    }
+                }
             }
 
             .maingrid {
@@ -818,6 +857,12 @@
 
                 .center {
                     min-height: 200px;
+                }
+
+                .left_con {
+                    .scrollbar {
+                        height: auto;
+                    }
                 }
             }
         }

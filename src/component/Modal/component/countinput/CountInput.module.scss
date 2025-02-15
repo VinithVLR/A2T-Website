@@ -1,9 +1,9 @@
 .counterContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
-    min-width: 180px;
+    padding-inline: 2rem;
 
     .label {
         text-align: left;
@@ -24,7 +24,7 @@
 
         .button {
             background-color: #0A352E;
-            color: white;
+            color: #31A591;
             border: none;
             width: 30px;
             height: 30px;
@@ -39,13 +39,20 @@
 
         .value {
             background-color: black;
-            color: #fff;
+            color: #728380;
             padding: 5px 10px;
             min-width: 40px;
             text-align: center;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 500;
             // border-radius: 6px;
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .counterContainer {
+        min-width: 0px;
+
     }
 }

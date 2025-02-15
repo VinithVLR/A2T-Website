@@ -33,7 +33,7 @@
     }
 
     .suffix {
-        color: #ccc;
+        color: #3F8E81;
         margin-left: 8px;
         font-size: 0.7rem;
         background-color: #0A352E;
@@ -47,5 +47,11 @@
         color: red;
         font-size: 12px;
         margin-top: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inputContainer {
+        width: 90%;
     }
 }

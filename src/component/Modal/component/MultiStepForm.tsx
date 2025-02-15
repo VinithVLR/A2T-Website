@@ -5,6 +5,7 @@ import TextInput from './textinput/TextInput'
 import CounterInput from './countinput/CountInput'
 import iconGolabel from '../../../assets/icons/ic_golabel.svg'
 import iconLeaves from '../../../assets/icons/ic_leaves.svg'
+import imgRecyle from '../../../assets/images/modal_Img/img_recycle.png'
 import Image from 'next/image'
 import ImageTransport from '../../../assets/images/modal_Img/img_transport.png'
 import ImageEmission from '../../../assets/images/modal_Img/img_emission.png'
@@ -44,10 +45,10 @@ const formReducer = (state: any, action: any) => {
 }
 
 const MultiStepForm = () => {
-     const [step, setStep] = useState(1)
+     const [step, setStep] = useState(2)
      const [formData, dispatch] = useReducer(formReducer, initialFormState)
      const progressRef = useRef<HTMLUListElement>(null)
-     const [windowWidth, setWindowWidth] = useState(1)
+     const [windowWidth, setWindowWidth] = useState(8)
 
      useEffect(() => {
           setWindowWidth(window.innerWidth)
@@ -80,6 +81,7 @@ const MultiStepForm = () => {
                     paddingBlockStart: windowWidth <= 768 ? '10rem' : '0rem',
                     width: step == 8 ? '100%' : '80%',
                     height: step == 8 ? '95%' : 'auto',
+                    marginTop: windowWidth <= 768 && step == 8 ? '22rem' : '0rem',
                }}
                onSubmit={(e) => e.preventDefault()}
           >
@@ -129,10 +131,6 @@ const MultiStepForm = () => {
                                                   })
                                              }
                                              style={{
-                                                  background:
-                                                       formData.size === number.toString()
-                                                            ? '#0E7B68'
-                                                            : 'transparent',
                                                   color:
                                                        formData.size === number.toString()
                                                             ? '#fff'
@@ -154,72 +152,59 @@ const MultiStepForm = () => {
                          <h2 className={styles.fsTitle}>Do you own an electric vehicle?</h2>
                          <div className={styles.radioCon}>
                               {['EVCar', 'EVBike'].map((type) => (
-                                   <div key={type} className={styles.type_con}>
-                                        <label className={styles.input_label}>
-                                             {type === 'EVCar' ? 'EV Car' : 'EV Bike'}
-                                        </label>
-                                        <div className={styles.flex}>
-                                             {['Yes', 'No'].map((option) => (
-                                                  <label key={option} className={styles.flex}>
-                                                       <input
-                                                            type='radio'
-                                                            name={type}
-                                                            value={option}
-                                                            checked={formData[type] === option}
-                                                            onChange={handleChange}
-                                                       />
-                                                       <span
-                                                            className='trsTpLbl'
-                                                            style={{
-                                                                 color:
-                                                                      formData[type] === option
-                                                                           ? '#fff'
-                                                                           : '#728380',
-                                                            }}
-                                                       >
-                                                            {option}
-                                                       </span>
-                                                  </label>
-                                             ))}
+                                   <div key={type} className={styles.flexContainer}>
+                                        <div className={styles.type_con}>
+                                             <label className={styles.input_label}>
+                                                  {type === 'EVCar' ? 'EV Car' : 'EV Bike'}
+                                             </label>
+                                             <div className={styles.flex}>
+                                                  {['Yes', 'No'].map((option) => (
+                                                       <label key={option} className={styles.flex}>
+                                                            <input
+                                                                 type='radio'
+                                                                 name={type}
+                                                                 value={option}
+                                                                 checked={formData[type] === option}
+                                                                 onChange={handleChange}
+                                                            />
+                                                            <span
+                                                                 className='trsTpLbl'
+                                                                 style={{
+                                                                      color:
+                                                                           formData[type] === option
+                                                                                ? '#fff'
+                                                                                : '#728380',
+                                                                 }}
+                                                            >
+                                                                 {option}
+                                                            </span>
+                                                       </label>
+                                                  ))}
+                                             </div>
                                         </div>
+
+                                        {/* Show Input Field If "Yes" is Selected */}
+                                        {formData[type] === 'Yes' && (
+                                             <div className={styles.inputWrapper}>
+                                                  <label>
+                                                       How many kilometers do you travel per day?
+                                                  </label>
+                                                  <input
+                                                       name={`${type}kilometers`}
+                                                       className={styles.input_kilometer}
+                                                       placeholder='Enter the distance'
+                                                       value={formData[`${type}kilometers`] || ''}
+                                                       onChange={(e) =>
+                                                            dispatch({
+                                                                 name: `${type}kilometers`,
+                                                                 value: e.target.value,
+                                                            })
+                                                       }
+                                                  />
+                                             </div>
+                                        )}
                                    </div>
                               ))}
-                         </div>
-                         <div className={styles.flex_con}>
-                              {formData.EVCar === 'Yes' && (
-                                   <div className={styles.inputCar}>
-                                        <label>How many kilometers do you travel per day?</label>
-                                        <input
-                                             name='EVCarkilometers'
-                                             className={styles.input_kilometer}
-                                             placeholder='Enter the distance'
-                                             value={formData.EVCarkilometers || ''}
-                                             onChange={(e) =>
-                                                  dispatch({
-                                                       name: 'EVCarkilometers',
-                                                       value: e.target.value,
-                                                  })
-                                             }
-                                        />
-                                   </div>
-                              )}
-                              {formData.EVBike === 'Yes' && (
-                                   <div className={styles.inputBike}>
-                                        <label>How many kilometers do you travel per day?</label>
-                                        <input
-                                             name='EVBikekilometers'
-                                             className={styles.input_kilometer}
-                                             placeholder='Enter the distance'
-                                             value={formData.EVBikekilometers || ''}
-                                             onChange={(e) =>
-                                                  dispatch({
-                                                       name: 'EVBikekilometers',
-                                                       value: e.target.value,
-                                                  })
-                                             }
-                                        />
-                                   </div>
-                              )}
                          </div>
                     </fieldset>
                )}
@@ -401,39 +386,77 @@ const MultiStepForm = () => {
                                              ).
                                         </label>
                                    </div>
-                                   <div className={styles.right}>
-                                        <div className={styles.image_wrapper}>
+                                   <div className={styles.parentContainer}>
+                                        <div className={styles.right}>
+                                             <div className={styles.image_wrapper}>
+                                                  <Image
+                                                       alt=''
+                                                       src={iconLeaves}
+                                                       className={styles.icon}
+                                                  />
+                                             </div>
+                                             <div className={styles.bg_value}>45/100</div>
+                                             {windowWidth <= 600 ? (
+                                                  <div className={styles.sustainability_rank}>
+                                                       <div className={styles.rank}>
+                                                            You rank among the top{' '}
+                                                            <SpanText
+                                                                 size='large'
+                                                                 fontWeight='500'
+                                                                 color='#CCBE09'
+                                                            >
+                                                                 30%{' '}
+                                                            </SpanText>{' '}
+                                                            for eco-friendly habits.
+                                                       </div>
+                                                       <div
+                                                            className={styles.score}
+                                                            style={{ textAlign: 'center' }}
+                                                       >
+                                                            Your sustainability score is{' '}
+                                                            <SpanText
+                                                                 size='large'
+                                                                 fontWeight='500'
+                                                                 color='#0CFF3F'
+                                                            >
+                                                                 45/100{' '}
+                                                            </SpanText>
+                                                            .
+                                                       </div>
+                                                  </div>
+                                             ) : (
+                                                  <div className={styles.sustainability_rank}>
+                                                       <div className={styles.score}>
+                                                            Your sustainability score is{' '}
+                                                            <SpanText
+                                                                 size='large'
+                                                                 fontWeight='500'
+                                                                 color='#0CFF3F'
+                                                            >
+                                                                 45/100{' '}
+                                                            </SpanText>
+                                                            .
+                                                       </div>
+                                                       <div className={styles.rank}>
+                                                            You rank among the top{' '}
+                                                            <SpanText
+                                                                 size='large'
+                                                                 fontWeight='500'
+                                                                 color='#CCBE09'
+                                                            >
+                                                                 30%{' '}
+                                                            </SpanText>{' '}
+                                                            for eco-friendly habits.
+                                                       </div>
+                                                  </div>
+                                             )}
+                                        </div>
+                                        <div className={styles.image_wrapper_recycle}>
                                              <Image
                                                   alt=''
-                                                  src={iconLeaves}
+                                                  src={imgRecyle}
                                                   className={styles.icon}
                                              />
-                                        </div>
-                                        <div className={styles.bg_value}>45/100</div>
-
-                                        <div className={styles.sustainability_rank}>
-                                             <div className={styles.score}>
-                                                  Your sustainability score is{' '}
-                                                  <SpanText
-                                                       size='large'
-                                                       fontWeight='500'
-                                                       color='#0CFF3F'
-                                                  >
-                                                       45/100{' '}
-                                                  </SpanText>
-                                                  .
-                                             </div>
-                                             <div className={styles.rank}>
-                                                  You rank among the top{' '}
-                                                  <SpanText
-                                                       size='large'
-                                                       fontWeight='500'
-                                                       color='#CCBE09'
-                                                  >
-                                                       30%{' '}
-                                                  </SpanText>{' '}
-                                                  for eco-friendly habits.
-                                             </div>
                                         </div>
                                    </div>
                               </div>
@@ -605,7 +628,7 @@ const MultiStepForm = () => {
                          {step < totalSteps ? (
                               <button
                                    type='button'
-                                   className={styles.actionButton}
+                                   className={`${styles.actionButton} ${styles['actionButton--next']}`}
                                    onClick={nextStep}
                               >
                                    Next

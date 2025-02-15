@@ -10,7 +10,6 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, closeModal, children, bgImageUrl, style }) => {
-     if (!isOpen) return null
      const [windowWidth, setWindowWidth] = useState(0)
 
      useEffect(() => {
@@ -22,6 +21,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, closeModal, children, bgImageUrl,
           return () => window.removeEventListener('resize', handleResize)
      }, [])
 
+     useEffect(() => {
+          if (isOpen) {
+               document.body.style.overflow = 'hidden'
+               document.documentElement.style.overflow = 'hidden'
+          } else {
+               document.body.style.overflow = 'auto'
+               document.documentElement.style.overflow = 'auto'
+          }
+
+          return () => {
+               document.body.style.overflow = 'auto'
+               document.documentElement.style.overflow = 'auto'
+          }
+     }, [isOpen])
+
+     if (!isOpen) return null
      return (
           <div className={styles.modalOverlay} onClick={closeModal}>
                <div
