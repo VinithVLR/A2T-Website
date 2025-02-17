@@ -96,6 +96,7 @@ function FloatingButton() {
                                                             style={{
                                                                  position: 'relative',
                                                                  paddingBlock: '0.7rem',
+                                                                 minWidth: '270px',
                                                             }}
                                                        >
                                                             <input
@@ -114,7 +115,7 @@ function FloatingButton() {
                                                                       style={{
                                                                            position: 'absolute',
                                                                            top: '50%',
-                                                                           right: '10px',
+                                                                           right: '5px',
                                                                            transform:
                                                                                 'translateY(-50%)',
                                                                            cursor: 'pointer',
@@ -140,14 +141,16 @@ function FloatingButton() {
                                              style={{
                                                   backgroundColor: '#0E7B68',
                                                   gap: '1rem',
-                                                  borderRadius: '20px',
+                                                  borderRadius: '25px',
                                                   alignItems: 'center',
                                                   justifyContent: 'center',
+                                                  padding: '12px 20px',
                                              }}
                                              labestyle={{
                                                   marginLeft: '0px',
                                                   fontSize: '0.9rem',
-                                                  color: '#fff',
+                                                  color: '#F3F5FC',
+                                                  fontWeight: '400',
                                              }}
                                         />
                                    </>
@@ -165,21 +168,24 @@ function FloatingButton() {
                                              style={{
                                                   backgroundColor: '#0E7B68',
                                                   gap: '1rem',
-                                                  borderRadius: '20px',
+                                                  borderRadius: '25px',
                                                   alignItems: 'center',
                                                   justifyContent: 'center',
+                                                  padding: '12px 20px',
                                              }}
                                              labestyle={{
                                                   marginLeft: '0px',
                                                   fontSize: '0.9rem',
+                                                  fontWeight: '500',
                                                   color: '#fff',
+                                                  padding: '14px 20px;',
                                              }}
                                         />
                                    </>
                               ) : (
-                                   // <div className={styles.formStyle}>
-                                   <MultiStepForm />
-                                   // </div>
+                                   <div className={styles.formStyle}>
+                                        <MultiStepForm />
+                                   </div>
                               )}
                          </div>
                     </Modal>

@@ -45,7 +45,7 @@ const formReducer = (state: any, action: any) => {
 }
 
 const MultiStepForm = () => {
-     const [step, setStep] = useState(2)
+     const [step, setStep] = useState(1)
      const [formData, dispatch] = useReducer(formReducer, initialFormState)
      const progressRef = useRef<HTMLUListElement>(null)
      const [windowWidth, setWindowWidth] = useState(8)

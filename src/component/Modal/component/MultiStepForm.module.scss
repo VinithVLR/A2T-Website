@@ -162,6 +162,7 @@
         color: #DADADA;
         font-weight: 400;
         margin-block-end: 1.5rem;
+        font-family: inherit;
 
         span {
             color: #8A8A8A;
@@ -216,11 +217,11 @@
 
             label {
                 color: #DADADA;
-                // text-align: left;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
+                font-weight: 500;
             }
         }
 
@@ -232,7 +233,8 @@
                 font-size: 0.8rem;
                 color: #DADADA;
                 -webkit-padding-after: 0.5rem;
-                padding-block: 0.7rem;
+                padding-block-start: 1rem;
+                padding-block-end: 0.7rem;
                 text-align: justify;
             }
         }
@@ -248,7 +250,7 @@
         }
 
         input[type='radio']:checked {
-            border: 7px solid #0e7b68;
+            border: 5px solid #0e7b68;
         }
 
         .input_kilometer {

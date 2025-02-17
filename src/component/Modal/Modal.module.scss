@@ -18,12 +18,16 @@
     padding: 1rem;
     border-radius: 8px;
     position: relative;
-    width: 100%;
+    width: 95%;
     height: 85%;
-    max-width: 1200px;
+    max-width: 1700px;
     border: 1.5px solid #0e7b68;
     // overflow: hidden;
     background-color: #060606;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 
     .closeButton {
         position: absolute;

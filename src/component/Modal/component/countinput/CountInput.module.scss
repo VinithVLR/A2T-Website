@@ -7,8 +7,8 @@
 
     .label {
         text-align: left;
-        font-size: 0.9rem;
-        font-weight: 300;
+        font-size: 0.8rem;
+        font-weight: 400;
         color: #DADADA;
 
     }
@@ -20,14 +20,14 @@
         border-radius: 8px;
         // padding: 5px;
         border: 1px solid #0A352E;
-        // min-width: 150px;
+        min-width: 130px;
 
         .button {
             background-color: #0A352E;
             color: #31A591;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             font-size: 18px;
             cursor: pointer;
             // border-radius: 6px;
@@ -40,8 +40,8 @@
         .value {
             background-color: black;
             color: #728380;
-            padding: 5px 10px;
-            min-width: 40px;
+            padding: 10px 10px;
+            min-width: 60px;
             text-align: center;
             font-size: 14px;
             font-weight: 500;
@@ -53,6 +53,12 @@
 @media (max-width: 768px) {
     .counterContainer {
         min-width: 0px;
+        padding-inline: 0rem;
 
+        .counterBox {
+            .value {
+                min-width: 0px;
+            }
+        }
     }
 }
