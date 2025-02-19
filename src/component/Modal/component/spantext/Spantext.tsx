@@ -7,6 +7,7 @@ interface SpanTextProps {
      fontWeight?: '400' | '500' | '600' | '700' | '800' | '900'
      color?: string
      size?: 'large' | 'medium' | 'small'
+     fontSize?: any
 }
 
 const SpanText: React.FC<SpanTextProps> = ({
@@ -15,11 +16,12 @@ const SpanText: React.FC<SpanTextProps> = ({
      fontWeight = '400',
      color,
      size = 'medium',
+     fontSize,
 }) => {
      return (
           <span
                className={`${styles.spanText} ${styles[size]}`}
-               style={{ fontStyle, fontWeight, color }}
+               style={{ fontStyle, fontWeight, color, fontSize }}
           >
                {children}
           </span>

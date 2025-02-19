@@ -45,7 +45,7 @@ const formReducer = (state: any, action: any) => {
 }
 
 const MultiStepForm = () => {
-     const [step, setStep] = useState(1)
+     const [step, setStep] = useState(8)
      const [formData, dispatch] = useReducer(formReducer, initialFormState)
      const progressRef = useRef<HTMLUListElement>(null)
      const [windowWidth, setWindowWidth] = useState(8)
@@ -372,6 +372,7 @@ const MultiStepForm = () => {
                                                   size='large'
                                                   fontWeight='500'
                                                   color='#F24949'
+                                                  fontSize='1.3rem'
                                              >
                                                   120 metric tons
                                              </SpanText>{' '}
@@ -380,6 +381,7 @@ const MultiStepForm = () => {
                                                   size='large'
                                                   fontWeight='500'
                                                   color='#7ACF4D'
+                                                  fontSize='1.3rem'
                                              >
                                                   CO₂, CH4, N2O
                                              </SpanText>
@@ -432,6 +434,7 @@ const MultiStepForm = () => {
                                                                  size='large'
                                                                  fontWeight='500'
                                                                  color='#0CFF3F'
+                                                                 fontSize='1.3rem'
                                                             >
                                                                  45/100{' '}
                                                             </SpanText>
@@ -443,6 +446,7 @@ const MultiStepForm = () => {
                                                                  size='large'
                                                                  fontWeight='500'
                                                                  color='#CCBE09'
+                                                                 fontSize='1.3rem'
                                                             >
                                                                  30%{' '}
                                                             </SpanText>{' '}
@@ -537,16 +541,20 @@ const MultiStepForm = () => {
                                                   </div>
                                              </div>
                                              <div className={styles.medium_circle}>
-                                                  <label className={styles.medium_header}>
-                                                       CO<sub>2</sub>
-                                                  </label>
-                                                  <p className={styles.medium_value}>55%</p>
+                                                  <div className={styles.flex_content}>
+                                                       <label className={styles.medium_header}>
+                                                            CO<sub>2</sub>
+                                                       </label>
+                                                       <p className={styles.medium_value}>55%</p>
+                                                  </div>
                                              </div>
                                              <div className={styles.small_circle}>
-                                                  <label className={styles.small_header}>
-                                                       CO<sub>2</sub>
-                                                  </label>
-                                                  <p className={styles.small_value}>55%</p>
+                                                  <div className={styles.flex_content}>
+                                                       <label className={styles.small_header}>
+                                                            CO<sub>2</sub>
+                                                       </label>
+                                                       <p className={styles.small_value}>55%</p>
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
@@ -569,6 +577,7 @@ const MultiStepForm = () => {
                                                   />
                                              </div>
                                         </div>
+
                                         <div className={styles.scrollbar}>
                                              <ul>
                                                   <li>

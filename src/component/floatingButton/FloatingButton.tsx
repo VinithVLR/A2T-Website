@@ -46,6 +46,14 @@ function FloatingButton() {
           setSelectedDate(date)
      }
      console.log('step', step)
+     const [isActive, setIsActive] = useState(false)
+
+     const handleClick = () => {
+          setIsActive(!isActive)
+          setTimeout(() => {
+               setStep(2)
+          }, 1000)
+     }
 
      return (
           <React.Fragment>
@@ -63,9 +71,12 @@ function FloatingButton() {
                          isOpen={isModalOpen}
                          closeModal={closeModal}
                          bgImageUrl={
-                              step === 3 ? undefined : step ? bgModalFirst.src : bgModalSecond.src
+                              step === 3
+                                   ? undefined
+                                   : step == 1
+                                     ? bgModalFirst.src
+                                     : bgModalSecond.src
                          }
-                         // style={{ minHeight: step === 3 ? undefined : '400px' }}
                     >
                          <div
                               className={
@@ -135,9 +146,14 @@ function FloatingButton() {
                                                   }
                                              />
                                         </div>
+                                        {/* <div
+                                             className={`${styles.box} ${isActive ? styles['transform-active'] : ''}`}
+                                        ></div> */}
                                         <Button
                                              label={'Measure your impact'}
-                                             onClick={() => setStep(2)}
+                                             onClick={() => {
+                                                  handleClick()
+                                             }}
                                              style={{
                                                   backgroundColor: '#0E7B68',
                                                   gap: '1rem',

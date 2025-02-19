@@ -19,7 +19,7 @@
     border-radius: 8px;
     position: relative;
     width: 95%;
-    height: 85%;
+    height: 90%;
     max-width: 1700px;
     border: 1.5px solid #0e7b68;
     // overflow: hidden;
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-block-start: 1.5rem;
 
 
     .closeButton {
