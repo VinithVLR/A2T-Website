@@ -5,9 +5,10 @@ import Footer from '@/component/footer/Footer'
 import { inter } from '../../public/fonts/inter'
 import { nunito } from '../../public/fonts/inter'
 import { dmSans } from '../../public/fonts/inter'
-
 import { Suspense } from 'react'
 import Loading from './loading'
+import { IdProvider } from '@/component/context/TokenProvider'
+import { ToastContainer } from 'react-toastify'
 
 export const metadata: Metadata = {
      title: {
@@ -24,11 +25,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <link rel='icon' href='/favicon.ico' />
                </head>
                <body>
-                    <Suspense fallback={<Loading />}>
-                         <Navbar />
-                         {children}
-                         <Footer />
-                    </Suspense>
+                    <IdProvider>
+                         <Suspense fallback={<Loading />}>
+                              <Navbar />
+                              {children}
+                              <ToastContainer
+                                   position='top-center'
+                                   autoClose={2000}
+                                   hideProgressBar={true}
+                                   newestOnTop={false}
+                                   closeOnClick
+                                   pauseOnFocusLoss
+                                   draggable
+                                   pauseOnHover
+                                   closeButton={false}
+                                   toastStyle={{
+                                        minHeight: '30px',
+                                        backgroundColor: '#fff',
+                                        color: 'green',
+                                        borderRadius: '25px',
+                                        width: 'auto',
+                                        paddingInline: '2rem',
+                                        fontFamily: 'poppins',
+                                   }}
+                              />
+                              <Footer />
+                         </Suspense>
+                    </IdProvider>
                </body>
           </html>
      )

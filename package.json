@@ -16,6 +16,8 @@
           "react": "19.0.0-rc-02c0e824-20241028",
           "react-datepicker": "^8.0.0",
           "react-dom": "19.0.0-rc-02c0e824-20241028",
+          "react-spinners": "^0.16.1",
+          "react-toastify": "^11.0.5",
           "sass": "^1.80.6",
           "swiper": "^11.2.0"
      },

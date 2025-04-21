@@ -12,47 +12,67 @@ import Modal from '../Modal/Modal'
 import Button from '../button/Button'
 import bgModalFirst from '../../assets/images/modal_Img/img_modal_1.png'
 import bgModalSecond from '../../assets/images/modal_Img/img_modal_2.png'
+import { format } from 'date-fns'
+import ShareForm from '../Modal/component/shareform/ShareForm'
+import BASE_URL from '@/ulits/apiUrl'
+import { useId } from '../context/TokenProvider'
+
 function FloatingButton() {
-     //  const [isVisible, setIsVisible] = useState(false)
-
-     useEffect(() => {
-          const handleScroll = () => {
-               const scrollPosition = window.scrollY
-               const windowHeight = window.innerHeight / 2
-
-               //    if (scrollPosition > windowHeight) {
-               //         setIsVisible(true)
-               //    } else {
-               //         setIsVisible(false)
-               //    }
-          }
-
-          window.addEventListener('scroll', handleScroll)
-
-          return () => {
-               window.removeEventListener('scroll', handleScroll)
-          }
-     }, [])
-
+     const [isCalendarStep, setIsCalendarStep] = useState(1)
+     const [isShare, setIsShare] = useState(false)
+     const [isLoading, setIsLoading] = useState(false)
      const [isModalOpen, setIsModalOpen] = useState(false)
+     const [concentration, setConcentration] = useState('')
+     const { id, setId } = useId()
 
      const openModal = () => setIsModalOpen(true)
-     const closeModal = () => setIsModalOpen(false)
+     const closeModal = () => {
+          setIsModalOpen(false)
+     }
      const [selectedDate, setSelectedDate] = useState<any>(null)
-     const [step, setStep] = useState(1)
      const datePickerRef: any = useRef(null)
 
      const handleDateChange = (date: Date | null) => {
           setSelectedDate(date)
      }
-     console.log('step', step)
-     const [isActive, setIsActive] = useState(false)
 
-     const handleClick = () => {
-          setIsActive(!isActive)
-          setTimeout(() => {
-               setStep(2)
-          }, 1000)
+     const handleClick = async () => {
+          if (selectedDate) {
+               const formattedDate = format(selectedDate, 'yyyy-MM-dd')
+
+               if (isLoading) {
+                    return
+               }
+
+               try {
+                    setIsLoading(true)
+
+                    const response = await fetch(
+                         `${BASE_URL}api/emission/day?date=${formattedDate}`,
+                    )
+
+                    if (!response.ok) {
+                         throw new Error(`Failed to fetch reports: ${response.statusText}`)
+                    }
+
+                    const data = await response.json()
+                    const userId = data?.id
+                    const centration = data?.concentration
+                    setId(userId)
+                    setConcentration(centration)
+                    setIsCalendarStep(1)
+               } catch (err: any) {
+                    console.error('Error fetching data:', err.message)
+               } finally {
+                    setIsLoading(false)
+               }
+          } else {
+               console.log('handleClick - No date selected')
+          }
+     }
+
+     const handleCloseShareForm = () => {
+          setIsShare(false)
      }
 
      return (
@@ -71,23 +91,23 @@ function FloatingButton() {
                          isOpen={isModalOpen}
                          closeModal={closeModal}
                          bgImageUrl={
-                              step === 3
+                              isCalendarStep === 3
                                    ? undefined
-                                   : step == 1
+                                   : isCalendarStep == 1
                                      ? bgModalFirst.src
                                      : bgModalSecond.src
                          }
                     >
                          <div
                               className={
-                                   step === 1
+                                   isCalendarStep === 1
                                         ? styles.main_con_first
-                                        : step === 2
+                                        : isCalendarStep === 2
                                           ? styles.main_con_second
                                           : styles.formStyle
                               }
                          >
-                              {step === 1 ? (
+                              {isCalendarStep === 1 ? (
                                    <>
                                         <SecondaryHeading className={styles.title}>
                                              Get to know <span>Carbon Impact</span> on Your
@@ -140,6 +160,7 @@ function FloatingButton() {
                                                                                 true,
                                                                            )
                                                                       }
+                                                                      alt='Calendar Icon'
                                                                  />
                                                             )}
                                                        </div>
@@ -149,10 +170,13 @@ function FloatingButton() {
                                         {/* <div
                                              className={`${styles.box} ${isActive ? styles['transform-active'] : ''}`}
                                         ></div> */}
+
                                         <Button
                                              label={'Measure your impact'}
                                              onClick={() => {
-                                                  handleClick()
+                                                  if (selectedDate && !isLoading) {
+                                                       handleClick()
+                                                  }
                                              }}
                                              style={{
                                                   backgroundColor: '#0E7B68',
@@ -161,6 +185,11 @@ function FloatingButton() {
                                                   alignItems: 'center',
                                                   justifyContent: 'center',
                                                   padding: '12px 20px',
+                                                  opacity: selectedDate && !isLoading ? 1 : 0.5,
+                                                  cursor:
+                                                       selectedDate && !isLoading
+                                                            ? 'pointer'
+                                                            : 'not-allowed',
                                              }}
                                              labestyle={{
                                                   marginLeft: '0px',
@@ -170,17 +199,17 @@ function FloatingButton() {
                                              }}
                                         />
                                    </>
-                              ) : step === 2 ? (
+                              ) : isCalendarStep === 2 ? (
                                    <>
                                         <TertiaryHeading className={styles.title}>
                                              <span>Carbon impact</span> on your birth date is
                                         </TertiaryHeading>
                                         <SecondaryHeading className={styles.rate_value}>
-                                             332.1 PPM
+                                             {concentration}
                                         </SecondaryHeading>
                                         <Button
                                              label={'Track Your Lifetime Emissions'}
-                                             onClick={() => setStep(3)}
+                                             onClick={() => setIsCalendarStep(3)}
                                              style={{
                                                   backgroundColor: '#0E7B68',
                                                   gap: '1rem',
@@ -200,12 +229,20 @@ function FloatingButton() {
                                    </>
                               ) : (
                                    <div className={styles.formStyle}>
-                                        <MultiStepForm />
+                                        <MultiStepForm
+                                             setIsShare={setIsShare}
+                                             closeModal={closeModal}
+                                             setIsCalendarStep={setIsCalendarStep}
+                                        />
                                    </div>
                               )}
                          </div>
                     </Modal>
                </div>
+
+               {isShare && (
+                    <ShareForm isShare={isShare} handleCloseShareForm={handleCloseShareForm} />
+               )}
           </React.Fragment>
      )
 }

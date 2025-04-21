@@ -11,10 +11,19 @@ import ImageTransport from '../../../assets/images/modal_Img/img_transport.png'
 import ImageEmission from '../../../assets/images/modal_Img/img_emission.png'
 import ImageTraget from '../../../assets/images/modal_Img/img_traget.png'
 import SpanText from './spantext/Spantext'
+import shareICon from '../../../assets/icons/ic_share.svg'
+import iconLow from '../../../assets/icons/ic_low_range.svg'
+import iconlowRobot from '../../../assets/icons/ic_low_range_robot.svg'
+import iconMid from '../../../assets/icons/ic_mid_range.svg'
+import iconMidRobot from '../../../assets/icons/ic_mid_range_robot.svg'
+import bgLowrange from '../../../assets/images/img_bg_low.svg'
+import bgMidrange from '../../../assets/images/img_bg_mid.svg'
+import bgHigrange from '../../../assets/images/img_bg_hig.svg'
+import { useId } from '@/component/context/TokenProvider'
+import BASE_URL from '@/ulits/apiUrl'
 
-const totalSteps = 8
+const totalSteps = 7
 
-// ✅ Initial form state
 const initialFormState = {
      size: '',
      EVCar: '',
@@ -37,18 +46,18 @@ const initialFormState = {
      dietType: '',
 }
 
-// ✅ Reducer function to manage form state
 const formReducer = (state: any, action: any) => {
      const newState = { ...state, [action.name]: action.value }
-     console.log(`Updated Form Data:`, newState)
      return newState
 }
 
-const MultiStepForm = () => {
+const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
      const [step, setStep] = useState(8)
      const [formData, dispatch] = useReducer(formReducer, initialFormState)
      const progressRef = useRef<HTMLUListElement>(null)
-     const [windowWidth, setWindowWidth] = useState(8)
+     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+     const { id } = useId()
+     const [overData, setOverData]: any = useState()
 
      useEffect(() => {
           setWindowWidth(window.innerWidth)
@@ -70,8 +79,150 @@ const MultiStepForm = () => {
           dispatch({ name: e.target.name, value: e.target.value })
      }
 
-     const nextStep = () => setStep((prev) => Math.min(prev + 1, totalSteps))
+     const [isStepValid, setIsStepValid] = useState(false)
+
+     useEffect(() => {
+          const isValid = validateStepFields(step)
+          setIsStepValid(isValid)
+     }, [formData, step])
+
+     const nextStep = () => {
+          if (step < totalSteps && isStepValid) {
+               setStep((prev) => Math.min(prev + 1, totalSteps))
+          }
+     }
      const prevStep = () => setStep((prev) => Math.max(prev - 1, 1))
+
+     const validateStepFields = (step: any) => {
+          let isValid = true
+
+          switch (step) {
+               case 1:
+                    if (!formData.size) isValid = false
+                    break
+
+               case 2:
+                    const hasEVCar = formData.EVCar === 'Yes'
+                    const hasEVBike = formData.EVBike === 'Yes'
+
+                    const hasSelectedEVCar = formData.EVCar === 'Yes' || formData.EVCar === 'No'
+                    const hasSelectedEVBike = formData.EVBike === 'Yes' || formData.EVBike === 'No'
+
+                    // Require user to make a selection first
+                    if (!hasSelectedEVCar && !hasSelectedEVBike) {
+                         isValid = false
+                    }
+
+                    // If selected "Yes", then kilometers are required
+                    if (hasEVCar && !formData.EVCarkilometers) {
+                         isValid = false
+                    }
+
+                    if (hasEVBike && !formData.EVBikekilometers) {
+                         isValid = false
+                    }
+                    break
+
+               case 3:
+                    const commuteFields = ['car', 'bike', 'train', 'flight']
+                    const isValidCommute = commuteFields.some(
+                         (field) => formData[field] && !isNaN(Number(formData[field])),
+                    )
+                    if (!isValidCommute) {
+                         isValid = false
+                    }
+                    break
+
+               case 4:
+                    if (!formData.houseHold) isValid = false
+                    break
+
+               case 5:
+                    const utilityFields = [
+                         'air_conditioner',
+                         'refrigerators',
+                         'washing_machine',
+                         'laptop',
+                         'mobile_phones',
+                         'television',
+                    ]
+                    const isValidUtility = utilityFields.some(
+                         (field) => formData[field] && Number(formData[field]) > 0,
+                    )
+                    if (!isValidUtility) {
+                         isValid = false
+                    }
+                    break
+
+               case 6:
+                    if (!formData.SolarRoofInstalled) isValid = false
+                    break
+
+               case 7:
+                    if (!formData.dietType) isValid = false
+                    break
+
+               default:
+                    break
+          }
+
+          return isValid
+     }
+
+     const handleSubmit = async (e: React.FormEvent) => {
+          e.preventDefault()
+
+          if (!validateStepFields(step)) {
+               return
+          }
+
+          const dietvalue =
+               formData?.dietType === 'Vegan'
+                    ? 'vegan'
+                    : formData.dietType === 'Vegetarian'
+                      ? 'vegetarian'
+                      : 'non_veg'
+
+          const body = {
+               family_size: Number(formData?.size),
+               ev_car_km_per_day: formData?.EVCar === 'yes' ? true : false,
+               car_km_per_day: Number(formData?.car),
+               bike_km_per_day: Number(formData?.bike),
+               flights_per_month: Number(formData?.flight),
+               train_km_per_day: Number(formData?.train),
+               manage_waste: formData?.houseHold === 'yes' ? true : false,
+               diet_type: dietvalue,
+               ac_count: formData?.air_conditioner,
+               fridge_count: formData?.refrigerators,
+               washing_machine_count: formData?.washing_machine,
+               laptop_count: formData?.laptop,
+               mobile_count: formData?.mobile_phones,
+               tv_count: formData?.television,
+               has_solar_panel: formData?.SolarRoofInstalled === 'yes' ? true : false,
+          }
+
+          try {
+               const response = await fetch(`${BASE_URL}api/emission/report?id=${id}`, {
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(body),
+               })
+
+               if (!response.ok) throw new Error('Failed to submit form')
+
+               const result = await response.json()
+               setOverData(result.data)
+               setStep(8)
+               setIsCalendarStep(1)
+          } catch (err) {
+               console.error('❌ Error submitting form:', err)
+          }
+          setStep(8)
+     }
+
+     console.log('Data-checking', overData?.sustainability_score)
 
      return (
           <form
@@ -80,17 +231,33 @@ const MultiStepForm = () => {
                style={{
                     paddingBlockStart: windowWidth <= 768 ? '10rem' : '0rem',
                     width: step == 8 ? '100%' : '80%',
-                    height: step == 8 ? '95%' : 'auto',
+                    height: step == 8 ? '100%' : 'auto',
                     marginTop: windowWidth <= 768 && step == 8 ? '22rem' : '0rem',
                }}
-               onSubmit={(e) => e.preventDefault()}
+               onSubmit={handleSubmit}
           >
                {/* ✅ Title */}
+
+               {step == 8 && (
+                    <div className={styles.shareBtnWrapper}>
+                         <div
+                              className={styles.shareBtn}
+                              onClick={() => {
+                                   setIsShare(true)
+                                   // closeModal()
+                              }}
+                         >
+                              <TertiaryPara>Share</TertiaryPara>
+                              <Image alt='' src={shareICon} className={styles.icon} />
+                         </div>
+                    </div>
+               )}
+
                <TertiaryHeading className={styles.title}>
                     {step === 8 ? (
-                         <>
+                         <div style={{ paddingBlockEnd: '0.5rem' }}>
                               Discover Your Total <span> Greenhouse Gas </span> Emissions
-                         </>
+                         </div>
                     ) : (
                          <>
                               Track Lifetime <span> CO2 emission</span>
@@ -243,7 +410,10 @@ const MultiStepForm = () => {
                                         key={option}
                                         className={`${styles.count} ${formData.houseHold === option ? styles.selected : ''}`}
                                         onClick={() =>
-                                             dispatch({ name: 'houseHold', value: option })
+                                             dispatch({
+                                                  name: 'houseHold',
+                                                  value: option,
+                                             })
                                         }
                                         style={{
                                              background:
@@ -306,7 +476,10 @@ const MultiStepForm = () => {
                                         key={option}
                                         className={`${styles.count} ${formData.SolarRoofInstalled === option ? styles.selected : ''}`}
                                         onClick={() =>
-                                             dispatch({ name: 'SolarRoofInstalled', value: option })
+                                             dispatch({
+                                                  name: 'SolarRoofInstalled',
+                                                  value: option,
+                                             })
                                         }
                                         style={{
                                              background:
@@ -354,6 +527,8 @@ const MultiStepForm = () => {
                          </div>
                     </fieldset>
                )}
+               {/* ✅ Common Next & Previous Buttons */}
+
                {step === 8 && (
                     <fieldset className={styles.fieldset} style={{ height: '100%' }}>
                          <div className={styles.grid_layout}>
@@ -366,7 +541,7 @@ const MultiStepForm = () => {
                                                   className={styles.icon}
                                              />
                                         </div>
-                                        <label className={styles.merticLabel}>
+                                        <TertiaryPara className={styles.merticLabel}>
                                              Since 1990, you’ve emitted around{' '}
                                              <SpanText
                                                   size='large'
@@ -374,7 +549,7 @@ const MultiStepForm = () => {
                                                   color='#F24949'
                                                   fontSize='1.3rem'
                                              >
-                                                  120 metric tons
+                                                  {overData?.lifetime_co2e_tons}
                                              </SpanText>{' '}
                                              of CO₂e (
                                              <SpanText
@@ -386,18 +561,46 @@ const MultiStepForm = () => {
                                                   CO₂, CH4, N2O
                                              </SpanText>
                                              ).
-                                        </label>
+                                        </TertiaryPara>
                                    </div>
-                                   <div className={styles.parentContainer}>
+                                   <div
+                                        className={styles.parentContainer}
+                                        style={{
+                                             backgroundImage: `url(${overData?.sustainability_score < 49 ? bgLowrange.src : overData?.sustainability_score <= 74 ? bgMidrange.src : bgHigrange.src})`,
+                                             backgroundSize: 'cover',
+                                             backgroundPosition: 'center',
+                                             borderRadius: '10px',
+                                        }}
+                                   >
                                         <div className={styles.right}>
                                              <div className={styles.image_wrapper}>
                                                   <Image
                                                        alt=''
-                                                       src={iconLeaves}
+                                                       src={
+                                                            overData?.sustainability_score < 49
+                                                                 ? iconLow
+                                                                 : overData?.sustainability_score <=
+                                                                     74
+                                                                   ? iconMid
+                                                                   : iconLeaves
+                                                       }
                                                        className={styles.icon}
                                                   />
                                              </div>
-                                             <div className={styles.bg_value}>45/100</div>
+                                             <div
+                                                  className={styles.bg_value}
+                                                  style={{
+                                                       color:
+                                                            overData?.sustainability_score < 49
+                                                                 ? '#4C1717'
+                                                                 : overData?.sustainability_score <=
+                                                                     74
+                                                                   ? '#483A06'
+                                                                   : '#0D4319',
+                                                  }}
+                                             >
+                                                  45/100
+                                             </div>
                                              {windowWidth <= 600 ? (
                                                   <div className={styles.sustainability_rank}>
                                                        <div className={styles.rank}>
@@ -413,7 +616,9 @@ const MultiStepForm = () => {
                                                        </div>
                                                        <div
                                                             className={styles.score}
-                                                            style={{ textAlign: 'center' }}
+                                                            style={{
+                                                                 textAlign: 'center',
+                                                            }}
                                                        >
                                                             Your sustainability score is{' '}
                                                             <SpanText
@@ -428,37 +633,51 @@ const MultiStepForm = () => {
                                                   </div>
                                              ) : (
                                                   <div className={styles.sustainability_rank}>
-                                                       <div className={styles.score}>
+                                                       <TertiaryPara className={styles.score}>
                                                             Your sustainability score is{' '}
                                                             <SpanText
                                                                  size='large'
                                                                  fontWeight='500'
-                                                                 color='#0CFF3F'
-                                                                 fontSize='1.3rem'
+                                                                 color={
+                                                                      overData?.sustainability_score <
+                                                                      49
+                                                                           ? '#F24141'
+                                                                           : overData?.sustainability_score <=
+                                                                               74
+                                                                             ? '#FFCE0C'
+                                                                             : '#0CFF3F'
+                                                                 }
+                                                                 fontSize='2rem'
                                                             >
-                                                                 45/100{' '}
+                                                                 {overData.sustainability_score}/100{' '}
                                                             </SpanText>
                                                             .
-                                                       </div>
-                                                       <div className={styles.rank}>
-                                                            You rank among the top{' '}
+                                                       </TertiaryPara>
+                                                       <TertiaryPara className={styles.rank}>
+                                                            You rank among the &nbsp;
                                                             <SpanText
                                                                  size='large'
                                                                  fontWeight='500'
                                                                  color='#CCBE09'
                                                                  fontSize='1.3rem'
                                                             >
-                                                                 30%{' '}
+                                                                 {overData.rank}
                                                             </SpanText>{' '}
                                                             for eco-friendly habits.
-                                                       </div>
+                                                       </TertiaryPara>
                                                   </div>
                                              )}
                                         </div>
                                         <div className={styles.image_wrapper_recycle}>
                                              <Image
                                                   alt=''
-                                                  src={imgRecyle}
+                                                  src={
+                                                       overData?.sustainability_score < 49
+                                                            ? iconlowRobot
+                                                            : overData?.sustainability_score <= 74
+                                                              ? iconMidRobot
+                                                              : imgRecyle
+                                                  }
                                                   className={styles.icon}
                                              />
                                         </div>
@@ -472,7 +691,7 @@ const MultiStepForm = () => {
                                                   backgroundImage: `url(${ImageTransport.src})`,
                                              }}
                                         >
-                                             <p className={styles.savingsMessage}>
+                                             <TertiaryPara className={styles.savingsMessage}>
                                                   Using public transport instead of a car would have
                                                   saved tons of{' '}
                                                   <SpanText
@@ -482,7 +701,7 @@ const MultiStepForm = () => {
                                                   >
                                                        CO₂
                                                   </SpanText>
-                                             </p>
+                                             </TertiaryPara>
                                         </div>
                                         <div
                                              className={styles.bottom}
@@ -497,21 +716,21 @@ const MultiStepForm = () => {
                                                        fontWeight='500'
                                                        color='#FF4545'
                                                   >
-                                                       40% higher
+                                                       {overData?.higher_than_average} higher
                                                   </SpanText>{' '}
                                                   than an average person in your region.
                                              </p>
                                         </div>
                                    </div>
                                    <div className={styles.center}>
-                                        <div className={styles.emissions}>
+                                        <TertiaryPara className={styles.emissions}>
                                              Your emissions include{' '}
                                              <SpanText
                                                   size='large'
                                                   fontWeight='500'
                                                   color='#00CC09'
                                              >
-                                                  100 tons of CO2{' '}
+                                                  {overData?.lifetime_co2_tons} of CO2{' '}
                                              </SpanText>{' '}
                                              (Carbon-di-oxide),{' '}
                                              <SpanText
@@ -519,7 +738,7 @@ const MultiStepForm = () => {
                                                   fontWeight='500'
                                                   color='#F56565'
                                              >
-                                                  15 tons of CH4{' '}
+                                                  {overData?.lifetime_ch4_tons} of CH4{' '}
                                              </SpanText>{' '}
                                              (methane), &{' '}
                                              <SpanText
@@ -527,33 +746,39 @@ const MultiStepForm = () => {
                                                   fontWeight='500'
                                                   color='#CCBE09'
                                              >
-                                                  5 tons of N2O{' '}
+                                                  {overData?.lifetime_n2o_tons} of N2O{' '}
                                              </SpanText>{' '}
                                              (nitrous oxide.)
-                                        </div>
+                                        </TertiaryPara>
                                         <div className={styles.centerInner}>
                                              <div className={styles.large_circle}>
                                                   <div className={styles.flex_content}>
                                                        <label className={styles.lager_header}>
                                                             CO<sub>2</sub>
                                                        </label>
-                                                       <p className={styles.lager_value}>55%</p>
+                                                       <p className={styles.lager_value}>
+                                                            {overData.co2_percent}
+                                                       </p>
                                                   </div>
                                              </div>
                                              <div className={styles.medium_circle}>
                                                   <div className={styles.flex_content}>
                                                        <label className={styles.medium_header}>
-                                                            CO<sub>2</sub>
+                                                            CH<sub>4</sub>
                                                        </label>
-                                                       <p className={styles.medium_value}>55%</p>
+                                                       <p className={styles.medium_value}>
+                                                            {overData.ch4_percent}
+                                                       </p>
                                                   </div>
                                              </div>
                                              <div className={styles.small_circle}>
                                                   <div className={styles.flex_content}>
                                                        <label className={styles.small_header}>
-                                                            CO<sub>2</sub>
+                                                            N<sub>2</sub>o
                                                        </label>
-                                                       <p className={styles.small_value}>55%</p>
+                                                       <p className={styles.small_value}>
+                                                            {overData.n2o_percent}%
+                                                       </p>
                                                   </div>
                                              </div>
                                         </div>
@@ -565,8 +790,9 @@ const MultiStepForm = () => {
                                                        Challenge yourself
                                                   </div>
                                                   <p className={styles.co2ReductionTip}>
-                                                       Reduce your <span>CO₂</span> by 10%—here’s
-                                                       how,
+                                                       Reduce your <span>CO₂</span> by{' '}
+                                                       {overData.challenges.challenge_summary}%
+                                                       —here’s how,
                                                   </p>
                                              </div>
                                              <div className={styles.image_wrapper}>
@@ -579,50 +805,35 @@ const MultiStepForm = () => {
                                         </div>
 
                                         <div className={styles.scrollbar}>
-                                             <ul>
-                                                  <li>
-                                                       Install Solar Panels Reduce CO₂ by 2.5 tons
-                                                       (21%)
-                                                  </li>
-                                                  <li>
-                                                       Reduce AC usage by 1 hour/day Reduce CO₂ by
-                                                       500 Kg (4% )
-                                                  </li>
-                                                  <li>Install Solar Panels</li>
-                                                  <li>
-                                                       Install Solar Panels Reduce CO₂ by 2.5 tons
-                                                       (21%)
-                                                  </li>
-                                                  <li>
-                                                       Reduce AC usage by 1 hour/day Reduce CO₂ by
-                                                       500 Kg (4% )
-                                                  </li>
-                                                  <li>
-                                                       Install Solar Panels Reduce CO₂ by 2.5 tons
-                                                       (21%)
-                                                  </li>
-                                                  <li>
-                                                       Reduce AC usage by 1 hour/day Reduce CO₂ by
-                                                       500 Kg (4% )
-                                                  </li>
-                                                  <li>Install Solar Panels</li>
-                                                  <li>
-                                                       Install Solar Panels Reduce CO₂ by 2.5 tons
-                                                       (21%)
-                                                  </li>
-                                                  <li>
-                                                       Reduce AC usage by 1 hour/day Reduce CO₂ by
-                                                       500 Kg (4% )
-                                                  </li>
-                                             </ul>
+                                             {overData.challenges.suggestions.map(
+                                                  (suggestion: any, index: any) => (
+                                                       <li
+                                                            key={index}
+                                                            style={{
+                                                                 fontSize: '14px',
+                                                                 lineHeight: '20px',
+                                                                 color: '#fff',
+                                                            }}
+                                                       >
+                                                            {suggestion.text || suggestion.item}{' '}
+                                                            <span
+                                                                 style={{
+                                                                      fontWeight: 500,
+                                                                      color: '#CCBE09',
+                                                                 }}
+                                                            >
+                                                                 {suggestion.savings} (
+                                                                 {suggestion.percent}%)
+                                                            </span>
+                                                       </li>
+                                                  ),
+                                             )}
                                         </div>
                                    </div>
                               </div>
                          </div>
                     </fieldset>
                )}
-
-               {/* ✅ Common Next & Previous Buttons */}
                {step != 8 && (
                     <div className={styles.navigationButtons}>
                          {step > 1 && (
@@ -639,11 +850,25 @@ const MultiStepForm = () => {
                                    type='button'
                                    className={`${styles.actionButton} ${styles['actionButton--next']}`}
                                    onClick={nextStep}
+                                   // disabled={!validateStepFields(step)}
+                                   disabled={!isStepValid}
+                                   style={{
+                                        opacity: !isStepValid ? 0.5 : 1, // Dim button if not valid
+                                        pointerEvents: !isStepValid ? 'none' : 'auto', // Disable interaction if not valid
+                                   }}
                               >
                                    Next
                               </button>
                          ) : (
-                              <button type='submit' className={styles.submitButton}>
+                              <button
+                                   type='submit'
+                                   className={styles.submitButton}
+                                   disabled={!isStepValid}
+                                   style={{
+                                        opacity: !isStepValid ? 0.5 : 1, // Dim button if not valid
+                                        pointerEvents: !isStepValid ? 'none' : 'auto', // Disable interaction if not valid
+                                   }}
+                              >
                                    Submit
                               </button>
                          )}

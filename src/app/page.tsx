@@ -1,17 +1,11 @@
+'use client'
 import ImageDescriptionPanel from '@/component/imageDescriptionPanel/ImageDescriptionPanel'
 import ClientTestimonials from '@/pages/home/clientTestimonials/ClientTestimonials'
 import GlobalTrustSection from '@/pages/home/globalTrustSection/GlobalTrustSection'
-import LatestUpdates from '@/pages/home/latestUpdates/LatestUpdates'
 import ServiceInnovation from '@/pages/home/serviceInnovation/ServiceInnovation'
 import React from 'react'
-import img_impower from '../assets/images/img_impower.png'
-import img_fleet from '../assets/images/img_fleet.png'
-import img_growth from '../assets/images/img_growth.png'
-import img_future from '../assets/images/img_future.png'
-import img_business from '../assets/images/img_business.png'
 import WelcomeLanding from '@/pages/home/landingPage/WelcomeLanding'
 import SustainableGoals from '@/pages/home/sustainableGoals/SustainableGoals'
-
 import bgImage1 from '../assets/images/double/img_bg_1.png'
 import lyImage1 from '../assets/images/double/img_ly_1.png'
 import bgImage2 from '../assets/images/double/img_bg_2.png'
@@ -78,6 +72,7 @@ const page = () => {
                link: '/business-consult',
           },
      ]
+
      return (
           <React.Fragment>
                <WelcomeLanding />
@@ -98,7 +93,6 @@ const page = () => {
                     />
                ))}
                <ClientTestimonials />
-               <LatestUpdates />
                <FloatingButton />
           </React.Fragment>
      )
