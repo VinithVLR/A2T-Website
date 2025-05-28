@@ -32,6 +32,7 @@ import Wrapper from '../Wrapper'
 
 import { Metadata } from 'next'
 import ServiceLanding from '@/component/ServiceLanding/ServiceLanding'
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 
 export const metadata: Metadata = {
      title: 'Workforce and Manpower Solutions',
@@ -117,6 +118,7 @@ const page = () => {
                               </>
                          }
                     />
+                    <FloatingButton />
                </React.Fragment>
           </Wrapper>
      )

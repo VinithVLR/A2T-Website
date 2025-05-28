@@ -30,6 +30,7 @@ import Wrapper from '../Wrapper'
 import { Metadata } from 'next'
 import PrimaryLanding2 from '@/component/primaryLanding2/PrimaryLanding2'
 import ServiceLanding from '@/component/ServiceLanding/ServiceLanding'
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 
 export const metadata: Metadata = {
      title: 'Engineering Services',
@@ -132,6 +133,7 @@ const page = () => {
                               </>
                          }
                     />
+                   <FloatingButton />
                </React.Fragment>
           </Wrapper>
      )

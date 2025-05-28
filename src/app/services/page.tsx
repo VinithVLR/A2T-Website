@@ -5,6 +5,7 @@ import WhyChooseUs from '@/pages/services/WhyChooseUs/WhyChooseUs'
 import React from 'react'
 
 import { Metadata } from 'next'
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 
 export const metadata: Metadata = {
      title: 'Services',
@@ -29,6 +30,7 @@ const page = () => {
                          </>
                     }
                />
+               <FloatingButton />
           </React.Fragment>
      )
 }

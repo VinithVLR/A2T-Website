@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import LatestNewsSection from '@/pages/news/latestNewsSection/LatestNewsSection'
 import CallToAction from '@/component/calltoaction/CallToAction'
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 
 export const metadata: Metadata = {
      title: 'News Rooms',
@@ -25,6 +26,7 @@ const page = () => {
                          </>
                     }
                />
+             <FloatingButton />
           </React.Fragment>
      )
 }

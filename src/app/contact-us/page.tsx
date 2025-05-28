@@ -1,3 +1,4 @@
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 import Address from '@/pages/contact-us/address/Address'
 import ContactForm from '@/pages/contact-us/contactForm/ContactForm'
 import FAQ from '@/pages/contact-us/faq/FAQ'
@@ -20,6 +21,7 @@ function page() {
                <Address />
                <ContactForm />
                <FAQ />
+               <FloatingButton />
           </>
      )
 }

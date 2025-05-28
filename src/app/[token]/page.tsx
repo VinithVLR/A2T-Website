@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import Modal from '@/component/Modal/Modal'
 import BASE_URL from '@/ulits/apiUrl'
 import { TertiaryHeading, TertiaryPara } from '@/component/typography/Typography'
@@ -40,8 +40,8 @@ import ImageEmission from '../../assets/images/modal_Img/img_emission.png'
 import ImageTraget from '../../assets/images/modal_Img/img_traget.png'
 
 const TokenPage = () => {
-     const params = useParams()
-     const token = params?.token as string | undefined // Get the token from URL params
+  const searchParams = useSearchParams()
+     const token = searchParams?.get('token');// Get the token from URL params
      const [isModalOpen, setIsModalOpen] = useState(false)
      const [isLoading, setIsLoading] = useState(true)
      const [windowWidth, setWindowWidth] = useState(1)

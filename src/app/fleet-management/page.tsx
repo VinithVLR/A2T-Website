@@ -13,6 +13,7 @@ import CallToAction from '@/component/calltoaction/CallToAction'
 import Wrapper from '../Wrapper'
 
 import { Metadata } from 'next'
+import FloatingButton from '@/component/floatingButton/FloatingButton'
 
 export const metadata: Metadata = {
      title: 'Fleet Management',
@@ -51,6 +52,7 @@ const page = () => {
                               </>
                          }
                     />
+                    <FloatingButton />
                </React.Fragment>
           </Wrapper>
      )
