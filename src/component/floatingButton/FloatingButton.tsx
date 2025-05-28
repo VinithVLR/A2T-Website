@@ -23,7 +23,7 @@ function FloatingButton() {
      const [isLoading, setIsLoading] = useState(false)
      const [isModalOpen, setIsModalOpen] = useState(false)
      const [concentration, setConcentration] = useState('')
-     const { id, setId } = useId()
+     const { id, setId, status } = useId()
 
      const openModal = () => setIsModalOpen(true)
      const closeModal = () => {
@@ -60,7 +60,7 @@ function FloatingButton() {
                     const centration = data?.concentration
                     setId(userId)
                     setConcentration(centration)
-                    setIsCalendarStep(1)
+                    setIsCalendarStep(2)
                } catch (err: any) {
                     console.error('Error fetching data:', err.message)
                } finally {
@@ -70,6 +70,12 @@ function FloatingButton() {
                console.log('handleClick - No date selected')
           }
      }
+
+     useEffect(() => {
+          if (status === 'success') {
+               localStorage.clear()
+          }
+     }, [status])
 
      const handleCloseShareForm = () => {
           setIsShare(false)

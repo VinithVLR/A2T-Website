@@ -52,11 +52,11 @@ const formReducer = (state: any, action: any) => {
 }
 
 const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
-     const [step, setStep] = useState(8)
+     const [step, setStep] = useState(1)
      const [formData, dispatch] = useReducer(formReducer, initialFormState)
      const progressRef = useRef<HTMLUListElement>(null)
      const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-     const { id } = useId()
+     const { id, status, setStatus } = useId()
      const [overData, setOverData]: any = useState()
 
      useEffect(() => {
@@ -214,8 +214,8 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
 
                const result = await response.json()
                setOverData(result.data)
+               setStatus(result.status)
                setStep(8)
-               setIsCalendarStep(1)
           } catch (err) {
                console.error('❌ Error submitting form:', err)
           }
@@ -242,10 +242,10 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
                     <div className={styles.shareBtnWrapper}>
                          <div
                               className={styles.shareBtn}
-                              onClick={() => {
-                                   setIsShare(true)
-                                   // closeModal()
-                              }}
+                              // onClick={() => {
+                              //      setIsShare(true)
+                              //      // closeModal()
+                              // }}
                          >
                               <TertiaryPara>Share</TertiaryPara>
                               <Image alt='' src={shareICon} className={styles.icon} />
@@ -684,11 +684,25 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
                                    </div>
                               </div>
                               <div className={styles.maingrid}>
-                                   <div className={styles.right}>
+                                   <div
+                                        className={styles.right}
+                                        style={{
+                                             gridTemplateRows:
+                                                  overData?.suggestions?.public_transport_savings ==
+                                                  null
+                                                       ? '1fr'
+                                                       : '1fr 1fr',
+                                        }}
+                                   >
                                         <div
                                              className={styles.top}
                                              style={{
                                                   backgroundImage: `url(${ImageTransport.src})`,
+                                                  display:
+                                                       overData?.suggestions
+                                                            ?.public_transport_savings == null
+                                                            ? 'none'
+                                                            : 'flex',
                                              }}
                                         >
                                              <TertiaryPara className={styles.savingsMessage}>
@@ -699,7 +713,10 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
                                                        fontWeight='500'
                                                        color='#F3C12C'
                                                   >
-                                                       CO₂
+                                                       {
+                                                            overData?.suggestions
+                                                                 ?.public_transport_savings
+                                                       }
                                                   </SpanText>
                                              </TertiaryPara>
                                         </div>
@@ -707,6 +724,11 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
                                              className={styles.bottom}
                                              style={{
                                                   backgroundImage: `url(${ImageEmission.src})`,
+                                                  width:
+                                                       overData?.suggestions
+                                                            ?.public_transport_savings == null
+                                                            ? '100%'
+                                                            : 'auto',
                                              }}
                                         >
                                              <p className={styles.emissionLabel}>
@@ -805,7 +827,7 @@ const MultiStepForm = ({ closeModal, setIsShare, setIsCalendarStep }: any) => {
                                         </div>
 
                                         <div className={styles.scrollbar}>
-                                             {overData.challenges.suggestions.map(
+                                             {overData?.challenges?.suggestions.map(
                                                   (suggestion: any, index: any) => (
                                                        <li
                                                             key={index}

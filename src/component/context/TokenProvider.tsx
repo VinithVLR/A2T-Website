@@ -5,19 +5,23 @@ interface IdContextType {
      id: string | null
      setId: (id: string) => void
      clearId: () => void
+     status: string | null
+     setStatus: (status: string) => void
 }
 
+// ✅ Define context once
 const IdContext = createContext<IdContextType | undefined>(undefined)
 
 export const IdProvider = ({ children }: { children: ReactNode }) => {
      const [id, setIdState] = useState<string | null>(null)
+     const [status, setStatus] = useState<string | null>(null)
 
-     // On first load, check localStorage
+     // ✅ Load both id and status from localStorage
      useEffect(() => {
           const storedId = localStorage.getItem('user_id')
-          if (storedId) {
-               setIdState(storedId)
-          }
+          const storedStatus = localStorage.getItem('user_status')
+          if (storedId) setIdState(storedId)
+          if (storedStatus) setStatus(storedStatus)
      }, [])
 
      const setId = (newId: string) => {
@@ -30,9 +34,19 @@ export const IdProvider = ({ children }: { children: ReactNode }) => {
           localStorage.removeItem('user_id')
      }
 
-     return <IdContext.Provider value={{ id, setId, clearId }}>{children}</IdContext.Provider>
+     const handleSetStatus = (newStatus: string) => {
+          setStatus(newStatus)
+          localStorage.setItem('user_status', newStatus)
+     }
+
+     return (
+          <IdContext.Provider value={{ id, setId, clearId, status, setStatus: handleSetStatus }}>
+               {children}
+          </IdContext.Provider>
+     )
 }
 
+// ✅ Hook to use the context
 export const useId = (): IdContextType => {
      const context = useContext(IdContext)
      if (!context) {

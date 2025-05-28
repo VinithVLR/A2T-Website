@@ -32,7 +32,7 @@ const ShareForm = ({ isShare, handleCloseShareForm }: ShareFormProps) => {
           dispatchShare({ field: e.target.name, value: e.target.value })
      }
 
-     const { id } = useId()
+     const { id, status } = useId()
 
      const validateForm = () => {
           const newErrors: { [key: string]: string } = {}
