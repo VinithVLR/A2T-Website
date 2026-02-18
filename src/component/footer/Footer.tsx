@@ -44,8 +44,8 @@ const Footer = () => {
                <div className={styles.flex_con_right}>
                     <p className={styles.para}>
                          <span>A2 Technologies </span>is proudly 🌈 inclusive and anti-racist,
-                         creating solutions for a better world. Born in Chennai, with a vision to
-                         innovate for the world. 🌍
+                         creating solutions for a better World.<br />Born in Chennai, with a vision to
+                         innovate for the World. 🌍
                     </p>
                     <ul className={styles.unOrder_list_con}>
                          <li>
