@@ -864,7 +864,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                          </ul>
                          <div className={styles.socialLinkCont}>
                               <Link
-                                   href={'https://www.linkedin.com/in/ntarun/'}
+                                   href={'https://linkedin.com/company/a2t-group/'}
                                    target='_blank'
                                    onMouseEnter={() => {
                                         onSocailLinkHover('linkedIn')
@@ -883,7 +883,8 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               </Link>
 
                               <Link
-                                   href={''}
+                                   href={'https://x.com/a2technologies_'}
+                                   target='_blank'
                                    onMouseEnter={() => {
                                         onSocailLinkHover('x')
                                    }}
@@ -898,7 +899,8 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               </Link>
 
                               <Link
-                                   href={''}
+                                   href={'https://www.instagram.com/a2technologies_/'}
+                                   target='_blank'
                                    onMouseEnter={() => {
                                         onSocailLinkHover('insta')
                                    }}
