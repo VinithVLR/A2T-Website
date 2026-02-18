@@ -14,13 +14,12 @@ import bgModalFirst from '../../assets/images/modal_Img/img_modal_1.png'
 import bgModalSecond from '../../assets/images/modal_Img/img_modal_2.png'
 import { format } from 'date-fns'
 import ShareForm from '../Modal/component/shareform/ShareForm'
-import BASE_URL from '@/ulits/apiUrl'
+import { getCO2ForDate, generateId } from '@/ulits/co2Calculator'
 import { useId } from '../context/TokenProvider'
 
 function FloatingButton() {
      const [isCalendarStep, setIsCalendarStep] = useState(1)
      const [isShare, setIsShare] = useState(false)
-     const [isLoading, setIsLoading] = useState(false)
      const [isModalOpen, setIsModalOpen] = useState(false)
      const [concentration, setConcentration] = useState('')
      const { id, setId, status } = useId()
@@ -36,38 +35,15 @@ function FloatingButton() {
           setSelectedDate(date)
      }
 
-     const handleClick = async () => {
+     const handleClick = () => {
           if (selectedDate) {
                const formattedDate = format(selectedDate, 'yyyy-MM-dd')
-
-               if (isLoading) {
-                    return
-               }
-
-               try {
-                    setIsLoading(true)
-
-                    const response = await fetch(
-                         `${BASE_URL}api/emission/day?date=${formattedDate}`,
-                    )
-
-                    if (!response.ok) {
-                         throw new Error(`Failed to fetch reports: ${response.statusText}`)
-                    }
-
-                    const data = await response.json()
-                    const userId = data?.id
-                    const centration = data?.concentration
-                    setId(userId)
-                    setConcentration(centration)
-                    setIsCalendarStep(2)
-               } catch (err: any) {
-                    console.error('Error fetching data:', err.message)
-               } finally {
-                    setIsLoading(false)
-               }
-          } else {
-               console.log('handleClick - No date selected')
+               const co2 = getCO2ForDate(selectedDate)
+               const concentration = `${co2.toFixed(2)} ppm`
+               const userId = generateId(formattedDate)
+               setId(userId)
+               setConcentration(concentration)
+               setIsCalendarStep(2)
           }
      }
 
@@ -185,7 +161,7 @@ function FloatingButton() {
                                         <Button
                                              label={'Measure your impact'}
                                              onClick={() => {
-                                                  if (selectedDate && !isLoading) {
+                                                  if (selectedDate) {
                                                        handleClick()
                                                   }
                                              }}
@@ -196,11 +172,8 @@ function FloatingButton() {
                                                   alignItems: 'center',
                                                   justifyContent: 'center',
                                                   padding: '12px 20px',
-                                                  opacity: selectedDate && !isLoading ? 1 : 0.5,
-                                                  cursor:
-                                                       selectedDate && !isLoading
-                                                            ? 'pointer'
-                                                            : 'not-allowed',
+                                                  opacity: selectedDate ? 1 : 0.5,
+                                                  cursor: selectedDate ? 'pointer' : 'not-allowed',
                                              }}
                                              labestyle={{
                                                   marginLeft: '0px',
