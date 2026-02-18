@@ -19,7 +19,12 @@ const inter = Inter({
 })
 
 const Footer = () => {
-     let arrImage = [youtubeIcon, linkedIcon, xIcon, iconInstagram]
+     let arrImage = [
+          { icon: youtubeIcon, url: 'https://www.youtube.com/@A2Technologies03', label: 'YouTube' },
+          { icon: linkedIcon, url: 'https://linkedin.com/company/a2t-group/', label: 'LinkedIn' },
+          { icon: xIcon, url: 'https://x.com/a2technologies_', label: 'Twitter / X' },
+          { icon: iconInstagram, url: 'https://www.instagram.com/a2technologies_/', label: 'Instagram' },
+     ]
 
      let arr = [
           {
@@ -74,10 +79,15 @@ const Footer = () => {
                          >
                               {arrImage.map((item: any, index: any) => {
                                    return (
-                                        <div className={styles.icon_con} key={index}>
-                                             {/* <Image src={item} className={styles.icon} alt='icon' /> */}
-                                             <Image src={item} alt={`Social Icon ${index + 1}`} />
-                                        </div>
+                                        <a
+                                             key={index}
+                                             href={item.url}
+                                             target='_blank'
+                                             rel='noopener noreferrer'
+                                             className={styles.icon_con}
+                                        >
+                                             <Image src={item.icon} alt={item.label} />
+                                        </a>
                                    )
                               })}
                          </div>
