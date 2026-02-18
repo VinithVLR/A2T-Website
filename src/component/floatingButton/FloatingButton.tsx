@@ -127,6 +127,11 @@ function FloatingButton() {
                                                   dateFormat='yyyy-MM-dd'
                                                   placeholderText='Click to select a date'
                                                   isClearable
+                                                  showYearDropdown
+                                                  showMonthDropdown
+                                                  dropdownMode='select'
+                                                  yearDropdownItemNumber={100}
+                                                  scrollableYearDropdown
                                                   ref={datePickerRef}
                                                   customInput={
                                                        <div
