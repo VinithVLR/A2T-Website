@@ -10,12 +10,12 @@ import linkedinIc from '../../assets/icons/ic_linkedin.svg'
 import xIc from '../../assets/icons/ic_x_nav.svg'
 import mailIc from '../../assets/icons/ic_mail_nav.svg'
 import callIc from '../../assets/icons/ic_call.svg'
-import fbIc from '../../assets/icons/ic_fb.svg'
+import youtubeIc from '../../assets/icons/ic_youtube.svg'
+import ActiveYoutubeIc from '../../assets/icons/ic_social_youtube.svg'
 import instaIc from '../../assets/icons/ic_insta.svg'
 import ActiveLinkedIc from '../../assets/icons/ic_linkedin_active.svg'
 import Activex from '../../assets/icons/ic_x_active.svg'
 import ActiveInstaIc from '../../assets/icons/ic_insta_active.svg'
-import ActiveFbIc from '../../assets/icons/ic_fb_active.svg'
 
 interface NavItem {
      label: string
@@ -914,15 +914,16 @@ const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
                               </Link>
 
                               <Link
-                                   href={''}
+                                   href={'https://www.youtube.com/@A2Technologies03'}
+                                   target='_blank'
                                    onMouseEnter={() => {
-                                        onSocailLinkHover('fb')
+                                        onSocailLinkHover('youtube')
                                    }}
                                    onMouseLeave={() => setSocialLinkHover('')}
                               >
                                    <Image
                                         priority
-                                        src={socialLinkHover == 'fb' ? ActiveFbIc : fbIc}
+                                        src={socialLinkHover == 'youtube' ? ActiveYoutubeIc : youtubeIc}
                                         alt=''
                                    />
                               </Link>
