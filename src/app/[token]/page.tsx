@@ -39,6 +39,10 @@ import ImageTransport from '../../assets/images/modal_Img/img_transport.png'
 import ImageEmission from '../../assets/images/modal_Img/img_emission.png'
 import ImageTraget from '../../assets/images/modal_Img/img_traget.png'
 
+export async function generateStaticParams() {
+  return []
+}
+
 const TokenPage = () => {
   const searchParams = useSearchParams()
      const token = searchParams?.get('token');// Get the token from URL params
